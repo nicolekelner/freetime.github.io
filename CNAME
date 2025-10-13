@@ -1,1 +1,4 @@
 findfreetime.com
+| Type  | Name | Data                   | TTL      |
+  |-------|------|------------------------|----------|
+  | CNAME | www  | nicolekelner.github.io | 1/2 hour |
