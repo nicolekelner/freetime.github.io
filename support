@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support - Free Time</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Free Time</h1>
+            <p>Use your phone mindfully</p>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h2>Support</h2>
+            <p>Find answers to common questions and get the help you need</p>
+        </div>
+    </section>
+
+    <section class="faq-section">
+        <div class="container">
+            <h2>Frequently Asked Questions</h2>
+
+            <div class="faq-category">
+                <h3>Getting Started & Setup</h3>
+
+                <details class="faq-item">
+                    <summary>How do I set up Free Time for the first time?</summary>
+                    <div class="faq-answer">
+                        <p>After downloading Free Time from the App Store:</p>
+                        <ol>
+                            <li>Open the app and tap "Get Started"</li>
+                            <li>Grant Screen Time permissions when prompted - this is required for the app to work</li>
+                            <li>Select the apps you want to block from the app picker</li>
+                            <li>Choose your puzzle difficulty and preferences</li>
+                            <li>Set up your blocking schedule (optional)</li>
+                        </ol>
+                        <p>You're all set! The app will now block your selected apps according to your settings.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>Why does Free Time need Screen Time permissions?</summary>
+                    <div class="faq-answer">
+                        <p>Free Time uses Apple's Screen Time API to block apps on your device. This is the official, secure way to manage app access on iOS. Without Screen Time permissions, the app cannot block or monitor your selected apps.</p>
+                        <p>Your data stays private and on your device - we never collect or share your Screen Time information.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>What iOS version do I need?</summary>
+                    <div class="faq-answer">
+                        <p>Free Time requires iOS 16.0 or later. The app uses Screen Time API features that are only available on recent iOS versions.</p>
+                    </div>
+                </details>
+            </div>
+
+            <div class="faq-category">
+                <h3>App Blocking & Puzzles</h3>
+
+                <details class="faq-item">
+                    <summary>How does app blocking work?</summary>
+                    <div class="faq-answer">
+                        <p>Free Time uses Apple's Screen Time framework to block apps you've selected. When you try to open a blocked app, you'll see a blocking screen that requires you to complete a puzzle or mindfulness activity to unlock it temporarily.</p>
+                        <p>This creates a mindful pause between the impulse to open an app and actually using it, helping you be more intentional with your phone time.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>What types of puzzles are available?</summary>
+                    <div class="faq-answer">
+                        <p>Free Time offers several puzzle types:</p>
+                        <ul>
+                            <li><strong>Math Puzzles:</strong> Solve arithmetic problems of varying difficulty</li>
+                            <li><strong>Box Breathing:</strong> Complete a guided breathing exercise for mindfulness</li>
+                            <li><strong>Gratitude Journal:</strong> Write something you're grateful for to shift your mindset</li>
+                        </ul>
+                        <p>You can choose your preferred puzzle types and difficulty levels in the app settings.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>Can I customize puzzle difficulty?</summary>
+                    <div class="faq-answer">
+                        <p>Yes! Free Time offers multiple difficulty levels:</p>
+                        <ul>
+                            <li><strong>Easy:</strong> Simple puzzles for gentle reminders</li>
+                            <li><strong>Medium:</strong> Moderate challenge to create a meaningful pause</li>
+                            <li><strong>Hard:</strong> Difficult puzzles that require focus and effort</li>
+                        </ul>
+                        <p>Adjust the difficulty in Settings to find the right balance for you.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>How long do apps stay unlocked after solving a puzzle?</summary>
+                    <div class="faq-answer">
+                        <p>You can configure the unlock duration in your app settings. Options typically range from 5 minutes to several hours. After this time expires, the apps will be blocked again and require another puzzle to unlock.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>Can I create different groups of apps with different settings?</summary>
+                    <div class="faq-answer">
+                        <p>Yes! Free Time supports app groups, allowing you to organize apps into categories (like Social Media, Games, etc.) and apply different blocking schedules and unlock requirements to each group.</p>
+                    </div>
+                </details>
+            </div>
+
+            <div class="faq-category">
+                <h3>Scheduling</h3>
+
+                <details class="faq-item">
+                    <summary>How do I set up a blocking schedule?</summary>
+                    <div class="faq-answer">
+                        <p>To create a blocking schedule:</p>
+                        <ol>
+                            <li>Go to the Schedule tab in Free Time</li>
+                            <li>Tap "Create New Schedule" or edit an existing one</li>
+                            <li>Select which days of the week the schedule applies</li>
+                            <li>Set your start and end times</li>
+                            <li>Choose which app groups to block during this time</li>
+                        </ol>
+                        <p>You can have multiple schedules that work together, like different rules for weekdays vs. weekends.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>Can I have apps blocked all the time?</summary>
+                    <div class="faq-answer">
+                        <p>Yes! You can set up an "always-on" schedule by selecting all days of the week and setting a 24-hour time range (like 12:00 AM to 11:59 PM). Apps will remain blocked and require puzzle solving whenever you try to access them.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>What is Instant Focus mode?</summary>
+                    <div class="faq-answer">
+                        <p>Instant Focus is a quick way to block apps immediately without waiting for a scheduled time. It's perfect for when you need to focus on work, study, or just want a break from distracting apps. You can start an Instant Focus session with a custom duration directly from the app.</p>
+                    </div>
+                </details>
+            </div>
+
+            <div class="faq-category">
+                <h3>Troubleshooting</h3>
+
+                <details class="faq-item">
+                    <summary>Apps aren't being blocked - what should I do?</summary>
+                    <div class="faq-answer">
+                        <p>If apps aren't blocking properly, try these steps:</p>
+                        <ol>
+                            <li><strong>Check Screen Time permissions:</strong> Go to iPhone Settings → Screen Time → Free Time and ensure all permissions are enabled</li>
+                            <li><strong>Verify your schedule:</strong> Make sure you have an active schedule that covers the current time</li>
+                            <li><strong>Check app selection:</strong> Confirm the apps you want blocked are selected in Free Time</li>
+                            <li><strong>Restart the app:</strong> Close Free Time completely and reopen it</li>
+                            <li><strong>Restart your iPhone:</strong> Sometimes iOS needs a restart for Screen Time changes to take effect</li>
+                        </ol>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>I can't grant Screen Time permissions - help!</summary>
+                    <div class="faq-answer">
+                        <p>If you're having trouble granting Screen Time permissions:</p>
+                        <ul>
+                            <li><strong>Check Screen Time is enabled:</strong> Go to Settings → Screen Time and ensure Screen Time is turned on for your device</li>
+                            <li><strong>Family Sharing issues:</strong> If you're part of a Family Sharing group, check with the family organizer - they may need to approve the app</li>
+                            <li><strong>Restrictions:</strong> If you have Restrictions or parental controls enabled, they may prevent Screen Time permission changes</li>
+                            <li><strong>Reinstall:</strong> Try deleting and reinstalling Free Time, then granting permissions again</li>
+                        </ul>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>The app is crashing or freezing - what can I do?</summary>
+                    <div class="faq-answer">
+                        <p>If Free Time is crashing or not responding:</p>
+                        <ol>
+                            <li>Force close the app and reopen it</li>
+                            <li>Check for updates in the App Store - we regularly fix bugs</li>
+                            <li>Restart your iPhone</li>
+                            <li>If problems persist, contact our support team with details about when the crash happens</li>
+                        </ol>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>I forgot my settings/can't access the app - now what?</summary>
+                    <div class="faq-answer">
+                        <p>Don't worry! You can always regain access to Free Time settings by:</p>
+                        <ul>
+                            <li>Going to iPhone Settings → Screen Time → Free Time</li>
+                            <li>Temporarily disabling Screen Time permissions for Free Time</li>
+                            <li>Opening Free Time to adjust your settings</li>
+                            <li>Re-enabling permissions when you're done</li>
+                        </ul>
+                        <p>Remember: You're always in control. Free Time is designed to help, not trap you!</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>Can I export my data or see my usage statistics?</summary>
+                    <div class="faq-answer">
+                        <p>Free Time includes basic tracking of your puzzle completions and unlock history. You can view this information in the app's Reports or Stats section. Currently, data export is not available, but we're considering this feature for future updates.</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-section">
+        <div class="container">
+            <h2>Still Need Help?</h2>
+            <p>Can't find what you're looking for? Email us at <a href="mailto:support@findfreetime.com">support@findfreetime.com</a></p>
+
+            <!-- Contact form - uncomment when ready to use with Formspree
+            <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" name="subject" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="6" required></textarea>
+                </div>
+
+                <button type="submit" class="cta-button">Send Message</button>
+            </form>
+            -->
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Use</a>
+                <a href="support.html">Support</a>
+                <a href="mailto:support@findfreetime.com">Contact</a>
+            </nav>
+            <p>&copy; 2024 Nicole Kelner LLC DBA Mindful Tech Studio. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
