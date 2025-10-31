@@ -676,7 +676,7 @@ footer p {
 
 /* Testimonials Section */
 .testimonials-section {
-    padding: 100px 40px;
+    padding: 60px 40px;
     background: linear-gradient(135deg, #083267 0%, #0a4075 100%);
     position: relative;
     overflow: hidden;
@@ -706,7 +706,7 @@ footer p {
     font-size: 2.8em;
     font-weight: 700;
     color: white;
-    margin-bottom: 60px;
+    margin-bottom: 30px;
     border: none;
     padding: 0;
 }
@@ -759,7 +759,7 @@ footer p {
     display: flex;
     justify-content: center;
     gap: 12px;
-    margin-top: 250px;
+    margin-top: 40px;
 }
 
 .testimonial-dots .dot {
@@ -953,12 +953,12 @@ footer p {
     }
 
     .testimonials-section {
-        padding: 60px 20px;
+        padding: 40px 20px;
     }
 
     .testimonials-section h2 {
         font-size: 2.2em;
-        margin-bottom: 40px;
+        margin-bottom: 25px;
     }
 
     .testimonial-track {
@@ -975,6 +975,6 @@ footer p {
     }
 
     .testimonial-dots {
-        margin-top: 280px;
+        margin-top: 50px;
     }
 }
