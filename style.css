@@ -206,6 +206,7 @@ body {
 .feature-icon {
     font-size: 3em;
     margin-bottom: 20px;
+    filter: grayscale(100%);
 }
 
 .feature-card h3 {
