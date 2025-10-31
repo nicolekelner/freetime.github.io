@@ -81,17 +81,33 @@ body {
     box-shadow: 0 6px 20px rgba(93, 172, 179, 0.4);
 }
 
-/* Hero Section - Atoms Style */
+/* Hero Section - Two Column Layout */
 .hero-modern {
     margin-top: 80px;
     padding: 100px 40px 80px;
     background: linear-gradient(180deg, #F8FCFF 0%, #ffffff 100%);
-    text-align: center;
 }
 
 .hero-content {
-    max-width: 900px;
+    max-width: 1200px;
     margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 80px;
+}
+
+.phone-column {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.text-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .hero-title {
@@ -107,16 +123,12 @@ body {
     font-size: 1.25em;
     color: #666;
     line-height: 1.6;
-    margin-bottom: 60px;
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
+    margin-bottom: 40px;
 }
 
 .phone-mockup {
-    margin: 60px auto 50px;
     max-width: 400px;
-    position: relative;
+    width: 100%;
 }
 
 .phone-screenshot {
@@ -617,18 +629,35 @@ footer p {
         margin-top: 70px;
     }
 
+    .hero-content {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .phone-column {
+        order: 2;
+    }
+
+    .text-column {
+        order: 1;
+        text-align: center;
+    }
+
     .hero-title {
         font-size: 2.2em;
     }
 
     .hero-description {
         font-size: 1.1em;
-        margin-bottom: 40px;
+        margin-bottom: 30px;
     }
 
     .phone-mockup {
         max-width: 300px;
-        margin: 40px auto 40px;
+    }
+
+    .app-store-button {
+        margin: 0 auto;
     }
 
     .features-section {
