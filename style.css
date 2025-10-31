@@ -14,6 +14,194 @@ body {
     background-color: #F8FCFF;
 }
 
+/* Modern Navigation Header */
+.main-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(93, 172, 179, 0.1);
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(8, 50, 103, 0.05);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5em;
+    font-weight: 700;
+    color: #083267;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.logo:hover {
+    color: #5DACB3;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+}
+
+.nav-links a {
+    color: #083267;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.05em;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #5DACB3;
+}
+
+.nav-cta {
+    background: linear-gradient(135deg, #5DACB3 0%, #4a9199 100%);
+    color: white !important;
+    padding: 12px 28px;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(93, 172, 179, 0.3);
+}
+
+.nav-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(93, 172, 179, 0.4);
+}
+
+/* Hero Section - Atoms Style */
+.hero-modern {
+    margin-top: 80px;
+    padding: 100px 40px 80px;
+    background: linear-gradient(180deg, #F8FCFF 0%, #ffffff 100%);
+    text-align: center;
+}
+
+.hero-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.hero-title {
+    font-size: 3.2em;
+    font-weight: 700;
+    color: #083267;
+    line-height: 1.2;
+    margin-bottom: 25px;
+    letter-spacing: -0.5px;
+}
+
+.hero-description {
+    font-size: 1.25em;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 60px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.phone-mockup {
+    margin: 60px auto 50px;
+    max-width: 400px;
+    position: relative;
+}
+
+.phone-screenshot {
+    width: 100%;
+    height: auto;
+    border-radius: 40px;
+    box-shadow: 0 20px 60px rgba(8, 50, 103, 0.15);
+    transition: transform 0.3s ease;
+}
+
+.phone-screenshot:hover {
+    transform: scale(1.02);
+}
+
+.app-store-button {
+    display: inline-block;
+    transition: all 0.3s ease;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.app-store-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.app-store-button svg {
+    display: block;
+}
+
+/* Features Section */
+.features-section {
+    padding: 100px 40px;
+    background-color: #ffffff;
+}
+
+.features-title {
+    text-align: center;
+    font-size: 2.8em;
+    font-weight: 700;
+    color: #083267;
+    margin-bottom: 70px;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.feature-card {
+    background: #F8FCFF;
+    padding: 40px 30px;
+    border-radius: 16px;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(93, 172, 179, 0.15);
+    border-color: #5DACB3;
+}
+
+.feature-icon {
+    font-size: 3em;
+    margin-bottom: 20px;
+}
+
+.feature-card h3 {
+    font-size: 1.4em;
+    font-weight: 600;
+    color: #083267;
+    margin-bottom: 15px;
+}
+
+.feature-card p {
+    font-size: 1.05em;
+    color: #666;
+    line-height: 1.6;
+}
+
 .container {
     max-width: 1000px;
     margin: 0 auto;
@@ -22,7 +210,7 @@ body {
     box-shadow: 0 0 40px rgba(8, 50, 103, 0.08);
 }
 
-/* Header Styles */
+/* Old Header (for other pages) */
 header {
     text-align: center;
     padding: 60px 20px 40px;
@@ -119,96 +307,6 @@ a:hover {
     color: #999;
     font-size: 0.95em;
     margin-bottom: 30px;
-}
-
-/* Hero Section */
-.hero {
-    text-align: center;
-    padding: 80px 40px;
-    background: linear-gradient(135deg, #5DACB3 0%, #4a9199 100%);
-    color: white;
-    border-radius: 16px;
-    margin-bottom: 40px;
-    box-shadow: 0 10px 30px rgba(93, 172, 179, 0.3);
-}
-
-.hero h2 {
-    color: white;
-    border: none;
-    padding: 0;
-    margin: 0 0 20px;
-    font-size: 3em;
-    font-weight: 700;
-    letter-spacing: -0.5px;
-}
-
-.hero p {
-    font-size: 1.3em;
-    margin-bottom: 35px;
-    opacity: 0.95;
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
-    color: white;
-}
-
-.download-btn {
-    display: inline-block;
-    padding: 18px 50px;
-    background-color: white;
-    color: #5DACB3;
-    font-weight: 700;
-    font-size: 1.15em;
-    border-radius: 50px;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-}
-
-.download-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-    text-decoration: none;
-    color: #083267;
-}
-
-/* Features Section */
-.features {
-    padding: 40px 20px;
-    background-color: #F8FCFF;
-    border-radius: 16px;
-    margin: 40px 0;
-}
-
-.features h3 {
-    font-size: 2em;
-    margin-bottom: 30px;
-    color: #083267;
-    text-align: center;
-}
-
-.features ul {
-    list-style: none;
-    margin-left: 0;
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.features li {
-    padding: 18px 0 18px 45px;
-    position: relative;
-    font-size: 1.15em;
-    color: #083267;
-}
-
-.features li:before {
-    content: "✓";
-    position: absolute;
-    left: 0;
-    color: #5DACB3;
-    font-weight: bold;
-    font-size: 1.5em;
 }
 
 section {
@@ -500,6 +598,53 @@ footer p {
 
 /* Mobile responsiveness */
 @media (max-width: 768px) {
+    .nav-container {
+        padding: 15px 20px;
+    }
+
+    .nav-links {
+        gap: 15px;
+        font-size: 0.9em;
+    }
+
+    .nav-cta {
+        padding: 10px 20px;
+        font-size: 0.9em;
+    }
+
+    .hero-modern {
+        padding: 80px 20px 60px;
+        margin-top: 70px;
+    }
+
+    .hero-title {
+        font-size: 2.2em;
+    }
+
+    .hero-description {
+        font-size: 1.1em;
+        margin-bottom: 40px;
+    }
+
+    .phone-mockup {
+        max-width: 300px;
+        margin: 40px auto 40px;
+    }
+
+    .features-section {
+        padding: 60px 20px;
+    }
+
+    .features-title {
+        font-size: 2.2em;
+        margin-bottom: 40px;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
     .container {
         padding: 15px;
     }
@@ -526,23 +671,6 @@ footer p {
 
     h2 {
         font-size: 1.7em;
-    }
-
-    .hero {
-        padding: 60px 25px;
-    }
-
-    .hero h2 {
-        font-size: 2.2em;
-    }
-
-    .hero p {
-        font-size: 1.15em;
-    }
-
-    .download-btn {
-        padding: 15px 35px;
-        font-size: 1.05em;
     }
 
     footer nav a {

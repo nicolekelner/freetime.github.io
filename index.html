@@ -1,52 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Time - Mindful Phone Usage</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Modern Navigation Header -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="index.html" class="logo">Free Time</a>
+            <div class="nav-links">
+                <a href="#features">Features</a>
+                <a href="support.html">Support</a>
+                <a href="https://apps.apple.com/app/free-time" class="nav-cta">Download App</a>
+            </div>
+        </div>
+    </nav>
 
-  <!DOCTYPE html>
-  <html lang="en">
-  <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Free Time - Mindful Phone Usage</title>
-      <link rel="preconnect" href="https://fonts.googleapis.com">
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-      <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-      <link rel="stylesheet" href="style.css">
-  </head>
-  <body>
-      <div class="container">
-          <header>
-              <h1>Free Time</h1>
-              <p class="tagline">Use your phone mindfully</p>
-          </header>
+    <!-- Hero Section with Phone Mockup -->
+    <section class="hero-modern">
+        <div class="hero-content">
+            <h1 class="hero-title">Keep apps locked so you have less Screen Time and more Free Time</h1>
+            <p class="hero-description">Free Time helps you use your phone with intention by locking distracting apps. Solve a puzzle or do a mindfulness activity to unlock them.</p>
 
-          <main>
-              <section class="hero">
-                  <h2>Reclaim Your Focus</h2>
-                  <p>Free Time helps you use your phone with intention by locking distracting apps.
-   Solve a puzzle or do a mindfulness activity to unlock them.</p>
-                  <a href="https://apps.apple.com/app/free-time" class="download-btn">Download on
-  the App Store</a>
-              </section>
+            <div class="phone-mockup">
+                <img src="images/app-screenshot.png" alt="Free Time App - Instagram is Locked" class="phone-screenshot">
+            </div>
 
-              <section class="features">
-                  <h3>Features</h3>
-                  <ul>
-                      <li>Block distracting apps with mindful moments</li>
-                      <li>Solve puzzles to unlock apps temporarily</li>
-                      <li>Track your focus and build healthy habits</li>
-                      <li>Schedule-based blocking</li>
-                  </ul>
-              </section>
-          </main>
+            <a href="https://apps.apple.com/app/free-time" class="app-store-button">
+                <svg width="120" height="40" viewBox="0 0 120 40" xmlns="http://www.w3.org/2000/svg">
+                    <g fill="none" fill-rule="evenodd">
+                        <rect fill="#000" width="120" height="40" rx="5"/>
+                        <path d="M24.769 20.3c-.013-2.96 2.416-4.392 2.525-4.459-1.377-2.014-3.517-2.29-4.278-2.32-1.823-.184-3.553 1.072-4.476 1.072-.924 0-2.35-1.044-3.86-1.016-1.987.028-3.819 1.155-4.842 2.934-2.064 3.578-.527 8.88 1.484 11.784 1.005 1.421 2.192 3.012 3.758 2.955 1.534-.058 2.112-.99 3.965-.99 1.851 0 2.399.99 3.85.958 1.589-.028 2.68-1.444 3.679-2.87 1.155-1.653 1.632-3.252 1.659-3.334-.036-.015-3.182-1.221-3.218-4.847l-.001-.013zM21.973 9.8c.832-1.01 1.393-2.408 1.24-3.8-1.198.048-2.649.798-3.508 1.805-.77.893-1.443 2.32-1.263 3.689 1.336.103 2.7-.68 3.53-1.694z" fill="#FFF"/>
+                        <text font-family="Lexend-Medium, Lexend" font-size="9" font-weight="400" fill="#FFF">
+                            <tspan x="40" y="16">Download on the</tspan>
+                            <tspan x="40" y="28" font-size="14" font-weight="600">App Store</tspan>
+                        </text>
+                    </g>
+                </svg>
+            </a>
+        </div>
+    </section>
 
-          <footer>
-              <nav>
-                  <a href="index.html">Home</a>
-                  <a href="support.html">Support</a>
-                  <a href="privacy.html">Privacy Policy</a>
-                  <a href="terms.html">Terms of Use</a>
-                  <a href="mailto:support@findfreetime.com">Contact</a>
-              </nav>
-              <p>&copy; 2025 Nicole Kelner LLC DBA Mindful Tech Studio. All rights reserved.</p>
-          </footer>
-      </div>
-  </body>
-  </html>
+    <!-- Features Section -->
+    <section class="features-section" id="features">
+        <div class="container">
+            <h2 class="features-title">Why Free Time?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Smart App Blocking</h3>
+                    <p>Block distracting apps with mindful moments that make you pause before using them</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🧩</div>
+                    <h3>Unlock with Puzzles</h3>
+                    <p>Solve puzzles or complete mindfulness activities to unlock apps temporarily</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Track Your Progress</h3>
+                    <p>Monitor your focus time and build healthy habits with detailed insights</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⏰</div>
+                    <h3>Schedule-Based Blocking</h3>
+                    <p>Set custom schedules for when apps should be locked automatically</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="support.html">Support</a>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Use</a>
+                <a href="mailto:support@findfreetime.com">Contact</a>
+            </nav>
+            <p>&copy; 2025 Nicole Kelner LLC DBA Mindful Tech Studio. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
