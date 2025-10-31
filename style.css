@@ -37,6 +37,9 @@ body {
 }
 
 .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
     font-size: 1.5em;
     font-weight: 700;
     color: #083267;
@@ -46,6 +49,12 @@ body {
 
 .logo:hover {
     color: #5DACB3;
+}
+
+.logo-img {
+    height: 32px;
+    width: auto;
+    display: block;
 }
 
 .nav-links {
