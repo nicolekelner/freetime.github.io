@@ -674,6 +674,24 @@ footer p {
     transform: scale(1.03);
 }
 
+/* Notification Mockup - Horizontal Banner Style */
+.notification-mockup {
+    max-width: 600px;
+    width: 100%;
+}
+
+.notification-mockup img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(8, 50, 103, 0.15);
+    transition: transform 0.3s ease;
+}
+
+.notification-mockup img:hover {
+    transform: scale(1.02);
+}
+
 /* Testimonials Section */
 .testimonials-section {
     padding: 60px 40px;
@@ -950,6 +968,10 @@ footer p {
 
     .phone-mockup-small {
         max-width: 280px;
+    }
+
+    .notification-mockup {
+        max-width: 100%;
     }
 
     .testimonials-section {
