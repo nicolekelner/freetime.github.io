@@ -147,7 +147,9 @@ body {
 }
 
 .app-store-button {
-    display: inline-block;
+    display: block;
+    margin: 0 auto;
+    width: fit-content;
     transition: all 0.3s ease;
     border-radius: 8px;
     overflow: hidden;
@@ -827,10 +829,6 @@ footer p {
 
     .phone-mockup {
         max-width: 240px;
-    }
-
-    .app-store-button {
-        margin: 0 auto;
     }
 
     .features-section {
