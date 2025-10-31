@@ -41,14 +41,9 @@ body {
     align-items: center;
     gap: 10px;
     font-size: 1.5em;
-    font-weight: 700;
+    font-weight: 600;
     color: #083267;
     text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.logo:hover {
-    color: #5DACB3;
 }
 
 .logo-img {
