@@ -46,6 +46,11 @@ body {
     text-decoration: none;
 }
 
+.logo:hover {
+    color: #083267;
+    text-decoration: none;
+}
+
 .logo-img {
     height: 32px;
     width: auto;
@@ -193,14 +198,7 @@ body {
     padding: 40px 30px;
     border-radius: 16px;
     text-align: center;
-    transition: all 0.3s ease;
     border: 2px solid transparent;
-}
-
-.feature-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(93, 172, 179, 0.15);
-    border-color: #5DACB3;
 }
 
 .feature-icon {
