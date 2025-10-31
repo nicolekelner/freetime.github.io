@@ -3,14 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3XH6ZL37DY"></script>
+    <!-- Google tag (gtag.js) - loaded after consent -->
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+      function loadGoogleAnalytics() {
+        var script = document.createElement('script');
+        script.async = true;
+        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-3XH6ZL37DY';
+        document.head.appendChild(script);
 
-      gtag('config', 'G-3XH6ZL37DY');
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-3XH6ZL37DY');
+      }
+
+      // Check if user has already consented
+      if (localStorage.getItem('cookieConsent') === 'accepted') {
+        loadGoogleAnalytics();
+      }
     </script>
     <title>Free Time - Mindful Phone Usage</title>
     <link rel="icon" type="image/png" href="favicon.png">
@@ -271,6 +281,38 @@
             // Pause on hover
             carousel.addEventListener('mouseenter', stopAutoAdvance);
             carousel.addEventListener('mouseleave', startAutoAdvance);
+        })();
+    </script>
+
+    <!-- Minimal Cookie Consent Banner -->
+    <div id="cookieBanner" style="display: none; position: fixed; bottom: 0; left: 0; right: 0; background: rgba(8, 50, 103, 0.95); backdrop-filter: blur(10px); color: white; padding: 16px 20px; font-size: 0.95em; z-index: 9999; box-shadow: 0 -2px 10px rgba(0,0,0,0.1);">
+        <div style="max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap;">
+            <span style="flex: 1; min-width: 250px;">We use cookies to improve your experience. <a href="privacy.html" style="color: #5DACB3; text-decoration: underline;">Learn more</a></span>
+            <button id="acceptCookies" style="background: #5DACB3; color: white; border: none; padding: 10px 24px; border-radius: 6px; font-weight: 600; cursor: pointer; font-family: 'Lexend', sans-serif; font-size: 0.95em; transition: background 0.2s;">Accept</button>
+        </div>
+    </div>
+
+    <script>
+        // Cookie consent handling
+        (function() {
+            const banner = document.getElementById('cookieBanner');
+            const acceptBtn = document.getElementById('acceptCookies');
+
+            // Show banner if user hasn't consented yet
+            if (!localStorage.getItem('cookieConsent')) {
+                banner.style.display = 'block';
+            }
+
+            // Handle accept button
+            acceptBtn.addEventListener('click', function() {
+                localStorage.setItem('cookieConsent', 'accepted');
+                banner.style.transition = 'opacity 0.3s ease';
+                banner.style.opacity = '0';
+                setTimeout(function() {
+                    banner.style.display = 'none';
+                }, 300);
+                loadGoogleAnalytics();
+            });
         })();
     </script>
 </body>
