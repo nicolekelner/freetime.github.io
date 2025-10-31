@@ -86,7 +86,7 @@ body {
     margin-top: 80px;
     min-height: calc(100vh - 80px);
     padding: 40px 40px 40px;
-    background: linear-gradient(180deg, #F8FCFF 0%, #ffffff 100%);
+    background-color: #F8FCFF;
     display: flex;
     align-items: center;
 }
@@ -221,8 +221,6 @@ body {
     max-width: 1000px;
     margin: 0 auto;
     padding: 20px;
-    background-color: white;
-    box-shadow: 0 0 40px rgba(8, 50, 103, 0.08);
 }
 
 /* Old Header (for other pages) */
@@ -342,9 +340,7 @@ section {
 footer {
     text-align: center;
     padding: 50px 20px 30px;
-    border-top: 3px solid #F8FCFF;
-    margin-top: 60px;
-    background: linear-gradient(135deg, #F8FCFF 0%, #ffffff 100%);
+    background-color: #F8FCFF;
 }
 
 footer nav {
@@ -614,11 +610,11 @@ footer p {
 /* Detailed Feature Sections */
 .feature-detail {
     padding: 100px 40px;
-    background-color: #ffffff;
+    background-color: #F8FCFF;
 }
 
 .feature-detail.alternate {
-    background-color: #F8FCFF;
+    background-color: #ffffff;
 }
 
 .feature-detail-content {
@@ -694,22 +690,10 @@ footer p {
 
 /* Testimonials Section */
 .testimonials-section {
-    padding: 60px 40px;
-    background: linear-gradient(135deg, #083267 0%, #0a4075 100%);
+    padding: 100px 40px;
+    background-color: #ffffff;
     position: relative;
     overflow: hidden;
-}
-
-.testimonials-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: radial-gradient(circle at 20% 50%, rgba(93, 172, 179, 0.1) 0%, transparent 50%),
-                      radial-gradient(circle at 80% 80%, rgba(93, 172, 179, 0.1) 0%, transparent 50%);
-    pointer-events: none;
 }
 
 .testimonials-section .container {
@@ -723,7 +707,7 @@ footer p {
     text-align: center;
     font-size: 2.8em;
     font-weight: 700;
-    color: white;
+    color: #083267;
     margin-bottom: 30px;
     border: none;
     padding: 0;
@@ -757,7 +741,7 @@ footer p {
 
 .testimonial-text {
     font-size: 1.4em;
-    color: white;
+    color: #444;
     line-height: 1.8;
     font-style: italic;
     text-align: center;
@@ -784,13 +768,13 @@ footer p {
     width: 12px;
     height: 12px;
     border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.3);
+    background-color: rgba(8, 50, 103, 0.2);
     cursor: pointer;
     transition: all 0.3s ease;
 }
 
 .testimonial-dots .dot:hover {
-    background-color: rgba(255, 255, 255, 0.6);
+    background-color: rgba(8, 50, 103, 0.4);
 }
 
 .testimonial-dots .dot.active {
@@ -975,7 +959,7 @@ footer p {
     }
 
     .testimonials-section {
-        padding: 40px 20px;
+        padding: 60px 20px;
     }
 
     .testimonials-section h2 {
