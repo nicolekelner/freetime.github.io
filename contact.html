@@ -32,14 +32,27 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1><a href="index.html">Free Time</a></h1>
-            <p class="tagline">Use your phone mindfully</p>
+    <!-- Modern Navigation Header -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="logo-narrow.png" alt="Free Time Logo" class="logo-img">
+                Free Time
+            </a>
+            <button class="hamburger" id="hamburger" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="nav-links" id="navLinks">
+                <a href="about.html">About</a>
+                <a href="support.html">Support</a>
+                <a href="https://apps.apple.com/app/free-time" class="nav-cta">Download App</a>
+            </div>
         </div>
-    </header>
+    </nav>
 
-    <main>
+    <main style="padding-top: 80px;">
         <div class="container">
             <section>
                 <h2>Contact Us</h2>
@@ -66,6 +79,29 @@
             <p>&copy; 2025 Nicole Kelner LLC DBA Mindful Tech Studio. All rights reserved.</p>
         </div>
     </footer>
+
+    <script>
+        // Mobile hamburger menu
+        (function() {
+            const hamburger = document.getElementById('hamburger');
+            const navLinks = document.getElementById('navLinks');
+
+            if (hamburger) {
+                hamburger.addEventListener('click', function() {
+                    hamburger.classList.toggle('active');
+                    navLinks.classList.toggle('active');
+                });
+
+                // Close menu when clicking a link
+                navLinks.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', function() {
+                        hamburger.classList.remove('active');
+                        navLinks.classList.remove('active');
+                    });
+                });
+            }
+        })();
+    </script>
 
     <!-- Minimal Cookie Consent Banner -->
     <div id="cookieBanner" style="display: none; position: fixed; bottom: 0; left: 0; right: 0; background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(10px); color: #083267; padding: 16px 20px; font-size: 0.95em; z-index: 9999; border-top: 1px solid rgba(93, 172, 179, 0.2);">
