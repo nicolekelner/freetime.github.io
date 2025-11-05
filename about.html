@@ -32,26 +32,38 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1><a href="index.html">Free Time</a></h1>
-            <p class="tagline">Use your phone mindfully</p>
+    <!-- Modern Navigation Header -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="logo-narrow.png" alt="Free Time Logo" class="logo-img">
+                Free Time
+            </a>
+            <button class="hamburger" id="hamburger" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="nav-links" id="navLinks">
+                <a href="about.html">About</a>
+                <a href="support.html">Support</a>
+                <a href="https://apps.apple.com/app/free-time" class="nav-cta">Download App</a>
+            </div>
         </div>
-    </header>
+    </nav>
 
-    <main>
+    <main style="padding-top: 80px;">
         <div class="container">
             <section>
-                <h2>About the founder</h2>
-
                 <div class="feature-detail-content" style="max-width: 1200px; margin: 40px auto; padding: 0 20px;">
                     <div class="feature-detail-image">
-                        <video autoplay muted loop playsinline controls style="width: 100%; max-width: 220px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);">
+                        <video autoplay muted loop playsinline controls style="width: 100%; max-width: 250px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);">
                             <source src="video.mp4" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
                     </div>
                     <div class="feature-detail-text">
+                        <h2 style="margin-bottom: 20px;">About the founder</h2>
                         <p style="font-size: 1.1em; line-height: 1.8;">Hi! I'm Nicole Kelner. I'm a full-time artist based in Brooklyn.<br><br>I created Free Time because I was feeling hooked on social media when I needed to share my art. I wanted a way to use my phone for work without getting distracted. So I built an app to help me feel more balanced and use my phone with intention.<br><br>Free Time just launched this week, and I hope it helps you spend less time on your screen and more time doing what matters most to you.</p>
                     </div>
                 </div>
@@ -80,6 +92,29 @@
             <button id="acceptCookies" style="background: #5DACB3; color: white; border: none; padding: 10px 24px; border-radius: 6px; font-weight: 600; cursor: pointer; font-family: 'Lexend', sans-serif; font-size: 0.95em; transition: background 0.2s;">Accept</button>
         </div>
     </div>
+
+    <script>
+        // Mobile hamburger menu
+        (function() {
+            const hamburger = document.getElementById('hamburger');
+            const navLinks = document.getElementById('navLinks');
+
+            if (hamburger) {
+                hamburger.addEventListener('click', function() {
+                    hamburger.classList.toggle('active');
+                    navLinks.classList.toggle('active');
+                });
+
+                // Close menu when clicking a link
+                navLinks.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', function() {
+                        hamburger.classList.remove('active');
+                        navLinks.classList.remove('active');
+                    });
+                });
+            }
+        })();
+    </script>
 
     <script>
         // Cookie consent handling
