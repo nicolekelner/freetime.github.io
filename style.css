@@ -88,6 +88,7 @@ body {
 .nav-cta:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(93, 172, 179, 0.4);
+    text-decoration: none;
 }
 
 /* Hamburger menu - hidden on desktop */
