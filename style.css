@@ -791,7 +791,7 @@ footer p {
     display: flex;
     justify-content: center;
     gap: 12px;
-    margin-top: 40px;
+    margin-top: 70px;
 }
 
 .testimonial-dots .dot {
@@ -1061,6 +1061,6 @@ html {
     }
 
     .testimonial-dots {
-        margin-top: 50px;
+        margin-top: 80px;
     }
 }
