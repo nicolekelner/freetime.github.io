@@ -53,7 +53,7 @@
       <div class="container legal" style="padding-top: 80px;">
           <main>
               <h1>Privacy Policy</h1>
-              <p class="updated">Last Updated: October 2, 2025</p>
+              <p class="updated">Last Updated: January 7, 2025</p>
 
               <section>
                   <h2>Your Privacy Matters</h2>
@@ -66,10 +66,12 @@
                   <h2>1. Information We Collect</h2>
 
                   <h3>1.1 Account Information</h3>
-                  <p>When you create an account using Apple Sign In, we collect:</p>
+                  <p>When you create an account using Apple Sign In, we may collect:</p>
                   <ul>
                       <li>Email address (either your real email or Apple's private relay
   email)</li>
+                      <li>Name (if you choose to provide it through Apple Sign In - this is optional and
+  stored as a display name)</li>
                       <li>Unique user identifier for your account</li>
                       <li>Account creation and last login dates</li>
                       <li>Authentication tokens (securely stored and encrypted)</li>
@@ -108,13 +110,15 @@
                   <h2>2. Information We Do NOT Collect</h2>
                   <p>We are committed to minimal data collection. We do NOT collect:</p>
                   <ul>
-                      <li>Personal identifying information beyond email (name, phone number,
-  address)</li>
-                      <li>Location data or GPS coordinates</li>
+                      <li>Phone numbers or physical mailing addresses</li>
+                      <li>Precise GPS coordinates or real-time location tracking</li>
+                      <li>Government-issued identifiers (Social Security numbers, driver's license
+  numbers)</li>
                       <li>Content of your messages, emails, or other communications</li>
                       <li>Photos, videos, or other media files</li>
                       <li>Browsing history or website content</li>
                       <li>Contact lists or social media data</li>
+                      <li>Biometric data (Face ID, Touch ID are processed locally by iOS only)</li>
                   </ul>
               </section>
 
@@ -133,17 +137,58 @@
 
                   <h3>3.2 Mixpanel</h3>
                   <ul>
-                      <li><strong>Usage Analytics:</strong> Anonymous tracking of app usage and
-  feature interactions</li>
-                      <li><strong>Performance Metrics:</strong> App stability and error
-  tracking</li>
-                      <li><strong>Anonymous Identification:</strong> Unique anonymous identifiers
-  for tracking</li>
-                      <li><strong>No Personal Data:</strong> Only Firebase user IDs or anonymous
-  device identifiers</li>
+                      <li><strong>Usage Analytics:</strong> Anonymous tracking of app usage and feature
+  interactions</li>
+                      <li><strong>Performance Metrics:</strong> App stability and error tracking</li>
+                      <li><strong>Technical Data:</strong> Device model, operating system version, and
+  approximate geographic location (city and region derived from IP address for analytics
+  purposes)</li>
+                      <li><strong>Anonymous Identification:</strong> Unique anonymous identifiers for
+  tracking usage patterns</li>
+                      <li><strong>No Personal Data:</strong> Only Firebase user IDs or anonymous device
+  identifiers - we never share names, emails, or precise personal information with
+  Mixpanel</li>
+                  </ul>
+                  <p>All data sent to Mixpanel is anonymized and used solely to improve app performance
+  and user experience.</p>
+
+                  <h3>3.3 RevenueCat</h3>
+                  <ul>
+                      <li><strong>Subscription Management:</strong> Handles in-app purchases and
+  subscription status verification</li>
+                      <li><strong>Payment Processing:</strong> Processes payments through Apple's App
+  Store (RevenueCat does not store credit card information)</li>
+                      <li><strong>Purchase History:</strong> Tracks subscription status, purchase
+  receipts, and entitlements</li>
+                      <li><strong>User Identification:</strong> Links purchases to your account using
+  anonymous identifiers</li>
+                  </ul>
+                  <p>RevenueCat is subject to its own <a href="https://www.revenuecat.com/privacy"
+  target="_blank">privacy policy</a>. All payment information is processed securely
+  through Apple's payment systems. RevenueCat only receives transaction receipts and
+  subscription status - never your actual payment details.</p>
+
+                  <h3>3.4 Technical Information Collected by Analytics Services</h3>
+                  <p>Our analytics providers (Mixpanel, Firebase) may automatically collect:</p>
+                  <ul>
+                      <li>Device model and operating system version</li>
+                      <li>App version and performance metrics</li>
+                      <li>Approximate geographic location (city and region derived from IP address)</li>
+                      <li>Network carrier and connection type</li>
                   </ul>
 
-                  <p>Firebase and Mixpanel services are subject to their respective privacy
+                  <p>This technical data is used solely to understand app performance, fix bugs, and improve
+  user experience. We do not collect precise GPS coordinates or track your real-time
+  location.</p>
+
+                  <h3>3.5 Website Analytics (Not Used in Mobile App)</h3>
+                  <p><strong>Note:</strong> Our website (findfreetime.com) uses Google Analytics for
+  website traffic analysis only. This analytics service is <strong>not used in the mobile
+  app</strong> and only applies to website visitors who accept cookies through our cookie
+  consent banner. Mobile app analytics are handled exclusively by Mixpanel as described
+  above.</p>
+
+                  <p>Firebase, Mixpanel, and RevenueCat services are subject to their respective privacy
   policies. All data is encrypted in transit and at rest.</p>
               </section>
 
@@ -216,14 +261,26 @@
               </section>
 
               <section>
-                  <h2>9. Children's Privacy</h2>
-                  <p>This app is not directed to children under the age of 13. We do not knowingly collect
-  personal information from children under 13. If we become aware that we have
-  inadvertently received personal information from a user under 13 without verified
-  parental consent, we will delete such information from our records.</p>
+                  <h2>9. Children's Privacy (COPPA Compliance)</h2>
 
+                  <h3>Age Requirement</h3>
+                  <p>Free Time is not directed to children under the age of 13. Our app is designed for users
+  seeking to manage their digital wellness and productivity.</p>
+
+                  <h3>Information Collection from Children</h3>
+                  <p>Consistent with the federal Children's Online Privacy Protection Act of 1998 (COPPA), we
+  do not knowingly collect personal information from children under the age of 13. If we
+  become aware that we have inadvertently received personal information from a user under
+  13 without verified parental consent, we will delete such information from our records
+  promptly.</p>
+
+                  <h3>For Parents and Guardians</h3>
                   <p>If you are a parent or guardian and believe your child has provided us with personal
-  information, please contact us so we can delete the data.</p>
+  information, please contact us at support@findfreetime.com so we can delete the data. We
+  will work to remove that information from our databases as quickly as possible.</p>
+
+                  <p>We are not liable for any damages that may result from a user's misrepresentation of
+  age.</p>
               </section>
 
               <section>
