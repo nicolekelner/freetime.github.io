@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorial - Free Time</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Lexend', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #F8FCFF;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 20px 20px;
+            background: linear-gradient(135deg, #F8FCFF 0%, #ffffff 100%);
+            border-bottom: 2px solid #5DACB3;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            color: #083267;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        header p {
+            font-size: 1.2em;
+            color: #5DACB3;
+            font-weight: 400;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(135deg, #5DACB3 0%, #4a9199 100%);
+            color: white;
+            margin-bottom: 40px;
+        }
+
+        .hero h2 {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .hero p {
+            font-size: 1.2em;
+            opacity: 0.95;
+        }
+
+        .tutorial-section {
+            background-color: white;
+            padding: 40px 0;
+        }
+
+        h2 {
+            font-size: 2em;
+            color: #083267;
+            margin: 40px 0 20px;
+            padding-top: 30px;
+            border-top: 2px solid rgba(93, 172, 179, 0.2);
+            font-weight: 600;
+        }
+
+        h2:first-of-type {
+            border-top: none;
+            padding-top: 0;
+        }
+
+        .tutorial-step {
+            margin-bottom: 35px;
+            padding: 25px;
+            background-color: #F8FCFF;
+            border-left: 4px solid #5DACB3;
+            border-radius: 8px;
+        }
+
+        .tutorial-step h3 {
+            font-size: 1.5em;
+            color: #083267;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .tutorial-step h4 {
+            font-size: 1.2em;
+            color: #5DACB3;
+            margin: 20px 0 10px;
+            font-weight: 600;
+        }
+
+        p {
+            margin-bottom: 15px;
+            font-size: 1.05em;
+            color: #444;
+        }
+
+        ol, ul {
+            margin: 15px 0 15px 30px;
+        }
+
+        li {
+            margin-bottom: 10px;
+            font-size: 1.05em;
+            color: #444;
+        }
+
+        strong {
+            color: #083267;
+            font-weight: 600;
+        }
+
+        em {
+            color: #5DACB3;
+            font-style: normal;
+            font-weight: 500;
+        }
+
+        a {
+            color: #5DACB3;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .tips-list {
+            list-style: none;
+            margin-left: 0;
+        }
+
+        .tips-list li {
+            padding: 12px 0 12px 30px;
+            position: relative;
+        }
+
+        .tips-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #5DACB3;
+            font-weight: bold;
+            font-size: 1.3em;
+        }
+
+        .footer-text {
+            margin: 40px auto;
+            padding: 30px;
+            background-color: #F8FCFF;
+            border-left: 4px solid #5DACB3;
+            border-radius: 8px;
+            max-width: 900px;
+        }
+
+        .footer-text p {
+            text-align: center;
+            color: #083267;
+            font-size: 1.1em;
+            margin: 0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px 30px;
+            background-color: #083267;
+            color: white;
+            margin-top: 60px;
+        }
+
+        footer nav {
+            margin-bottom: 20px;
+        }
+
+        footer nav a {
+            margin: 0 15px;
+            color: #5DACB3;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        footer nav a:hover {
+            text-decoration: underline;
+            color: #ffffff;
+        }
+
+        footer p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+
+            header h1 {
+                font-size: 2em;
+            }
+
+            .hero h2 {
+                font-size: 2em;
+            }
+
+            .hero p {
+                font-size: 1.1em;
+            }
+
+            h2 {
+                font-size: 1.6em;
+            }
+
+            .tutorial-step {
+                padding: 20px;
+            }
+
+            .tutorial-step h3 {
+                font-size: 1.3em;
+            }
+
+            footer nav a {
+                display: block;
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Free Time</h1>
+            <p>Use your phone mindfully</p>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h2>How to Use Free Time</h2>
+            <p>A simple guide to getting started with mindful phone usage</p>
+        </div>
+    </section>
+
+    <section class="tutorial-section">
+        <div class="container">
+            <h2>Getting Started</h2>
+
+            <div class="tutorial-step">
+                <h3>1. Download and Install</h3>
+                <p>Download Free Time from the App Store and open the app on your iPhone or iPad.</p>
+                <p><strong>Requirements:</strong> iOS 16.0 or later</p>
+            </div>
+
+            <div class="tutorial-step">
+                <h3>2. Grant Screen Time Permissions</h3>
+                <p>When you first open Free Time, you'll be asked to grant Screen Time permissions. This is essential for the app to work.</p>
+                <ol>
+                    <li>Tap "Get Started" in the app</li>
+                    <li>When prompted, tap "Allow" to grant Screen Time access</li>
+                    <li>Follow the system prompts to enable permissions in Settings</li>
+                </ol>
+                <p><em>Note: Free Time uses Apple's official Screen Time API. Your data stays private and on your device.</em></p>
+            </div>
+
+            <div class="tutorial-step">
+                <h3>3. Select Apps to Block</h3>
+                <p>Choose which apps you want to manage with Free Time.</p>
+                <ol>
+                    <li>Go to the <strong>Apps</strong> tab</li>
+                    <li>Tap "Add Apps" or "Manage Apps"</li>
+                    <li>Select the apps you want to block from the list</li>
+                    <li>Organize apps into groups (like "Social Media" or "Games") for easier management</li>
+                </ol>
+                <p><strong>Tip:</strong> Start with your most distracting apps - you can always add more later.</p>
+            </div>
+
+            <h2>Setting Up Blocking</h2>
+
+            <div class="tutorial-step">
+                <h3>4. Create a Blocking Schedule</h3>
+                <p>Set up when you want apps to be blocked automatically.</p>
+                <ol>
+                    <li>Go to the <strong>Schedule</strong> tab</li>
+                    <li>Tap "Create New Schedule"</li>
+                    <li>Choose which days of the week (e.g., weekdays only)</li>
+                    <li>Set start and end times (e.g., 9 AM to 5 PM for work hours)</li>
+                    <li>Select which app groups to block during this time</li>
+                    <li>Save your schedule</li>
+                </ol>
+                <p><strong>Examples:</strong></p>
+                <ul>
+                    <li><em>Focus Hours:</em> Block social media Monday-Friday, 9 AM - 5 PM</li>
+                    <li><em>Evening Wind-Down:</em> Block all apps daily, 10 PM - 7 AM</li>
+                    <li><em>Always-On:</em> Block certain apps 24/7 by selecting all days</li>
+                </ul>
+            </div>
+
+            <div class="tutorial-step">
+                <h3>5. Use Instant Focus (Optional)</h3>
+                <p>Need to block apps right now? Use Instant Focus mode.</p>
+                <ol>
+                    <li>Go to the <strong>Focus</strong> tab</li>
+                    <li>Choose a preset duration (15 min, 30 min, 1 hour, etc.)</li>
+                    <li>Tap "Start Focus"</li>
+                </ol>
+                <p>Your selected apps will be blocked immediately for the chosen duration.</p>
+            </div>
+
+            <h2>Using the App Daily</h2>
+
+            <div class="tutorial-step">
+                <h3>6. Understanding Puzzles</h3>
+                <p>When you try to open a blocked app, you'll need to complete a puzzle or mindfulness activity to unlock it temporarily.</p>
+
+                <h4>Puzzle Types:</h4>
+                <ul>
+                    <li><strong>Math Puzzles:</strong> Solve arithmetic problems. Choose Easy, Medium, or Hard difficulty in Settings.</li>
+                    <li><strong>Box Breathing:</strong> Complete a calming breathing exercise (inhale-hold-exhale-hold).</li>
+                    <li><strong>Gratitude Journal:</strong> Type something you're grateful for to shift your mindset before using the app.</li>
+                </ul>
+
+                <p><strong>What happens after solving a puzzle?</strong><br>
+                The blocked app unlocks for a set time period (you can customize this in Settings). After the time expires, the app blocks again.</p>
+            </div>
+
+            <div class="tutorial-step">
+                <h3>7. Customize Your Settings</h3>
+                <p>Make Free Time work for you by adjusting settings:</p>
+                <ul>
+                    <li><strong>Puzzle Difficulty:</strong> Change how challenging puzzles are</li>
+                    <li><strong>Unlock Duration:</strong> Set how long apps stay unlocked after completing a puzzle</li>
+                    <li><strong>Puzzle Types:</strong> Enable or disable specific puzzle types</li>
+                    <li><strong>Notifications:</strong> Get reminders and progress updates</li>
+                </ul>
+                <p>Access all settings from the <strong>Settings</strong> tab.</p>
+            </div>
+
+            <h2>Tips for Success</h2>
+
+            <div class="tutorial-step">
+                <h3>Best Practices</h3>
+                <ul class="tips-list">
+                    <li><strong>Start Small:</strong> Begin by blocking just 1-2 apps or creating one simple schedule. Build up gradually.</li>
+                    <li><strong>Be Realistic:</strong> Don't block apps you truly need for work or important communication.</li>
+                    <li><strong>Use App Groups:</strong> Organize apps by category (Social Media, Games, Shopping) for easier management.</li>
+                    <li><strong>Adjust as Needed:</strong> If puzzles feel too easy or too hard, change the difficulty. Free Time should help, not frustrate.</li>
+                    <li><strong>Review Regularly:</strong> Check your usage patterns weekly and adjust schedules accordingly.</li>
+                    <li><strong>Combine Methods:</strong> Use both scheduled blocking and Instant Focus for maximum flexibility.</li>
+                </ul>
+            </div>
+
+            <div class="tutorial-step">
+                <h3>Common Questions</h3>
+
+                <h4>What if I need to access a blocked app urgently?</h4>
+                <p>You can always complete a puzzle to unlock the app temporarily. For true emergencies, you can disable Free Time permissions in iPhone Settings → Screen Time → Free Time.</p>
+
+                <h4>Can I bypass the puzzles?</h4>
+                <p>No - that's the point! The puzzles create a mindful pause between impulse and action. However, you're always in control and can adjust settings or disable blocking if needed.</p>
+
+                <h4>Will this drain my battery?</h4>
+                <p>No. Free Time uses Apple's native Screen Time framework, which is designed to be energy-efficient and runs in the background with minimal impact.</p>
+            </div>
+
+            <div class="tutorial-step">
+                <h3>Need More Help?</h3>
+                <p>Visit our <a href="support.html">Support Page</a> for detailed FAQs and troubleshooting guides.</p>
+                <p>Questions or feedback? Email us at <a href="mailto:support@findfreetime.com">support@findfreetime.com</a></p>
+            </div>
+        </div>
+    </section>
+
+    <div class="footer-text">
+        <div class="container">
+            <p><strong>Remember:</strong> Free Time is a tool to help you build better habits, not a restriction. You're always in control of your device and your time.</p>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <nav>
+                <a href="https://www.findfreetime.com/index.html">Home</a>
+                <a href="Tutorial.html">Tutorial</a>
+                <a href="support.html">Support</a>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Use</a>
+                <a href="mailto:support@findfreetime.com">Contact</a>
+            </nav>
+            <p>&copy; 2024 Nicole Kelner LLC DBA Mindful Tech Studio. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
