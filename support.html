@@ -25,6 +25,7 @@
       }
     </script>
     <title>Support - Free Time</title>
+    <link rel="icon" type="image/png" href="favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -55,120 +56,346 @@
             <h2>Frequently Asked Questions</h2>
 
             <div class="faq-category">
-                <h3>Getting Started & Setup</h3>
+                <h3>General Overview</h3>
 
                 <details class="faq-item">
-                    <summary>How do I set up Free Time for the first time?</summary>
+                    <summary>What is Free Time?</summary>
                     <div class="faq-answer">
-                        <p>After downloading Free Time from the App Store:</p>
+                        <p>Free Time is a mindful app blocker that helps you use your apps in moderation. Unlike restrictive app blockers that kick you off your apps, Free Time helps you learn to use them mindfully through an unlocking process.</p>
+                        <p>The apps you select to lock stay locked all day. When you want to use them, you come to Free Time to unlock them, and return to lock them when you're done.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>How does Free Time work?</summary>
+                    <div class="faq-answer">
                         <ol>
-                            <li>Open the app and tap "Get Started"</li>
-                            <li>Grant Screen Time permissions when prompted - this is required for the app to work</li>
-                            <li>Select the apps you want to block from the app picker</li>
-                            <li>Choose your puzzle difficulty and preferences</li>
-                            <li>Set up your blocking schedule (optional)</li>
+                            <li><strong>Select apps to lock</strong> - Choose which apps you want to manage mindfully</li>
+                            <li><strong>Apps stay locked</strong> - Your selected apps remain locked throughout the day</li>
+                            <li><strong>Complete a Mindful Moment</strong> - When you want to use a locked app, solve a quick puzzle or breathing exercise</li>
+                            <li><strong>Use your apps</strong> - Apps remain unlocked until you manually lock them</li>
+                            <li><strong>Manually lock when ready</strong> - Press "Lock Now" when you're done using your apps</li>
                         </ol>
-                        <p>You're all set! The app will now block your selected apps according to your settings.</p>
+                        <p><strong>Important:</strong> Free Time doesn't automatically lock apps for you. You control when to lock them.</p>
                     </div>
                 </details>
 
                 <details class="faq-item">
                     <summary>Why does Free Time need Screen Time permissions?</summary>
                     <div class="faq-answer">
-                        <p>Free Time uses Apple's Screen Time API to block apps on your device. This is the official, secure way to manage app access on iOS. Without Screen Time permissions, the app cannot block or monitor your selected apps.</p>
-                        <p>Your data stays private and on your device - we never collect or share your Screen Time information.</p>
-                    </div>
-                </details>
-
-                <details class="faq-item">
-                    <summary>What iOS version do I need?</summary>
-                    <div class="faq-answer">
-                        <p>Free Time requires iOS 16.0 or later. The app uses Screen Time API features that are only available on recent iOS versions.</p>
+                        <p>Free Time uses Apple's Screen Time API to block apps on your device. This requires special permissions:</p>
+                        <ul>
+                            <li><strong>FamilyControls</strong> - To let you select which apps to block</li>
+                            <li><strong>DeviceActivity</strong> - To monitor app usage and enforce blocking</li>
+                            <li><strong>ManagedSettings</strong> - To apply restrictions to selected apps</li>
+                        </ul>
+                        <p>These permissions ensure Free Time can effectively manage app access while respecting your privacy.</p>
                     </div>
                 </details>
             </div>
 
             <div class="faq-category">
-                <h3>App Blocking & Puzzles</h3>
+                <h3>Unlocking & Locking</h3>
 
                 <details class="faq-item">
-                    <summary>How does app blocking work?</summary>
+                    <summary>How do I unlock my apps?</summary>
                     <div class="faq-answer">
-                        <p>Free Time uses Apple's Screen Time framework to block apps you've selected. When you try to open a blocked app, you'll see a blocking screen that requires you to complete a puzzle or mindfulness activity to unlock it temporarily.</p>
-                        <p>This creates a mindful pause between the impulse to open an app and actually using it, helping you be more intentional with your phone time.</p>
-                    </div>
-                </details>
-
-                <details class="faq-item">
-                    <summary>What types of puzzles are available?</summary>
-                    <div class="faq-answer">
-                        <p>Free Time offers several puzzle types:</p>
-                        <ul>
-                            <li><strong>Math Puzzles:</strong> Solve arithmetic problems of varying difficulty</li>
-                            <li><strong>Box Breathing:</strong> Complete a guided breathing exercise for mindfulness</li>
-                            <li><strong>Gratitude Journal:</strong> Write something you're grateful for to shift your mindset</li>
-                        </ul>
-                        <p>You can choose your preferred puzzle types and difficulty levels in the app settings.</p>
-                    </div>
-                </details>
-
-                <details class="faq-item">
-                    <summary>Can I customize puzzle difficulty?</summary>
-                    <div class="faq-answer">
-                        <p>Yes! Free Time offers multiple difficulty levels:</p>
-                        <ul>
-                            <li><strong>Easy:</strong> Simple puzzles for gentle reminders</li>
-                            <li><strong>Medium:</strong> Moderate challenge to create a meaningful pause</li>
-                            <li><strong>Hard:</strong> Difficult puzzles that require focus and effort</li>
-                        </ul>
-                        <p>Adjust the difficulty in Settings to find the right balance for you.</p>
-                    </div>
-                </details>
-
-                <details class="faq-item">
-                    <summary>How long do apps stay unlocked after solving a puzzle?</summary>
-                    <div class="faq-answer">
-                        <p>You can configure the unlock duration in your app settings. Options typically range from 5 minutes to several hours. After this time expires, the apps will be blocked again and require another puzzle to unlock.</p>
-                    </div>
-                </details>
-
-                <details class="faq-item">
-                    <summary>Can I create different groups of apps with different settings?</summary>
-                    <div class="faq-answer">
-                        <p>Yes! Free Time supports app groups, allowing you to organize apps into categories (like Social Media, Games, etc.) and apply different blocking schedules and unlock requirements to each group.</p>
-                    </div>
-                </details>
-            </div>
-
-            <div class="faq-category">
-                <h3>Scheduling</h3>
-
-                <details class="faq-item">
-                    <summary>How do I set up a blocking schedule?</summary>
-                    <div class="faq-answer">
-                        <p>To create a blocking schedule:</p>
                         <ol>
-                            <li>Go to the Schedule tab in Free Time</li>
-                            <li>Tap "Create New Schedule" or edit an existing one</li>
-                            <li>Select which days of the week the schedule applies</li>
-                            <li>Set your start and end times</li>
-                            <li>Choose which app groups to block during this time</li>
+                            <li>Open Free Time</li>
+                            <li>Navigate to the <strong>Unlock</strong> tab</li>
+                            <li>Complete a Mindful Moment (puzzle or breathing exercise)</li>
+                            <li>Your apps are now unlocked and accessible</li>
                         </ol>
-                        <p>You can have multiple schedules that work together, like different rules for weekdays vs. weekends.</p>
                     </div>
                 </details>
 
                 <details class="faq-item">
-                    <summary>Can I have apps blocked all the time?</summary>
+                    <summary>Do apps automatically lock after a certain time?</summary>
                     <div class="faq-answer">
-                        <p>Yes! You can set up an "always-on" schedule by selecting all days of the week and setting a 24-hour time range (like 12:00 AM to 11:59 PM). Apps will remain blocked and require puzzle solving whenever you try to access them.</p>
+                        <p><strong>No.</strong> Free Time doesn't automatically lock apps for you. Apps remain unlocked until you manually press the "Lock Now" button. This is intentional - we help you learn to use apps mindfully, not force you off them.</p>
                     </div>
                 </details>
 
                 <details class="faq-item">
-                    <summary>What is Instant Focus mode?</summary>
+                    <summary>How do I manually lock my apps?</summary>
                     <div class="faq-answer">
-                        <p>Instant Focus is a quick way to block apps immediately without waiting for a scheduled time. It's perfect for when you need to focus on work, study, or just want a break from distracting apps. You can start an Instant Focus session with a custom duration directly from the app.</p>
+                        <ol>
+                            <li>Open Free Time</li>
+                            <li>Navigate to the <strong>Unlock</strong> tab</li>
+                            <li>Press the <strong>"Lock Now"</strong> button</li>
+                            <li>Your apps are locked and will require unlocking again</li>
+                        </ol>
+                        <p>You can also lock apps from the Dynamic Island/Live Activity on your lock screen.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>What are Mindful Moments?</summary>
+                    <div class="faq-answer">
+                        <p>Mindful Moments are the puzzles and exercises you complete before unlocking your apps. They include:</p>
+                        <ul>
+                            <li><strong>Word Unscramble</strong> - Unscramble letters to form a word (available for free users)</li>
+                            <li><strong>Math Puzzle</strong> - Solve arithmetic problems (Pro only)</li>
+                            <li><strong>Breathing</strong> - Take a mindful breathing pause (Pro only)</li>
+                        </ul>
+                        <p><strong>Free users</strong> get Word Unscramble by default. <strong>Pro users</strong> can select multiple types and rotate between them.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>Can I choose which Mindful Moment type I get?</summary>
+                    <div class="faq-answer">
+                        <p>Yes, if you're a Pro user:</p>
+                        <ol>
+                            <li>Go to <strong>Profile</strong> tab → <strong>Settings</strong> → <strong>Puzzle Settings</strong></li>
+                            <li>Select multiple Mindful Moment types</li>
+                            <li>Enable rotation to cycle through your selected types</li>
+                        </ol>
+                        <p>Free users use Word Unscramble only.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>What happens when I force-quit Free Time while apps are unlocked?</summary>
+                    <div class="faq-answer">
+                        <p>When you force-quit or close Free Time while apps are unlocked:</p>
+                        <ul>
+                            <li>Your apps <strong>remain unlocked</strong> when you reopen Free Time</li>
+                            <li>You'll see the "Your apps are unlocked" screen</li>
+                            <li>You can continue using apps or manually lock them with "Lock Now"</li>
+                            <li>The app preserves your unlock state across restarts</li>
+                        </ul>
+                        <p>This ensures you won't lose access if Free Time closes unexpectedly.</p>
+                    </div>
+                </details>
+            </div>
+
+            <div class="faq-category">
+                <h3>Schedules & Digital Detox</h3>
+
+                <details class="faq-item">
+                    <summary>What are Digital Detox schedules?</summary>
+                    <div class="faq-answer">
+                        <p>Digital Detox schedules are like a padlock - a second lock that prevents you from easily unlocking your apps during specific times. They help you stay focused during important periods like sleep, work, or morning routines.</p>
+                        <p>Think of them as an additional layer of protection on top of the regular app locking.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>How do schedules work with the regular lock?</summary>
+                    <div class="faq-answer">
+                        <ul>
+                            <li><strong>Without a schedule active:</strong> Complete a Mindful Moment to unlock apps</li>
+                            <li><strong>With a schedule active:</strong> You must wait through a cooldown period before you can unlock (in case of emergency)</li>
+                        </ul>
+                        <p>Schedules add friction to make unlocking more intentional during your protected time.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>What schedule types are available?</summary>
+                    <div class="faq-answer">
+                        <ul>
+                            <li><strong>Sleep Mode</strong> - Block apps during sleep hours</li>
+                            <li><strong>Work Focus</strong> - Stay productive during work hours</li>
+                            <li><strong>Morning Routine</strong> - Start your day without distractions</li>
+                            <li><strong>Evening Wind Down</strong> - Relax before bed</li>
+                            <li><strong>Weekend Detox</strong> - Disconnect on weekends</li>
+                            <li><strong>Offline Outside</strong> - Block apps when not on WiFi (encourages outdoor time)</li>
+                            <li><strong>Analog Hour</strong> - 60-minute phone-free sessions</li>
+                        </ul>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>Can I have multiple schedules?</summary>
+                    <div class="faq-answer">
+                        <p>Yes! You can create multiple schedules that run on different days and times. For example:</p>
+                        <ul>
+                            <li>Sleep Mode every night 10 PM - 7 AM</li>
+                            <li>Work Focus weekdays 9 AM - 5 PM</li>
+                            <li>Weekend Detox Saturdays and Sundays</li>
+                        </ul>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>Do schedules target all my apps or specific ones?</summary>
+                    <div class="faq-answer">
+                        <p>You can choose! Each schedule can:</p>
+                        <ul>
+                            <li>Apply to <strong>all app groups</strong> (default)</li>
+                            <li>Apply to <strong>specific groups</strong> only</li>
+                        </ul>
+                        <p>This lets you create focused schedules. For example, block social media during work hours but allow messaging apps.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>Can I unlock apps during a schedule in an emergency?</summary>
+                    <div class="faq-answer">
+                        <p>Yes. During an active schedule, you can still unlock apps but there's a short waiting period (cooldown). This ensures you can access apps if truly needed while adding intentional friction.</p>
+                    </div>
+                </details>
+            </div>
+
+            <div class="faq-category">
+                <h3>Focus Sessions & Timers</h3>
+
+                <details class="faq-item">
+                    <summary>What's the difference between the Timer tab and Schedule tab?</summary>
+                    <div class="faq-answer">
+                        <ul>
+                            <li><strong>Timer tab</strong> - Start on-demand focus sessions (Pomodoro, Deep Focus, Analog Hour)</li>
+                            <li><strong>Schedule tab</strong> - View and manage recurring blocking schedules</li>
+                        </ul>
+                        <p>Timer sessions are instant and temporary. Schedules are recurring and run automatically.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>What is Pomodoro?</summary>
+                    <div class="faq-answer">
+                        <p>Pomodoro is a focus technique with alternating work and break periods:</p>
+                        <ul>
+                            <li><strong>Focus sessions</strong> - Configurable duration (default 25 minutes)</li>
+                            <li><strong>Short breaks</strong> - Between sessions (default 5 minutes)</li>
+                            <li><strong>Long breaks</strong> - After completing a round (default 15 minutes)</li>
+                            <li><strong>Sessions per round</strong> - Configurable (default 4 sessions)</li>
+                        </ul>
+                        <p>You can customize all timings in Settings.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>What is Deep Focus?</summary>
+                    <div class="faq-answer">
+                        <p>Deep Focus is a customizable focus session where you choose the duration. Unlike Pomodoro, there are no structured breaks - you decide when to end the session.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>What is Analog Hour?</summary>
+                    <div class="faq-answer">
+                        <p>Analog Hour is a 60-minute phone-free session that encourages you to spend time without digital distractions. It tracks your completion and builds a streak for consistency.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>Can I pause a focus session?</summary>
+                    <div class="faq-answer">
+                        <p>Yes! During Pomodoro, Deep Focus, or Analog Hour sessions:</p>
+                        <ol>
+                            <li>Tap the pause button in the Timer tab</li>
+                            <li>Your session pauses and you can access apps</li>
+                            <li>Resume when ready to continue</li>
+                        </ol>
+                        <p>The timer accounts for paused time when calculating your session completion.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>Do focus sessions lock my apps?</summary>
+                    <div class="faq-answer">
+                        <p>Yes. When you start a focus session, your apps are locked. To access them during the session:</p>
+                        <ol>
+                            <li>Go to Free Time</li>
+                            <li>Unlock via Mindful Moment or single-use unlock</li>
+                            <li>Manually lock when done</li>
+                        </ol>
+                    </div>
+                </details>
+            </div>
+
+            <div class="faq-category">
+                <h3>App Management</h3>
+
+                <details class="faq-item">
+                    <summary>How do I add or remove apps from blocking?</summary>
+                    <div class="faq-answer">
+                        <ol>
+                            <li>Go to the <strong>Apps</strong> tab</li>
+                            <li>Tap on an app group or create a new one</li>
+                            <li>Tap <strong>"Select Apps"</strong> to modify the group</li>
+                            <li>Use the FamilyControls picker to add/remove apps</li>
+                            <li>Save your changes</li>
+                        </ol>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>What are app groups?</summary>
+                    <div class="faq-answer">
+                        <p>App groups organize your apps into categories for easier management. Examples:</p>
+                        <ul>
+                            <li>Social Media (Instagram, TikTok, Twitter)</li>
+                            <li>Entertainment (YouTube, Netflix, Games)</li>
+                            <li>Messaging (WhatsApp, Messenger)</li>
+                        </ul>
+                        <p>Each group can have its own blocking settings and schedules.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>Can I block apps individually instead of groups?</summary>
+                    <div class="faq-answer">
+                        <p>Yes. You can create groups with single apps if you want individual control. However, groups make management easier when you have multiple apps with similar usage patterns.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>Can different groups have different schedules?</summary>
+                    <div class="faq-answer">
+                        <p>Yes! When creating a schedule, you can choose to:</p>
+                        <ul>
+                            <li>Apply to all groups (global schedule)</li>
+                            <li>Apply to specific groups only</li>
+                        </ul>
+                        <p>This gives you fine-grained control over when different types of apps are blocked.</p>
+                    </div>
+                </details>
+            </div>
+
+            <div class="faq-category">
+                <h3>Features</h3>
+
+                <details class="faq-item">
+                    <summary>What is the Dynamic Island / Live Activity feature?</summary>
+                    <div class="faq-answer">
+                        <p>When you unlock apps, Free Time shows a Live Activity on your lock screen and in the Dynamic Island (iPhone 14 Pro and newer). This displays:</p>
+                        <ul>
+                            <li>A stopwatch showing how long apps have been unlocked</li>
+                            <li>A "Lock Now" button to quickly lock apps without opening Free Time</li>
+                        </ul>
+                        <p>The stopwatch helps you stay aware of your app usage time. <strong>Note:</strong> There's no auto-lock timer - it's just for awareness.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>What is the widget?</summary>
+                    <div class="faq-answer">
+                        <p>Free Time includes a home screen widget that displays a daily mindfulness quote. It updates once per day with rotating inspirational messages about focus, mindfulness, and intentional technology use.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>Does Free Time track my app usage?</summary>
+                    <div class="faq-answer">
+                        <p>Free Time uses iOS Screen Time data to display trends and analytics in the Profile tab. This data stays on your device and in your private iCloud account - it's never shared with third parties.</p>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>What analytics does Free Time collect?</summary>
+                    <div class="faq-answer">
+                        <p>Free Time collects minimal analytics via Mixpanel to improve the app:</p>
+                        <ul>
+                            <li>Feature usage (which features you use)</li>
+                            <li>Session completions (Pomodoro, Deep Focus, etc.)</li>
+                            <li>Schedule activations</li>
+                            <li>Tab navigation</li>
+                        </ul>
+                        <p><strong>No personal data</strong> or specific app usage is sent to our servers. Analytics help us understand how to improve Free Time.</p>
                     </div>
                 </details>
             </div>
@@ -177,63 +404,140 @@
                 <h3>Troubleshooting</h3>
 
                 <details class="faq-item">
-                    <summary>Apps aren't being blocked - what should I do?</summary>
+                    <summary>My apps aren't blocking - what should I check?</summary>
                     <div class="faq-answer">
-                        <p>If apps aren't blocking properly, try these steps:</p>
                         <ol>
-                            <li><strong>Check Screen Time permissions:</strong> Go to iPhone Settings → Screen Time → Free Time and ensure all permissions are enabled</li>
-                            <li><strong>Verify your schedule:</strong> Make sure you have an active schedule that covers the current time</li>
-                            <li><strong>Check app selection:</strong> Confirm the apps you want blocked are selected in Free Time</li>
-                            <li><strong>Restart the app:</strong> Close Free Time completely and reopen it</li>
-                            <li><strong>Restart your iPhone:</strong> Sometimes iOS needs a restart for Screen Time changes to take effect</li>
+                            <li><strong>Check Screen Time permissions</strong>
+                                <ul>
+                                    <li>Go to iPhone Settings → Screen Time → Apps</li>
+                                    <li>Ensure Free Time has permission</li>
+                                </ul>
+                            </li>
+                            <li><strong>Verify apps are added to a group</strong>
+                                <ul>
+                                    <li>Go to Apps tab in Free Time</li>
+                                    <li>Confirm your apps are in an active group</li>
+                                </ul>
+                            </li>
+                            <li><strong>Check if apps are currently unlocked</strong>
+                                <ul>
+                                    <li>Go to Unlock tab</li>
+                                    <li>If apps are unlocked, press "Lock Now"</li>
+                                </ul>
+                            </li>
+                            <li><strong>Restart Free Time</strong>
+                                <ul>
+                                    <li>Force-quit and reopen the app</li>
+                                </ul>
+                            </li>
                         </ol>
                     </div>
                 </details>
 
                 <details class="faq-item">
-                    <summary>I can't grant Screen Time permissions - help!</summary>
+                    <summary>I solved a Mindful Moment but apps are still blocked</summary>
                     <div class="faq-answer">
-                        <p>If you're having trouble granting Screen Time permissions:</p>
-                        <ul>
-                            <li><strong>Check Screen Time is enabled:</strong> Go to Settings → Screen Time and ensure Screen Time is turned on for your device</li>
-                            <li><strong>Family Sharing issues:</strong> If you're part of a Family Sharing group, check with the family organizer - they may need to approve the app</li>
-                            <li><strong>Restrictions:</strong> If you have Restrictions or parental controls enabled, they may prevent Screen Time permission changes</li>
-                            <li><strong>Reinstall:</strong> Try deleting and reinstalling Free Time, then granting permissions again</li>
-                        </ul>
-                    </div>
-                </details>
-
-                <details class="faq-item">
-                    <summary>The app is crashing or freezing - what can I do?</summary>
-                    <div class="faq-answer">
-                        <p>If Free Time is crashing or not responding:</p>
+                        <p>This usually happens when:</p>
                         <ol>
-                            <li>Force close the app and reopen it</li>
-                            <li>Check for updates in the App Store - we regularly fix bugs</li>
-                            <li>Restart your iPhone</li>
-                            <li>If problems persist, contact our support team with details about when the crash happens</li>
+                            <li><strong>A schedule is active</strong> - Check the Schedule tab. If a schedule is running, you'll need to wait through the cooldown period</li>
+                            <li><strong>Apps weren't saved to group</strong> - Verify apps are properly added in the Apps tab</li>
+                            <li><strong>Permissions issue</strong> - Reauthorize Screen Time permissions in iPhone Settings</li>
                         </ol>
                     </div>
                 </details>
 
                 <details class="faq-item">
-                    <summary>I forgot my settings/can't access the app - now what?</summary>
+                    <summary>Permissions aren't working</summary>
                     <div class="faq-answer">
-                        <p>Don't worry! You can always regain access to Free Time settings by:</p>
+                        <ol>
+                            <li>Go to iPhone Settings → Screen Time</li>
+                            <li>Ensure Screen Time is enabled</li>
+                            <li>Go to Apps → Free Time</li>
+                            <li>Confirm all permissions are granted</li>
+                            <li>Restart Free Time</li>
+                        </ol>
+                        <p>If issues persist, try:</p>
                         <ul>
-                            <li>Going to iPhone Settings → Screen Time → Free Time</li>
-                            <li>Temporarily disabling Screen Time permissions for Free Time</li>
-                            <li>Opening Free Time to adjust your settings</li>
-                            <li>Re-enabling permissions when you're done</li>
+                            <li>Restarting your iPhone</li>
+                            <li>Reinstalling Free Time (your data is saved in iCloud)</li>
                         </ul>
-                        <p>Remember: You're always in control. Free Time is designed to help, not trap you!</p>
                     </div>
                 </details>
 
                 <details class="faq-item">
-                    <summary>Can I export my data or see my usage statistics?</summary>
+                    <summary>My schedule isn't activating at the right time</summary>
                     <div class="faq-answer">
-                        <p>Free Time includes basic tracking of your puzzle completions and unlock history. You can view this information in the app's Reports or Stats section. Currently, data export is not available, but we're considering this feature for future updates.</p>
+                        <ol>
+                            <li>Check the schedule days - Ensure today is selected</li>
+                            <li>Check the schedule time - Verify start/end times are correct</li>
+                            <li>Check timezone - Schedules use your device's local time</li>
+                            <li>Ensure schedule is enabled - Toggle may have been turned off</li>
+                        </ol>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>I completed a focus session but didn't get the completion screen</summary>
+                    <div class="faq-answer">
+                        <p>This can happen if:</p>
+                        <ul>
+                            <li>You force-quit Free Time during the session</li>
+                            <li>iOS terminated the app in the background</li>
+                        </ul>
+                        <p>Your session time is still tracked in focus history, but the celebration screen may not appear.</p>
+                    </div>
+                </details>
+            </div>
+
+            <div class="faq-category">
+                <h3>Privacy & Data</h3>
+
+                <details class="faq-item">
+                    <summary>What data does Free Time collect?</summary>
+                    <div class="faq-answer">
+                        <p>Free Time collects:</p>
+                        <ul>
+                            <li><strong>Account data</strong> (if you sign in with Apple)</li>
+                            <li><strong>Anonymous usage analytics</strong> via Mixpanel</li>
+                            <li><strong>Focus session history</strong> (stored locally and in your private iCloud)</li>
+                            <li><strong>Schedule completions</strong> for streak tracking</li>
+                        </ul>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>Is my data shared with third parties?</summary>
+                    <div class="faq-answer">
+                        <p>No. Your personal data and app usage information stays private:</p>
+                        <ul>
+                            <li>Screen Time data remains on your device</li>
+                            <li>Focus sessions sync to your private iCloud account</li>
+                            <li>Analytics are anonymous and aggregated</li>
+                            <li>We never sell or share your data</li>
+                        </ul>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>Can I delete my data?</summary>
+                    <div class="faq-answer">
+                        <p>Yes. You can:</p>
+                        <ol>
+                            <li><strong>Delete local data</strong> - Uninstall Free Time from your iPhone</li>
+                            <li><strong>Delete iCloud data</strong> - Sign out of your Apple ID in Free Time settings</li>
+                            <li><strong>Request account deletion</strong> - Contact support for complete data removal</li>
+                        </ol>
+                    </div>
+                </details>
+
+                <details class="faq-item">
+                    <summary>Where is my data stored?</summary>
+                    <div class="faq-answer">
+                        <ul>
+                            <li><strong>Locally</strong> - On your iPhone in the app's secure storage</li>
+                            <li><strong>iCloud</strong> - Focus history and schedule completions sync via CloudKit</li>
+                            <li><strong>Analytics</strong> - Anonymous usage data on Mixpanel servers (no personal info)</li>
+                        </ul>
                     </div>
                 </details>
             </div>
@@ -243,33 +547,7 @@
     <section class="contact-section">
         <div class="container">
             <h2>Still Need Help?</h2>
-            <p>Can't find what you're looking for? Visit our <a href="contact.html">Contact page</a> to get in touch.</p>
-
-            <!-- Contact form - uncomment when ready to use with Formspree
-            <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-                <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="subject">Subject</label>
-                    <input type="text" id="subject" name="subject" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea id="message" name="message" rows="6" required></textarea>
-                </div>
-
-                <button type="submit" class="cta-button">Send Message</button>
-            </form>
-            -->
+            <p>Can't find what you're looking for? Visit our <a href="contact.html">Contact page</a> or send feedback at <a href="feedback.html">Feedback page</a>.</p>
         </div>
     </section>
 
