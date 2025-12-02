@@ -61,6 +61,8 @@
         .hero p {
             font-size: 1.2em;
             opacity: 0.95;
+            max-width: 700px;
+            margin: 0 auto;
         }
 
         .tutorial-section {
@@ -160,6 +162,15 @@
             font-size: 1.3em;
         }
 
+        .quote-box {
+            background-color: rgba(93, 172, 179, 0.1);
+            border-left: 4px solid #5DACB3;
+            padding: 20px;
+            margin: 20px 0;
+            font-style: italic;
+            color: #083267;
+        }
+
         .footer-text {
             margin: 40px auto;
             padding: 30px;
@@ -240,6 +251,9 @@
             }
         }
     </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -251,143 +265,378 @@
 
     <section class="hero">
         <div class="container">
-            <h2>How to Use Free Time</h2>
-            <p>A simple guide to getting started with mindful phone usage</p>
+            <h2>Step-by-Step Tutorial</h2>
+            <p>Learn everything you need to know to use Free Time effectively</p>
         </div>
     </section>
 
     <section class="tutorial-section">
         <div class="container">
-            <h2>Getting Started</h2>
+            <div class="tutorial-step">
+                <h3>What is Free Time?</h3>
+                <p>Free Time is a mindful app blocker that helps you use your apps in moderation. <strong>Unlike restrictive app blockers that kick you off your apps, Free Time helps you learn to use them mindfully</strong> through an intentional unlocking process.</p>
+                <p>Here's the core idea: <strong>The apps you selected to lock stay locked all day. When you want to use them, you come here to unlock them and return to lock them when you're done.</strong></p>
+            </div>
+
+            <h2>Part 1: Getting Started</h2>
 
             <div class="tutorial-step">
-                <h3>1. Download and Install</h3>
-                <p>Download Free Time from the App Store and open the app on your iPhone or iPad.</p>
-                <p><strong>Requirements:</strong> iOS 16.0 or later</p>
+                <h3>Step 1: Grant Screen Time Permissions</h3>
+                <p>When you first open Free Time, you'll be asked to grant Screen Time permissions. This is required for Free Time to block apps on your device.</p>
+                <ol>
+                    <li>Tap <strong>"Allow"</strong> when prompted</li>
+                    <li>Follow the iOS prompts to authorize Free Time</li>
+                    <li>You'll be taken through the onboarding flow</li>
+                </ol>
+                <p><strong>Why does Free Time need this?</strong> Free Time uses Apple's Screen Time API to manage app blocking. This ensures your privacy while giving Free Time the ability to block apps.</p>
             </div>
 
             <div class="tutorial-step">
-                <h3>2. Grant Screen Time Permissions</h3>
-                <p>When you first open Free Time, you'll be asked to grant Screen Time permissions. This is essential for the app to work.</p>
+                <h3>Step 2: Set Up Your First Apps</h3>
+                <p>During onboarding, you'll be guided to select which apps you want to lock:</p>
                 <ol>
-                    <li>Tap "Get Started" in the app</li>
-                    <li>When prompted, tap "Allow" to grant Screen Time access</li>
-                    <li>Follow the system prompts to enable permissions in Settings</li>
+                    <li><strong>Choose apps to lock</strong> - Tap "Select Apps" to see all your apps</li>
+                    <li><strong>Pick the apps</strong> you want to manage mindfully (e.g., Instagram, TikTok, YouTube)</li>
+                    <li><strong>Save your selection</strong> - These apps will now be locked</li>
                 </ol>
-                <p><em>Note: Free Time uses Apple's official Screen Time API. Your data stays private and on your device.</em></p>
+                <p><strong>Tip:</strong> Start with 3-5 apps that you find most distracting. You can always add more later.</p>
             </div>
 
             <div class="tutorial-step">
-                <h3>3. Select Apps to Block</h3>
-                <p>Choose which apps you want to manage with Free Time.</p>
-                <ol>
-                    <li>Go to the <strong>Apps</strong> tab</li>
-                    <li>Tap "Add Apps" or "Manage Apps"</li>
-                    <li>Select the apps you want to block from the list</li>
-                    <li>Organize apps into groups (like "Social Media" or "Games") for easier management</li>
-                </ol>
-                <p><strong>Tip:</strong> Start with your most distracting apps - you can always add more later.</p>
-            </div>
-
-            <h2>Setting Up Blocking</h2>
-
-            <div class="tutorial-step">
-                <h3>4. Create a Blocking Schedule</h3>
-                <p>Set up when you want apps to be blocked automatically.</p>
-                <ol>
-                    <li>Go to the <strong>Schedule</strong> tab</li>
-                    <li>Tap "Create New Schedule"</li>
-                    <li>Choose which days of the week (e.g., weekdays only)</li>
-                    <li>Set start and end times (e.g., 9 AM to 5 PM for work hours)</li>
-                    <li>Select which app groups to block during this time</li>
-                    <li>Save your schedule</li>
-                </ol>
-                <p><strong>Examples:</strong></p>
+                <h3>Step 3: Understand the Four Tabs</h3>
+                <p>Free Time has four main tabs:</p>
                 <ul>
-                    <li><em>Focus Hours:</em> Block social media Monday-Friday, 9 AM - 5 PM</li>
-                    <li><em>Evening Wind-Down:</em> Block all apps daily, 10 PM - 7 AM</li>
-                    <li><em>Always-On:</em> Block certain apps 24/7 by selecting all days</li>
+                    <li><strong>Unlock</strong> - Where you unlock and lock your apps</li>
+                    <li><strong>Schedule</strong> - Set up Digital Detox schedules</li>
+                    <li><strong>Timer</strong> - Start focus sessions (Pomodoro, Deep Focus, Analog Hour)</li>
+                    <li><strong>Profile</strong> - View analytics, settings, and manage your account</li>
+                </ul>
+            </div>
+
+            <h2>Part 2: Daily Workflow (How to Use Free Time Every Day)</h2>
+
+            <div class="tutorial-step">
+                <h3>The Basic Cycle</h3>
+                <p>Here's how Free Time works on a daily basis:</p>
+
+                <h4>Step 1: Your Apps Are Locked</h4>
+                <p>Your selected apps stay locked all day automatically. If you try to open a locked app:</p>
+                <ul>
+                    <li>You'll see the Screen Time restriction screen</li>
+                    <li>You'll need to open Free Time to unlock them</li>
+                </ul>
+
+                <h4>Step 2: Unlock Your Apps (When You Want to Use Them)</h4>
+                <p>When you want to use your locked apps:</p>
+                <ol>
+                    <li><strong>Open Free Time</strong></li>
+                    <li><strong>Go to the Unlock tab</strong> (first tab)</li>
+                    <li><strong>Complete a Mindful Moment</strong> - This is a quick puzzle or breathing exercise:
+                        <ul>
+                            <li><strong>Word Unscramble</strong> (free users)</li>
+                            <li><strong>Math Puzzle</strong> (Pro)</li>
+                            <li><strong>Breathing</strong> (Pro)</li>
+                        </ul>
+                    </li>
+                    <li><strong>Your apps are now unlocked</strong> - You can use them freely</li>
+                </ol>
+
+                <h4>Step 3: Use Your Apps</h4>
+                <p>After unlocking:</p>
+                <ul>
+                    <li><strong>All your locked apps are now accessible</strong></li>
+                    <li>You can switch between apps, close and reopen them</li>
+                    <li>They stay unlocked - there's no timer counting down</li>
+                    <li>You decide when you're done</li>
+                </ul>
+                <p><strong>Important:</strong> Free Time doesn't automatically lock apps for you. Apps remain unlocked until you manually lock them.</p>
+
+                <h4>Step 4: Manually Lock When You're Done</h4>
+                <p>When you're finished using your apps:</p>
+                <ol>
+                    <li><strong>Return to Free Time</strong></li>
+                    <li><strong>Go to the Unlock tab</strong></li>
+                    <li><strong>Tap "Lock Now"</strong> - The big button at the bottom</li>
+                    <li><strong>Done!</strong> Your apps are locked again</li>
+                </ol>
+                <p><strong>Why manual locking?</strong> This helps you build awareness and self-regulation. You learn to consciously decide when you're done, rather than being forced off your apps.</p>
+            </div>
+
+            <div class="tutorial-step">
+                <h3>Understanding the Stopwatch</h3>
+                <p>When apps are unlocked, you'll see a stopwatch on the Unlock tab showing how long apps have been unlocked. This is <strong>just for awareness</strong> - it won't auto-lock your apps.</p>
+                <p>On iPhone 14 Pro and newer, this also appears in the Dynamic Island on your lock screen.</p>
+            </div>
+
+            <h2>Part 3: Managing Your Apps</h2>
+
+            <div class="tutorial-step">
+                <h3>Adding More Apps</h3>
+                <p>To add more apps to Free Time:</p>
+                <ol>
+                    <li><strong>Go to the Apps tab</strong> (second tab)</li>
+                    <li><strong>Find your app group</strong> (e.g., "Social Media")</li>
+                    <li><strong>Tap on the group</strong></li>
+                    <li><strong>Tap "Select Apps"</strong></li>
+                    <li><strong>Add or remove apps</strong> using the iOS picker</li>
+                    <li><strong>Save</strong> your changes</li>
+                </ol>
+            </div>
+
+            <div class="tutorial-step">
+                <h3>Creating App Groups</h3>
+                <p>App groups help you organize apps by category:</p>
+                <ol>
+                    <li><strong>Go to the Apps tab</strong></li>
+                    <li><strong>Tap "+" or "Add Group"</strong></li>
+                    <li><strong>Name your group</strong> (e.g., "Entertainment", "Gaming")</li>
+                    <li><strong>Select apps</strong> to add to the group</li>
+                    <li><strong>Save</strong> the group</li>
+                </ol>
+                <p><strong>Example groups:</strong></p>
+                <ul>
+                    <li>Social Media (Instagram, TikTok, Twitter)</li>
+                    <li>Entertainment (YouTube, Netflix, Twitch)</li>
+                    <li>Gaming (all your games)</li>
+                    <li>News (news apps you check compulsively)</li>
                 </ul>
             </div>
 
             <div class="tutorial-step">
-                <h3>5. Use Instant Focus (Optional)</h3>
-                <p>Need to block apps right now? Use Instant Focus mode.</p>
+                <h3>Removing Apps from Blocking</h3>
+                <p>To stop blocking specific apps:</p>
                 <ol>
-                    <li>Go to the <strong>Focus</strong> tab</li>
-                    <li>Choose a preset duration (15 min, 30 min, 1 hour, etc.)</li>
-                    <li>Tap "Start Focus"</li>
+                    <li><strong>Go to the Apps tab</strong></li>
+                    <li><strong>Tap on the group</strong> containing the app</li>
+                    <li><strong>Tap "Select Apps"</strong></li>
+                    <li><strong>Deselect the app</strong> you want to remove</li>
+                    <li><strong>Save</strong> your changes</li>
                 </ol>
-                <p>Your selected apps will be blocked immediately for the chosen duration.</p>
+                <p>Or delete the entire group if you no longer need it.</p>
             </div>
 
-            <h2>Using the App Daily</h2>
+            <h2>Part 4: Setting Up Digital Detox Schedules</h2>
 
             <div class="tutorial-step">
-                <h3>6. Understanding Puzzles</h3>
-                <p>When you try to open a blocked app, you'll need to complete a puzzle or mindfulness activity to unlock it temporarily.</p>
-
-                <h4>Puzzle Types:</h4>
+                <h3>What Are Schedules?</h3>
+                <p>Schedules are like a <strong>padlock</strong> - a second lock that prevents you from easily unlocking your apps during important times.</p>
+                <p><strong>What Are Schedules Good For?</strong></p>
                 <ul>
-                    <li><strong>Math Puzzles:</strong> Solve arithmetic problems. Choose Easy, Medium, or Hard difficulty in Settings.</li>
-                    <li><strong>Box Breathing:</strong> Complete a calming breathing exercise (inhale-hold-exhale-hold).</li>
-                    <li><strong>Gratitude Journal:</strong> Type something you're grateful for to shift your mindset before using the app.</li>
+                    <li><strong>Sleep Mode</strong> - Keep apps locked during sleep hours</li>
+                    <li><strong>Work Focus</strong> - Stay productive during work hours</li>
+                    <li><strong>Morning Routine</strong> - Start your day without distractions</li>
+                    <li><strong>Evening Wind Down</strong> - Relax before bed</li>
+                </ul>
+            </div>
+
+            <div class="tutorial-step">
+                <h3>Creating Your First Schedule</h3>
+                <p>Let's create a Sleep Mode schedule:</p>
+                <ol>
+                    <li><strong>Go to the Schedule tab</strong> (second tab)</li>
+                    <li><strong>Tap "+" or "Create Schedule"</strong></li>
+                    <li><strong>Choose "Sleep Mode"</strong> (or Custom)</li>
+                    <li><strong>Set your times:</strong>
+                        <ul>
+                            <li>Start time: 10:00 PM</li>
+                            <li>End time: 7:00 AM</li>
+                        </ul>
+                    </li>
+                    <li><strong>Select days</strong> - Choose which days this schedule runs (e.g., every day)</li>
+                    <li><strong>Choose which apps</strong> - Apply to all apps or specific groups</li>
+                    <li><strong>Save</strong> your schedule</li>
+                </ol>
+            </div>
+
+            <div class="tutorial-step">
+                <h3>How Schedules Work</h3>
+                <p>When a schedule is active:</p>
+                <ul>
+                    <li><strong>Your apps are locked</strong> like normal</li>
+                    <li><strong>BUT</strong> when you try to unlock them, <strong>you'll face a cooldown period</strong></li>
+                    <li>This is the "padlock" - an extra layer of protection</li>
+                </ul>
+                <p><strong>Example:</strong> During Sleep Mode (10 PM - 7 AM), if you try to unlock Instagram, you'll need to wait through a short cooldown before you can access it. This gives you time to reconsider.</p>
+            </div>
+
+            <div class="tutorial-step">
+                <h3>Can I Unlock During a Schedule Emergency?</h3>
+                <p>Yes! In case of emergency, you can still unlock apps during a schedule, but there's a waiting period. This ensures you can always access your apps when truly needed, while adding intentional friction for mindless use.</p>
+            </div>
+
+            <h2>Part 5: Using Focus Sessions</h2>
+
+            <div class="tutorial-step">
+                <h3>Pomodoro Technique</h3>
+                <p>Pomodoro is a proven focus method with work and break intervals:</p>
+                <ol>
+                    <li><strong>Go to the Timer tab</strong> (third tab)</li>
+                    <li><strong>Tap "Start Pomodoro"</strong></li>
+                    <li><strong>Your apps are locked</strong> for the focus period (default: 25 minutes)</li>
+                    <li><strong>Work without distractions</strong></li>
+                    <li><strong>When the timer ends:</strong>
+                        <ul>
+                            <li>You'll see a completion screen</li>
+                            <li>Take a break (5 minutes short break, or 15 minutes long break after 4 sessions)</li>
+                            <li>Decide if you want to start the next session</li>
+                        </ul>
+                    </li>
+                </ol>
+                <p><strong>Customizing Pomodoro:</strong></p>
+                <ul>
+                    <li>Go to <strong>Profile → Settings → Pomodoro Settings</strong></li>
+                    <li>Adjust focus time, break times, and sessions per round</li>
+                </ul>
+            </div>
+
+            <div class="tutorial-step">
+                <h3>Deep Focus</h3>
+                <p>Deep Focus is a customizable focus session without structured breaks:</p>
+                <ol>
+                    <li><strong>Go to the Timer tab</strong></li>
+                    <li><strong>Tap "Deep Focus"</strong></li>
+                    <li><strong>Choose your duration</strong> (15 min, 30 min, 1 hour, or custom)</li>
+                    <li><strong>Your apps are locked</strong> for that duration</li>
+                    <li><strong>Work distraction-free</strong></li>
+                </ol>
+                <p>You decide when to take breaks - there's no automatic break system.</p>
+            </div>
+
+            <div class="tutorial-step">
+                <h3>Analog Hour</h3>
+                <p>Analog Hour is a 60-minute phone-free challenge:</p>
+                <ol>
+                    <li><strong>Go to the Timer tab</strong></li>
+                    <li><strong>Tap "Analog Hour"</strong></li>
+                    <li><strong>Your apps are locked for 60 minutes</strong></li>
+                    <li><strong>Spend time on analog activities</strong> (reading, walking, journaling, etc.)</li>
+                    <li><strong>Build your streak</strong> by completing Analog Hours regularly</li>
+                </ol>
+                <p><strong>Tip:</strong> Use Analog Hour before bed or in the morning to start/end your day mindfully.</p>
+            </div>
+
+            <div class="tutorial-step">
+                <h3>Pausing Focus Sessions</h3>
+                <p>If you need to pause during any focus session:</p>
+                <ol>
+                    <li><strong>Open Free Time</strong></li>
+                    <li><strong>Go to the Timer tab</strong></li>
+                    <li><strong>Tap the pause button</strong></li>
+                    <li><strong>Your session pauses</strong> - you can now access apps</li>
+                    <li><strong>Resume when ready</strong> - Tap resume to continue your session</li>
+                </ol>
+            </div>
+
+            <h2>Part 6: Tips & Best Practices</h2>
+
+            <div class="tutorial-step">
+                <h3>Understanding the Philosophy</h3>
+                <div class="quote-box">
+                    "We never kick you off your apps. We help you use them mindfully."
+                </div>
+                <p>This means:</p>
+                <ul>
+                    <li><strong>No forced auto-locking</strong> - You control when to lock</li>
+                    <li><strong>No timers that kick you out</strong> - The stopwatch is just for awareness</li>
+                    <li><strong>No judgement</strong> - We help you build healthy habits, not shame you</li>
+                </ul>
+            </div>
+
+            <div class="tutorial-step">
+                <h3>Making Free Time Work for You</h3>
+
+                <h4>Start Small</h4>
+                <ul>
+                    <li>Begin with 3-5 of your most distracting apps</li>
+                    <li>Add one simple schedule (like Sleep Mode)</li>
+                    <li>Build from there as you get comfortable</li>
                 </ul>
 
-                <p><strong>What happens after solving a puzzle?</strong><br>
-                The blocked app unlocks for a set time period (you can customize this in Settings). After the time expires, the app blocks again.</p>
-            </div>
-
-            <div class="tutorial-step">
-                <h3>7. Customize Your Settings</h3>
-                <p>Make Free Time work for you by adjusting settings:</p>
+                <h4>Create Friction, Not Walls</h4>
                 <ul>
-                    <li><strong>Puzzle Difficulty:</strong> Change how challenging puzzles are</li>
-                    <li><strong>Unlock Duration:</strong> Set how long apps stay unlocked after completing a puzzle</li>
-                    <li><strong>Puzzle Types:</strong> Enable or disable specific puzzle types</li>
-                    <li><strong>Notifications:</strong> Get reminders and progress updates</li>
+                    <li>The goal isn't to never use apps</li>
+                    <li>It's to use them intentionally, not impulsively</li>
+                    <li>The Mindful Moment creates a "speed bump" before use</li>
                 </ul>
-                <p>Access all settings from the <strong>Settings</strong> tab.</p>
+
+                <h4>Be Honest About Locking</h4>
+                <ul>
+                    <li>Don't leave apps unlocked all day "just in case"</li>
+                    <li>Lock them when you're done, even if you might use them later</li>
+                    <li>Build the habit of unlock → use → lock</li>
+                </ul>
+
+                <h4>Use Schedules Strategically</h4>
+                <ul>
+                    <li>Identify your vulnerable times (morning, before bed, during work)</li>
+                    <li>Add schedules for those specific periods</li>
+                    <li>Don't over-schedule - start with 1-2 key times</li>
+                </ul>
+
+                <h4>Combine Features</h4>
+                <ul>
+                    <li>Use <strong>Schedules</strong> for recurring protection (every weeknight)</li>
+                    <li>Use <strong>Focus Sessions</strong> for one-off deep work (important project due)</li>
+                    <li>Use both together for maximum focus</li>
+                </ul>
             </div>
 
-            <h2>Tips for Success</h2>
+            <div class="tutorial-step">
+                <h3>Common Workflows</h3>
+
+                <h4>Morning Routine (Recommended)</h4>
+                <ol>
+                    <li>Wake up with apps already locked (from Sleep Mode schedule)</li>
+                    <li>Do your morning routine without phone distractions</li>
+                    <li>Unlock apps when you're ready to check messages/social media</li>
+                    <li>Lock apps when done checking</li>
+                    <li>Start a focus session if you have morning work</li>
+                </ol>
+
+                <h4>Work Day (Recommended)</h4>
+                <ol>
+                    <li>Create a Work Focus schedule (9 AM - 5 PM, Monday-Friday)</li>
+                    <li>During work hours, apps have extra friction from the schedule</li>
+                    <li>When you need a break, unlock apps briefly</li>
+                    <li>Lock them when break is over</li>
+                    <li>Use Pomodoro for deep work sessions</li>
+                </ol>
+
+                <h4>Evening Wind Down (Recommended)</h4>
+                <ol>
+                    <li>Create an Evening Wind Down schedule (8 PM - 10 PM)</li>
+                    <li>This prevents mindless scrolling before bed</li>
+                    <li>Do an Analog Hour instead of phone time</li>
+                    <li>Sleep Mode takes over at 10 PM</li>
+                    <li>Wake up refreshed without late-night scrolling</li>
+                </ol>
+            </div>
+
+            <h2>Next Steps</h2>
 
             <div class="tutorial-step">
-                <h3>Best Practices</h3>
+                <h3>Your Action Plan</h3>
+                <p>Congratulations! You now know how to use Free Time effectively.</p>
                 <ul class="tips-list">
-                    <li><strong>Start Small:</strong> Begin by blocking just 1-2 apps or creating one simple schedule. Build up gradually.</li>
-                    <li><strong>Be Realistic:</strong> Don't block apps you truly need for work or important communication.</li>
-                    <li><strong>Use App Groups:</strong> Organize apps by category (Social Media, Games, Shopping) for easier management.</li>
-                    <li><strong>Adjust as Needed:</strong> If puzzles feel too easy or too hard, change the difficulty. Free Time should help, not frustrate.</li>
-                    <li><strong>Review Regularly:</strong> Check your usage patterns weekly and adjust schedules accordingly.</li>
-                    <li><strong>Combine Methods:</strong> Use both scheduled blocking and Instant Focus for maximum flexibility.</li>
+                    <li>Set up your first apps (if you haven't already)</li>
+                    <li>Practice the daily workflow: Unlock → Use → Lock</li>
+                    <li>Create one schedule for a vulnerable time (we recommend Sleep Mode)</li>
+                    <li>Try a focus session (start with Pomodoro)</li>
+                    <li>Use Free Time daily for one week to build the habit</li>
                 </ul>
-            </div>
-
-            <div class="tutorial-step">
-                <h3>Common Questions</h3>
-
-                <h4>What if I need to access a blocked app urgently?</h4>
-                <p>You can always complete a puzzle to unlock the app temporarily. For true emergencies, you can disable Free Time permissions in iPhone Settings → Screen Time → Free Time.</p>
-
-                <h4>Can I bypass the puzzles?</h4>
-                <p>No - that's the point! The puzzles create a mindful pause between impulse and action. However, you're always in control and can adjust settings or disable blocking if needed.</p>
-
-                <h4>Will this drain my battery?</h4>
-                <p>No. Free Time uses Apple's native Screen Time framework, which is designed to be energy-efficient and runs in the background with minimal impact.</p>
-            </div>
-
-            <div class="tutorial-step">
-                <h3>Need More Help?</h3>
-                <p>Visit our <a href="support.html">Support Page</a> for detailed FAQs and troubleshooting guides.</p>
-                <p>Questions or feedback? Email us at <a href="mailto:support@findfreetime.com">support@findfreetime.com</a></p>
+                <p><strong>Need more help?</strong></p>
+                <ul>
+                    <li>Check the <a href="support.html">Support page</a> for answers to specific questions</li>
+                    <li>Go to <strong>Profile → Help & Support</strong> in the app</li>
+                    <li>Contact support if you're stuck</li>
+                </ul>
             </div>
         </div>
     </section>
 
     <div class="footer-text">
         <div class="container">
-            <p><strong>Remember:</strong> Free Time is a tool to help you build better habits, not a restriction. You're always in control of your device and your time.</p>
+            <p><strong>Remember:</strong> Free Time is a tool to help you build awareness and healthy habits. It's not about perfection - it's about progress. Some days you'll unlock and forget to lock. Some days you'll skip schedules. That's okay. The goal is to gradually build more intentional tech habits. Start small, be consistent, and adjust as you learn what works for you.</p>
         </div>
     </div>
 
@@ -395,13 +644,13 @@
         <div class="container">
             <nav>
                 <a href="https://www.findfreetime.com/index.html">Home</a>
-                <a href="Tutorial.html">Tutorial</a>
+                <a href="tutorial.html">Tutorial</a>
                 <a href="support.html">Support</a>
                 <a href="privacy.html">Privacy Policy</a>
                 <a href="terms.html">Terms of Use</a>
                 <a href="mailto:support@findfreetime.com">Contact</a>
             </nav>
-            <p>&copy; 2024 Nicole Kelner LLC DBA Mindful Tech Studio. All rights reserved.</p>
+            <p>&copy; 2025 Nicole Kelner LLC DBA Mindful Tech Studio. All rights reserved.</p>
         </div>
     </footer>
 </body>
