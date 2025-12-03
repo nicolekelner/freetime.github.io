@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free Time app status - current issues, recent fixes, and planned features. Stay updated on app improvements and known bugs.">
+    <meta name="theme-color" content="#5DACB3">
+    <!-- Google tag (gtag.js) - loaded after consent -->
+    <script>
+      function loadGoogleAnalytics() {
+        var script = document.createElement('script');
+        script.async = true;
+        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-3XH6ZL37DY';
+        document.head.appendChild(script);
+
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-3XH6ZL37DY');
+      }
+
+      // Check if user has already consented
+      if (localStorage.getItem('cookieConsent') === 'accepted') {
+        loadGoogleAnalytics();
+      }
+    </script>
+    <title>Status - Free Time</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .status-hero {
+            text-align: center;
+            padding: 100px 20px 40px;
+            background: linear-gradient(135deg, #F8FCFF 0%, #ffffff 100%);
+            border-bottom: 2px solid #5DACB3;
+        }
+
+        .status-hero h1 {
+            font-size: 2.5em;
+            color: #083267;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .last-updated {
+            font-size: 1em;
+            color: #666;
+            font-weight: 400;
+        }
+
+        .system-status-banner {
+            background: linear-gradient(135deg, #4ade80 0%, #22c55e 100%);
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin: 0;
+            font-size: 1.1em;
+            font-weight: 600;
+        }
+
+        .system-status-banner.degraded {
+            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+        }
+
+        .system-status-banner.down {
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+        }
+
+        .status-section {
+            padding: 60px 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .status-section h2 {
+            font-size: 2em;
+            color: #083267;
+            margin-bottom: 30px;
+            font-weight: 600;
+            border-bottom: 2px solid rgba(93, 172, 179, 0.2);
+            padding-bottom: 10px;
+        }
+
+        .issue-card {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .issue-card summary {
+            padding: 20px;
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-weight: 600;
+            color: #083267;
+            font-size: 1.1em;
+            transition: background 0.2s;
+        }
+
+        .issue-card summary:hover {
+            background: #F8FCFF;
+        }
+
+        .issue-card summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .issue-severity {
+            font-size: 1.5em;
+            flex-shrink: 0;
+        }
+
+        .issue-title {
+            flex: 1;
+        }
+
+        .issue-status {
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.75em;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .status-investigating {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .status-working {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+
+        .status-fixed {
+            background: #d1fae5;
+            color: #065f46;
+        }
+
+        .issue-details {
+            padding: 0 20px 20px 55px;
+            color: #444;
+            line-height: 1.6;
+        }
+
+        .issue-meta {
+            display: flex;
+            gap: 20px;
+            margin-top: 15px;
+            font-size: 0.9em;
+            color: #666;
+        }
+
+        .issue-meta strong {
+            color: #083267;
+        }
+
+        .fixed-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .fixed-item {
+            padding: 15px 20px;
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .fixed-item .checkmark {
+            color: #22c55e;
+            font-size: 1.3em;
+            flex-shrink: 0;
+        }
+
+        .fixed-item .content {
+            flex: 1;
+        }
+
+        .fixed-item .title {
+            font-weight: 600;
+            color: #083267;
+            margin-bottom: 4px;
+        }
+
+        .fixed-item .version {
+            font-size: 0.9em;
+            color: #5DACB3;
+            font-weight: 500;
+        }
+
+        .planned-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .planned-item {
+            padding: 15px 20px;
+            background: #F8FCFF;
+            border-left: 4px solid #5DACB3;
+            border-radius: 4px;
+            margin-bottom: 12px;
+        }
+
+        .planned-item .title {
+            font-weight: 600;
+            color: #083267;
+            margin-bottom: 6px;
+            font-size: 1.05em;
+        }
+
+        .planned-item .description {
+            color: #444;
+            line-height: 1.6;
+        }
+
+        .report-issue {
+            text-align: center;
+            padding: 40px 20px;
+            background: #F8FCFF;
+            border-radius: 8px;
+            margin-top: 40px;
+        }
+
+        .report-issue h3 {
+            color: #083267;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .report-issue p {
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .report-issue a {
+            display: inline-block;
+            padding: 12px 30px;
+            background: #5DACB3;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+
+        .report-issue a:hover {
+            background: #4a9199;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 40px 20px;
+            color: #666;
+            font-style: italic;
+        }
+
+        @media (max-width: 768px) {
+            .status-hero h1 {
+                font-size: 2em;
+            }
+
+            .status-section h2 {
+                font-size: 1.6em;
+            }
+
+            .issue-card summary {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+
+            .issue-status {
+                align-self: flex-start;
+            }
+
+            .issue-details {
+                padding: 0 20px 20px 20px;
+            }
+
+            .issue-meta {
+                flex-direction: column;
+                gap: 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Modern Navigation Header -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="logo-narrow.png" alt="Free Time Logo" class="logo-img">
+                Free Time
+            </a>
+            <button class="hamburger" id="hamburger" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="nav-links" id="navLinks">
+                <a href="about.html">About</a>
+                <a href="https://apps.apple.com/us/app/free-time-mindful-screen-time/id6747683001" class="nav-cta">Download App</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="status-hero">
+        <h1>Free Time Status</h1>
+        <p class="last-updated">Last updated: <span id="lastUpdated">December 3, 2024</span></p>
+    </section>
+
+    <!-- System Status Banner -->
+    <div class="system-status-banner">
+        ✓ All systems operational
+    </div>
+
+    <!-- Current Known Issues -->
+    <section class="status-section">
+        <h2>Current Known Issues</h2>
+
+        <!-- Example Issue 1 - Remove or update as needed -->
+        <details class="issue-card">
+            <summary>
+                <span class="issue-severity">🟡</span>
+                <span class="issue-title">Apps not blocking after midnight</span>
+                <span class="issue-status status-working">Working on fix</span>
+            </summary>
+            <div class="issue-details">
+                <p>We're aware that some users experience apps becoming unblocked after midnight. We've identified the cause and are testing a fix.</p>
+                <div class="issue-meta">
+                    <div><strong>Reported:</strong> November 28, 2024</div>
+                    <div><strong>Severity:</strong> High</div>
+                    <div><strong>Estimated fix:</strong> Next update (v1.0.5)</div>
+                </div>
+            </div>
+        </details>
+
+        <!-- Example Issue 2 - Remove or update as needed -->
+        <details class="issue-card">
+            <summary>
+                <span class="issue-severity">🟢</span>
+                <span class="issue-title">Dynamic Island timer not updating on lock screen</span>
+                <span class="issue-status status-investigating">Investigating</span>
+            </summary>
+            <div class="issue-details">
+                <p>Some iPhone 14 Pro and newer users report that the stopwatch timer in the Dynamic Island doesn't update in real-time on the lock screen. We're investigating the cause.</p>
+                <div class="issue-meta">
+                    <div><strong>Reported:</strong> November 30, 2024</div>
+                    <div><strong>Severity:</strong> Medium</div>
+                </div>
+            </div>
+        </details>
+
+        <!-- Empty state - show when no issues -->
+        <!-- <div class="empty-state">
+            <p>No known issues at this time. All systems are running smoothly!</p>
+        </div> -->
+    </section>
+
+    <!-- Recently Fixed -->
+    <section class="status-section">
+        <h2>Recently Fixed</h2>
+
+        <ul class="fixed-list">
+            <li class="fixed-item">
+                <span class="checkmark">✓</span>
+                <div class="content">
+                    <div class="title">Mindful Moment emotions not saving</div>
+                    <div class="version">Fixed in v1.0.2</div>
+                </div>
+            </li>
+            <li class="fixed-item">
+                <span class="checkmark">✓</span>
+                <div class="content">
+                    <div class="title">Custom location emoji not displaying</div>
+                    <div class="version">Fixed in v1.0.3</div>
+                </div>
+            </li>
+            <li class="fixed-item">
+                <span class="checkmark">✓</span>
+                <div class="content">
+                    <div class="title">Schedule not activating at correct time in different timezones</div>
+                    <div class="version">Fixed in v1.0.3</div>
+                </div>
+            </li>
+            <li class="fixed-item">
+                <span class="checkmark">✓</span>
+                <div class="content">
+                    <div class="title">Pomodoro break timer continuing when app closed</div>
+                    <div class="version">Fixed in v1.0.4</div>
+                </div>
+            </li>
+        </ul>
+    </section>
+
+    <!-- Planned Features -->
+    <section class="status-section">
+        <h2>Planned Features & Improvements</h2>
+
+        <ul class="planned-list">
+            <li class="planned-item">
+                <div class="title">Enhanced Analytics Dashboard</div>
+                <div class="description">More detailed insights into your screen time patterns, including weekly trends and category breakdowns.</div>
+            </li>
+            <li class="planned-item">
+                <div class="title">Customizable Mindful Moments</div>
+                <div class="description">Choose from a wider variety of puzzles and mindfulness activities, with adjustable difficulty levels.</div>
+            </li>
+            <li class="planned-item">
+                <div class="title">Shared Family Groups</div>
+                <div class="description">Coordinate schedules and support each other's mindful tech goals with family members.</div>
+            </li>
+            <li class="planned-item">
+                <div class="title">Apple Watch Companion App</div>
+                <div class="description">Quick access to unlock/lock apps and start focus sessions from your wrist.</div>
+            </li>
+        </ul>
+    </section>
+
+    <!-- Report an Issue -->
+    <section class="status-section">
+        <div class="report-issue">
+            <h3>Found a Bug?</h3>
+            <p>If you're experiencing an issue not listed here, please let us know.</p>
+            <a href="contact.html">Report an Issue</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="tutorial.html">Tutorial</a>
+                <a href="support.html">Support</a>
+                <a href="status.html">Status</a>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Use</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+            <p>&copy; 2025 Nicole Kelner LLC DBA Mindful Tech Studio. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile hamburger menu
+        (function() {
+            const hamburger = document.getElementById('hamburger');
+            const navLinks = document.getElementById('navLinks');
+
+            if (hamburger) {
+                hamburger.addEventListener('click', function() {
+                    hamburger.classList.toggle('active');
+                    navLinks.classList.toggle('active');
+                });
+
+                // Close menu when clicking a link
+                navLinks.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', function() {
+                        hamburger.classList.remove('active');
+                        navLinks.classList.remove('active');
+                    });
+                });
+            }
+        })();
+    </script>
+
+    <!-- Minimal Cookie Consent Banner -->
+    <div id="cookieBanner" style="display: none; position: fixed; bottom: 0; left: 0; right: 0; background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(10px); color: #083267; padding: 16px 20px; font-size: 0.95em; z-index: 9999; border-top: 1px solid rgba(93, 172, 179, 0.2);">
+        <div style="max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap;">
+            <span style="flex: 1; min-width: 250px;">This site uses cookies. <a href="privacy.html" style="color: #5DACB3; text-decoration: underline;">Learn more</a></span>
+            <button id="acceptCookies" style="background: #5DACB3; color: white; border: none; padding: 10px 24px; border-radius: 6px; font-weight: 600; cursor: pointer; font-family: 'Lexend', sans-serif; font-size: 0.95em; transition: background 0.2s;">Accept</button>
+        </div>
+    </div>
+
+    <script>
+        // Cookie consent handling
+        (function() {
+            const banner = document.getElementById('cookieBanner');
+            const acceptBtn = document.getElementById('acceptCookies');
+
+            // Show banner if user hasn't consented yet
+            if (!localStorage.getItem('cookieConsent')) {
+                banner.style.display = 'block';
+            }
+
+            // Handle accept button
+            acceptBtn.addEventListener('click', function() {
+                localStorage.setItem('cookieConsent', 'accepted');
+                banner.style.transition = 'opacity 0.3s ease';
+                banner.style.opacity = '0';
+                setTimeout(function() {
+                    banner.style.display = 'none';
+                }, 300);
+                loadGoogleAnalytics();
+            });
+        })();
+    </script>
+</body>
+</html>
