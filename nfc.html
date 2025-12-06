@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NFC Key Card Setup - Free Time</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Lexend', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #F8FCFF;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 20px 20px;
+            background: linear-gradient(135deg, #F8FCFF 0%, #ffffff 100%);
+            border-bottom: 2px solid #5DACB3;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            color: #083267;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        header p {
+            font-size: 1.2em;
+            color: #5DACB3;
+            font-weight: 400;
+        }
+
+        .tutorial-section {
+            background-color: white;
+            padding: 40px 0;
+        }
+
+        h2 {
+            font-size: 2em;
+            color: #083267;
+            margin: 40px 0 20px;
+            padding-top: 30px;
+            border-top: 2px solid rgba(93, 172, 179, 0.2);
+            font-weight: 600;
+        }
+
+        h2:first-of-type {
+            border-top: none;
+            padding-top: 0;
+        }
+
+        .tutorial-step {
+            margin-bottom: 35px;
+            padding: 25px;
+            background-color: #F8FCFF;
+            border-left: 4px solid #5DACB3;
+            border-radius: 8px;
+        }
+
+        .tutorial-step h3 {
+            font-size: 1.5em;
+            color: #083267;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        p {
+            margin-bottom: 15px;
+            font-size: 1.05em;
+            color: #444;
+        }
+
+        ol, ul {
+            margin: 15px 0 15px 30px;
+        }
+
+        li {
+            margin-bottom: 10px;
+            font-size: 1.05em;
+            color: #444;
+        }
+
+        strong {
+            color: #083267;
+            font-weight: 600;
+        }
+
+        a {
+            color: #5DACB3;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .amazon-link {
+            display: inline-block;
+            padding: 12px 20px;
+            background: linear-gradient(135deg, #5DACB3 0%, #4a9199 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            margin: 10px 0;
+            transition: transform 0.2s;
+        }
+
+        .amazon-link:hover {
+            transform: translateY(-2px);
+            text-decoration: none;
+        }
+
+        .url-box {
+            background-color: #f3f4f6;
+            border: 2px solid #5DACB3;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            font-family: monospace;
+            font-size: 1.1em;
+            color: #083267;
+            word-break: break-all;
+            position: relative;
+        }
+
+        .url-box .copy-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #5DACB3;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.9em;
+            font-family: 'Lexend', sans-serif;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+
+        .url-box .copy-btn:hover {
+            background: #4a9199;
+        }
+
+        .url-box .copy-btn.copied {
+            background: #22c55e;
+        }
+
+        .pro-tips {
+            background-color: rgba(93, 172, 179, 0.1);
+            border-left: 4px solid #5DACB3;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .pro-tips h3 {
+            color: #083267;
+            margin-bottom: 15px;
+            font-weight: 600;
+            font-size: 1.3em;
+        }
+
+        .pro-tips ul {
+            margin-left: 20px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px 30px;
+            background-color: #083267;
+            color: white;
+            margin-top: 60px;
+        }
+
+        footer nav {
+            margin-bottom: 20px;
+        }
+
+        footer nav a {
+            margin: 0 15px;
+            color: #5DACB3;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        footer nav a:hover {
+            text-decoration: underline;
+            color: #ffffff;
+        }
+
+        footer p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+
+            header h1 {
+                font-size: 2em;
+            }
+
+            h2 {
+                font-size: 1.6em;
+            }
+
+            .tutorial-step {
+                padding: 20px;
+            }
+
+            .tutorial-step h3 {
+                font-size: 1.3em;
+            }
+
+            footer nav a {
+                display: block;
+                margin: 10px 0;
+            }
+
+            .url-box .copy-btn {
+                position: static;
+                display: block;
+                margin-top: 10px;
+                width: 100%;
+            }
+
+            .url-box {
+                padding-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Free Time</h1>
+            <p>Use your phone mindfully</p>
+        </div>
+    </header>
+
+    <section class="tutorial-section">
+        <div class="container">
+            <h2>Set up a NFC Key Card</h2>
+
+            <div class="tutorial-step">
+                <h3>Step 1: Get an NFC Key Card</h3>
+                <p>Purchase NFC Key Card (NTAG215 recommended). They're $8 for a pack of 10 or $10 for a pack of 20. You can share them with friends too.</p>
+                <a href="https://www.amazon.com/dp/B075CL71FK?ref=ppx_yo2ov_dt_b_fed_asin_title&th=1" class="amazon-link" target="_blank" rel="noopener noreferrer">Buy NFC Cards on Amazon →</a>
+            </div>
+
+            <div class="tutorial-step">
+                <h3>Step 2: Open iOS Shortcuts App</h3>
+                <p>Open the built-in Shortcuts app on your iPhone. Make sure you're on the 'Shortcuts' tab.</p>
+            </div>
+
+            <div class="tutorial-step">
+                <h3>Step 3: Create a New Shortcut</h3>
+                <p>Tap the '+' button in the top right corner. Search for 'Open URL' → In the text field, type:</p>
+                <div class="url-box">
+                    puzzleblock://nfc
+                    <button class="copy-btn" onclick="copyURL()">Copy</button>
+                </div>
+            </div>
+
+            <div class="tutorial-step">
+                <h3>Step 4: Name Your Shortcut</h3>
+                <p>Press the dropdown at the top to rename the shortcut to <strong>'Free Time NFC'</strong> then press Done</p>
+            </div>
+
+            <div class="tutorial-step">
+                <h3>Step 5: Create NFC Automation</h3>
+                <p>Switch to the 'Automation' tab at the bottom → Tap '+' in top right → Scroll down and select <strong>'NFC'</strong> → Tap <strong>'Scan'</strong> and hold NFC card to your phone. Name it <strong>'Free Time Unlock'</strong>. → Check <strong>'Run Immediately'</strong></p>
+            </div>
+
+            <div class="tutorial-step">
+                <h3>Step 6: Connect to Your Shortcut</h3>
+                <p>Search for <strong>'Free Time NFC'</strong> (the shortcut you created in Step 4).</p>
+            </div>
+
+            <div class="tutorial-step">
+                <h3>Step 7: Test It Out</h3>
+                <p>Place your NFC Card somewhere where you want to access your apps mindfully (far away from your bed, like in a drawer or on your desk). Enable <strong>'NFC Key Card'</strong> as your mindful moment in Profile → Mindful Moment. Tap the top of your phone to the key card to unlock your apps.</p>
+            </div>
+
+            <div class="pro-tips">
+                <h3>Pro Tips</h3>
+                <ul>
+                    <li>You can create multiple cards with the same setup like at your office or friends house.</li>
+                    <li>The card needs to be touching the top of your phone. If it's not working, try tapping it at a different angle.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <nav>
+                <a href="https://www.findfreetime.com/index.html">Home</a>
+                <a href="tutorial.html">Tutorial</a>
+                <a href="support.html">Support</a>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Use</a>
+                <a href="mailto:support@findfreetime.com">Contact</a>
+            </nav>
+            <p>&copy; 2025 Nicole Kelner LLC DBA Mindful Tech Studio. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function copyURL() {
+            const url = 'puzzleblock://nfc';
+            navigator.clipboard.writeText(url).then(function() {
+                const btn = document.querySelector('.copy-btn');
+                btn.textContent = 'Copied!';
+                btn.classList.add('copied');
+                setTimeout(function() {
+                    btn.textContent = 'Copy';
+                    btn.classList.remove('copied');
+                }, 2000);
+            }, function(err) {
+                console.error('Could not copy text: ', err);
+            });
+        }
+    </script>
+</body>
+</html>
