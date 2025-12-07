@@ -280,7 +280,7 @@
                 <h3>Step 3: Create a New Shortcut</h3>
                 <p>Tap the '+' button in the top right corner. Search for 'Open URL' → In the text field, type:</p>
                 <div class="url-box">
-                    puzzleblock://nfc
+                    puzzleblock://lock
                     <button class="copy-btn" onclick="copyURL()">Copy</button>
                 </div>
             </div>
@@ -331,7 +331,7 @@
 
     <script>
         function copyURL() {
-            const url = 'puzzleblock://nfc';
+            const url = 'puzzleblock://lock';
             navigator.clipboard.writeText(url).then(function() {
                 const btn = document.querySelector('.copy-btn');
                 btn.textContent = 'Copied!';
