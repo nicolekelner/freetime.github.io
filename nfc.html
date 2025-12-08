@@ -265,6 +265,14 @@
         <div class="container">
             <h2>Set up a NFC Sticker</h2>
 
+            <div class="tutorial-step" style="background-color: rgba(93, 172, 179, 0.1);">
+                <p style="margin-bottom: 10px;"><strong>💡 Tip:</strong> This page might be easier to view on your computer. Here is the link to view it:</p>
+                <div class="url-box">
+                    https://www.findfreetime.com/nfc.html
+                    <button class="copy-btn" onclick="copyPageURL()">Copy</button>
+                </div>
+            </div>
+
             <div class="tutorial-step">
                 <h3>Step 1: Get an NFC Sticker</h3>
                 <p>Purchase NFC Stickers (NTAG215 recommended). They're $8 for a pack of 10 or $12 for a pack of 30. You can share them with friends too.</p>
@@ -325,12 +333,27 @@
         function copyURL() {
             const url = 'puzzleblock://lock';
             navigator.clipboard.writeText(url).then(function() {
-                const btn = document.querySelector('.copy-btn');
-                btn.textContent = 'Copied!';
-                btn.classList.add('copied');
+                const btns = document.querySelectorAll('.copy-btn');
+                btns[1].textContent = 'Copied!';
+                btns[1].classList.add('copied');
                 setTimeout(function() {
-                    btn.textContent = 'Copy';
-                    btn.classList.remove('copied');
+                    btns[1].textContent = 'Copy';
+                    btns[1].classList.remove('copied');
+                }, 2000);
+            }, function(err) {
+                console.error('Could not copy text: ', err);
+            });
+        }
+
+        function copyPageURL() {
+            const url = 'https://www.findfreetime.com/nfc.html';
+            navigator.clipboard.writeText(url).then(function() {
+                const btns = document.querySelectorAll('.copy-btn');
+                btns[0].textContent = 'Copied!';
+                btns[0].classList.add('copied');
+                setTimeout(function() {
+                    btns[0].textContent = 'Copy';
+                    btns[0].classList.remove('copied');
                 }, 2000);
             }, function(err) {
                 console.error('Could not copy text: ', err);
