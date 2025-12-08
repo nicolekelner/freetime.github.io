@@ -1,0 +1,17 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": [
+          "BJB6YF63KX.com.nicolekelner.puzzleblock"
+        ],
+        "components": [
+          {
+            "/": "/nfc-lock",
+            "comment": "NFC Lock toggle - activates or deactivates NFC-based app locking"
+          }
+        ]
+      }
+    ]
+  }
+}
