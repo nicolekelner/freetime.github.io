@@ -1075,7 +1075,7 @@ html {
 }
 
 .qr-code-container img {
-    max-width: 500px;
+    max-width: 400px;
     width: 100%;
     height: auto;
     border-radius: 12px;
@@ -1087,21 +1087,30 @@ html {
     transform: scale(1.02);
 }
 
-.instructions-container {
-    background-color: #F8FCFF;
-    border: 2px solid #5DACB3;
-    border-radius: 12px;
-    padding: 30px 25px;
+.download-button-container {
+    display: flex;
+    justify-content: center;
     margin: 40px 0;
-    text-align: center;
 }
 
-.instructions-text {
-    font-size: 1.15em;
-    color: #5DACB3;
-    font-weight: 500;
-    margin: 0;
-    line-height: 1.6;
+.download-qr-button {
+    background: linear-gradient(135deg, #5DACB3 0%, #4a9199 100%);
+    color: white;
+    padding: 16px 40px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1.1em;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(93, 172, 179, 0.3);
+    display: inline-block;
+}
+
+.download-qr-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(93, 172, 179, 0.4);
+    text-decoration: none;
+    color: white;
 }
 
 @media (max-width: 768px) {
@@ -1111,24 +1120,15 @@ html {
     }
 
     .qr-code-container img {
-        max-width: 350px;
+        max-width: 280px;
         border-radius: 8px;
-    }
-
-    .instructions-container {
-        padding: 20px 18px;
-        margin: 30px 0;
-    }
-
-    .instructions-text {
-        font-size: 1.05em;
     }
 }
 
 @media print {
     .main-nav,
     footer,
-    .instructions-container {
+    .download-button-container {
         display: none;
     }
 
