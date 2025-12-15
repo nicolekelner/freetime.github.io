@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- iOS Smart App Banner -->
+    <meta name="apple-itunes-app" content="app-id=6747683001">
+
+    <title>Free Time - NFC Lock</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            font-family: 'Lexend', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 400px;
+        }
+
+        .icon {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 24px;
+            background: white;
+            border-radius: 20px;
+            padding: 10px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        h1 {
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        p {
+            font-size: 18px;
+            opacity: 0.95;
+            margin-bottom: 32px;
+            line-height: 1.6;
+        }
+
+        .download-button {
+            display: inline-block;
+            background: white;
+            color: #667eea;
+            padding: 18px 48px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .download-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .subtitle {
+            font-size: 14px;
+            opacity: 0.8;
+            margin-top: 24px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="icon">
+            <img src="logo-narrow.png" alt="Free Time">
+        </div>
+        <h1>Get Free Time</h1>
+        <p>Download Free Time to start blocking apps with NFC and QR codes</p>
+        <a href="https://apps.apple.com/app/id6747683001" class="download-button">
+            Download on App Store
+        </a>
+        <p class="subtitle">Free Time is available on iOS</p>
+    </div>
+
+    <script>
+        // Attempt to open app via deep link
+        window.location = "puzzleblock://lock";
+
+        // If app not installed, redirect to App Store after 2 seconds
+        setTimeout(function() {
+            // Only redirect if user is still on this page
+            // (if app opened, user won't be here)
+            if (document.hasFocus()) {
+                window.location = "https://apps.apple.com/app/id6747683001";
+            }
+        }, 2000);
+    </script>
+</body>
+</html>
