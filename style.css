@@ -1075,7 +1075,7 @@ html {
 }
 
 .qr-code-container img {
-    max-width: 400px;
+    max-width: 320px;
     width: 100%;
     height: auto;
     border-radius: 12px;
@@ -1120,7 +1120,7 @@ html {
     }
 
     .qr-code-container img {
-        max-width: 280px;
+        max-width: 240px;
         border-radius: 8px;
     }
 }
