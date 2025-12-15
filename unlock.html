@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Access the QR code to unlock Free Time. Print or scan this QR code to set up app unlocking on your device.">
+    <meta name="theme-color" content="#5DACB3">
+    <!-- Google tag (gtag.js) - loaded after consent -->
+    <script>
+      function loadGoogleAnalytics() {
+        var script = document.createElement('script');
+        script.async = true;
+        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-3XH6ZL37DY';
+        document.head.appendChild(script);
+
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-3XH6ZL37DY');
+      }
+
+      // Check if user has already consented
+      if (localStorage.getItem('cookieConsent') === 'accepted') {
+        loadGoogleAnalytics();
+      }
+    </script>
+    <title>Unlock - Free Time</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Modern Navigation Header -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="logo-narrow.png" alt="Free Time Logo" class="logo-img">
+                Free Time
+            </a>
+            <button class="hamburger" id="hamburger" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="nav-links" id="navLinks">
+                <a href="about.html">About</a>
+                <a href="https://apps.apple.com/us/app/free-time-mindful-screen-time/id6747683001" class="nav-cta">Download App</a>
+            </div>
+        </div>
+    </nav>
+
+    <main style="padding-top: 80px;">
+        <div class="container">
+            <h1>Unlock</h1>
+            <p style="text-align: center; font-size: 1.15em; color: #666; margin-bottom: 30px;">
+                Access your Free Time unlock QR code
+            </p>
+
+            <div class="qr-code-container">
+                <img src="qr-code.png" alt="Free Time Unlock QR Code" loading="lazy">
+            </div>
+
+            <div class="instructions-container">
+                <p class="instructions-text">
+                    You can print this QR code or scan it from this website on your computer
+                </p>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="support.html">Support</a>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Use</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+            <p>&copy; 2025 Nicole Kelner LLC DBA Mindful Tech Studio. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile hamburger menu
+        (function() {
+            const hamburger = document.getElementById('hamburger');
+            const navLinks = document.getElementById('navLinks');
+
+            if (hamburger) {
+                hamburger.addEventListener('click', function() {
+                    hamburger.classList.toggle('active');
+                    navLinks.classList.toggle('active');
+                });
+
+                // Close menu when clicking a link
+                navLinks.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', function() {
+                        hamburger.classList.remove('active');
+                        navLinks.classList.remove('active');
+                    });
+                });
+            }
+        })();
+    </script>
+
+    <!-- Minimal Cookie Consent Banner -->
+    <div id="cookieBanner" style="display: none; position: fixed; bottom: 0; left: 0; right: 0; background: rgba(255, 255, 255, 0.98); backdrop-filter: blur(10px); color: #083267; padding: 16px 20px; font-size: 0.95em; z-index: 9999; border-top: 1px solid rgba(93, 172, 179, 0.2);">
+        <div style="max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap;">
+            <span style="flex: 1; min-width: 250px;">This site uses cookies. <a href="privacy.html" style="color: #5DACB3; text-decoration: underline;">Learn more</a></span>
+            <button id="acceptCookies" style="background: #5DACB3; color: white; border: none; padding: 10px 24px; border-radius: 6px; font-weight: 600; cursor: pointer; font-family: 'Lexend', sans-serif; font-size: 0.95em; transition: background 0.2s;">Accept</button>
+        </div>
+    </div>
+
+    <script>
+        // Cookie consent handling
+        (function() {
+            const banner = document.getElementById('cookieBanner');
+            const acceptBtn = document.getElementById('acceptCookies');
+
+            // Show banner if user hasn't consented yet
+            if (!localStorage.getItem('cookieConsent')) {
+                banner.style.display = 'block';
+            }
+
+            // Handle accept button
+            acceptBtn.addEventListener('click', function() {
+                localStorage.setItem('cookieConsent', 'accepted');
+                banner.style.transition = 'opacity 0.3s ease';
+                banner.style.opacity = '0';
+                setTimeout(function() {
+                    banner.style.display = 'none';
+                }, 300);
+                loadGoogleAnalytics();
+            });
+        })();
+    </script>
+</body>
+</html>
