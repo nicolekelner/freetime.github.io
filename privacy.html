@@ -3,7 +3,7 @@
   <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="description" content="Free Time Privacy Policy. Learn how we protect your data, what information we collect, and your privacy rights. Last updated October 2, 2025.">
+      <meta name="description" content="Free Time Privacy Policy. Learn how we protect your data, what information we collect, and your privacy rights. Last updated December 30, 2025.">
       <meta name="theme-color" content="#5DACB3">
       <!-- Google tag (gtag.js) - loaded after consent -->
       <script>
@@ -53,7 +53,7 @@
       <div class="container legal" style="padding-top: 80px;">
           <main>
               <h1>Privacy Policy</h1>
-              <p class="updated">Last Updated: November 7, 2025</p>
+              <p class="updated">Last Updated: December 30, 2025</p>
 
               <section>
                   <h2>Your Privacy Matters</h2>
@@ -107,6 +107,13 @@
 
                   <h3>1.5 NFC Sticker Data</h3>
                   <p>We do not collect or store any data from NFC sticker scans. NFC functionality is processed entirely on your device. The app reads URLs from NFC stickers you've programmed to trigger Vacation Mode sessions. No NFC scan history, location of scans, or sticker identifiers are transmitted to our servers.</p>
+
+                  <h3>1.6 Advertising Data (with your permission)</h3>
+                  <ul>
+                      <li>Device advertising identifier (IDFA) - only if you grant tracking permission via Apple's ATT prompt</li>
+                      <li>Ad attribution data (which ad campaign led to your app install)</li>
+                      <li>Conversion events (e.g., starting a trial, subscribing) - shared with advertising partners for campaign optimization</li>
+                  </ul>
               </section>
 
               <section>
@@ -175,7 +182,28 @@ Vacation Mode session activations (no sticker identifiers or location data)</li>
   through Apple's payment systems. RevenueCat only receives transaction receipts and
   subscription status - never your actual payment details.</p>
 
-                  <h3>3.4 Technical Information Collected by Analytics Services</h3>
+                  <h3>3.4 AppsFlyer (Mobile Attribution)</h3>
+                  <ul>
+                      <li><strong>Purpose:</strong> Measures which advertisements led you to install the app and tracks conversion events</li>
+                      <li><strong>Data collected:</strong> Device identifier (IDFA with your permission), app install source, in-app events (e.g., subscription started, trial started)</li>
+                  </ul>
+                  <p>AppsFlyer is subject to its own <a href="https://www.appsflyer.com/legal/privacy-policy/" target="_blank">privacy policy</a>.</p>
+
+                  <h3>3.5 Meta (Facebook) Advertising</h3>
+                  <ul>
+                      <li><strong>Purpose:</strong> Ad attribution to measure effectiveness of Facebook/Instagram ads</li>
+                      <li><strong>Data collected:</strong> Attribution data via SKAdNetwork (privacy-preserving Apple framework), and IDFA if you grant permission</li>
+                  </ul>
+                  <p>Meta is subject to its own <a href="https://www.facebook.com/privacy/policy/" target="_blank">privacy policy</a>.</p>
+
+                  <h3>3.6 TikTok Advertising</h3>
+                  <ul>
+                      <li><strong>Purpose:</strong> Ad attribution to measure effectiveness of TikTok ads</li>
+                      <li><strong>Data collected:</strong> Attribution data via SKAdNetwork (privacy-preserving Apple framework), and IDFA if you grant permission</li>
+                  </ul>
+                  <p>TikTok is subject to its own <a href="https://www.tiktok.com/legal/privacy-policy" target="_blank">privacy policy</a>.</p>
+
+                  <h3>3.7 Technical Information Collected by Analytics Services</h3>
                   <p>Our analytics providers (Mixpanel, Firebase) may automatically collect:</p>
                   <ul>
                       <li>Device model and operating system version</li>
@@ -188,7 +216,7 @@ Vacation Mode session activations (no sticker identifiers or location data)</li>
   user experience. We do not collect precise GPS coordinates or track your real-time
   location.</p>
 
-                  <h3>3.5 Website Analytics (Not Used in Mobile App)</h3>
+                  <h3>3.8 Website Analytics (Not Used in Mobile App)</h3>
                   <p><strong>Note:</strong> Our website (findfreetime.com) uses Google Analytics for
   website traffic analysis only. This analytics service is <strong>not used in the mobile
   app</strong> and only applies to website visitors who accept cookies through our cookie
@@ -200,17 +228,38 @@ Vacation Mode session activations (no sticker identifiers or location data)</li>
               </section>
 
               <section>
-                  <h2>4. How We Store Your Data</h2>
+                  <h2>4. Advertising & App Tracking Transparency (ATT)</h2>
+                  <p>When you first open the app, we may ask for your permission to track your activity across other companies' apps and websites. This is Apple's App Tracking Transparency prompt.</p>
 
-                  <h3>4.1 Local Storage</h3>
+                  <h3>If you allow tracking:</h3>
+                  <ul>
+                      <li>We share your device's advertising identifier (IDFA) with our advertising partners (AppsFlyer, Meta, and TikTok)</li>
+                      <li>This helps us understand which ads brought you to our app and measure ad campaign effectiveness</li>
+                      <li>This data is used for ad attribution and to improve our advertising</li>
+                  </ul>
+
+                  <h3>If you deny tracking:</h3>
+                  <ul>
+                      <li>We will not access or share your IDFA</li>
+                      <li>We may still use Apple's SKAdNetwork for privacy-preserving ad measurement that does not identify you personally</li>
+                      <li>The app functions identically regardless of your choice</li>
+                  </ul>
+
+                  <p>You can change your choice anytime in iOS Settings > Privacy & Security > Tracking.</p>
+              </section>
+
+              <section>
+                  <h2>5. How We Store Your Data</h2>
+
+                  <h3>5.1 Local Storage</h3>
                   <p>Most data is stored locally on your device using iOS's secure storage systems.
    This includes preferences, usage statistics, and blocking configurations.</p>
 
-                  <h3>4.2 Cloud Storage</h3>
+                  <h3>5.2 Cloud Storage</h3>
                   <p>Account information is securely stored in Firebase Firestore, including
   account email and authentication information.</p>
 
-                  <h3>4.3 Encryption and Security</h3>
+                  <h3>5.3 Encryption and Security</h3>
                   <ul>
                       <li>AES-256-GCM encryption for sensitive data storage</li>
                       <li>iOS Keychain for secure token storage</li>
@@ -219,7 +268,7 @@ Vacation Mode session activations (no sticker identifiers or location data)</li>
               </section>
 
               <section>
-                  <h2>5. How We Use Your Data</h2>
+                  <h2>6. How We Use Your Data</h2>
                   <p>We use your data solely to provide and improve the App's functionality:</p>
                   <ul>
                       <li>Enable app blocking and focus session features</li>
@@ -231,7 +280,7 @@ Vacation Mode session activations (no sticker identifiers or location data)</li>
               </section>
 
               <section>
-                  <h2>6. Data Sharing and Third Parties</h2>
+                  <h2>7. Data Sharing and Third Parties</h2>
                   <p>We do not sell, trade, or share your personal data with third parties for
   marketing purposes. Your data is only shared with:</p>
                   <ul>
@@ -246,7 +295,7 @@ Vacation Mode session activations (no sticker identifiers or location data)</li>
               </section>
 
               <section>
-                  <h2>7. Your Rights and Controls</h2>
+                  <h2>8. Your Rights and Controls</h2>
                   <ul>
                       <li><strong>Data Access:</strong> View your usage analytics within the
   App</li>
@@ -262,13 +311,13 @@ Vacation Mode session activations (no sticker identifiers or location data)</li>
               </section>
 
               <section>
-                  <h2>8. Data Retention</h2>
+                  <h2>9. Data Retention</h2>
                   <p>Local data is retained until you delete the App. iCloud data follows Apple's
   policies. Usage analytics are automatically purged after 365 days.</p>
               </section>
 
               <section>
-                  <h2>9. Children's Privacy</h2>
+                  <h2>10. Children's Privacy</h2>
                   <p>Free Time is not directed to children under the age of 13, and we do not knowingly
   collect personal information from anyone under 13. If we become aware that we have
   collected personal data from a child under 13 without verified parental consent, we will
@@ -284,7 +333,7 @@ Vacation Mode session activations (no sticker identifiers or location data)</li>
               </section>
 
               <section>
-                  <h2>10. For European Users (GDPR)</h2>
+                  <h2>11. For European Users (GDPR)</h2>
                   <p>If you are located in the European Economic Area (EEA), UK, or Switzerland, you have
   additional rights under GDPR including:</p>
                   <ul>
@@ -297,13 +346,13 @@ Vacation Mode session activations (no sticker identifiers or location data)</li>
               </section>
 
               <section>
-                  <h2>11. Changes to This Privacy Policy</h2>
+                  <h2>12. Changes to This Privacy Policy</h2>
                   <p>We may update this Privacy Policy from time to time. We will notify you of
   changes by updating the "Last Updated" date and through the App for significant changes.</p>
               </section>
 
               <section>
-                  <h2>12. Contact Us</h2>
+                  <h2>13. Contact Us</h2>
                   <p>If you have questions about this Privacy Policy:</p>
                   <ul>
                       <li>Through the App's support feature in Settings</li>
