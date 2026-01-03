@@ -264,6 +264,8 @@
         .dot {
             width: 100%;
             max-width: 12px;
+            min-width: 8px;
+            min-height: 8px;
             aspect-ratio: 1;
             border-radius: 50%;
             transition: transform 0.2s;
@@ -456,8 +458,15 @@
             }
 
             .dots-container {
-                gap: 5px;
+                gap: 3px;
                 padding: 15px;
+                min-height: 400px;
+            }
+
+            .dot {
+                min-width: 6px;
+                min-height: 6px;
+                max-width: 6px;
             }
 
             .life-phases {
