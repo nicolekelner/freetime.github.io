@@ -9,7 +9,7 @@
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://findfreetime.com/dots.html">
-    <meta property="og:title" content="Your Remaining Life in Dots - Free Time">
+    <meta property="og:title" content="Your Life in Weeks - Free Time">
     <meta property="og:description" content="Visualize how you'll spend your time from now until age 80. Each dot represents one week of your life.">
 
     <!-- Google tag (gtag.js) - loaded after consent -->
@@ -31,7 +31,7 @@
         loadGoogleAnalytics();
       }
     </script>
-    <title>Your Remaining Life in Dots - Free Time</title>
+    <title>Your Life in Weeks - Free Time</title>
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -469,6 +469,21 @@
                 max-width: 6px;
             }
 
+            .legend {
+                gap: 10px;
+                margin-bottom: 15px;
+            }
+
+            .legend-item {
+                font-size: 0.85em;
+                gap: 5px;
+            }
+
+            .legend-dot {
+                width: 10px;
+                height: 10px;
+            }
+
             .life-phases {
                 flex-direction: column;
                 gap: 15px;
@@ -526,7 +541,7 @@
 
     <main style="padding-top: 100px; padding-bottom: 60px; background: #f8f9fa; min-height: 100vh;">
         <div class="dots-page-container">
-            <h1>⏰ Your Remaining Life in Dots</h1>
+            <h1>⏰ Your Life in Weeks</h1>
             <p class="subtitle">Visualize how you'll spend your time from now until age 80</p>
 
             <div class="input-section">
@@ -798,7 +813,7 @@
                         <div class="breakdown-label">${displayName}</div>
                         <div class="breakdown-bar-container">
                             <div class="breakdown-bar ${cat.class}" style="width: ${percentage}%">
-                                ${cat.hours}h (${percentage.toFixed(1)}%)
+                                ${percentage.toFixed(1)}%
                             </div>
                         </div>
                     </div>
