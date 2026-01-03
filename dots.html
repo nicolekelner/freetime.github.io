@@ -40,7 +40,7 @@
     <style>
         /* Page-specific styles for the dots visualization */
         .dots-page-container {
-            max-width: 1400px;
+            max-width: 700px;
             margin: 0 auto;
             background: white;
             border-radius: 20px;
@@ -517,25 +517,25 @@
 
     <main style="padding-top: 100px; padding-bottom: 60px; background: #f8f9fa; min-height: 100vh;">
         <div class="dots-page-container">
-            <h1>Your Remaining Life in Dots</h1>
+            <h1>⏰ Your Remaining Life in Dots</h1>
             <p class="subtitle">Visualize how you'll spend your time from now until age 80</p>
 
             <div class="input-section">
                 <div class="input-grid">
                     <div class="input-group">
-                        <label for="sleepHours">Hours of sleep per day:</label>
+                        <label for="sleepHours">😴 Hours of sleep per day:</label>
                         <input type="number" id="sleepHours" min="0" max="24" step="0.5" value="7" placeholder="e.g., 7">
                     </div>
                     <div class="input-group">
-                        <label for="workHours">Hours of work per day:</label>
+                        <label for="workHours">💼 Hours of work per day:</label>
                         <input type="number" id="workHours" min="0" max="24" step="0.5" value="8" placeholder="e.g., 8">
                     </div>
                     <div class="input-group">
-                        <label for="phoneHours">Hours on phone per day:</label>
+                        <label for="phoneHours">📱 Hours on phone per day:</label>
                         <input type="number" id="phoneHours" min="0" max="24" step="0.5" value="4" placeholder="e.g., 4">
                     </div>
                     <div class="input-group">
-                        <label for="age">Your current age:</label>
+                        <label for="age">🎂 Your current age:</label>
                         <input type="number" id="age" min="1" max="100" value="25" placeholder="e.g., 25">
                     </div>
                 </div>
@@ -703,10 +703,10 @@
 
             // Calculate for each category
             const categories = [
-                { name: 'Sleep', hours: sleepHours, icon: '', class: 'sleep' },
-                { name: 'Work', hours: workHours, icon: '', class: 'work' },
-                { name: 'Free Time/Other', hours: freeHours, icon: '', class: 'free' },
-                { name: 'Phone', hours: phoneHours, icon: '', class: 'phone' }
+                { name: 'Sleep', hours: sleepHours, icon: '😴', class: 'sleep' },
+                { name: 'Work', hours: workHours, icon: '💼', class: 'work' },
+                { name: 'Free Time/Other', hours: freeHours, icon: '🎯', class: 'free' },
+                { name: 'Phone', hours: phoneHours, icon: '📱', class: 'phone' }
             ];
 
             // Update stats grid (only for remaining years to 80)
@@ -716,6 +716,7 @@
 
                 return `
                     <div class="stat-card ${cat.class}">
+                        <div class="stat-icon">${cat.icon}</div>
                         <div class="stat-label">${cat.name}</div>
                         <div class="stat-value">${yearsOfLife} years</div>
                         <div class="stat-subtext">${daysPerYear} days/year</div>
