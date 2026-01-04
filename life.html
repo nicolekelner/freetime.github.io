@@ -759,13 +759,17 @@
             background: #3D8E79;
             color: white;
             border: none;
-            border-radius: 12px;
+            border-radius: 50px;
             cursor: pointer;
             font-size: 1.2em;
             font-weight: 600;
             transition: all 0.3s;
             font-family: 'Lexend', sans-serif;
             box-shadow: 0 4px 15px rgba(61, 142, 121, 0.3);
+        }
+
+        .calculate-btn .mobile-break {
+            display: none;
         }
 
         .calculate-btn:hover {
@@ -985,6 +989,10 @@
             .share-box {
                 padding: 20px;
             }
+
+            .calculate-btn .mobile-break {
+                display: block;
+            }
         }
 
         @media (max-width: 480px) {
@@ -1090,7 +1098,7 @@
                 <div class="age-description">We'll calculate your life until age 80</div>
             </div>
 
-            <button class="calculate-btn" id="calculateBtn">Calculate Your Life in Emojis</button>
+            <button class="calculate-btn" id="calculateBtn">Calculate Your<br class="mobile-break"> Life in Emojis</button>
 
             <!-- Results Section -->
             <div class="results" id="results" style="display: none;">
