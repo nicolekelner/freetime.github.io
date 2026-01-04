@@ -201,22 +201,32 @@
 
         .add-activity-form {
             background: white;
-            padding: 25px;
+            padding: 15px;
             border-radius: 12px;
             border: 2px dashed #667eea;
-            margin-top: 20px;
+            margin-top: 15px;
         }
 
         .form-title {
-            font-size: 1.1em;
+            font-size: 1em;
             font-weight: 600;
             color: #667eea;
-            margin-bottom: 20px;
+            margin-bottom: 12px;
             text-align: center;
         }
 
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 12px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .form-row .form-group {
+            margin-bottom: 0;
         }
 
         .form-label {
@@ -229,20 +239,20 @@
 
         .emoji-selector {
             display: flex;
-            gap: 8px;
+            gap: 6px;
             flex-wrap: wrap;
-            padding: 10px;
+            padding: 8px;
             background: #f8f9fa;
             border-radius: 8px;
-            max-height: 200px;
+            max-height: 120px;
             overflow-y: auto;
         }
 
         .emoji-option {
-            font-size: 28px;
-            padding: 8px;
+            font-size: 24px;
+            padding: 6px;
             cursor: pointer;
-            border-radius: 8px;
+            border-radius: 6px;
             border: 2px solid transparent;
             transition: all 0.2s;
             background: white;
@@ -280,7 +290,7 @@
         .form-actions {
             display: flex;
             gap: 10px;
-            margin-top: 20px;
+            margin-top: 12px;
         }
 
         .btn-add {
@@ -469,8 +479,18 @@
             font-size: 2em;
             font-weight: 700;
             color: #1d1d1f;
-            margin-bottom: 30px;
+            margin-bottom: 15px;
             line-height: 1.2;
+        }
+
+        .cta-subtitle {
+            font-size: 1.1em;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .cta-btn {
@@ -575,6 +595,48 @@
 
         .copy-success.show {
             opacity: 1;
+        }
+
+        .powered-by-section {
+            background: linear-gradient(135deg, #5fc3c8 0%, #4fb4b9 100%);
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .powered-by-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .powered-by-title {
+            color: white;
+            font-size: 1.5em;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .powered-by-description {
+            color: white;
+            font-size: 1em;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            opacity: 0.95;
+        }
+
+        .powered-by-btn {
+            display: inline-block;
+            background: white;
+            color: #5fc3c8;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .powered-by-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
 
         .age-section-simple {
@@ -785,6 +847,25 @@
             .emoji-week {
                 font-size: 16px;
             }
+
+            .cta-box {
+                padding: 30px 20px;
+            }
+
+            .cta-title {
+                font-size: 1.5em;
+                margin-bottom: 12px;
+            }
+
+            .cta-subtitle {
+                font-size: 0.95em;
+                margin-bottom: 20px;
+            }
+
+            .cta-btn {
+                padding: 14px 30px;
+                font-size: 1em;
+            }
         }
 
         @media (max-width: 480px) {
@@ -842,17 +923,19 @@
                         <input type="text" class="form-input" id="newActivityName" placeholder="e.g., Reading, Gaming, Meditation">
                     </div>
 
-                    <div class="form-group">
-                        <label class="form-label">Frequency</label>
-                        <select class="form-input" id="newActivityFrequency">
-                            <option value="day">Per Day</option>
-                            <option value="week">Per Week</option>
-                        </select>
-                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Frequency</label>
+                            <select class="form-input" id="newActivityFrequency">
+                                <option value="day">Per Day</option>
+                                <option value="week">Per Week</option>
+                            </select>
+                        </div>
 
-                    <div class="form-group">
-                        <label class="form-label">Hours <span id="frequencyLabel">Per Day</span></label>
-                        <input type="number" class="form-input" id="newActivityHours" min="0" max="168" step="0.1" value="1">
+                        <div class="form-group">
+                            <label class="form-label">Hours <span id="frequencyLabel">Per Day</span></label>
+                            <input type="number" class="form-input" id="newActivityHours" min="0" max="168" step="0.1" value="1">
+                        </div>
                     </div>
 
                     <div class="form-actions">
@@ -892,6 +975,7 @@
 
                 <div class="cta-box">
                     <h2 class="cta-title">Want to spend less time on your phone?</h2>
+                    <p class="cta-subtitle">Stop mindless scrolling. Learn how to use your phone mindfully. This year, make time for what matters most to you.</p>
                     <a href="https://apps.apple.com/us/app/free-time-mindful-screen-time/id6747683001" class="cta-btn">
                         Download the Free Time app
                     </a>
@@ -908,6 +992,14 @@
                     <div class="copy-success" id="copySuccess">Copied to clipboard!</div>
                 </div>
             </div>
+        </div>
+    </div>
+
+    <div class="powered-by-section">
+        <div class="powered-by-container">
+            <h3 class="powered-by-title">Powered by Free Time</h3>
+            <p class="powered-by-description">Free Time is an app to help you use your phone more mindfully. Our goal is to help you have less screen time and more free time.</p>
+            <a href="https://apps.apple.com/us/app/free-time-mindful-screen-time/id6747683001" class="powered-by-btn">Download Now</a>
         </div>
     </div>
 
@@ -1306,7 +1398,7 @@
                 const daysPerYear = ((phoneActivity.dailyHours * 365) / 24).toFixed(1);
                 const yearsOfLife = phoneActivity.yearsSpent;
 
-                phoneImpactEl.innerHTML = `Some of these years are well spent. Resting, enjoying delicious food, and exercising are great parts of living a meaningful life.<br><br>But you're spending <strong>${percentOfLife}% of your life</strong> on your phone — that's <strong>${daysPerYear} days per year</strong> and <strong>${yearsOfLife} years of your remaining life.</strong>`;
+                phoneImpactEl.innerHTML = `Some of these years are well spent. Resting, enjoying delicious food, spending time with loved ones, and exercising are great parts of living a meaningful life.<br><br>But you're spending <strong>${percentOfLife}% of your life</strong> on your phone — that's <strong>${daysPerYear} days per year</strong> and <strong>${yearsOfLife} years of your remaining life.</strong>`;
             } else {
                 phoneImpactEl.innerHTML = `Add a "Phone" activity to see how much time you're spending on your device.`;
             }
@@ -1366,7 +1458,7 @@
                 shareText += `${emojiBar}\n\n`;
             });
 
-            shareText += `\nCalculate your life at findfreetime.com/life`;
+            shareText += `1 emoji = 1 month\n\nCalculate your life at findfreetime.com/life`;
 
             const sharePreview = document.getElementById('sharePreview');
             sharePreview.textContent = shareText;
@@ -1382,6 +1474,7 @@
             document.getElementById('newActivityFrequency').value = 'day';
             document.getElementById('frequencyLabel').textContent = 'Per Day';
             setupEmojiSelector();
+            exitCustomizeMode();
         });
         document.getElementById('addActivityBtn').addEventListener('click', addActivity);
 
