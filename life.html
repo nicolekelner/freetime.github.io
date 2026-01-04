@@ -49,7 +49,7 @@
             background: linear-gradient(135deg, #5fc3c8 0%, #4fb4b9 100%);
             min-height: 100vh;
             padding: 20px;
-            padding-top: 100px;
+            padding-top: 20px;
             color: #333;
         }
 
@@ -155,6 +155,13 @@
             color: #888;
             font-size: 0.85em;
             white-space: nowrap;
+        }
+
+        #dailyActivitiesContainer,
+        #weeklyActivitiesContainer {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
         }
 
         .hours-feedback {
@@ -374,28 +381,22 @@
 
         .viz-activity-row {
             display: flex;
-            align-items: flex-start;
-            margin-bottom: 8px;
-            gap: 10px;
+            flex-direction: column;
+            margin-bottom: 20px;
+            gap: 8px;
         }
 
         .viz-activity-label {
-            min-width: 350px;
-            width: 350px;
             font-weight: 600;
-            font-size: 0.9em;
+            font-size: 1.1em;
             color: #333;
-            padding-right: 15px;
-            text-align: right;
-            flex-shrink: 0;
-            padding-top: 2px;
+            text-align: left;
         }
 
         .emoji-band {
             display: flex;
             flex-wrap: wrap;
             line-height: 1.4;
-            flex: 1;
             gap: 2px;
         }
 
@@ -742,6 +743,11 @@
         }
 
         @media (max-width: 768px) {
+            #dailyActivitiesContainer,
+            #weeklyActivitiesContainer {
+                grid-template-columns: 1fr;
+            }
+
             .life-container {
                 padding: 20px;
             }
@@ -768,20 +774,12 @@
             }
 
             .viz-activity-row {
-                flex-direction: column;
-                align-items: flex-start;
                 margin-bottom: 15px;
                 gap: 5px;
             }
 
             .viz-activity-label {
-                min-width: 100%;
-                width: 100%;
-                text-align: left;
-                padding-right: 0;
                 font-size: 0.95em;
-                font-weight: 700;
-                padding-bottom: 5px;
             }
 
             .emoji-week {
@@ -805,25 +803,6 @@
     </style>
 </head>
 <body>
-    <!-- Modern Navigation Header -->
-    <nav class="main-nav">
-        <div class="nav-container">
-            <a href="index.html" class="logo">
-                <img src="logo-narrow.png" alt="Free Time Logo" class="logo-img">
-                Free Time
-            </a>
-            <button class="hamburger" id="hamburger" aria-label="Menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            <div class="nav-links" id="navLinks">
-                <a href="about.html">About</a>
-                <a href="https://apps.apple.com/us/app/free-time-mindful-screen-time/id6747683001" class="nav-cta">Download App</a>
-            </div>
-        </div>
-    </nav>
-
     <div class="life-page-body">
         <div class="life-container">
             <h1>Your Life in Emojis</h1>
