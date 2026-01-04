@@ -91,6 +91,40 @@
             font-weight: 600;
         }
 
+        .section-header-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .section-header-row .section-title {
+            margin-bottom: 0;
+        }
+
+        .customize-btn-small {
+            padding: 6px 12px;
+            background: transparent;
+            color: #5fc3c8;
+            border: 1px solid #5fc3c8;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.85em;
+            font-weight: 600;
+            transition: all 0.2s;
+            font-family: 'Lexend', sans-serif;
+        }
+
+        .customize-btn-small:hover {
+            background: #5fc3c8;
+            color: white;
+        }
+
+        .customize-btn-small.active {
+            background: #5fc3c8;
+            color: white;
+        }
+
         .section-description {
             color: #888;
             font-size: 0.85em;
@@ -717,6 +751,35 @@
             font-style: italic;
         }
 
+        .calculate-btn {
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(135deg, #5fc3c8 0%, #4fb4b9 100%);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 1.2em;
+            font-weight: 600;
+            transition: all 0.3s;
+            font-family: 'Lexend', sans-serif;
+            margin-top: 20px;
+            box-shadow: 0 4px 15px rgba(95, 195, 200, 0.3);
+        }
+
+        .calculate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(95, 195, 200, 0.4);
+        }
+
+        .results-container {
+            display: none;
+        }
+
+        .results-container.visible {
+            display: block;
+        }
+
         .hidden {
             display: none;
         }
@@ -945,14 +1008,20 @@
 
             <!-- Daily Activities Section -->
             <div class="section">
-                <div class="section-title">Daily Activities</div>
+                <div class="section-header-row">
+                    <div class="section-title">Daily Activities</div>
+                    <button class="customize-btn-small" id="customizeDailyBtn">Customize</button>
+                </div>
                 <div class="section-description">Write 0 hours if you don't do an activity</div>
                 <div id="dailyActivitiesContainer"></div>
             </div>
 
             <!-- Weekly Activities Section -->
             <div class="section">
-                <div class="section-title">Weekly Activities</div>
+                <div class="section-header-row">
+                    <div class="section-title">Weekly Activities</div>
+                    <button class="customize-btn-small" id="customizeWeeklyBtn">Customize</button>
+                </div>
                 <div id="weeklyActivitiesContainer"></div>
 
                 <div class="hours-feedback" id="hoursFeedback">
@@ -960,9 +1029,6 @@
                     <span class="hours-feedback-value" id="totalHoursValue">24.0</span>
                     <span class="hours-feedback-note" id="hoursFeedbackNote"></span>
                 </div>
-
-                <button class="show-add-form-btn" id="customizeBtn">Customize Activities</button>
-                <button class="done-customizing-btn hidden" id="doneCustomizingBtn">Done Customizing</button>
 
                 <div id="addActivityForm" class="add-activity-form hidden">
                     <div class="form-title">Add Custom Activity</div>
@@ -1007,10 +1073,11 @@
                     <span class="age-unit">years old</span>
                 </div>
                 <div class="age-description">We'll calculate your life until age 80</div>
+                <button class="calculate-btn" id="calculateBtn">Calculate Your Life in Emojis</button>
             </div>
 
             <!-- Results Section -->
-            <div class="results" id="results">
+            <div class="results" id="results" style="display: none;">
                 <div class="visualization">
                     <div class="chart-header">
                         <div class="chart-title">Your Life in Emojis</div>
@@ -1026,7 +1093,7 @@
         </div>
     </div>
 
-    <div class="phone-section-wrapper">
+    <div class="phone-section-wrapper" id="phoneSectionWrapper" style="display: none;">
         <div class="phone-section">
             <h2 class="section-header">Time Spent on Your Phone</h2>
             <div class="phone-impact-content">
@@ -1042,7 +1109,7 @@
         </div>
     </div>
 
-    <div class="share-section-wrapper">
+    <div class="share-section-wrapper" id="shareSectionWrapper" style="display: none;">
         <div class="share-box">
             <h2 class="share-title">Share Your Life in Emojis</h2>
             <p class="share-description">Copy and paste to share on social media</p>
@@ -1146,6 +1213,9 @@
         // View mode for visualization: 'months' (default) or 'weeks'
         let viewMode = 'months';
 
+        // Track if results have been shown
+        let resultsShown = false;
+
         // Mobile detection
         const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
@@ -1228,7 +1298,9 @@
             if (currentPickerInput && currentPickerIndex !== null) {
                 currentPickerInput.value = currentPickerValue;
                 activities[currentPickerIndex].hours = currentPickerValue;
-                calculateAndUpdate();
+                if (resultsShown) {
+                    calculateAndUpdate();
+                }
             }
             document.getElementById('pickerOverlay').classList.remove('show');
             currentPickerInput = null;
@@ -1322,7 +1394,9 @@
                 } else {
                     input.addEventListener('input', (e) => {
                         activities[index].hours = parseFloat(e.target.value) || 0;
-                        calculateAndUpdate();
+                        if (resultsShown) {
+                            calculateAndUpdate();
+                        }
                     });
                 }
 
@@ -1334,7 +1408,9 @@
             });
 
             setupEmojiSelector();
-            calculateAndUpdate();
+            if (resultsShown) {
+                calculateAndUpdate();
+            }
         }
 
         function removeActivity(index) {
@@ -1345,16 +1421,20 @@
         function enterCustomizeMode() {
             customizeMode = true;
             document.getElementById('addActivityForm').classList.remove('hidden');
-            document.getElementById('customizeBtn').classList.add('hidden');
-            document.getElementById('doneCustomizingBtn').classList.remove('hidden');
+            document.getElementById('customizeDailyBtn').textContent = 'Done';
+            document.getElementById('customizeDailyBtn').classList.add('active');
+            document.getElementById('customizeWeeklyBtn').textContent = 'Done';
+            document.getElementById('customizeWeeklyBtn').classList.add('active');
             renderActivities();
         }
 
         function exitCustomizeMode() {
             customizeMode = false;
             document.getElementById('addActivityForm').classList.add('hidden');
-            document.getElementById('customizeBtn').classList.remove('hidden');
-            document.getElementById('doneCustomizingBtn').classList.add('hidden');
+            document.getElementById('customizeDailyBtn').textContent = 'Customize';
+            document.getElementById('customizeDailyBtn').classList.remove('active');
+            document.getElementById('customizeWeeklyBtn').textContent = 'Customize';
+            document.getElementById('customizeWeeklyBtn').classList.remove('active');
             renderActivities();
         }
 
@@ -1582,10 +1662,33 @@
             sharePreview.textContent = shareText;
         }
 
+        function showResults() {
+            document.getElementById('results').style.display = 'block';
+            document.getElementById('phoneSectionWrapper').style.display = 'block';
+            document.getElementById('shareSectionWrapper').style.display = 'block';
+            document.getElementById('calculateBtn').textContent = 'Recalculate';
+            resultsShown = true;
+            calculateAndUpdate();
+        }
+
         // Initialize
-        document.getElementById('age').addEventListener('input', calculateAndUpdate);
-        document.getElementById('customizeBtn').addEventListener('click', enterCustomizeMode);
-        document.getElementById('doneCustomizingBtn').addEventListener('click', exitCustomizeMode);
+        document.getElementById('calculateBtn').addEventListener('click', showResults);
+        document.getElementById('age').addEventListener('input', function() {
+            if (resultsShown) {
+                calculateAndUpdate();
+            }
+        });
+
+        function toggleCustomizeMode() {
+            if (customizeMode) {
+                exitCustomizeMode();
+            } else {
+                enterCustomizeMode();
+            }
+        }
+
+        document.getElementById('customizeDailyBtn').addEventListener('click', toggleCustomizeMode);
+        document.getElementById('customizeWeeklyBtn').addEventListener('click', toggleCustomizeMode);
         document.getElementById('cancelAddBtn').addEventListener('click', function() {
             document.getElementById('newActivityName').value = '';
             document.getElementById('newActivityHours').value = '1';
