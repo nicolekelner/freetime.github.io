@@ -504,10 +504,16 @@
             box-shadow: 0 6px 20px rgba(95, 195, 200, 0.4);
         }
 
+        .phone-section-wrapper {
+            background: white;
+            padding: 50px 20px;
+        }
+
         .phone-section {
-            margin-top: 40px;
+            max-width: 900px;
+            margin: 0 auto;
             padding: 30px;
-            background: #f8f9fa;
+            background: white;
             border-radius: 20px;
         }
 
@@ -527,7 +533,7 @@
             font-size: 1.1em;
             line-height: 1.6;
             color: #1d1d1f;
-            margin-bottom: 25px;
+            margin-bottom: 35px;
         }
 
         .phone-impact-content strong {
@@ -536,13 +542,21 @@
 
         .cta-content {
             text-align: center;
+            padding-top: 20px;
+        }
+
+        .share-section-wrapper {
+            background: white;
+            padding: 0 20px 50px 20px;
         }
 
         .share-box {
-            margin-top: 40px;
+            max-width: 900px;
+            margin: 0 auto;
             padding: 30px;
-            background: #f8f9fa;
+            background: white;
             border-radius: 20px;
+            border: 2px solid #5fc3c8;
         }
 
         .share-title {
@@ -858,9 +872,12 @@
                 font-size: 16px;
             }
 
+            .phone-section-wrapper {
+                padding: 30px 15px;
+            }
+
             .phone-section {
                 padding: 20px;
-                margin-top: 25px;
             }
 
             .section-header {
@@ -870,7 +887,7 @@
 
             .phone-impact-content {
                 padding: 20px;
-                margin-bottom: 20px;
+                margin-bottom: 25px;
             }
 
             .cta-title {
@@ -888,9 +905,12 @@
                 font-size: 1em;
             }
 
+            .share-section-wrapper {
+                padding: 0 15px 30px 15px;
+            }
+
             .share-box {
                 padding: 20px;
-                margin-top: 25px;
             }
         }
 
@@ -994,32 +1014,36 @@
                     <div class="chart-subtitle" id="chartSubtitle">1 Emoji = 1 month</div>
                     <div class="emoji-container" id="emojiContainer"></div>
                 </div>
-
-                <div class="phone-section">
-                    <h2 class="section-header">Time Spent on Your Phone</h2>
-                    <div class="phone-impact-content">
-                        <div id="phoneImpactText"></div>
-                    </div>
-                    <div class="cta-content">
-                        <h3 class="cta-title">Want to spend less time on your phone?</h3>
-                        <p class="cta-subtitle">Stop mindless scrolling. Learn how to use your phone mindfully. This year, make time for what matters most to you.</p>
-                        <a href="https://apps.apple.com/us/app/free-time-mindful-screen-time/id6747683001" class="cta-btn">
-                            Download the Free Time app
-                        </a>
-                    </div>
-                </div>
-
-                <div class="share-box">
-                    <h2 class="share-title">Share Your Life in Emojis</h2>
-                    <p class="share-description">Copy and paste to share on social media</p>
-                    <p class="share-description" style="font-weight: 600; color: #5fc3c8;">1 emoji = 1 month</p>
-
-                    <div class="share-preview" id="sharePreview"></div>
-
-                    <button class="copy-btn" id="copyBtn">Copy to Clipboard</button>
-                    <div class="copy-success" id="copySuccess">Copied to clipboard!</div>
-                </div>
             </div>
+        </div>
+    </div>
+
+    <div class="phone-section-wrapper">
+        <div class="phone-section">
+            <h2 class="section-header">Time Spent on Your Phone</h2>
+            <div class="phone-impact-content">
+                <div id="phoneImpactText"></div>
+            </div>
+            <div class="cta-content">
+                <h3 class="cta-title">Want to spend less time on your phone?</h3>
+                <p class="cta-subtitle">This year, make time for what matters most to you. Learn how to cut down your screen time and use your phone with intention.</p>
+                <a href="https://apps.apple.com/us/app/free-time-mindful-screen-time/id6747683001" class="cta-btn">
+                    Download the Free Time app
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="share-section-wrapper">
+        <div class="share-box">
+            <h2 class="share-title">Share Your Life in Emojis</h2>
+            <p class="share-description">Copy and paste to share on social media</p>
+            <p class="share-description" style="font-weight: 600; color: #5fc3c8;">1 emoji = 1 month</p>
+
+            <div class="share-preview" id="sharePreview"></div>
+
+            <button class="copy-btn" id="copyBtn">Copy to Clipboard</button>
+            <div class="copy-success" id="copySuccess">Copied to clipboard!</div>
         </div>
     </div>
 
