@@ -504,45 +504,45 @@
             box-shadow: 0 6px 20px rgba(95, 195, 200, 0.4);
         }
 
-        .phone-cta-section {
-            background: white;
-            padding: 50px 20px;
+        .phone-section {
+            margin-top: 40px;
+            padding: 30px;
+            background: #f8f9fa;
+            border-radius: 20px;
         }
 
-        .phone-cta-container {
-            max-width: 900px;
-            margin: 0 auto;
+        .section-header {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: #1d1d1f;
+            margin-bottom: 20px;
             text-align: center;
         }
 
-        .phone-impact-box {
-            padding: 30px 40px;
-            background: #fef9ed;
+        .phone-impact-content {
+            padding: 25px;
+            background: white;
             border-left: 4px solid #e85d75;
             border-radius: 12px;
             font-size: 1.1em;
             line-height: 1.6;
             color: #1d1d1f;
-            text-align: left;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
         }
 
-        .phone-impact-box strong {
+        .phone-impact-content strong {
             font-weight: 700;
         }
 
-        .share-section {
-            background: #f8f9fa;
-            padding: 50px 20px;
+        .cta-content {
+            text-align: center;
         }
 
-        .share-container {
-            max-width: 900px;
-            margin: 0 auto;
-            background: white;
-            padding: 40px 30px;
+        .share-box {
+            margin-top: 40px;
+            padding: 30px;
+            background: #f8f9fa;
             border-radius: 20px;
-            border: 2px solid #5fc3c8;
         }
 
         .share-title {
@@ -608,7 +608,7 @@
         }
 
         .powered-by-section {
-            background: #1d1d1f;
+            background: linear-gradient(135deg, #5fc3c8 0%, #4fb4b9 100%);
             padding: 40px 20px;
             text-align: center;
         }
@@ -858,16 +858,23 @@
                 font-size: 16px;
             }
 
-            .phone-cta-section {
-                padding: 30px 15px;
+            .phone-section {
+                padding: 20px;
+                margin-top: 25px;
             }
 
-            .phone-impact-box {
+            .section-header {
+                font-size: 1.4em;
+                margin-bottom: 15px;
+            }
+
+            .phone-impact-content {
                 padding: 20px;
+                margin-bottom: 20px;
             }
 
             .cta-title {
-                font-size: 1.5em;
+                font-size: 1.3em;
                 margin-bottom: 12px;
             }
 
@@ -881,12 +888,9 @@
                 font-size: 1em;
             }
 
-            .share-section {
-                padding: 30px 15px;
-            }
-
-            .share-container {
-                padding: 25px 20px;
+            .share-box {
+                padding: 20px;
+                margin-top: 25px;
             }
         }
 
@@ -991,34 +995,31 @@
                     <div class="emoji-container" id="emojiContainer"></div>
                 </div>
 
+                <div class="phone-section">
+                    <h2 class="section-header">Time Spent on Your Phone</h2>
+                    <div class="phone-impact-content">
+                        <div id="phoneImpactText"></div>
+                    </div>
+                    <div class="cta-content">
+                        <h3 class="cta-title">Want to spend less time on your phone?</h3>
+                        <p class="cta-subtitle">Stop mindless scrolling. Learn how to use your phone mindfully. This year, make time for what matters most to you.</p>
+                        <a href="https://apps.apple.com/us/app/free-time-mindful-screen-time/id6747683001" class="cta-btn">
+                            Download the Free Time app
+                        </a>
+                    </div>
+                </div>
+
+                <div class="share-box">
+                    <h2 class="share-title">Share Your Life in Emojis</h2>
+                    <p class="share-description">Copy and paste to share on social media</p>
+                    <p class="share-description" style="font-weight: 600; color: #5fc3c8;">1 emoji = 1 month</p>
+
+                    <div class="share-preview" id="sharePreview"></div>
+
+                    <button class="copy-btn" id="copyBtn">Copy to Clipboard</button>
+                    <div class="copy-success" id="copySuccess">Copied to clipboard!</div>
+                </div>
             </div>
-        </div>
-    </div>
-
-    <div class="phone-cta-section">
-        <div class="phone-cta-container">
-            <div class="phone-impact-box">
-                <div id="phoneImpactText"></div>
-            </div>
-
-            <h2 class="cta-title">Want to spend less time on your phone?</h2>
-            <p class="cta-subtitle">Stop mindless scrolling. Learn how to use your phone mindfully. This year, make time for what matters most to you.</p>
-            <a href="https://apps.apple.com/us/app/free-time-mindful-screen-time/id6747683001" class="cta-btn">
-                Download the Free Time app
-            </a>
-        </div>
-    </div>
-
-    <div class="share-section">
-        <div class="share-container">
-            <h2 class="share-title">Share Your Life in Emojis</h2>
-            <p class="share-description">Copy and paste to share on social media</p>
-            <p class="share-description" style="font-weight: 600; color: #5fc3c8;">1 emoji = 1 month</p>
-
-            <div class="share-preview" id="sharePreview"></div>
-
-            <button class="copy-btn" id="copyBtn">Copy to Clipboard</button>
-            <div class="copy-success" id="copySuccess">Copied to clipboard!</div>
         </div>
     </div>
 
