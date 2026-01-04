@@ -527,7 +527,7 @@
 
         .phone-impact-content {
             padding: 25px;
-            background: white;
+            background: #fff8e1;
             border-left: 4px solid #e85d75;
             border-radius: 12px;
             font-size: 1.1em;
@@ -661,6 +661,9 @@
         .powered-by-btn:hover {
             transform: translateY(-2px);
             box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            text-decoration: none;
+            background: #4fb4b9;
+            color: white;
         }
 
         .age-section-simple {
@@ -1038,11 +1041,10 @@
         <div class="share-box">
             <h2 class="share-title">Share Your Life in Emojis</h2>
             <p class="share-description">Copy and paste to share on social media</p>
-            <p class="share-description" style="font-weight: 600; color: #5fc3c8;">1 emoji = 1 month</p>
 
             <div class="share-preview" id="sharePreview"></div>
 
-            <button class="copy-btn" id="copyBtn">Copy to Clipboard</button>
+            <button class="copy-btn" id="copyBtn">📋 Copy to Clipboard</button>
             <div class="copy-success" id="copySuccess">Copied to clipboard!</div>
         </div>
     </div>
@@ -1502,7 +1504,7 @@
                 }
 
                 // Build the HTML
-                let html = `You're spending <strong>${percentOfLife}% of your life</strong> on your phone — that's <strong>${daysPerYear} days per year</strong> and <strong>${yearsOfLife} years of your remaining life.</strong>`;
+                let html = `You're spending <strong>${percentOfLife}% of your life</strong> on your phone. That's <strong>${daysPerYear} days per year</strong> and <strong>${yearsOfLife} years of your remaining life.</strong>`;
 
                 if (insights.length > 0) {
                     html += `<br><br><strong>What this means:</strong><br>`;
