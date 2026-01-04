@@ -72,7 +72,7 @@
         .subtitle {
             text-align: center;
             color: #1d1d1f;
-            margin-bottom: 40px;
+            margin-bottom: 20px;
             font-size: 1.1em;
         }
 
@@ -203,14 +203,14 @@
             background: white;
             padding: 15px;
             border-radius: 12px;
-            border: 2px dashed #667eea;
+            border: 2px dashed #5fc3c8;
             margin-top: 15px;
         }
 
         .form-title {
             font-size: 1em;
             font-weight: 600;
-            color: #667eea;
+            color: #5fc3c8;
             margin-bottom: 12px;
             text-align: center;
         }
@@ -352,7 +352,7 @@
         .done-customizing-btn {
             width: 100%;
             padding: 15px;
-            background: #28a745;
+            background: #5fc3c8;
             color: white;
             border: none;
             border-radius: 10px;
@@ -365,7 +365,7 @@
         }
 
         .done-customizing-btn:hover {
-            background: #218838;
+            background: #4fb4b9;
             transform: translateY(-2px);
         }
 
@@ -467,14 +467,6 @@
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
 
-        .cta-box {
-            margin-top: 30px;
-            padding: 50px 40px;
-            background: #f5f5f7;
-            border-radius: 20px;
-            text-align: center;
-        }
-
         .cta-title {
             font-size: 2em;
             font-weight: 700;
@@ -512,8 +504,18 @@
             box-shadow: 0 6px 20px rgba(95, 195, 200, 0.4);
         }
 
+        .phone-cta-section {
+            background: white;
+            padding: 50px 20px;
+        }
+
+        .phone-cta-container {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
         .phone-impact-box {
-            margin-top: 30px;
             padding: 30px 40px;
             background: #fef9ed;
             border-left: 4px solid #e85d75;
@@ -521,16 +523,24 @@
             font-size: 1.1em;
             line-height: 1.6;
             color: #1d1d1f;
+            text-align: left;
+            margin-bottom: 30px;
         }
 
         .phone-impact-box strong {
             font-weight: 700;
         }
 
-        .share-box {
-            margin-top: 30px;
-            padding: 40px 30px;
+        .share-section {
+            background: #f8f9fa;
+            padding: 50px 20px;
+        }
+
+        .share-container {
+            max-width: 900px;
+            margin: 0 auto;
             background: white;
+            padding: 40px 30px;
             border-radius: 20px;
             border: 2px solid #5fc3c8;
         }
@@ -598,7 +608,7 @@
         }
 
         .powered-by-section {
-            background: linear-gradient(135deg, #5fc3c8 0%, #4fb4b9 100%);
+            background: #1d1d1f;
             padding: 40px 20px;
             text-align: center;
         }
@@ -848,8 +858,12 @@
                 font-size: 16px;
             }
 
-            .cta-box {
-                padding: 30px 20px;
+            .phone-cta-section {
+                padding: 30px 15px;
+            }
+
+            .phone-impact-box {
+                padding: 20px;
             }
 
             .cta-title {
@@ -865,6 +879,14 @@
             .cta-btn {
                 padding: 14px 30px;
                 font-size: 1em;
+            }
+
+            .share-section {
+                padding: 30px 15px;
+            }
+
+            .share-container {
+                padding: 25px 20px;
             }
         }
 
@@ -925,16 +947,16 @@
 
                     <div class="form-row">
                         <div class="form-group">
+                            <label class="form-label">Hours <span id="frequencyLabel">Per Day</span></label>
+                            <input type="number" class="form-input" id="newActivityHours" min="0" max="168" step="0.1" value="1">
+                        </div>
+
+                        <div class="form-group">
                             <label class="form-label">Frequency</label>
                             <select class="form-input" id="newActivityFrequency">
                                 <option value="day">Per Day</option>
                                 <option value="week">Per Week</option>
                             </select>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="form-label">Hours <span id="frequencyLabel">Per Day</span></label>
-                            <input type="number" class="form-input" id="newActivityHours" min="0" max="168" step="0.1" value="1">
                         </div>
                     </div>
 
@@ -969,29 +991,34 @@
                     <div class="emoji-container" id="emojiContainer"></div>
                 </div>
 
-                <div class="phone-impact-box">
-                    <div id="phoneImpactText"></div>
-                </div>
-
-                <div class="cta-box">
-                    <h2 class="cta-title">Want to spend less time on your phone?</h2>
-                    <p class="cta-subtitle">Stop mindless scrolling. Learn how to use your phone mindfully. This year, make time for what matters most to you.</p>
-                    <a href="https://apps.apple.com/us/app/free-time-mindful-screen-time/id6747683001" class="cta-btn">
-                        Download the Free Time app
-                    </a>
-                </div>
-
-                <div class="share-box">
-                    <h2 class="share-title">Share Your Life in Emojis</h2>
-                    <p class="share-description">Copy and paste to share on social media</p>
-                    <p class="share-description" style="font-weight: 600; color: #5fc3c8;">1 emoji = 1 month</p>
-
-                    <div class="share-preview" id="sharePreview"></div>
-
-                    <button class="copy-btn" id="copyBtn">Copy to Clipboard</button>
-                    <div class="copy-success" id="copySuccess">Copied to clipboard!</div>
-                </div>
             </div>
+        </div>
+    </div>
+
+    <div class="phone-cta-section">
+        <div class="phone-cta-container">
+            <div class="phone-impact-box">
+                <div id="phoneImpactText"></div>
+            </div>
+
+            <h2 class="cta-title">Want to spend less time on your phone?</h2>
+            <p class="cta-subtitle">Stop mindless scrolling. Learn how to use your phone mindfully. This year, make time for what matters most to you.</p>
+            <a href="https://apps.apple.com/us/app/free-time-mindful-screen-time/id6747683001" class="cta-btn">
+                Download the Free Time app
+            </a>
+        </div>
+    </div>
+
+    <div class="share-section">
+        <div class="share-container">
+            <h2 class="share-title">Share Your Life in Emojis</h2>
+            <p class="share-description">Copy and paste to share on social media</p>
+            <p class="share-description" style="font-weight: 600; color: #5fc3c8;">1 emoji = 1 month</p>
+
+            <div class="share-preview" id="sharePreview"></div>
+
+            <button class="copy-btn" id="copyBtn">Copy to Clipboard</button>
+            <div class="copy-success" id="copySuccess">Copied to clipboard!</div>
         </div>
     </div>
 
@@ -1397,8 +1424,69 @@
                 const percentOfLife = phoneActivity.percentOfLife;
                 const daysPerYear = ((phoneActivity.dailyHours * 365) / 24).toFixed(1);
                 const yearsOfLife = phoneActivity.yearsSpent;
+                const phoneHours = phoneActivity.dailyHours;
 
-                phoneImpactEl.innerHTML = `Some of these years are well spent. Resting, enjoying delicious food, spending time with loved ones, and exercising are great parts of living a meaningful life.<br><br>But you're spending <strong>${percentOfLife}% of your life</strong> on your phone — that's <strong>${daysPerYear} days per year</strong> and <strong>${yearsOfLife} years of your remaining life.</strong>`;
+                // Find other activities for comparisons
+                const friendsActivity = activityData.find(a => a.name.toLowerCase().includes('friend'));
+                const familyActivity = activityData.find(a => a.name.toLowerCase().includes('family'));
+                const hobbiesActivity = activityData.find(a => a.name.toLowerCase().includes('hobb'));
+                const exerciseActivity = activityData.find(a =>
+                    a.name.toLowerCase().includes('exercise') ||
+                    a.name.toLowerCase().includes('workout') ||
+                    a.name.toLowerCase().includes('gym')
+                );
+
+                // Build insights array
+                let insights = [];
+
+                // Combined comparison (friends + family + hobbies)
+                const combinedHours = (friendsActivity?.dailyHours || 0) +
+                                     (familyActivity?.dailyHours || 0) +
+                                     (hobbiesActivity?.dailyHours || 0);
+
+                if (combinedHours > 0 && phoneHours >= combinedHours * 0.9) {
+                    if (phoneHours >= combinedHours) {
+                        insights.push(`📱 You'll spend <strong>as much time on your phone</strong> as you will with friends, family, and hobbies combined.`);
+                    } else {
+                        insights.push(`📱 You'll spend <strong>almost as much time on your phone</strong> as you will with friends, family, and hobbies combined.`);
+                    }
+                }
+
+                // Friends comparison
+                if (friendsActivity && friendsActivity.dailyHours > 0) {
+                    const friendsRatio = phoneHours / friendsActivity.dailyHours;
+                    if (friendsRatio >= 2) {
+                        insights.push(`👫 You'll spend <strong>${friendsRatio.toFixed(1)}x more time</strong> on your phone than with friends.`);
+                    }
+                }
+
+                // Exercise comparison
+                if (exerciseActivity && exerciseActivity.dailyHours > 0) {
+                    const exerciseRatio = phoneHours / exerciseActivity.dailyHours;
+                    if (exerciseRatio >= 2) {
+                        insights.push(`💪 You'll spend <strong>${exerciseRatio.toFixed(1)}x more time</strong> scrolling than exercising.`);
+                    }
+                }
+
+                // Hobbies comparison
+                if (hobbiesActivity && hobbiesActivity.dailyHours > 0 && !insights.some(i => i.includes('hobbies'))) {
+                    const hobbiesRatio = phoneHours / hobbiesActivity.dailyHours;
+                    if (hobbiesRatio >= 2) {
+                        insights.push(`🎨 You'll spend <strong>${hobbiesRatio.toFixed(1)}x more time</strong> on your phone than on hobbies.`);
+                    }
+                }
+
+                // Build the HTML
+                let html = `You're spending <strong>${percentOfLife}% of your life</strong> on your phone — that's <strong>${daysPerYear} days per year</strong> and <strong>${yearsOfLife} years of your remaining life.</strong>`;
+
+                if (insights.length > 0) {
+                    html += `<br><br><strong>What this means:</strong><br>`;
+                    html += insights.join('<br>');
+                }
+
+                html += `<br><br>Some time is well spent like eating delicious food, resting, exercising, and being with loved ones. But is this how you want to spend your free time?`;
+
+                phoneImpactEl.innerHTML = html;
             } else {
                 phoneImpactEl.innerHTML = `Add a "Phone" activity to see how much time you're spending on your device.`;
             }
