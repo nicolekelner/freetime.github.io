@@ -77,8 +77,8 @@
         }
 
         .section {
-            margin-bottom: 35px;
-            padding: 25px;
+            margin-bottom: 20px;
+            padding: 20px;
             background: #f8f9fa;
             border-radius: 15px;
             border-left: 4px solid #5fc3c8;
@@ -370,14 +370,14 @@
         }
 
         .results {
-            margin-top: 40px;
-            padding: 30px;
+            margin-top: 20px;
+            padding: 20px;
             background: linear-gradient(135deg, rgba(95, 195, 200, 0.08) 0%, rgba(79, 180, 185, 0.08) 100%);
             border-radius: 15px;
         }
 
         .visualization {
-            margin-top: 30px;
+            margin-top: 15px;
             padding: 0;
             background: transparent;
         }
@@ -508,7 +508,7 @@
 
         .phone-section-wrapper {
             background: white;
-            padding: 50px 20px;
+            padding: 25px 20px;
         }
 
         .phone-section {
@@ -938,7 +938,7 @@
 <body>
     <div class="life-page-body">
         <div class="life-container">
-            <h1>Your Life in Emojis</h1>
+            <h1>📊 Your Life in Emojis</h1>
             <p class="subtitle">Visualize the rest of your life</p>
 
             <!-- Daily Activities Section -->
@@ -1561,7 +1561,7 @@
         function generateShareableText(activityData) {
             const age = parseFloat(document.getElementById('age').value) || 0;
 
-            let shareText = `My Life in Emojis (Age ${age} → 80)\n\n`;
+            let shareText = `📊 My Life in Emojis (Age ${age} → 80)\n\n`;
 
             activityData.forEach(activity => {
                 const count = viewMode === 'months' ? activity.totalMonths : activity.totalWeeks;
