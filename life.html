@@ -660,7 +660,7 @@
         }
 
         .powered-by-section {
-            background: linear-gradient(135deg, #5fc3c8 0%, #4fb4b9 100%);
+            background: #5D8687;
             padding: 40px 20px;
             text-align: center;
         }
@@ -1013,6 +1013,29 @@
                     <button class="customize-btn-small" id="customizeDailyBtn">Customize</button>
                 </div>
                 <div class="section-description">Write 0 hours if you don't do an activity</div>
+
+                <div id="addDailyActivityForm" class="add-activity-form hidden">
+                    <div class="form-title">Add Daily Activity</div>
+                    <div class="form-group">
+                        <label class="form-label">Choose Emoji</label>
+                        <div class="emoji-selector" id="dailyEmojiSelector"></div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Activity Name</label>
+                            <input type="text" class="form-input" id="dailyActivityName" placeholder="e.g., Reading, Meditation">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Hours Per Day</label>
+                            <input type="number" class="form-input" id="dailyActivityHours" min="0" max="24" step="0.5" value="1">
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button class="btn-cancel" id="cancelDailyBtn">Cancel</button>
+                        <button class="btn-add" id="addDailyBtn">Add Activity</button>
+                    </div>
+                </div>
+
                 <div id="dailyActivitiesContainer"></div>
             </div>
 
@@ -1022,46 +1045,36 @@
                     <div class="section-title">Weekly Activities</div>
                     <button class="customize-btn-small" id="customizeWeeklyBtn">Customize</button>
                 </div>
+                <div class="section-description">Activities you do each week</div>
+
+                <div id="addWeeklyActivityForm" class="add-activity-form hidden">
+                    <div class="form-title">Add Weekly Activity</div>
+                    <div class="form-group">
+                        <label class="form-label">Choose Emoji</label>
+                        <div class="emoji-selector" id="weeklyEmojiSelector"></div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Activity Name</label>
+                            <input type="text" class="form-input" id="weeklyActivityName" placeholder="e.g., Exercise, Hobbies">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Hours Per Week</label>
+                            <input type="number" class="form-input" id="weeklyActivityHours" min="0" max="168" step="0.5" value="1">
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button class="btn-cancel" id="cancelWeeklyBtn">Cancel</button>
+                        <button class="btn-add" id="addWeeklyBtn">Add Activity</button>
+                    </div>
+                </div>
+
                 <div id="weeklyActivitiesContainer"></div>
 
                 <div class="hours-feedback" id="hoursFeedback">
                     <span class="hours-feedback-label">Total: </span>
                     <span class="hours-feedback-value" id="totalHoursValue">24.0</span>
                     <span class="hours-feedback-note" id="hoursFeedbackNote"></span>
-                </div>
-
-                <div id="addActivityForm" class="add-activity-form hidden">
-                    <div class="form-title">Add Custom Activity</div>
-
-                    <div class="form-group">
-                        <label class="form-label">Choose Emoji</label>
-                        <div class="emoji-selector" id="emojiSelector"></div>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="form-label">Activity Name</label>
-                        <input type="text" class="form-input" id="newActivityName" placeholder="e.g., Reading, Gaming, Meditation">
-                    </div>
-
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label class="form-label">Hours <span id="frequencyLabel">Per Day</span></label>
-                            <input type="number" class="form-input" id="newActivityHours" min="0" max="168" step="0.1" value="1">
-                        </div>
-
-                        <div class="form-group">
-                            <label class="form-label">Frequency</label>
-                            <select class="form-input" id="newActivityFrequency">
-                                <option value="day">Per Day</option>
-                                <option value="week">Per Week</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="form-actions">
-                        <button class="btn-cancel" id="cancelAddBtn">Cancel</button>
-                        <button class="btn-add" id="addActivityBtn">Add Activity</button>
-                    </div>
                 </div>
             </div>
 
@@ -1298,6 +1311,7 @@
             if (currentPickerInput && currentPickerIndex !== null) {
                 currentPickerInput.value = currentPickerValue;
                 activities[currentPickerIndex].hours = currentPickerValue;
+                updateHoursFeedbackOnly();
                 if (resultsShown) {
                     calculateAndUpdate();
                 }
@@ -1332,11 +1346,15 @@
 
         const availableEmojis = ['📚', '🎮', '🎬', '🎵', '🧘', '🛁', '☕', '🍳', '🛒', '🧠', '✍️', '🎨', '🌳', '🏃', '🚴', '🏊', '⚽', '🎾', '🧗', '🎪', '🎭', '🎯', '🎲', '🃏', '🎻', '🎸', '🎹', '🥁', '🎤', '📷', '🔧', '🌱', '🐕', '🐈', '👶', '👨‍👩‍👧', '💑', '👥', '🙏', '📿', '🕯️', '💭', '📝', '💻', '🖥️', '⌨️', '🎧', '📺', '🎥', '🌅', '🌙', '🛏️', '🪥', '💅', '💇', '👔', '👗', '🧺', '🍿', '🎂', '🎄', '✈️', '🏖️', '⛷️', '🧩', '📖', '🗞️', '💰', '📊', '🏠', '🏢'];
 
-        let selectedEmoji = '📚';
+        let selectedDailyEmoji = '📚';
+        let selectedWeeklyEmoji = '📚';
         let customizeMode = false;
+        let dailyFormOpen = false;
+        let weeklyFormOpen = false;
 
-        function setupEmojiSelector() {
-            const container = document.getElementById('emojiSelector');
+        function setupEmojiSelector(containerId, selectedEmoji, onSelect) {
+            const container = document.getElementById(containerId);
+            if (!container) return;
             container.innerHTML = '';
 
             availableEmojis.forEach(emoji => {
@@ -1344,12 +1362,17 @@
                 option.className = 'emoji-option' + (emoji === selectedEmoji ? ' selected' : '');
                 option.textContent = emoji;
                 option.onclick = () => {
-                    document.querySelectorAll('.emoji-option').forEach(e => e.classList.remove('selected'));
+                    container.querySelectorAll('.emoji-option').forEach(e => e.classList.remove('selected'));
                     option.classList.add('selected');
-                    selectedEmoji = emoji;
+                    onSelect(emoji);
                 };
                 container.appendChild(option);
             });
+        }
+
+        function setupAllEmojiSelectors() {
+            setupEmojiSelector('dailyEmojiSelector', selectedDailyEmoji, (emoji) => { selectedDailyEmoji = emoji; });
+            setupEmojiSelector('weeklyEmojiSelector', selectedWeeklyEmoji, (emoji) => { selectedWeeklyEmoji = emoji; });
         }
 
         function renderActivities() {
@@ -1394,6 +1417,7 @@
                 } else {
                     input.addEventListener('input', (e) => {
                         activities[index].hours = parseFloat(e.target.value) || 0;
+                        updateHoursFeedbackOnly();
                         if (resultsShown) {
                             calculateAndUpdate();
                         }
@@ -1407,10 +1431,20 @@
                 }
             });
 
-            setupEmojiSelector();
+            setupAllEmojiSelectors();
+            // Always update hours feedback
+            updateHoursFeedbackOnly();
             if (resultsShown) {
                 calculateAndUpdate();
             }
+        }
+
+        function updateHoursFeedbackOnly() {
+            const totalHoursPerDay = activities.reduce((sum, a) => {
+                const dailyHours = a.frequency === 'day' ? a.hours : a.hours / 7;
+                return sum + dailyHours;
+            }, 0);
+            updateHoursFeedback(totalHoursPerDay);
         }
 
         function removeActivity(index) {
@@ -1418,30 +1452,47 @@
             renderActivities();
         }
 
-        function enterCustomizeMode() {
-            customizeMode = true;
-            document.getElementById('addActivityForm').classList.remove('hidden');
-            document.getElementById('customizeDailyBtn').textContent = 'Done';
-            document.getElementById('customizeDailyBtn').classList.add('active');
-            document.getElementById('customizeWeeklyBtn').textContent = 'Done';
-            document.getElementById('customizeWeeklyBtn').classList.add('active');
+        function toggleDailyForm() {
+            dailyFormOpen = !dailyFormOpen;
+            const form = document.getElementById('addDailyActivityForm');
+            const btn = document.getElementById('customizeDailyBtn');
+
+            if (dailyFormOpen) {
+                form.classList.remove('hidden');
+                btn.textContent = 'Done';
+                btn.classList.add('active');
+                customizeMode = true;
+            } else {
+                form.classList.add('hidden');
+                btn.textContent = 'Customize';
+                btn.classList.remove('active');
+                if (!weeklyFormOpen) customizeMode = false;
+            }
             renderActivities();
         }
 
-        function exitCustomizeMode() {
-            customizeMode = false;
-            document.getElementById('addActivityForm').classList.add('hidden');
-            document.getElementById('customizeDailyBtn').textContent = 'Customize';
-            document.getElementById('customizeDailyBtn').classList.remove('active');
-            document.getElementById('customizeWeeklyBtn').textContent = 'Customize';
-            document.getElementById('customizeWeeklyBtn').classList.remove('active');
+        function toggleWeeklyForm() {
+            weeklyFormOpen = !weeklyFormOpen;
+            const form = document.getElementById('addWeeklyActivityForm');
+            const btn = document.getElementById('customizeWeeklyBtn');
+
+            if (weeklyFormOpen) {
+                form.classList.remove('hidden');
+                btn.textContent = 'Done';
+                btn.classList.add('active');
+                customizeMode = true;
+            } else {
+                form.classList.add('hidden');
+                btn.textContent = 'Customize';
+                btn.classList.remove('active');
+                if (!dailyFormOpen) customizeMode = false;
+            }
             renderActivities();
         }
 
-        function addActivity() {
-            const name = document.getElementById('newActivityName').value.trim();
-            const hours = parseFloat(document.getElementById('newActivityHours').value) || 0;
-            const frequency = document.getElementById('newActivityFrequency').value;
+        function addDailyActivity() {
+            const name = document.getElementById('dailyActivityName').value.trim();
+            const hours = parseFloat(document.getElementById('dailyActivityHours').value) || 0;
 
             if (!name) {
                 alert('Please enter an activity name');
@@ -1449,19 +1500,39 @@
             }
 
             activities.push({
-                emoji: selectedEmoji,
+                emoji: selectedDailyEmoji,
                 name: name,
                 hours: hours,
-                frequency: frequency,
+                frequency: 'day',
                 isDefault: false
             });
 
-            document.getElementById('newActivityName').value = '';
-            document.getElementById('newActivityHours').value = '1';
-            document.getElementById('newActivityFrequency').value = 'day';
-            document.getElementById('frequencyLabel').textContent = 'Per Day';
-            selectedEmoji = '📚';
-            setupEmojiSelector();
+            document.getElementById('dailyActivityName').value = '';
+            document.getElementById('dailyActivityHours').value = '1';
+            selectedDailyEmoji = '📚';
+            renderActivities();
+        }
+
+        function addWeeklyActivity() {
+            const name = document.getElementById('weeklyActivityName').value.trim();
+            const hours = parseFloat(document.getElementById('weeklyActivityHours').value) || 0;
+
+            if (!name) {
+                alert('Please enter an activity name');
+                return;
+            }
+
+            activities.push({
+                emoji: selectedWeeklyEmoji,
+                name: name,
+                hours: hours,
+                frequency: 'week',
+                isDefault: false
+            });
+
+            document.getElementById('weeklyActivityName').value = '';
+            document.getElementById('weeklyActivityHours').value = '1';
+            selectedWeeklyEmoji = '📚';
             renderActivities();
         }
 
@@ -1679,25 +1750,22 @@
             }
         });
 
-        function toggleCustomizeMode() {
-            if (customizeMode) {
-                exitCustomizeMode();
-            } else {
-                enterCustomizeMode();
-            }
-        }
-
-        document.getElementById('customizeDailyBtn').addEventListener('click', toggleCustomizeMode);
-        document.getElementById('customizeWeeklyBtn').addEventListener('click', toggleCustomizeMode);
-        document.getElementById('cancelAddBtn').addEventListener('click', function() {
-            document.getElementById('newActivityName').value = '';
-            document.getElementById('newActivityHours').value = '1';
-            document.getElementById('newActivityFrequency').value = 'day';
-            document.getElementById('frequencyLabel').textContent = 'Per Day';
-            setupEmojiSelector();
-            exitCustomizeMode();
+        document.getElementById('customizeDailyBtn').addEventListener('click', toggleDailyForm);
+        document.getElementById('customizeWeeklyBtn').addEventListener('click', toggleWeeklyForm);
+        document.getElementById('cancelDailyBtn').addEventListener('click', function() {
+            document.getElementById('dailyActivityName').value = '';
+            document.getElementById('dailyActivityHours').value = '1';
+            selectedDailyEmoji = '📚';
+            toggleDailyForm();
         });
-        document.getElementById('addActivityBtn').addEventListener('click', addActivity);
+        document.getElementById('cancelWeeklyBtn').addEventListener('click', function() {
+            document.getElementById('weeklyActivityName').value = '';
+            document.getElementById('weeklyActivityHours').value = '1';
+            selectedWeeklyEmoji = '📚';
+            toggleWeeklyForm();
+        });
+        document.getElementById('addDailyBtn').addEventListener('click', addDailyActivity);
+        document.getElementById('addWeeklyBtn').addEventListener('click', addWeeklyActivity);
 
         document.getElementById('copyBtn').addEventListener('click', async function() {
             const shareText = document.getElementById('sharePreview').textContent;
@@ -1741,11 +1809,6 @@
             document.getElementById('weeksBtn').classList.add('active');
             document.getElementById('monthsBtn').classList.remove('active');
             calculateAndUpdate();
-        });
-
-        document.getElementById('newActivityFrequency').addEventListener('change', function(e) {
-            const label = document.getElementById('frequencyLabel');
-            label.textContent = e.target.value === 'day' ? 'Per Day' : 'Per Week';
         });
 
         renderActivities();
