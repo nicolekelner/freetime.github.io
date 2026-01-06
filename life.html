@@ -498,11 +498,26 @@
         }
 
         .years-emoji-grid {
-            display: flex;
-            flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: repeat(10, auto);
             gap: 6px;
             justify-content: center;
             padding: 10px 0;
+        }
+
+        .years-emoji-key {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px 20px;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .key-item {
+            font-size: 14px;
+            color: #666;
         }
 
         .chart-header {
@@ -1845,6 +1860,21 @@
                 });
 
                 container.appendChild(grid);
+
+                // Add key/legend below the grid
+                const key = document.createElement('div');
+                key.className = 'years-emoji-key';
+                activityData.forEach(activity => {
+                    const count = Math.round(parseFloat(activity.yearsSpent)) || 0;
+                    if (count > 0) {
+                        const item = document.createElement('span');
+                        item.className = 'key-item';
+                        item.innerHTML = `${activity.emoji} ${activity.name}`;
+                        key.appendChild(item);
+                    }
+                });
+                container.appendChild(key);
+
                 generateShareableText(activityData);
                 return;
             }
