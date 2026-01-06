@@ -104,11 +104,11 @@
         }
 
         .customize-btn-small {
-            padding: 6px 12px;
+            padding: 6px 16px;
             background: transparent;
             color: #5fc3c8;
             border: 1px solid #5fc3c8;
-            border-radius: 6px;
+            border-radius: 50px;
             cursor: pointer;
             font-size: 0.85em;
             font-weight: 600;
@@ -168,22 +168,69 @@
             color: #333;
         }
 
+        .hours-stepper {
+            display: flex;
+            align-items: center;
+            gap: 0;
+        }
+
+        .stepper-btn {
+            width: 32px;
+            height: 32px;
+            border: 2px solid #5fc3c8;
+            background: white;
+            color: #5fc3c8;
+            font-size: 1.2em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Lexend', sans-serif;
+        }
+
+        .stepper-btn:hover {
+            background: #5fc3c8;
+            color: white;
+        }
+
+        .stepper-btn.minus {
+            border-radius: 50px 0 0 50px;
+            border-right: none;
+        }
+
+        .stepper-btn.plus {
+            border-radius: 0 50px 50px 0;
+            border-left: none;
+        }
+
         .activity-hours-input {
-            width: 70px;
-            padding: 6px 10px;
-            border: 2px solid #ddd;
-            border-radius: 6px;
+            width: 50px;
+            padding: 6px 4px;
+            border: 2px solid #5fc3c8;
+            border-left: none;
+            border-right: none;
+            border-radius: 0;
             font-size: 0.95em;
             font-weight: 600;
             text-align: center;
             color: #5fc3c8;
             font-family: 'Lexend', sans-serif;
+            height: 32px;
+            box-sizing: border-box;
+            -moz-appearance: textfield;
+        }
+
+        .activity-hours-input::-webkit-outer-spin-button,
+        .activity-hours-input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
         }
 
         .activity-hours-input:focus {
             outline: none;
             border-color: #5fc3c8;
-            box-shadow: 0 0 0 3px rgba(95, 195, 200, 0.1);
         }
 
         .hours-label {
@@ -1161,6 +1208,7 @@
                     <div class="chart-header">
                         <div class="chart-title">Your Life in Emojis</div>
                         <div class="view-toggle">
+                            <button class="view-toggle-btn" id="yearsBtn">Years</button>
                             <button class="view-toggle-btn active" id="monthsBtn">Months</button>
                             <button class="view-toggle-btn" id="weeksBtn">Weeks</button>
                         </div>
@@ -1458,21 +1506,27 @@
                         <span class="activity-emoji">${activity.emoji}</span>
                         <span class="activity-name">${activity.name}</span>
                     </div>
-                    <input type="number"
-                           class="activity-hours-input"
-                           value="${activity.hours}"
-                           min="0"
-                           max="${isDaily ? 24 : 168}"
-                           step="0.5"
-                           ${isMobile ? 'readonly' : ''}
-                           data-index="${index}"
-                           data-name="${activity.name}"
-                           data-daily="${isDaily}">
+                    <div class="hours-stepper">
+                        <button class="stepper-btn minus" data-index="${index}" data-daily="${isDaily}">−</button>
+                        <input type="number"
+                               class="activity-hours-input"
+                               value="${activity.hours}"
+                               min="0"
+                               max="${isDaily ? 24 : 168}"
+                               step="0.5"
+                               ${isMobile ? 'readonly' : ''}
+                               data-index="${index}"
+                               data-name="${activity.name}"
+                               data-daily="${isDaily}">
+                        <button class="stepper-btn plus" data-index="${index}" data-daily="${isDaily}">+</button>
+                    </div>
                     <span class="hours-label">hours</span>
                     ${customizeMode && isRemovable ? `<button class="btn-cancel" style="padding: 6px 12px; font-size: 0.85em;" onclick="removeActivity(${index})">✕</button>` : ''}
                 `;
 
                 const input = row.querySelector('input');
+                const minusBtn = row.querySelector('.stepper-btn.minus');
+                const plusBtn = row.querySelector('.stepper-btn.plus');
 
                 if (isMobile) {
                     input.addEventListener('click', (e) => {
@@ -1487,6 +1541,27 @@
                         }
                     });
                 }
+
+                // Stepper button handlers
+                minusBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const maxVal = isDaily ? 24 : 168;
+                    let newVal = Math.max(0, (activities[index].hours || 0) - 0.5);
+                    activities[index].hours = newVal;
+                    input.value = newVal;
+                    updateHoursFeedbackOnly();
+                    if (resultsShown) calculateAndUpdate();
+                });
+
+                plusBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const maxVal = isDaily ? 24 : 168;
+                    let newVal = Math.min(maxVal, (activities[index].hours || 0) + 0.5);
+                    activities[index].hours = newVal;
+                    input.value = newVal;
+                    updateHoursFeedbackOnly();
+                    if (resultsShown) calculateAndUpdate();
+                });
 
                 if (activity.frequency === 'day') {
                     dailyContainer.appendChild(row);
@@ -1742,10 +1817,18 @@
             container.innerHTML = '';
 
             const subtitle = document.getElementById('chartSubtitle');
-            subtitle.textContent = viewMode === 'months' ? '1 Emoji = 1 month' : '1 Emoji = 1 week';
+            const subtitles = { years: '1 Emoji = 1 year', months: '1 Emoji = 1 month', weeks: '1 Emoji = 1 week' };
+            subtitle.textContent = subtitles[viewMode];
 
             activityData.forEach(activity => {
-                const count = viewMode === 'months' ? activity.totalMonths : activity.totalWeeks;
+                let count;
+                if (viewMode === 'years') {
+                    count = Math.round(parseFloat(activity.yearsSpent)) || 0;
+                } else if (viewMode === 'months') {
+                    count = activity.totalMonths;
+                } else {
+                    count = activity.totalWeeks;
+                }
                 if (count === 0) return;
 
                 const row = document.createElement('div');
@@ -1758,7 +1841,8 @@
                 const band = document.createElement('div');
                 band.className = 'emoji-band';
 
-                const unitLabel = viewMode === 'months' ? 'month' : 'week';
+                const unitLabels = { years: 'year', months: 'month', weeks: 'week' };
+                const unitLabel = unitLabels[viewMode];
                 for (let i = 0; i < count; i++) {
                     const emoji = document.createElement('span');
                     emoji.className = 'emoji-week';
@@ -1859,9 +1943,18 @@
             }
         });
 
+        document.getElementById('yearsBtn').addEventListener('click', function() {
+            viewMode = 'years';
+            document.getElementById('yearsBtn').classList.add('active');
+            document.getElementById('monthsBtn').classList.remove('active');
+            document.getElementById('weeksBtn').classList.remove('active');
+            calculateAndUpdate();
+        });
+
         document.getElementById('monthsBtn').addEventListener('click', function() {
             viewMode = 'months';
             document.getElementById('monthsBtn').classList.add('active');
+            document.getElementById('yearsBtn').classList.remove('active');
             document.getElementById('weeksBtn').classList.remove('active');
             calculateAndUpdate();
         });
@@ -1869,6 +1962,7 @@
         document.getElementById('weeksBtn').addEventListener('click', function() {
             viewMode = 'weeks';
             document.getElementById('weeksBtn').classList.add('active');
+            document.getElementById('yearsBtn').classList.remove('active');
             document.getElementById('monthsBtn').classList.remove('active');
             calculateAndUpdate();
         });
