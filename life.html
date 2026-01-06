@@ -583,6 +583,28 @@
             padding-top: 10px;
         }
 
+        .insights-section {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .insights-header {
+            font-size: 1.8em;
+            font-weight: 700;
+            color: #1d1d1f;
+            margin-top: 0;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .share-section {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid #e0e0e0;
+            text-align: center;
+        }
+
         .share-section-wrapper {
             background: white;
             padding: 0 20px 50px 20px;
@@ -661,7 +683,7 @@
         }
 
         .powered-by-section {
-            background: #5D88B3;
+            background: #28639F;
             padding: 40px 20px;
             text-align: center;
         }
@@ -756,7 +778,7 @@
             display: block;
             margin: 20px auto 0 auto;
             padding: 18px 50px;
-            background: #3D8E79;
+            background: #34C431;
             color: white;
             border: none;
             border-radius: 50px;
@@ -765,7 +787,7 @@
             font-weight: 600;
             transition: all 0.3s;
             font-family: 'Lexend', sans-serif;
-            box-shadow: 0 4px 15px rgba(61, 142, 121, 0.3);
+            box-shadow: 0 4px 15px rgba(52, 196, 49, 0.3);
         }
 
         .calculate-btn .mobile-break {
@@ -774,8 +796,8 @@
 
         .calculate-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(61, 142, 121, 0.4);
-            background: #358068;
+            box-shadow: 0 6px 20px rgba(52, 196, 49, 0.4);
+            background: #2DB02A;
         }
 
         .results-container {
@@ -1113,35 +1135,31 @@
                     <div class="chart-subtitle" id="chartSubtitle">1 Emoji = 1 month</div>
                     <div class="emoji-container" id="emojiContainer"></div>
                 </div>
+
+                <!-- Insights Section -->
+                <div class="insights-section">
+                    <h2 class="insights-header">Insights</h2>
+                    <div class="phone-impact-content">
+                        <div id="phoneImpactText"></div>
+                    </div>
+                    <div class="cta-content">
+                        <h3 class="cta-title">Want to spend less time on your phone?</h3>
+                        <p class="cta-subtitle">This year, make time for what matters most to you. Learn how to cut down your screen time and use your phone with intention.</p>
+                        <a href="https://apps.apple.com/us/app/free-time-mindful-screen-time/id6747683001" class="cta-btn">
+                            Download the Free Time app
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Share Section -->
+                <div class="share-section">
+                    <h2 class="share-title">Share Your Life in Emojis</h2>
+                    <p class="share-description">Copy and paste to share on social media</p>
+                    <div class="share-preview" id="sharePreview"></div>
+                    <button class="copy-btn" id="copyBtn">📋 Copy to Clipboard</button>
+                    <div class="copy-success" id="copySuccess">Copied to clipboard!</div>
+                </div>
             </div>
-        </div>
-    </div>
-
-    <div class="phone-section-wrapper" id="phoneSectionWrapper" style="display: none;">
-        <div class="phone-section">
-            <h2 class="section-header">Time Spent on Your Phone</h2>
-            <div class="phone-impact-content">
-                <div id="phoneImpactText"></div>
-            </div>
-            <div class="cta-content">
-                <h3 class="cta-title">Want to spend less time on your phone?</h3>
-                <p class="cta-subtitle">This year, make time for what matters most to you. Learn how to cut down your screen time and use your phone with intention.</p>
-                <a href="https://apps.apple.com/us/app/free-time-mindful-screen-time/id6747683001" class="cta-btn">
-                    Download the Free Time app
-                </a>
-            </div>
-        </div>
-    </div>
-
-    <div class="share-section-wrapper" id="shareSectionWrapper" style="display: none;">
-        <div class="share-box">
-            <h2 class="share-title">Share Your Life in Emojis</h2>
-            <p class="share-description">Copy and paste to share on social media</p>
-
-            <div class="share-preview" id="sharePreview"></div>
-
-            <button class="copy-btn" id="copyBtn">📋 Copy to Clipboard</button>
-            <div class="copy-success" id="copySuccess">Copied to clipboard!</div>
         </div>
     </div>
 
@@ -1618,62 +1636,30 @@
                 const yearsOfLife = phoneActivity.yearsSpent;
                 const phoneHours = phoneActivity.dailyHours;
 
-                // Find other activities for comparisons
+                // Find other activities for combined comparison
                 const friendsActivity = activityData.find(a => a.name.toLowerCase().includes('friend'));
                 const familyActivity = activityData.find(a => a.name.toLowerCase().includes('family'));
                 const hobbiesActivity = activityData.find(a => a.name.toLowerCase().includes('hobb'));
-                const exerciseActivity = activityData.find(a =>
-                    a.name.toLowerCase().includes('exercise') ||
-                    a.name.toLowerCase().includes('workout') ||
-                    a.name.toLowerCase().includes('gym')
-                );
-
-                // Build insights array
-                let insights = [];
 
                 // Combined comparison (friends + family + hobbies)
                 const combinedHours = (friendsActivity?.dailyHours || 0) +
                                      (familyActivity?.dailyHours || 0) +
                                      (hobbiesActivity?.dailyHours || 0);
 
+                let combinedInsight = '';
                 if (combinedHours > 0 && phoneHours >= combinedHours * 0.9) {
                     if (phoneHours >= combinedHours) {
-                        insights.push(`📱 You'll spend <strong>as much time on your phone</strong> as you will with friends, family, and hobbies combined.`);
+                        combinedInsight = `You'll spend <strong>as much time on your phone</strong> as you will with friends, family, and hobbies combined.`;
                     } else {
-                        insights.push(`📱 You'll spend <strong>almost as much time on your phone</strong> as you will with friends, family, and hobbies combined.`);
-                    }
-                }
-
-                // Friends comparison
-                if (friendsActivity && friendsActivity.dailyHours > 0) {
-                    const friendsRatio = phoneHours / friendsActivity.dailyHours;
-                    if (friendsRatio >= 2) {
-                        insights.push(`👫 You'll spend <strong>${friendsRatio.toFixed(1)}x more time</strong> on your phone than with friends.`);
-                    }
-                }
-
-                // Exercise comparison
-                if (exerciseActivity && exerciseActivity.dailyHours > 0) {
-                    const exerciseRatio = phoneHours / exerciseActivity.dailyHours;
-                    if (exerciseRatio >= 2) {
-                        insights.push(`💪 You'll spend <strong>${exerciseRatio.toFixed(1)}x more time</strong> scrolling than exercising.`);
-                    }
-                }
-
-                // Hobbies comparison
-                if (hobbiesActivity && hobbiesActivity.dailyHours > 0 && !insights.some(i => i.includes('hobbies'))) {
-                    const hobbiesRatio = phoneHours / hobbiesActivity.dailyHours;
-                    if (hobbiesRatio >= 2) {
-                        insights.push(`🎨 You'll spend <strong>${hobbiesRatio.toFixed(1)}x more time</strong> on your phone than on hobbies.`);
+                        combinedInsight = `You'll spend <strong>almost as much time on your phone</strong> as you will with friends, family, and hobbies combined.`;
                     }
                 }
 
                 // Build the HTML
                 let html = `You're spending <strong>${percentOfLife}% of your life</strong> on your phone. That's <strong>${daysPerYear} days per year</strong> and <strong>${yearsOfLife} years of your remaining life.</strong>`;
 
-                if (insights.length > 0) {
-                    html += `<br><br><strong>What this means:</strong><br>`;
-                    html += insights.join('<br>');
+                if (combinedInsight) {
+                    html += `<br><br>${combinedInsight}`;
                 }
 
                 html += `<br><br>Some time is well spent like eating delicious food, resting, exercising, and being with loved ones. But is this how you want to spend your free time?`;
@@ -1746,8 +1732,6 @@
 
         function showResults() {
             document.getElementById('results').style.display = 'block';
-            document.getElementById('phoneSectionWrapper').style.display = 'block';
-            document.getElementById('shareSectionWrapper').style.display = 'block';
             document.getElementById('calculateBtn').textContent = 'Recalculate';
             resultsShown = true;
             calculateAndUpdate();
