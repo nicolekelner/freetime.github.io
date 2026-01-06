@@ -604,6 +604,13 @@
             color: #1d1d1f;
         }
 
+        .emoji-comparison-legend {
+            text-align: center;
+            font-size: 0.85em;
+            color: #666;
+            margin-top: 10px;
+        }
+
         .cta-content {
             text-align: center;
             padding-top: 30px;
@@ -1676,12 +1683,11 @@
                                      (familyActivity?.dailyHours || 0) +
                                      (hobbiesActivity?.dailyHours || 0);
 
-                // Get month counts for visual comparison
-                const phoneMonths = phoneActivity.totalMonths || 0;
-                const friendsMonths = friendsActivity?.totalMonths || 0;
-                const familyMonths = familyActivity?.totalMonths || 0;
-                const hobbiesMonths = hobbiesActivity?.totalMonths || 0;
-                const combinedMonths = friendsMonths + familyMonths + hobbiesMonths;
+                // Get year counts for visual comparison (1 emoji = 1 year)
+                const phoneYears = Math.round(parseFloat(phoneActivity.yearsSpent)) || 0;
+                const friendsYears = Math.round(parseFloat(friendsActivity?.yearsSpent || 0));
+                const familyYears = Math.round(parseFloat(familyActivity?.yearsSpent || 0));
+                const hobbiesYears = Math.round(parseFloat(hobbiesActivity?.yearsSpent || 0));
 
                 let combinedInsight = '';
                 let emojiComparison = '';
@@ -1693,11 +1699,16 @@
                         combinedInsight = `You'll spend <strong>almost as much time on your phone</strong> as you will with friends, family, and hobbies combined.`;
                     }
 
-                    // Build emoji visual comparison
-                    const phoneEmojis = '📱'.repeat(Math.min(phoneMonths, 20));
-                    const friendsEmojis = '👫'.repeat(Math.min(friendsMonths, 10));
-                    const familyEmojis = '👨‍👩‍👧'.repeat(Math.min(familyMonths, 10));
-                    const hobbiesEmojis = '🎨'.repeat(Math.min(hobbiesMonths, 10));
+                    // Build emoji visual comparison using actual emojis from activities
+                    const phoneEmoji = phoneActivity.emoji || '📱';
+                    const friendsEmoji = friendsActivity?.emoji || '👫';
+                    const familyEmoji = familyActivity?.emoji || '👨‍👩‍👧';
+                    const hobbiesEmoji = hobbiesActivity?.emoji || '🎨';
+
+                    const phoneEmojis = phoneEmoji.repeat(Math.min(phoneYears, 15));
+                    const friendsEmojis = friendsYears > 0 ? friendsEmoji.repeat(Math.min(friendsYears, 10)) : '';
+                    const familyEmojis = familyYears > 0 ? familyEmoji.repeat(Math.min(familyYears, 10)) : '';
+                    const hobbiesEmojis = hobbiesYears > 0 ? hobbiesEmoji.repeat(Math.min(hobbiesYears, 10)) : '';
 
                     emojiComparison = `
                         <div class="emoji-comparison">
@@ -1705,6 +1716,7 @@
                             <div class="emoji-comparison-equals">=</div>
                             <div class="emoji-comparison-side combined-side">${friendsEmojis}${familyEmojis}${hobbiesEmojis}</div>
                         </div>
+                        <div class="emoji-comparison-legend">1 emoji = 1 year</div>
                     `;
                 }
 
