@@ -573,6 +573,37 @@
             font-weight: 700;
         }
 
+        .emoji-comparison {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            margin: 25px 0;
+            flex-wrap: wrap;
+        }
+
+        .emoji-comparison-side {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 3px;
+            max-width: 200px;
+            justify-content: center;
+        }
+
+        .emoji-comparison-side.phone-side {
+            font-size: 1.4em;
+        }
+
+        .emoji-comparison-side.combined-side {
+            font-size: 1em;
+        }
+
+        .emoji-comparison-equals {
+            font-size: 1.5em;
+            font-weight: 700;
+            color: #1d1d1f;
+        }
+
         .cta-content {
             text-align: center;
             padding-top: 30px;
@@ -653,7 +684,7 @@
             background: #5fc3c8;
             color: white;
             border: none;
-            border-radius: 10px;
+            border-radius: 50px;
             cursor: pointer;
             font-size: 1em;
             font-weight: 600;
@@ -1645,20 +1676,44 @@
                                      (familyActivity?.dailyHours || 0) +
                                      (hobbiesActivity?.dailyHours || 0);
 
+                // Get month counts for visual comparison
+                const phoneMonths = phoneActivity.totalMonths || 0;
+                const friendsMonths = friendsActivity?.totalMonths || 0;
+                const familyMonths = familyActivity?.totalMonths || 0;
+                const hobbiesMonths = hobbiesActivity?.totalMonths || 0;
+                const combinedMonths = friendsMonths + familyMonths + hobbiesMonths;
+
                 let combinedInsight = '';
+                let emojiComparison = '';
+
                 if (combinedHours > 0 && phoneHours >= combinedHours * 0.9) {
                     if (phoneHours >= combinedHours) {
                         combinedInsight = `You'll spend <strong>as much time on your phone</strong> as you will with friends, family, and hobbies combined.`;
                     } else {
                         combinedInsight = `You'll spend <strong>almost as much time on your phone</strong> as you will with friends, family, and hobbies combined.`;
                     }
+
+                    // Build emoji visual comparison
+                    const phoneEmojis = '📱'.repeat(Math.min(phoneMonths, 20));
+                    const friendsEmojis = '👫'.repeat(Math.min(friendsMonths, 10));
+                    const familyEmojis = '👨‍👩‍👧'.repeat(Math.min(familyMonths, 10));
+                    const hobbiesEmojis = '🎨'.repeat(Math.min(hobbiesMonths, 10));
+
+                    emojiComparison = `
+                        <div class="emoji-comparison">
+                            <div class="emoji-comparison-side phone-side">${phoneEmojis}</div>
+                            <div class="emoji-comparison-equals">=</div>
+                            <div class="emoji-comparison-side combined-side">${friendsEmojis}${familyEmojis}${hobbiesEmojis}</div>
+                        </div>
+                    `;
                 }
 
                 // Build the HTML
-                let html = `You're spending <strong>${percentOfLife}% of your life</strong> on your phone. That's <strong>${daysPerYear} days per year</strong> and <strong>${yearsOfLife} years of your remaining life.</strong>`;
+                let html = `You're spending <strong>${percentOfLife}% of your life</strong> on your phone. That's <strong>${yearsOfLife} years of your remaining life.</strong>`;
 
                 if (combinedInsight) {
                     html += `<br><br>${combinedInsight}`;
+                    html += emojiComparison;
                 }
 
                 html += `<br><br>Some time is well spent like eating delicious food, resting, exercising, and being with loved ones. But is this how you want to spend your free time?`;
