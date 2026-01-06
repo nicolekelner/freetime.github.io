@@ -613,7 +613,7 @@
         .insights-section {
             margin-top: 40px;
             padding: 30px;
-            background: #F8DF77;
+            background: #FFF1A0;
             border-radius: 16px;
         }
 
@@ -1040,8 +1040,13 @@
                 padding: 20px;
             }
 
-            .calculate-btn .mobile-break {
+            .calculate-btn .mobile-break,
+            .cta-btn .mobile-break {
                 display: block;
+            }
+
+            .emoji-comparison {
+                flex-direction: column;
             }
         }
 
@@ -1177,7 +1182,7 @@
                     <h3 class="cta-title">Want to spend less time on your phone?</h3>
                     <p class="cta-subtitle">This year, make time for what matters most to you. Learn how to cut down your screen time and use your phone with intention.</p>
                     <a href="https://apps.apple.com/us/app/free-time-mindful-screen-time/id6747683001" class="cta-btn">
-                        Download the Free Time app
+                        Download the<br class="mobile-break"> Free Time app
                     </a>
                 </div>
 
@@ -1700,10 +1705,11 @@
                     const familyEmoji = familyActivity?.emoji || '👨‍👩‍👧';
                     const hobbiesEmoji = hobbiesActivity?.emoji || '🎨';
 
-                    const phoneEmojis = phoneEmoji.repeat(Math.min(phoneYears, 15));
-                    const friendsEmojis = friendsYears > 0 ? friendsEmoji.repeat(Math.min(friendsYears, 10)) : '';
-                    const familyEmojis = familyYears > 0 ? familyEmoji.repeat(Math.min(familyYears, 10)) : '';
-                    const hobbiesEmojis = hobbiesYears > 0 ? hobbiesEmoji.repeat(Math.min(hobbiesYears, 10)) : '';
+                    const wrapEmojis = (emoji, count) => Array(count).fill(`<span>${emoji}</span>`).join('');
+                    const phoneEmojis = wrapEmojis(phoneEmoji, Math.min(phoneYears, 15));
+                    const friendsEmojis = friendsYears > 0 ? wrapEmojis(friendsEmoji, Math.min(friendsYears, 10)) : '';
+                    const familyEmojis = familyYears > 0 ? wrapEmojis(familyEmoji, Math.min(familyYears, 10)) : '';
+                    const hobbiesEmojis = hobbiesYears > 0 ? wrapEmojis(hobbiesEmoji, Math.min(hobbiesYears, 10)) : '';
 
                     emojiComparison = `
                         <div class="emoji-comparison">
