@@ -585,17 +585,10 @@
         .emoji-comparison-side {
             display: flex;
             flex-wrap: wrap;
-            gap: 3px;
-            max-width: 200px;
+            gap: 5px;
+            max-width: 130px;
             justify-content: center;
-        }
-
-        .emoji-comparison-side.phone-side {
-            font-size: 1.4em;
-        }
-
-        .emoji-comparison-side.combined-side {
-            font-size: 1em;
+            font-size: 2em;
         }
 
         .emoji-comparison-equals {
@@ -1693,7 +1686,9 @@
                 let emojiComparison = '';
 
                 if (combinedHours > 0 && phoneHours >= combinedHours * 0.9) {
-                    if (phoneHours >= combinedHours) {
+                    if (phoneHours > combinedHours * 1.1) {
+                        combinedInsight = `You'll spend <strong>more time on your phone</strong> than you will with friends, family, and hobbies combined.`;
+                    } else if (phoneHours >= combinedHours * 0.95) {
                         combinedInsight = `You'll spend <strong>as much time on your phone</strong> as you will with friends, family, and hobbies combined.`;
                     } else {
                         combinedInsight = `You'll spend <strong>almost as much time on your phone</strong> as you will with friends, family, and hobbies combined.`;
@@ -1790,7 +1785,7 @@
                 shareText += `${emojiBar}\n\n`;
             });
 
-            shareText += `1 emoji = 1 month\n\nCalculate your life at findfreetime.com/life`;
+            shareText += `1 emoji = 1 month\n\nCalculate your life at www.findfreetime.com/life`;
 
             const sharePreview = document.getElementById('sharePreview');
             sharePreview.textContent = shareText;
