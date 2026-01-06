@@ -497,6 +497,14 @@
             display: inline-block;
         }
 
+        .years-emoji-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            justify-content: center;
+            padding: 10px 0;
+        }
+
         .chart-header {
             display: flex;
             flex-direction: column;
@@ -1820,11 +1828,31 @@
             const subtitles = { years: '1 Emoji = 1 year', months: '1 Emoji = 1 month', weeks: '1 Emoji = 1 week' };
             subtitle.textContent = subtitles[viewMode];
 
+            // Years view: combined emoji grid without labels
+            if (viewMode === 'years') {
+                const grid = document.createElement('div');
+                grid.className = 'years-emoji-grid';
+
+                activityData.forEach(activity => {
+                    const count = Math.round(parseFloat(activity.yearsSpent)) || 0;
+                    for (let i = 0; i < count; i++) {
+                        const emoji = document.createElement('span');
+                        emoji.className = 'emoji-week';
+                        emoji.textContent = activity.emoji;
+                        emoji.title = `${activity.name}: year ${i + 1} of ${count}`;
+                        grid.appendChild(emoji);
+                    }
+                });
+
+                container.appendChild(grid);
+                generateShareableText(activityData);
+                return;
+            }
+
+            // Months/Weeks view: individual activity rows with labels
             activityData.forEach(activity => {
                 let count;
-                if (viewMode === 'years') {
-                    count = Math.round(parseFloat(activity.yearsSpent)) || 0;
-                } else if (viewMode === 'months') {
+                if (viewMode === 'months') {
                     count = activity.totalMonths;
                 } else {
                     count = activity.totalWeeks;
@@ -1841,7 +1869,7 @@
                 const band = document.createElement('div');
                 band.className = 'emoji-band';
 
-                const unitLabels = { years: 'year', months: 'month', weeks: 'week' };
+                const unitLabels = { months: 'month', weeks: 'week' };
                 const unitLabel = unitLabels[viewMode];
                 for (let i = 0; i < count; i++) {
                     const emoji = document.createElement('span');
