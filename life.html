@@ -2070,9 +2070,9 @@
                     }
                 });
 
-                // Format in rows of 7
-                for (let i = 0; i < allEmojis.length; i += 7) {
-                    shareText += allEmojis.slice(i, i + 7).join('') + '\n';
+                // Format in rows of 10 with spaces
+                for (let i = 0; i < allEmojis.length; i += 10) {
+                    shareText += allEmojis.slice(i, i + 10).join(' ') + '\n';
                 }
 
                 // Add key
@@ -2080,7 +2080,7 @@
                 activityData.forEach(activity => {
                     const count = Math.round(parseFloat(activity.yearsSpent)) || 0;
                     if (count > 0) {
-                        shareText += `${activity.emoji} ${activity.name} (${activity.yearsSpent} years)\n`;
+                        shareText += `${activity.emoji} ${activity.name}\n`;
                     }
                 });
 
