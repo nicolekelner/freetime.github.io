@@ -550,10 +550,10 @@
         .years-emoji-grid {
             display: grid;
             grid-template-columns: repeat(10, auto);
-            gap: 16px;
+            gap: 20px;
             justify-content: center;
             padding: 10px 0;
-            font-size: 36px;
+            font-size: 72px;
         }
 
         .years-emoji-key {
@@ -1363,8 +1363,8 @@
                     <div class="chart-header">
                         <div class="chart-title">Your Life in Emojis</div>
                         <div class="view-toggle">
-                            <button class="view-toggle-btn" id="yearsBtn">Years</button>
-                            <button class="view-toggle-btn active" id="monthsBtn">Months</button>
+                            <button class="view-toggle-btn active" id="yearsBtn">Years</button>
+                            <button class="view-toggle-btn" id="monthsBtn">Months</button>
                             <button class="view-toggle-btn" id="weeksBtn">Weeks</button>
                         </div>
                     </div>
@@ -1494,7 +1494,7 @@
 
     <script>
         // View mode for visualization: 'months' (default) or 'weeks'
-        let viewMode = 'months';
+        let viewMode = 'years';
 
         // Share mode: 'years' (default) or 'months'
         let shareMode = 'years';
