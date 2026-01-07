@@ -32,7 +32,7 @@
     <link rel="stylesheet" href="style.css">
     <style>
         .blog-container {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
             padding: 40px 20px;
         }
@@ -53,88 +53,84 @@
             font-size: 1.1em;
         }
 
-        .blog-post {
+        .blog-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .blog-card {
+            display: flex;
             background: #fff;
             border-radius: 16px;
-            padding: 30px;
-            margin-bottom: 30px;
+            overflow: hidden;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
             transition: transform 0.2s, box-shadow 0.2s;
-        }
-
-        .blog-post:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .blog-post-date {
-            font-size: 0.9em;
-            color: #888;
-            margin-bottom: 10px;
-        }
-
-        .blog-post h2 {
-            font-size: 1.5em;
-            color: #1d1d1f;
-            margin-bottom: 15px;
-        }
-
-        .blog-post h2 a {
+            text-decoration: none;
             color: inherit;
-            text-decoration: none;
         }
 
-        .blog-post h2 a:hover {
-            color: #5DACB3;
+        .blog-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
         }
 
-        .blog-post-excerpt {
-            color: #555;
-            line-height: 1.7;
-            margin-bottom: 20px;
+        .blog-card-image {
+            flex-shrink: 0;
+            width: 280px;
+            height: 200px;
+            overflow: hidden;
         }
 
-        .blog-post-link {
-            display: inline-block;
-            color: #5DACB3;
-            font-weight: 600;
-            text-decoration: none;
+        .blog-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
-        .blog-post-link:hover {
-            text-decoration: underline;
+        .blog-card-content {
+            padding: 25px 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
-        .blog-post-content {
-            color: #333;
-            line-height: 1.8;
+        .blog-card-date {
+            font-size: 0.85em;
+            color: #888;
+            margin-bottom: 8px;
         }
 
-        .blog-post-content p {
-            margin-bottom: 20px;
-        }
-
-        .blog-post-content h3 {
-            margin-top: 30px;
-            margin-bottom: 15px;
+        .blog-card-title {
+            font-size: 1.4em;
+            font-weight: 700;
             color: #1d1d1f;
+            margin-bottom: 10px;
+            line-height: 1.3;
         }
 
-        .try-it-btn {
-            display: inline-block;
-            background: #5DACB3;
-            color: white;
-            padding: 14px 30px;
-            border-radius: 50px;
+        .blog-card-excerpt {
+            font-size: 1em;
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .blog-card-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: #5DACB3;
             font-weight: 600;
-            text-decoration: none;
-            margin-top: 20px;
-            transition: all 0.3s;
+            font-size: 0.95em;
         }
 
-        .try-it-btn:hover {
-            background: #4a9ba2;
-            transform: translateY(-2px);
+        .blog-card-link svg {
+            transition: transform 0.2s;
+        }
+
+        .blog-card:hover .blog-card-link svg {
+            transform: translateX(4px);
         }
 
         @media (max-width: 768px) {
@@ -142,12 +138,25 @@
                 font-size: 2em;
             }
 
-            .blog-post {
+            .blog-card {
+                flex-direction: column;
+            }
+
+            .blog-card-image {
+                width: 100%;
+                height: 180px;
+            }
+
+            .blog-card-content {
                 padding: 20px;
             }
 
-            .blog-post h2 {
-                font-size: 1.3em;
+            .blog-card-title {
+                font-size: 1.2em;
+            }
+
+            .blog-card-excerpt {
+                font-size: 0.95em;
             }
         }
     </style>
@@ -180,29 +189,26 @@
                 <p>Thoughts on mindful phone usage and making time for what matters</p>
             </div>
 
-            <!-- Blog Post 1 -->
-            <article class="blog-post">
-                <div class="blog-post-date">January 7, 2026</div>
-                <h2>Visualize Your Life in Emojis</h2>
-                <div class="blog-post-content">
-                    <p>Ever wonder how you actually spend your time? We built a simple tool to help you see your life from a new perspective: as a grid of emojis.</p>
+            <div class="blog-grid">
+                <!-- Blog Card 1 -->
+                <a href="life.html" class="blog-card">
+                    <div class="blog-card-image">
+                        <img src="meta.png" alt="Your Life in Emojis visualization">
+                    </div>
+                    <div class="blog-card-content">
+                        <div class="blog-card-date">January 7, 2026</div>
+                        <h2 class="blog-card-title">Visualize Your Life in Emojis</h2>
+                        <p class="blog-card-excerpt">Ever wonder how you actually spend your time? See your life from a new perspective with our interactive tool that shows how your daily habits add up over a lifetime.</p>
+                        <span class="blog-card-link">
+                            Try it now
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </span>
+                    </div>
+                </a>
 
-                    <p><strong>Your Life in Emojis</strong> takes your daily and weekly activities and calculates how much of your remaining life (from now until age 80) you'll spend on each one. The result? A visual grid where each emoji represents one year of your life.</p>
-
-                    <h3>How it works</h3>
-                    <p>Enter your age and adjust the hours you spend on different activities like sleep, work, phone time, exercise, and time with loved ones. The tool instantly calculates and visualizes how those hours add up over a lifetime.</p>
-
-                    <p>For many people, the results are eye-opening. You might discover that you'll spend more time on your phone than with friends, family, and hobbies combined. Or you might realize just how much of your life goes to sleep (spoiler: it's a lot, and that's okay!).</p>
-
-                    <h3>Why we built this</h3>
-                    <p>At Free Time, we believe awareness is the first step to change. Before you can spend your time more intentionally, you need to understand where it's currently going. This tool makes that abstract concept concrete and visual.</p>
-
-                    <p>Give it a try and see your life in a whole new way.</p>
-
-                    <a href="life.html" class="try-it-btn">Try Your Life in Emojis</a>
-                </div>
-            </article>
-
+            </div>
         </div>
     </main>
 
