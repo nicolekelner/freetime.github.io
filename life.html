@@ -668,7 +668,7 @@
         }
 
         .cta-title {
-            font-size: 2em;
+            font-size: 1.5em;
             font-weight: 700;
             color: #1d1d1f;
             margin-bottom: 15px;
@@ -676,7 +676,7 @@
         }
 
         .cta-subtitle {
-            font-size: 1.1em;
+            font-size: 0.95em;
             color: #666;
             line-height: 1.6;
             margin-bottom: 25px;
@@ -842,16 +842,22 @@
             border: 1px solid #e0e0e0;
         }
 
+        .share-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
         .copy-btn {
-            display: block;
-            margin: 0 auto;
-            padding: 12px 30px;
+            display: inline-block;
+            padding: 12px 20px;
             background: #5fc3c8;
             color: white;
             border: none;
             border-radius: 50px;
             cursor: pointer;
-            font-size: 1em;
+            font-size: 0.9em;
             font-weight: 600;
             transition: all 0.3s;
             font-family: 'Lexend', sans-serif;
@@ -877,7 +883,7 @@
 
         .cta-section {
             display: none;
-            padding: 40px 20px;
+            padding: 0 20px 40px 20px;
             text-align: center;
             background: #ffffff;
         }
@@ -1180,12 +1186,12 @@
             }
 
             .cta-title {
-                font-size: 1.3em;
+                font-size: 1.2em;
                 margin-bottom: 12px;
             }
 
             .cta-subtitle {
-                font-size: 0.95em;
+                font-size: 0.9em;
                 margin-bottom: 20px;
             }
 
@@ -1336,7 +1342,6 @@
         }
 
         .instagram-btn {
-            margin-top: 10px;
             background: linear-gradient(135deg, #833ab4 0%, #fd1d1d 50%, #fcb045 100%);
         }
 
@@ -1485,8 +1490,10 @@
                         <button class="share-toggle-btn active" id="shareYearsBtn">Years</button>
                     </div>
                     <div class="share-preview" id="sharePreview"></div>
-                    <button class="copy-btn" id="copyBtn">📋 Copy to Clipboard</button>
-                    <button class="copy-btn instagram-btn" id="instagramBtn">📸 Save for Instagram</button>
+                    <div class="share-buttons">
+                        <button class="copy-btn" id="copyBtn">📋 Copy to Clipboard</button>
+                        <button class="copy-btn instagram-btn" id="instagramBtn">📸 Save for Instagram</button>
+                    </div>
                     <div class="copy-success" id="copySuccess">Copied to clipboard!</div>
                 </div>
             </div>
