@@ -1680,7 +1680,7 @@
                         <button class="stepper-btn plus" data-index="${index}" data-daily="${isDaily}">+</button>
                     </div>
                     <span class="hours-label">hours</span>
-                    ${customizeMode && isRemovable ? `<button class="btn-cancel" style="padding: 6px 12px; font-size: 0.85em;" onclick="removeActivity(${index})">✕</button>` : ''}
+                    ${isRemovable ? `<button class="btn-cancel" style="padding: 6px 12px; font-size: 0.85em;" onclick="removeActivity(${index})">✕</button>` : ''}
                 `;
 
                 const input = row.querySelector('input');
