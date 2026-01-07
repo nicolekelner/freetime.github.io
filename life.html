@@ -46,12 +46,36 @@
 
         .life-page-body {
             font-family: 'Lexend', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: linear-gradient(135deg, #5fc3c8 0%, #4fb4b9 100%);
+            background: white;
             min-height: 100vh;
             padding: 20px;
             padding-top: 20px;
             padding-bottom: 40px;
             color: #333;
+        }
+
+        .site-header {
+            max-width: 900px;
+            margin: 0 auto 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        .header-link {
+            color: #333;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .header-link:hover {
+            color: #5fc3c8;
         }
 
         .life-container {
@@ -83,11 +107,13 @@
         }
 
         .emoji-track {
-            display: flex;
-            gap: 20px;
+            display: inline-flex;
+            animation: scroll-left 20s linear infinite;
+        }
+
+        .emoji-track span {
             font-size: 24px;
-            animation: scroll-left 15s linear infinite;
-            white-space: nowrap;
+            padding: 0 10px;
         }
 
         @keyframes scroll-left {
@@ -1158,13 +1184,21 @@
 </head>
 <body>
     <div class="life-page-body">
+        <header class="site-header">
+            <a href="/" class="header-link">Home</a>
+            <nav class="header-nav">
+                <a href="/about" class="header-link">About</a>
+                <a href="/contact" class="header-link">Contact</a>
+            </nav>
+        </header>
         <div class="life-container">
             <h1>📊 Your Life in Emojis</h1>
             <p class="subtitle">Visualize the rest of your life</p>
 
             <div class="emoji-marquee">
                 <div class="emoji-track">
-                    😴 💼 📱 🍴 🚗 📺 🚿 💪 👫 ❤️ 🏠 🎨 👨‍🍳 🧹 😴 💼 📱 🍴 🚗 📺 🚿 💪 👫 ❤️ 🏠 🎨 👨‍🍳 🧹
+                    <span>😴</span><span>💼</span><span>📱</span><span>🍴</span><span>🚗</span><span>📺</span><span>🚿</span><span>💪</span><span>👫</span><span>❤️</span><span>🏠</span><span>🎨</span><span>👨‍🍳</span><span>🧹</span>
+                    <span>😴</span><span>💼</span><span>📱</span><span>🍴</span><span>🚗</span><span>📺</span><span>🚿</span><span>💪</span><span>👫</span><span>❤️</span><span>🏠</span><span>🎨</span><span>👨‍🍳</span><span>🧹</span>
                 </div>
             </div>
 
