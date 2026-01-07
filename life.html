@@ -628,7 +628,7 @@
             background: #f0f0f0;
             border-radius: 8px;
             padding: 4px;
-            margin-bottom: 15px;
+            margin: 0 auto 15px auto;
             width: fit-content;
         }
 
@@ -2060,23 +2060,45 @@
 
             let shareText = `📊 My Life in Emojis (Age ${age} → 80)\n\n`;
 
-            activityData.forEach(activity => {
-                let emojiCount;
-                if (shareMode === 'years') {
-                    emojiCount = Math.round(parseFloat(activity.yearsSpent)) || 0;
-                } else {
-                    emojiCount = Math.ceil(parseFloat(activity.yearsSpent) * 12);
+            if (shareMode === 'years') {
+                // Combined grid format for years
+                let allEmojis = [];
+                activityData.forEach(activity => {
+                    const emojiCount = Math.round(parseFloat(activity.yearsSpent)) || 0;
+                    for (let i = 0; i < emojiCount; i++) {
+                        allEmojis.push(activity.emoji);
+                    }
+                });
+
+                // Format in rows of 10
+                for (let i = 0; i < allEmojis.length; i += 10) {
+                    shareText += allEmojis.slice(i, i + 10).join('') + '\n';
                 }
-                if (emojiCount === 0) return;
 
-                const emojiBar = activity.emoji.repeat(emojiCount);
+                // Add key
+                shareText += '\n';
+                activityData.forEach(activity => {
+                    const count = Math.round(parseFloat(activity.yearsSpent)) || 0;
+                    if (count > 0) {
+                        shareText += `${activity.emoji} ${activity.name}\n`;
+                    }
+                });
 
-                shareText += `${activity.name}: ${activity.yearsSpent} years (${activity.percentOfLife}%)\n`;
-                shareText += `${emojiBar}\n\n`;
-            });
+                shareText += `\n1 emoji = 1 year\n\nCalculate your life at www.findfreetime.com/life`;
+            } else {
+                // Monthly format with activity rows
+                activityData.forEach(activity => {
+                    const emojiCount = Math.ceil(parseFloat(activity.yearsSpent) * 12);
+                    if (emojiCount === 0) return;
 
-            const unitLabel = shareMode === 'years' ? '1 emoji = 1 year' : '1 emoji = 1 month';
-            shareText += `${unitLabel}\n\nCalculate your life at www.findfreetime.com/life`;
+                    const emojiBar = activity.emoji.repeat(emojiCount);
+
+                    shareText += `${activity.name}: ${activity.yearsSpent} years (${activity.percentOfLife}%)\n`;
+                    shareText += `${emojiBar}\n\n`;
+                });
+
+                shareText += `1 emoji = 1 month\n\nCalculate your life at www.findfreetime.com/life`;
+            }
 
             const sharePreview = document.getElementById('sharePreview');
             sharePreview.textContent = shareText;
