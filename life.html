@@ -61,6 +61,8 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            background: none;
+            border-bottom: none;
         }
 
         .header-nav {
@@ -77,6 +79,7 @@
 
         .header-link:hover {
             color: #5fc3c8;
+            text-decoration: none;
         }
 
         .life-container {
@@ -881,7 +884,7 @@
 
         .age-label {
             font-weight: 600;
-            color: #555;
+            color: #1d1d1f;
             font-size: 1em;
         }
 
@@ -1095,6 +1098,16 @@
 
             .life-container h1 {
                 font-size: 1.8em;
+            }
+
+            .section-header-row {
+                flex-wrap: wrap;
+                gap: 8px;
+            }
+
+            .section-header-row .section-title {
+                flex: 1;
+                min-width: 120px;
             }
 
             .activity-emoji {
@@ -1362,10 +1375,9 @@
             <nav>
                 <a href="index.html">Home</a>
                 <a href="about.html">About</a>
-                <a href="support.html">Support</a>
                 <a href="contact.html">Contact</a>
             </nav>
-            <p>&copy; 2025 Nicole Kelner LLC DBA Mindful Tech Studio. All rights reserved.</p>
+            <p>&copy; 2025 Nicole Kelner LLC. All rights reserved.</p>
         </div>
     </footer>
 
