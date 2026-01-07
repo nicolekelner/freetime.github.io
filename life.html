@@ -553,7 +553,10 @@
             gap: 20px;
             justify-content: center;
             padding: 10px 0;
-            font-size: 72px;
+        }
+
+        .years-emoji-grid .emoji-week {
+            font-size: 48px;
         }
 
         .years-emoji-key {
@@ -570,6 +573,13 @@
         .key-item {
             font-size: 14px;
             color: #666;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .key-item .key-years {
+            font-size: 12px;
+            color: #999;
         }
 
         .chart-header {
@@ -2010,7 +2020,7 @@
                     if (count > 0) {
                         const item = document.createElement('span');
                         item.className = 'key-item';
-                        item.innerHTML = `${activity.emoji} ${activity.name} (${years.toFixed(1)} yrs)`;
+                        item.innerHTML = `<span>${activity.emoji} ${activity.name}</span><span class="key-years">${years.toFixed(1)} yrs</span>`;
                         key.appendChild(item);
                     }
                 });
