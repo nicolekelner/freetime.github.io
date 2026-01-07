@@ -1265,9 +1265,9 @@
         /* Instagram Share Image Styles */
         .instagram-share {
             width: 1080px;
-            height: 1920px;
-            background: linear-gradient(180deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-            padding: 100px 60px;
+            min-height: 1920px;
+            background: #ffffff;
+            padding: 80px 50px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -1276,31 +1276,39 @@
         }
 
         .instagram-share-title {
-            font-size: 64px;
+            font-size: 72px;
             font-weight: 700;
-            color: #ffffff;
+            color: #000000;
             text-align: center;
-            margin-bottom: 60px;
+            margin-bottom: 10px;
+        }
+
+        .instagram-share-subtitle {
+            font-size: 36px;
+            color: #888888;
+            text-align: center;
+            margin-bottom: 50px;
         }
 
         .instagram-share-grid {
             display: grid;
-            gap: 12px;
+            gap: 20px;
             justify-content: center;
-            margin-bottom: 60px;
+            margin-bottom: 50px;
+            max-width: 960px;
         }
 
         .instagram-share-grid span {
-            font-size: 48px;
+            font-size: 64px;
             text-align: center;
         }
 
         .instagram-share-legend {
             display: grid;
             grid-template-columns: repeat(3, auto);
-            gap: 20px 50px;
+            gap: 20px 80px;
             margin-top: auto;
-            margin-bottom: 60px;
+            margin-bottom: 40px;
         }
 
         .instagram-legend-item {
@@ -1312,17 +1320,17 @@
 
         .instagram-legend-item .emoji-name {
             font-size: 28px;
-            color: #ffffff;
+            color: #333333;
         }
 
         .instagram-legend-item .emoji-years {
             font-size: 22px;
-            color: #aaaaaa;
+            color: #888888;
         }
 
         .instagram-share-footer {
             font-size: 28px;
-            color: #888888;
+            color: #aaaaaa;
             margin-top: auto;
         }
 
@@ -1597,8 +1605,79 @@
         let currentPickerInput = null;
         let currentPickerIndex = null;
         let currentPickerValue = 0;
+        let isAgePicker = false;
+
+        function openAgePicker() {
+            const input = document.getElementById('age');
+            isAgePicker = true;
+            currentPickerInput = input;
+            currentPickerIndex = null;
+            currentPickerValue = parseFloat(input.value) || 30;
+
+            document.getElementById('pickerTitle').textContent = 'Your Age';
+
+            const scrollContainer = document.getElementById('pickerScroll');
+            scrollContainer.innerHTML = '';
+
+            const topSpacer = document.createElement('div');
+            topSpacer.style.height = '75px';
+            scrollContainer.appendChild(topSpacer);
+
+            for (let i = 1; i <= 100; i++) {
+                const option = document.createElement('div');
+                option.className = 'picker-option' + (i === currentPickerValue ? ' selected' : '');
+                option.textContent = i;
+                option.dataset.value = i;
+                option.addEventListener('click', function() {
+                    document.querySelectorAll('.picker-option').forEach(o => o.classList.remove('selected'));
+                    this.classList.add('selected');
+                    currentPickerValue = parseFloat(this.dataset.value);
+                    this.scrollIntoView({ block: 'center', behavior: 'smooth' });
+                });
+                scrollContainer.appendChild(option);
+            }
+
+            const bottomSpacer = document.createElement('div');
+            bottomSpacer.style.height = '75px';
+            scrollContainer.appendChild(bottomSpacer);
+
+            scrollContainer.onscroll = function() {
+                const containerRect = scrollContainer.getBoundingClientRect();
+                const centerY = containerRect.top + containerRect.height / 2;
+
+                let closestOption = null;
+                let closestDistance = Infinity;
+
+                document.querySelectorAll('.picker-option').forEach(option => {
+                    const optionRect = option.getBoundingClientRect();
+                    const optionCenterY = optionRect.top + optionRect.height / 2;
+                    const distance = Math.abs(centerY - optionCenterY);
+
+                    if (distance < closestDistance) {
+                        closestDistance = distance;
+                        closestOption = option;
+                    }
+                });
+
+                if (closestOption) {
+                    document.querySelectorAll('.picker-option').forEach(o => o.classList.remove('selected'));
+                    closestOption.classList.add('selected');
+                    currentPickerValue = parseFloat(closestOption.dataset.value);
+                }
+            };
+
+            document.getElementById('pickerOverlay').classList.add('show');
+
+            setTimeout(() => {
+                const selected = scrollContainer.querySelector('.selected');
+                if (selected) {
+                    selected.scrollIntoView({ block: 'center', behavior: 'auto' });
+                }
+            }, 50);
+        }
 
         function openPicker(input, index, activityName, isDaily) {
+            isAgePicker = false;
             currentPickerInput = input;
             currentPickerIndex = index;
             currentPickerValue = parseFloat(input.value) || 0;
@@ -1669,17 +1748,26 @@
         }
 
         function closePicker() {
-            if (currentPickerInput && currentPickerIndex !== null) {
+            if (currentPickerInput) {
                 currentPickerInput.value = currentPickerValue;
-                activities[currentPickerIndex].hours = currentPickerValue;
-                updateHoursFeedbackOnly();
-                if (resultsShown) {
-                    calculateAndUpdate();
+                if (isAgePicker) {
+                    // Age picker - just update the input
+                    if (resultsShown) {
+                        calculateAndUpdate();
+                    }
+                } else if (currentPickerIndex !== null) {
+                    // Activity hours picker
+                    activities[currentPickerIndex].hours = currentPickerValue;
+                    updateHoursFeedbackOnly();
+                    if (resultsShown) {
+                        calculateAndUpdate();
+                    }
                 }
             }
             document.getElementById('pickerOverlay').classList.remove('show');
             currentPickerInput = null;
             currentPickerIndex = null;
+            isAgePicker = false;
         }
 
         document.getElementById('pickerDone').addEventListener('click', closePicker);
@@ -2239,6 +2327,15 @@
             }
         });
 
+        // Age picker for mobile
+        if (isMobile) {
+            document.getElementById('age').addEventListener('click', function(e) {
+                e.preventDefault();
+                openAgePicker();
+            });
+            document.getElementById('age').readOnly = true;
+        }
+
         document.getElementById('customizeDailyBtn').addEventListener('click', toggleDailyForm);
         document.getElementById('customizeWeeklyBtn').addEventListener('click', toggleWeeklyForm);
         document.getElementById('cancelDailyBtn').addEventListener('click', function() {
@@ -2348,11 +2445,11 @@
                 }
             });
 
-            // Calculate total emojis and columns for wider layout
+            // Calculate total emojis - max 10 columns to fit mobile
             const totalEmojis = activityData.reduce((sum, activity) => {
                 return sum + (Math.round(parseFloat(activity.yearsSpent)) || 0);
             }, 0);
-            const columns = Math.ceil(Math.sqrt(totalEmojis * 1.5));
+            const columns = Math.min(10, Math.ceil(Math.sqrt(totalEmojis * 1.5)));
 
             // Create the Instagram share container
             let container = document.getElementById('instagramCanvas');
@@ -2389,7 +2486,8 @@
 
             container.innerHTML = `
                 <div class="instagram-share">
-                    <div class="instagram-share-title">My Life in Emojis<br>(Age ${age} → 80)</div>
+                    <div class="instagram-share-title">My Life in Emojis</div>
+                    <div class="instagram-share-subtitle">Age ${age} → 80</div>
                     <div class="instagram-share-grid" style="grid-template-columns: repeat(${columns}, auto);">
                         ${emojiGridHTML}
                     </div>
@@ -2405,25 +2503,47 @@
                 const canvas = await html2canvas(element, {
                     scale: 1,
                     useCORS: true,
-                    backgroundColor: null
+                    backgroundColor: '#ffffff'
                 });
 
-                // Convert to blob and download
-                canvas.toBlob(function(blob) {
-                    const url = URL.createObjectURL(blob);
-                    const a = document.createElement('a');
-                    a.href = url;
-                    a.download = 'my-life-in-emojis.png';
-                    document.body.appendChild(a);
-                    a.click();
-                    document.body.removeChild(a);
-                    URL.revokeObjectURL(url);
+                // Convert to blob
+                canvas.toBlob(async function(blob) {
+                    const file = new File([blob], 'my-life-in-emojis.png', { type: 'image/png' });
+
+                    // Try Web Share API first (allows saving to photos on mobile)
+                    if (navigator.canShare && navigator.canShare({ files: [file] })) {
+                        try {
+                            await navigator.share({
+                                files: [file],
+                                title: 'My Life in Emojis'
+                            });
+                        } catch (err) {
+                            if (err.name !== 'AbortError') {
+                                // Fallback to download
+                                downloadImage(blob);
+                            }
+                        }
+                    } else {
+                        // Fallback to download for desktop
+                        downloadImage(blob);
+                    }
                 }, 'image/png');
             } catch (error) {
                 console.error('Error generating image:', error);
                 alert('Error generating image. Please try again.');
             }
         });
+
+        function downloadImage(blob) {
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'my-life-in-emojis.png';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
 
         renderActivities();
     </script>
