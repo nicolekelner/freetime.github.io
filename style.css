@@ -60,14 +60,14 @@ body {
 .nav-links {
     display: flex;
     align-items: center;
-    gap: 35px;
+    gap: 25px;
 }
 
 .nav-links a {
     color: #083267;
     text-decoration: none;
     font-weight: 500;
-    font-size: 1.05em;
+    font-size: 0.9em;
     transition: color 0.3s ease;
 }
 
@@ -343,7 +343,7 @@ a {
 
 a:hover {
     color: #083267;
-    text-decoration: underline;
+    text-decoration: none;
 }
 
 .updated {
@@ -378,11 +378,11 @@ footer nav {
 }
 
 footer nav a {
-    margin: 0 20px;
+    margin: 0 15px;
     color: #083267;
     text-decoration: none;
     font-weight: 500;
-    font-size: 1.05em;
+    font-size: 0.9em;
     transition: color 0.3s ease;
 }
 
@@ -862,7 +862,7 @@ html {
 
     .nav-links a {
         padding: 15px 20px;
-        font-size: 1.05em;
+        font-size: 0.9em;
         border-bottom: 1px solid rgba(93, 172, 179, 0.1);
     }
 
