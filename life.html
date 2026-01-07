@@ -550,19 +550,20 @@
         .years-emoji-grid {
             display: grid;
             grid-template-columns: repeat(10, auto);
-            gap: 6px;
+            gap: 12px;
             justify-content: center;
             padding: 10px 0;
+            font-size: 24px;
         }
 
         .years-emoji-key {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 12px 20px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px 16px;
             margin-top: 15px;
             padding-top: 15px;
             border-top: 1px solid #e0e0e0;
+            text-align: left;
         }
 
         .key-item {
@@ -2003,11 +2004,12 @@
                 const key = document.createElement('div');
                 key.className = 'years-emoji-key';
                 activityData.forEach(activity => {
-                    const count = Math.round(parseFloat(activity.yearsSpent)) || 0;
+                    const years = parseFloat(activity.yearsSpent) || 0;
+                    const count = Math.round(years);
                     if (count > 0) {
                         const item = document.createElement('span');
                         item.className = 'key-item';
-                        item.innerHTML = `${activity.emoji} ${activity.name}`;
+                        item.innerHTML = `${activity.emoji} ${activity.name} (${years.toFixed(1)} yrs)`;
                         key.appendChild(item);
                     }
                 });
