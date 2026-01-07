@@ -1392,8 +1392,8 @@
                     <h2 class="share-title">Share Your Life in Emojis</h2>
                     <p class="share-description">Copy and paste to share on social media</p>
                     <div class="share-toggle">
-                        <button class="share-toggle-btn active" id="shareMonthsBtn">Months</button>
-                        <button class="share-toggle-btn" id="shareYearsBtn">Years</button>
+                        <button class="share-toggle-btn" id="shareMonthsBtn">Months</button>
+                        <button class="share-toggle-btn active" id="shareYearsBtn">Years</button>
                     </div>
                     <div class="share-preview" id="sharePreview"></div>
                     <button class="copy-btn" id="copyBtn">📋 Copy to Clipboard</button>
@@ -1494,8 +1494,8 @@
         // View mode for visualization: 'months' (default) or 'weeks'
         let viewMode = 'months';
 
-        // Share mode: 'months' (default) or 'years'
-        let shareMode = 'months';
+        // Share mode: 'years' (default) or 'months'
+        let shareMode = 'years';
 
         // Track if results have been shown
         let resultsShown = false;
@@ -2072,7 +2072,7 @@
 
                 // Format in rows of 10 with spaces
                 for (let i = 0; i < allEmojis.length; i += 10) {
-                    shareText += allEmojis.slice(i, i + 10).join(' ') + '\n';
+                    shareText += allEmojis.slice(i, i + 10).join('  ') + '\n\n';
                 }
 
                 // Add key
