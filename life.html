@@ -2080,7 +2080,7 @@
                 activityData.forEach(activity => {
                     const count = Math.round(parseFloat(activity.yearsSpent)) || 0;
                     if (count > 0) {
-                        shareText += `${activity.emoji} ${activity.name}\n`;
+                        shareText += `${activity.emoji} ${activity.name} (${activity.yearsSpent} years)\n`;
                     }
                 });
 
