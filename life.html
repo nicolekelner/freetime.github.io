@@ -1246,6 +1246,10 @@
             .years-emoji-key {
                 grid-template-columns: repeat(2, auto);
             }
+
+            .years-emoji-grid {
+                grid-template-columns: repeat(5, auto) !important;
+            }
         }
 
         @media (max-width: 480px) {
@@ -1329,8 +1333,8 @@
         }
 
         .instagram-share-footer {
-            font-size: 28px;
-            color: #aaaaaa;
+            font-size: 32px;
+            color: #000000;
             margin-top: auto;
         }
 
@@ -2510,23 +2514,21 @@
                 canvas.toBlob(async function(blob) {
                     const file = new File([blob], 'my-life-in-emojis.png', { type: 'image/png' });
 
-                    // Try Web Share API first (allows saving to photos on mobile)
-                    if (navigator.canShare && navigator.canShare({ files: [file] })) {
+                    // On mobile, try Web Share API first (allows saving to photos)
+                    if (isMobile && navigator.share) {
                         try {
                             await navigator.share({
                                 files: [file],
                                 title: 'My Life in Emojis'
                             });
+                            return;
                         } catch (err) {
-                            if (err.name !== 'AbortError') {
-                                // Fallback to download
-                                downloadImage(blob);
-                            }
+                            if (err.name === 'AbortError') return;
+                            // Fall through to download on other errors
                         }
-                    } else {
-                        // Fallback to download for desktop
-                        downloadImage(blob);
                     }
+                    // Fallback to download for desktop or if share fails
+                    downloadImage(blob);
                 }, 'image/png');
             } catch (error) {
                 console.error('Error generating image:', error);
