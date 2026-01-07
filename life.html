@@ -868,7 +868,6 @@
         }
 
         .age-section-simple {
-            background: #e8f7f8;
             padding: 15px 25px;
             text-align: center;
         }
@@ -887,15 +886,31 @@
         }
 
         .age-input-simple {
-            width: 70px;
-            padding: 8px 12px;
-            border: 2px solid #ddd;
-            border-radius: 6px;
-            font-size: 1.1em;
+            width: 50px;
+            padding: 6px 4px;
+            border: 2px solid #5fc3c8;
+            border-left: none;
+            border-right: none;
+            border-radius: 0;
+            font-size: 0.95em;
             font-weight: 600;
             text-align: center;
             color: #5fc3c8;
             font-family: 'Lexend', sans-serif;
+            height: 32px;
+            box-sizing: border-box;
+            -moz-appearance: textfield;
+        }
+
+        .age-input-simple::-webkit-outer-spin-button,
+        .age-input-simple::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        .age-input-simple:focus {
+            outline: none;
+            border-color: #5fc3c8;
         }
 
         .age-input-simple:focus {
@@ -1275,7 +1290,7 @@
             </div>
 
             <!-- Age Section -->
-            <div class="section age-section-simple">
+            <div class="age-section-simple">
                 <div class="age-input-inline">
                     <label for="age" class="age-label">Your age:</label>
                     <div class="hours-stepper">
