@@ -875,49 +875,16 @@
             opacity: 1;
         }
 
-        .powered-by-section {
+        .cta-section {
             display: none;
             padding: 40px 20px;
             text-align: center;
+            background: #ffffff;
         }
 
-        .powered-by-container {
+        .cta-container {
             max-width: 600px;
             margin: 0 auto;
-        }
-
-        .powered-by-title {
-            color: #1d1d1f;
-            font-size: 1.5em;
-            font-weight: 700;
-            margin-bottom: 15px;
-        }
-
-        .powered-by-description {
-            color: #1d1d1f;
-            font-size: 1em;
-            line-height: 1.6;
-            margin-bottom: 20px;
-        }
-
-        .powered-by-btn {
-            display: inline-block;
-            background: #5DACB3;
-            color: white;
-            padding: 12px 30px;
-            border-radius: 25px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.3s;
-        }
-
-        .powered-by-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(93, 172, 179, 0.3);
-            text-decoration: none;
-            background: #4a9ba2;
-            color: white;
-            outline: none;
         }
 
         .age-section-simple {
@@ -1509,15 +1476,6 @@
                     </div>
                 </div>
 
-                <!-- CTA Section -->
-                <div class="cta-content">
-                    <h3 class="cta-title">Want to spend less time on your phone?</h3>
-                    <p class="cta-subtitle">This year, make time for what matters most to you. Learn how to cut down your screen time and use your phone with intention.</p>
-                    <a href="https://apps.apple.com/us/app/free-time-mindful-screen-time/id6747683001" class="cta-btn">
-                        Download the<br class="mobile-break"> Free Time app
-                    </a>
-                </div>
-
                 <!-- Share Section -->
                 <div class="share-section">
                     <h2 class="share-title">Share Your Life in Emojis</h2>
@@ -1535,11 +1493,13 @@
         </div>
     </div>
 
-    <div class="powered-by-section" id="poweredBySection">
-        <div class="powered-by-container">
-            <h3 class="powered-by-title">Powered by Free Time</h3>
-            <p class="powered-by-description">Free Time is an app to help you use your phone more mindfully. Our goal is to help you have less screen time and more free time.</p>
-            <a href="https://apps.apple.com/us/app/free-time-mindful-screen-time/id6747683001" class="powered-by-btn">Download Now</a>
+    <div class="cta-section" id="ctaSection">
+        <div class="cta-container">
+            <h3 class="cta-title">Want to spend less time on your phone?</h3>
+            <p class="cta-subtitle">This year, make time for what matters most to you. Learn how to cut down your screen time and use your phone with intention.</p>
+            <a href="https://apps.apple.com/us/app/free-time-mindful-screen-time/id6747683001" class="cta-btn">
+                Download the<span class="mobile-break"></span> Free Time app
+            </a>
         </div>
     </div>
 
@@ -2329,7 +2289,7 @@
 
         function showResults() {
             document.getElementById('results').style.display = 'block';
-            document.getElementById('poweredBySection').style.display = 'block';
+            document.getElementById('ctaSection').style.display = 'block';
             document.getElementById('calculateBtn').textContent = 'Recalculate';
             resultsShown = true;
             calculateAndUpdate();
