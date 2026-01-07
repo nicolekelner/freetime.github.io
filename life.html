@@ -1261,7 +1261,81 @@
                 font-size: 14px;
             }
         }
+
+        /* Instagram Share Image Styles */
+        .instagram-share {
+            width: 1080px;
+            height: 1920px;
+            background: linear-gradient(180deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            padding: 100px 60px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            box-sizing: border-box;
+        }
+
+        .instagram-share-title {
+            font-size: 64px;
+            font-weight: 700;
+            color: #ffffff;
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .instagram-share-grid {
+            display: grid;
+            gap: 12px;
+            justify-content: center;
+            margin-bottom: 60px;
+        }
+
+        .instagram-share-grid span {
+            font-size: 48px;
+            text-align: center;
+        }
+
+        .instagram-share-legend {
+            display: grid;
+            grid-template-columns: repeat(3, auto);
+            gap: 20px 50px;
+            margin-top: auto;
+            margin-bottom: 60px;
+        }
+
+        .instagram-legend-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .instagram-legend-item .emoji-name {
+            font-size: 28px;
+            color: #ffffff;
+        }
+
+        .instagram-legend-item .emoji-years {
+            font-size: 22px;
+            color: #aaaaaa;
+        }
+
+        .instagram-share-footer {
+            font-size: 28px;
+            color: #888888;
+            margin-top: auto;
+        }
+
+        .instagram-btn {
+            margin-top: 10px;
+            background: linear-gradient(135deg, #833ab4 0%, #fd1d1d 50%, #fcb045 100%);
+        }
+
+        .instagram-btn:hover {
+            background: linear-gradient(135deg, #6d2f96 0%, #d41717 50%, #d99a3b 100%);
+        }
     </style>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
 </head>
 <body>
     <div class="life-page-body">
@@ -1412,6 +1486,7 @@
                     </div>
                     <div class="share-preview" id="sharePreview"></div>
                     <button class="copy-btn" id="copyBtn">📋 Copy to Clipboard</button>
+                    <button class="copy-btn instagram-btn" id="instagramBtn">📸 Save for Instagram</button>
                     <div class="copy-success" id="copySuccess">Copied to clipboard!</div>
                 </div>
             </div>
@@ -2002,7 +2077,7 @@
                 const totalEmojis = activityData.reduce((sum, activity) => {
                     return sum + (Math.round(parseFloat(activity.yearsSpent)) || 0);
                 }, 0);
-                const columns = Math.ceil(Math.sqrt(totalEmojis));
+                const columns = Math.ceil(Math.sqrt(totalEmojis * 1.5));
 
                 const grid = document.createElement('div');
                 grid.className = 'years-emoji-grid';
@@ -2093,8 +2168,8 @@
                     }
                 });
 
-                // Calculate columns for square layout
-                const columns = Math.ceil(Math.sqrt(allEmojis.length));
+                // Calculate columns for wider layout (more columns when younger/more emojis)
+                const columns = Math.ceil(Math.sqrt(allEmojis.length * 1.5));
 
                 // Format in rows with calculated columns
                 for (let i = 0; i < allEmojis.length; i += columns) {
@@ -2247,6 +2322,107 @@
             document.getElementById('shareYearsBtn').classList.add('active');
             document.getElementById('shareMonthsBtn').classList.remove('active');
             if (resultsShown) calculateAndUpdate();
+        });
+
+        // Instagram Share functionality
+        document.getElementById('instagramBtn').addEventListener('click', async function() {
+            const age = parseFloat(document.getElementById('age').value) || 0;
+
+            // Get current activity data
+            const activityData = [];
+            activities.forEach(activity => {
+                const hoursPerWeek = activity.frequency === 'day'
+                    ? activity.hours * 7
+                    : activity.hours;
+                const yearsRemaining = 80 - age;
+                const weeksRemaining = yearsRemaining * 52;
+                const totalHours = hoursPerWeek * weeksRemaining;
+                const yearsSpent = totalHours / (24 * 365);
+
+                if (yearsSpent > 0) {
+                    activityData.push({
+                        emoji: activity.emoji,
+                        name: activity.name,
+                        yearsSpent: yearsSpent.toFixed(1)
+                    });
+                }
+            });
+
+            // Calculate total emojis and columns for wider layout
+            const totalEmojis = activityData.reduce((sum, activity) => {
+                return sum + (Math.round(parseFloat(activity.yearsSpent)) || 0);
+            }, 0);
+            const columns = Math.ceil(Math.sqrt(totalEmojis * 1.5));
+
+            // Create the Instagram share container
+            let container = document.getElementById('instagramCanvas');
+            if (!container) {
+                container = document.createElement('div');
+                container.id = 'instagramCanvas';
+                container.style.position = 'absolute';
+                container.style.left = '-9999px';
+                document.body.appendChild(container);
+            }
+
+            // Build emoji grid HTML
+            let emojiGridHTML = '';
+            activityData.forEach(activity => {
+                const count = Math.round(parseFloat(activity.yearsSpent)) || 0;
+                for (let i = 0; i < count; i++) {
+                    emojiGridHTML += `<span>${activity.emoji}</span>`;
+                }
+            });
+
+            // Build legend HTML
+            let legendHTML = '';
+            activityData.forEach(activity => {
+                const years = parseFloat(activity.yearsSpent) || 0;
+                if (Math.round(years) > 0) {
+                    legendHTML += `
+                        <div class="instagram-legend-item">
+                            <span class="emoji-name">${activity.emoji} ${activity.name}</span>
+                            <span class="emoji-years">${years.toFixed(1)} yrs</span>
+                        </div>
+                    `;
+                }
+            });
+
+            container.innerHTML = `
+                <div class="instagram-share">
+                    <div class="instagram-share-title">My Life in Emojis<br>(Age ${age} → 80)</div>
+                    <div class="instagram-share-grid" style="grid-template-columns: repeat(${columns}, auto);">
+                        ${emojiGridHTML}
+                    </div>
+                    <div class="instagram-share-legend">
+                        ${legendHTML}
+                    </div>
+                    <div class="instagram-share-footer">findfreetime.com/life</div>
+                </div>
+            `;
+
+            try {
+                const element = container.querySelector('.instagram-share');
+                const canvas = await html2canvas(element, {
+                    scale: 1,
+                    useCORS: true,
+                    backgroundColor: null
+                });
+
+                // Convert to blob and download
+                canvas.toBlob(function(blob) {
+                    const url = URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = 'my-life-in-emojis.png';
+                    document.body.appendChild(a);
+                    a.click();
+                    document.body.removeChild(a);
+                    URL.revokeObjectURL(url);
+                }, 'image/png');
+            } catch (error) {
+                console.error('Error generating image:', error);
+                alert('Error generating image. Please try again.');
+            }
         });
 
         renderActivities();
