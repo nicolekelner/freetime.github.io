@@ -11,6 +11,11 @@
     <meta property="og:url" content="https://findfreetime.com/life.html">
     <meta property="og:title" content="Your Life in Emojis - Free Time">
     <meta property="og:description" content="Visualize your life in emojis. See how you spend your time on activities from now until age 80.">
+    <meta property="og:image" content="https://findfreetime.com/meta.png">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://findfreetime.com/meta.png">
 
     <!-- Google tag (gtag.js) - loaded after consent -->
     <script>
@@ -612,6 +617,39 @@
         }
 
         .view-toggle-btn.active {
+            background: white;
+            color: #5fc3c8;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .share-toggle {
+            display: flex;
+            gap: 0;
+            background: #f0f0f0;
+            border-radius: 8px;
+            padding: 4px;
+            margin-bottom: 15px;
+            width: fit-content;
+        }
+
+        .share-toggle-btn {
+            padding: 8px 20px;
+            background: transparent;
+            color: #666;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9em;
+            font-weight: 600;
+            transition: all 0.2s;
+            font-family: 'Lexend', sans-serif;
+        }
+
+        .share-toggle-btn:hover {
+            color: #5fc3c8;
+        }
+
+        .share-toggle-btn.active {
             background: white;
             color: #5fc3c8;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
@@ -1353,6 +1391,10 @@
                 <div class="share-section">
                     <h2 class="share-title">Share Your Life in Emojis</h2>
                     <p class="share-description">Copy and paste to share on social media</p>
+                    <div class="share-toggle">
+                        <button class="share-toggle-btn active" id="shareMonthsBtn">Months</button>
+                        <button class="share-toggle-btn" id="shareYearsBtn">Years</button>
+                    </div>
                     <div class="share-preview" id="sharePreview"></div>
                     <button class="copy-btn" id="copyBtn">📋 Copy to Clipboard</button>
                     <div class="copy-success" id="copySuccess">Copied to clipboard!</div>
@@ -1451,6 +1493,9 @@
     <script>
         // View mode for visualization: 'months' (default) or 'weeks'
         let viewMode = 'months';
+
+        // Share mode: 'months' (default) or 'years'
+        let shareMode = 'months';
 
         // Track if results have been shown
         let resultsShown = false;
@@ -2016,17 +2061,22 @@
             let shareText = `📊 My Life in Emojis (Age ${age} → 80)\n\n`;
 
             activityData.forEach(activity => {
-                const count = viewMode === 'months' ? activity.totalMonths : activity.totalWeeks;
-                if (count === 0) return;
+                let emojiCount;
+                if (shareMode === 'years') {
+                    emojiCount = Math.round(parseFloat(activity.yearsSpent)) || 0;
+                } else {
+                    emojiCount = Math.ceil(parseFloat(activity.yearsSpent) * 12);
+                }
+                if (emojiCount === 0) return;
 
-                const totalMonths = Math.ceil(parseFloat(activity.yearsSpent) * 12);
-                const emojiBar = activity.emoji.repeat(totalMonths);
+                const emojiBar = activity.emoji.repeat(emojiCount);
 
                 shareText += `${activity.name}: ${activity.yearsSpent} years (${activity.percentOfLife}%)\n`;
                 shareText += `${emojiBar}\n\n`;
             });
 
-            shareText += `1 emoji = 1 month\n\nCalculate your life at www.findfreetime.com/life`;
+            const unitLabel = shareMode === 'years' ? '1 emoji = 1 year' : '1 emoji = 1 month';
+            shareText += `${unitLabel}\n\nCalculate your life at www.findfreetime.com/life`;
 
             const sharePreview = document.getElementById('sharePreview');
             sharePreview.textContent = shareText;
@@ -2135,6 +2185,20 @@
             document.getElementById('yearsBtn').classList.remove('active');
             document.getElementById('monthsBtn').classList.remove('active');
             calculateAndUpdate();
+        });
+
+        document.getElementById('shareMonthsBtn').addEventListener('click', function() {
+            shareMode = 'months';
+            document.getElementById('shareMonthsBtn').classList.add('active');
+            document.getElementById('shareYearsBtn').classList.remove('active');
+            if (resultsShown) calculateAndUpdate();
+        });
+
+        document.getElementById('shareYearsBtn').addEventListener('click', function() {
+            shareMode = 'years';
+            document.getElementById('shareYearsBtn').classList.add('active');
+            document.getElementById('shareMonthsBtn').classList.remove('active');
+            if (resultsShown) calculateAndUpdate();
         });
 
         renderActivities();
