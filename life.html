@@ -748,11 +748,10 @@
         }
 
         .emoji-comparison-side {
-            display: flex;
-            flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
             gap: 5px;
-            max-width: 130px;
-            justify-content: center;
+            justify-items: center;
             font-size: 2em;
         }
 
@@ -1999,8 +1998,15 @@
 
             // Years view: combined emoji grid without labels
             if (viewMode === 'years') {
+                // Calculate total emojis first to determine optimal columns for square layout
+                const totalEmojis = activityData.reduce((sum, activity) => {
+                    return sum + (Math.round(parseFloat(activity.yearsSpent)) || 0);
+                }, 0);
+                const columns = Math.ceil(Math.sqrt(totalEmojis));
+
                 const grid = document.createElement('div');
                 grid.className = 'years-emoji-grid';
+                grid.style.gridTemplateColumns = `repeat(${columns}, auto)`;
 
                 activityData.forEach(activity => {
                     const count = Math.round(parseFloat(activity.yearsSpent)) || 0;
@@ -2087,9 +2093,12 @@
                     }
                 });
 
-                // Format in rows of 10 with spaces
-                for (let i = 0; i < allEmojis.length; i += 10) {
-                    shareText += allEmojis.slice(i, i + 10).join('  ') + '\n\n';
+                // Calculate columns for square layout
+                const columns = Math.ceil(Math.sqrt(allEmojis.length));
+
+                // Format in rows with calculated columns
+                for (let i = 0; i < allEmojis.length; i += columns) {
+                    shareText += allEmojis.slice(i, i + columns).join('  ') + '\n\n';
                 }
 
                 // Add key
