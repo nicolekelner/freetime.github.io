@@ -61,8 +61,6 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: #e8f7f8;
-            border-radius: 8px;
         }
 
         .header-nav {
@@ -825,7 +823,7 @@
         }
 
         .powered-by-section {
-            background: #28639F;
+            display: none;
             padding: 40px 20px;
             text-align: center;
         }
@@ -836,24 +834,23 @@
         }
 
         .powered-by-title {
-            color: white;
+            color: #1d1d1f;
             font-size: 1.5em;
             font-weight: 700;
             margin-bottom: 15px;
         }
 
         .powered-by-description {
-            color: white;
+            color: #1d1d1f;
             font-size: 1em;
             line-height: 1.6;
             margin-bottom: 20px;
-            opacity: 0.95;
         }
 
         .powered-by-btn {
             display: inline-block;
-            background: white;
-            color: #5fc3c8;
+            background: #5DACB3;
+            color: white;
             padding: 12px 30px;
             border-radius: 25px;
             font-weight: 600;
@@ -863,21 +860,23 @@
 
         .powered-by-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(255,255,255,0.3);
+            box-shadow: 0 4px 15px rgba(93, 172, 179, 0.3);
             text-decoration: none;
-            background: white;
-            color: #4fb4b9;
+            background: #4a9ba2;
+            color: white;
             outline: none;
         }
 
         .age-section-simple {
-            background: #f8f9fa;
+            background: #e8f7f8;
             padding: 15px 25px;
+            text-align: center;
         }
 
         .age-input-inline {
             display: flex;
             align-items: center;
+            justify-content: center;
             gap: 12px;
         }
 
@@ -1279,7 +1278,11 @@
             <div class="section age-section-simple">
                 <div class="age-input-inline">
                     <label for="age" class="age-label">Your age:</label>
-                    <input type="number" class="age-input-simple" id="age" min="1" max="100" value="30">
+                    <div class="hours-stepper">
+                        <button type="button" class="stepper-btn minus" id="ageMinusBtn">−</button>
+                        <input type="number" class="age-input-simple" id="age" min="1" max="100" value="30">
+                        <button type="button" class="stepper-btn plus" id="agePlusBtn">+</button>
+                    </div>
                     <span class="age-unit">years old</span>
                 </div>
                 <div class="age-description">We'll calculate your life until age 80</div>
@@ -1331,7 +1334,7 @@
         </div>
     </div>
 
-    <div class="powered-by-section">
+    <div class="powered-by-section" id="poweredBySection">
         <div class="powered-by-container">
             <h3 class="powered-by-title">Powered by Free Time</h3>
             <p class="powered-by-description">Free Time is an app to help you use your phone more mindfully. Our goal is to help you have less screen time and more free time.</p>
@@ -1530,7 +1533,6 @@
             { emoji: '📱', name: 'Phone', hours: 3, frequency: 'day', isDefault: true },
             { emoji: '🍴', name: 'Eating', hours: 2, frequency: 'day', isDefault: true },
             { emoji: '🚗', name: 'Commute', hours: 1, frequency: 'day', isDefault: true },
-            { emoji: '📺', name: 'Watch TV', hours: 2, frequency: 'day', isDefault: true },
             { emoji: '🚿', name: 'Getting Ready', hours: 1, frequency: 'day', isDefault: true },
             { emoji: '💪', name: 'Exercise', hours: 3, frequency: 'week', isDefault: true },
             { emoji: '👫', name: 'Friends', hours: 3, frequency: 'week', isDefault: true },
@@ -1538,7 +1540,8 @@
             { emoji: '🏠', name: 'Family', hours: 5, frequency: 'week', isDefault: true },
             { emoji: '🎨', name: 'Hobbies', hours: 3, frequency: 'week', isDefault: true },
             { emoji: '👨‍🍳', name: 'Cooking', hours: 3, frequency: 'week', isDefault: true },
-            { emoji: '🧹', name: 'Chores', hours: 2, frequency: 'week', isDefault: true }
+            { emoji: '🧹', name: 'Chores', hours: 2, frequency: 'week', isDefault: true },
+            { emoji: '📺', name: 'Watch TV', hours: 7, frequency: 'week', isDefault: true }
         ];
 
         const availableEmojis = ['📚', '🎮', '🎬', '🎵', '🧘', '🛁', '☕', '🍳', '🛒', '🧠', '✍️', '🎨', '🌳', '🏃', '🚴', '🏊', '⚽', '🎾', '🧗', '🎪', '🎭', '🎯', '🎲', '🃏', '🎻', '🎸', '🎹', '🥁', '🎤', '📷', '🔧', '🌱', '🐕', '🐈', '👶', '👨‍👩‍👧', '💑', '👥', '🙏', '📿', '🕯️', '💭', '📝', '💻', '🖥️', '⌨️', '🎧', '📺', '🎥', '🌅', '🌙', '🛏️', '🪥', '💅', '💇', '👔', '👗', '🧺', '🍿', '🎂', '🎄', '✈️', '🏖️', '⛷️', '🧩', '📖', '🗞️', '💰', '📊', '🏠', '🏢'];
@@ -2003,6 +2006,7 @@
 
         function showResults() {
             document.getElementById('results').style.display = 'block';
+            document.getElementById('poweredBySection').style.display = 'block';
             document.getElementById('calculateBtn').textContent = 'Recalculate';
             resultsShown = true;
             calculateAndUpdate();
@@ -2013,6 +2017,24 @@
         document.getElementById('age').addEventListener('input', function() {
             if (resultsShown) {
                 calculateAndUpdate();
+            }
+        });
+
+        document.getElementById('ageMinusBtn').addEventListener('click', function() {
+            const ageInput = document.getElementById('age');
+            const currentVal = parseInt(ageInput.value) || 0;
+            if (currentVal > 1) {
+                ageInput.value = currentVal - 1;
+                if (resultsShown) calculateAndUpdate();
+            }
+        });
+
+        document.getElementById('agePlusBtn').addEventListener('click', function() {
+            const ageInput = document.getElementById('age');
+            const currentVal = parseInt(ageInput.value) || 0;
+            if (currentVal < 100) {
+                ageInput.value = currentVal + 1;
+                if (resultsShown) calculateAndUpdate();
             }
         });
 
