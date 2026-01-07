@@ -120,7 +120,7 @@
 
         @keyframes scroll-left {
             0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
+            100% { transform: translateX(-25%); }
         }
 
         .section {
@@ -1225,8 +1225,7 @@
 
             <div class="emoji-marquee">
                 <div class="emoji-track">
-                    <span>😴</span><span>💼</span><span>📱</span><span>🍴</span><span>🚗</span><span>📺</span><span>🚿</span><span>💪</span><span>👫</span><span>❤️</span><span>🏠</span><span>🎨</span><span>👨‍🍳</span><span>🧹</span>
-                    <span>😴</span><span>💼</span><span>📱</span><span>🍴</span><span>🚗</span><span>📺</span><span>🚿</span><span>💪</span><span>👫</span><span>❤️</span><span>🏠</span><span>🎨</span><span>👨‍🍳</span><span>🧹</span>
+                    <span>😴</span><span>💼</span><span>📱</span><span>🍴</span><span>🚗</span><span>📺</span><span>🚿</span><span>💪</span><span>👫</span><span>❤️</span><span>🏠</span><span>🎨</span><span>👨‍🍳</span><span>🧹</span><span>😴</span><span>💼</span><span>📱</span><span>🍴</span><span>🚗</span><span>📺</span><span>🚿</span><span>💪</span><span>👫</span><span>❤️</span><span>🏠</span><span>🎨</span><span>👨‍🍳</span><span>🧹</span><span>😴</span><span>💼</span><span>📱</span><span>🍴</span><span>🚗</span><span>📺</span><span>🚿</span><span>💪</span><span>👫</span><span>❤️</span><span>🏠</span><span>🎨</span><span>👨‍🍳</span><span>🧹</span><span>😴</span><span>💼</span><span>📱</span><span>🍴</span><span>🚗</span><span>📺</span><span>🚿</span><span>💪</span><span>👫</span><span>❤️</span><span>🏠</span><span>🎨</span><span>👨‍🍳</span><span>🧹</span>
                 </div>
             </div>
 
@@ -1765,6 +1764,7 @@
             document.getElementById('dailyActivityHours').value = '1';
             selectedDailyEmoji = '📚';
             renderActivities();
+            toggleDailyForm();
         }
 
         function addWeeklyActivity() {
@@ -1788,6 +1788,7 @@
             document.getElementById('weeklyActivityHours').value = '1';
             selectedWeeklyEmoji = '📚';
             renderActivities();
+            toggleWeeklyForm();
         }
 
         function updateHoursFeedback(totalHours) {
