@@ -1246,8 +1246,8 @@
             }
 
             .emoji-comparison-side {
-                font-size: 1.2em;
-                gap: 3px;
+                font-size: 1.5em;
+                gap: 4px;
             }
 
             .emoji-comparison-equals {
@@ -2140,7 +2140,7 @@
 
                 if (combinedHours > 0 && phoneHours >= combinedHours * 0.9) {
                     if (phoneHours > combinedHours * 1.1) {
-                        combinedInsight = `You'll spend <strong>more time on your phone</strong> than you will with friends, family, and hobbies combined.`;
+                        combinedInsight = `You'll spend <strong>more time on your phone</strong> than<br>you will with friends, family, and hobbies combined.`;
                     } else if (phoneHours >= combinedHours * 0.95) {
                         combinedInsight = `You'll spend <strong>as much time on your phone</strong> as you will with friends, family, and hobbies combined.`;
                     } else {
@@ -2170,14 +2170,14 @@
                 }
 
                 // Build the HTML
-                let html = `You're spending <strong>${percentOfLife}% of your life</strong> on your phone. That's <strong>${yearsOfLife} years of your remaining life.</strong>`;
+                let html = `You're spending <strong>${percentOfLife}% of your life</strong> on your phone.<br><br>That's <strong>${yearsOfLife} years of your remaining life.</strong>`;
 
                 if (combinedInsight) {
                     html += `<br><br>${combinedInsight}`;
                     html += emojiComparison;
                 }
 
-                html += `<br><br>Some time is well spent like eating delicious food, resting, exercising, and being with loved ones. But is this how you want to spend your free time?`;
+                html += `<br><br>Some time is well spent like eating delicious food, resting, and being with loved ones. But is this how you want to spend your free time?`;
 
                 phoneImpactEl.innerHTML = html;
             } else {
