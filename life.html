@@ -2310,7 +2310,10 @@
         }
 
         // Initialize
-        document.getElementById('calculateBtn').addEventListener('click', showResults);
+        document.getElementById('calculateBtn').addEventListener('click', function() {
+            gtag('event', 'calculate_click', {'event_category': 'engagement', 'event_label': 'life_calculate'});
+            showResults();
+        });
         document.getElementById('age').addEventListener('input', function() {
             if (resultsShown) {
                 calculateAndUpdate();
@@ -2362,6 +2365,7 @@
         document.getElementById('addWeeklyBtn').addEventListener('click', addWeeklyActivity);
 
         document.getElementById('copyBtn').addEventListener('click', async function() {
+            gtag('event', 'copy_click', {'event_category': 'engagement', 'event_label': 'life_copy_clipboard'});
             const shareText = document.getElementById('sharePreview').textContent;
             const successMsg = document.getElementById('copySuccess');
 
@@ -2431,6 +2435,7 @@
 
         // Instagram Share functionality
         document.getElementById('instagramBtn').addEventListener('click', async function() {
+            gtag('event', 'save_image_click', {'event_category': 'engagement', 'event_label': 'life_save_image'});
             const age = parseFloat(document.getElementById('age').value) || 0;
 
             // Get current activity data
