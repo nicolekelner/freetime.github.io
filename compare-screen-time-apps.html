@@ -391,7 +391,8 @@
                 <div class="last-updated">Last updated: January 2025</div>
             </header>
 
-            <!-- Comparison Table -->
+            <!-- Software Apps Comparison Table -->
+            <h2 style="font-size: 1.5em; color: #1d1d1f; margin-bottom: 20px;">Software-Only Apps</h2>
             <div class="comparison-table-wrapper">
                 <table class="comparison-table">
                     <thead>
@@ -407,12 +408,6 @@
                                 <div class="app-header">
                                     <span class="app-name">Opal</span>
                                     <span class="app-price">$99/year</span>
-                                </div>
-                            </th>
-                            <th>
-                                <div class="app-header">
-                                    <span class="app-name">Brick</span>
-                                    <span class="app-price">$59 one-time</span>
                                 </div>
                             </th>
                             <th>
@@ -450,7 +445,6 @@
                             <td><span class="check">✓</span></td>
                             <td><span class="check">✓</span></td>
                             <td><span class="check">✓</span></td>
-                            <td><span class="check">✓</span></td>
                         </tr>
                         <tr>
                             <td>Android</td>
@@ -459,14 +453,12 @@
                             <td><span class="check">✓</span></td>
                             <td><span class="check">✓</span></td>
                             <td><span class="check">✓</span></td>
-                            <td><span class="check">✓</span></td>
                             <td><span class="cross">✗</span></td>
                         </tr>
                         <tr>
-                            <td>Mac/Windows</td>
+                            <td>Mac</td>
                             <td class="highlight-column"><span class="cross">✗</span></td>
-                            <td><span class="partial">Mac only</span></td>
-                            <td><span class="cross">✗</span></td>
+                            <td><span class="check">✓</span></td>
                             <td><span class="cross">✗</span></td>
                             <td><span class="check">✓</span></td>
                             <td><span class="cross">✗</span></td>
@@ -476,7 +468,6 @@
                             <td>App Blocking</td>
                             <td class="highlight-column"><span class="check">✓</span></td>
                             <td><span class="check">✓</span></td>
-                            <td><span class="check">✓</span></td>
                             <td><span class="partial">Delay only</span></td>
                             <td><span class="check">✓</span></td>
                             <td><span class="check">✓</span></td>
@@ -484,9 +475,8 @@
                         </tr>
                         <tr>
                             <td>Website Blocking</td>
-                            <td class="highlight-column"><span class="cross">✗</span></td>
+                            <td class="highlight-column"><span class="check">✓</span></td>
                             <td><span class="check">✓</span></td>
-                            <td><span class="cross">✗</span></td>
                             <td><span class="check">✓</span></td>
                             <td><span class="check">✓</span></td>
                             <td><span class="cross">✗</span></td>
@@ -500,47 +490,111 @@
                             <td><span class="check">✓</span></td>
                             <td><span class="check">✓</span></td>
                             <td><span class="check">✓</span></td>
-                            <td><span class="check">✓</span></td>
                         </tr>
                         <tr>
                             <td>Usage Analytics</td>
                             <td class="highlight-column"><span class="check">✓</span></td>
                             <td><span class="check">✓</span></td>
-                            <td><span class="cross">✗</span></td>
                             <td><span class="check">✓</span></td>
+                            <td><span class="check">✓</span></td>
+                            <td><span class="check">✓</span></td>
+                            <td><span class="check">✓</span></td>
+                        </tr>
+                        <tr>
+                            <td>Free Version</td>
+                            <td class="highlight-column"><span class="check">✓ (1 app)</span></td>
+                            <td><span class="partial">Limited</span></td>
+                            <td><span class="partial">Limited</span></td>
+                            <td><span class="partial">Limited</span></td>
+                            <td><span class="partial">1 app</span></td>
+                            <td><span class="partial">7-day trial</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Physical Device Apps Comparison Table -->
+            <h2 style="font-size: 1.5em; color: #1d1d1f; margin: 50px 0 20px;">Physical Device Apps</h2>
+            <p style="color: #666; margin-bottom: 25px;">These apps use a physical NFC tag or card to unlock blocked apps, adding an extra layer of accountability.</p>
+            <div class="comparison-table-wrapper">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th>
+                                <div class="app-header">
+                                    <span class="app-name">Brick</span>
+                                    <span class="app-price">$59 one-time</span>
+                                </div>
+                            </th>
+                            <th>
+                                <div class="app-header">
+                                    <span class="app-name">Bloom</span>
+                                    <span class="app-price">$39 one-time</span>
+                                </div>
+                            </th>
+                            <th>
+                                <div class="app-header">
+                                    <span class="app-name">Unpluq</span>
+                                    <span class="app-price">$26 + $64/year</span>
+                                </div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>iOS</td>
+                            <td><span class="check">✓</span></td>
+                            <td><span class="check">✓</span></td>
+                            <td><span class="check">✓</span></td>
+                        </tr>
+                        <tr>
+                            <td>Android</td>
                             <td><span class="check">✓</span></td>
                             <td><span class="check">✓</span></td>
                             <td><span class="check">✓</span></td>
                         </tr>
                         <tr>
                             <td>Physical Device</td>
-                            <td class="highlight-column"><span class="partial">NFC/QR optional</span></td>
+                            <td><span class="check">✓</span></td>
+                            <td><span class="check">✓</span></td>
+                            <td><span class="check">✓</span></td>
+                        </tr>
+                        <tr>
+                            <td>App Blocking</td>
+                            <td><span class="check">✓</span></td>
+                            <td><span class="check">✓</span></td>
+                            <td><span class="check">✓</span></td>
+                        </tr>
+                        <tr>
+                            <td>Website Blocking</td>
                             <td><span class="cross">✗</span></td>
-                            <td><span class="check">Required</span></td>
-                            <td><span class="cross">✗</span></td>
-                            <td><span class="cross">✗</span></td>
-                            <td><span class="cross">✗</span></td>
+                            <td><span class="check">✓</span></td>
                             <td><span class="cross">✗</span></td>
                         </tr>
                         <tr>
-                            <td>Locked Mode</td>
-                            <td class="highlight-column"><span class="check">✓</span></td>
+                            <td>Scheduled Sessions</td>
                             <td><span class="check">✓</span></td>
                             <td><span class="check">✓</span></td>
-                            <td><span class="cross">✗</span></td>
                             <td><span class="check">✓</span></td>
-                            <td><span class="check">✓</span></td>
-                            <td><span class="cross">✗</span></td>
                         </tr>
                         <tr>
-                            <td>Free Version</td>
-                            <td class="highlight-column"><span class="check">✓ (1 app)</span></td>
-                            <td><span class="partial">Limited</span></td>
+                            <td>Usage Analytics</td>
+                            <td><span class="cross">✗</span></td>
                             <td><span class="check">✓</span></td>
-                            <td><span class="partial">Limited</span></td>
-                            <td><span class="partial">Limited</span></td>
-                            <td><span class="partial">1 app</span></td>
-                            <td><span class="partial">7-day trial</span></td>
+                            <td><span class="check">✓</span></td>
+                        </tr>
+                        <tr>
+                            <td>Subscription Required</td>
+                            <td><span class="cross">✗</span></td>
+                            <td><span class="cross">✗</span></td>
+                            <td><span class="check">✓</span></td>
+                        </tr>
+                        <tr>
+                            <td>Child Mode</td>
+                            <td><span class="cross">✗</span></td>
+                            <td><span class="check">✓</span></td>
+                            <td><span class="check">✓</span></td>
                         </tr>
                     </tbody>
                 </table>
@@ -556,23 +610,22 @@
                         <h3>Free Time</h3>
                         <span class="price-tag">1 app free / $59.99/year</span>
                     </div>
-                    <p>Free Time helps you build healthier phone habits with a clean, distraction-free approach. Block one app completely free, or upgrade to block unlimited apps. Features optional NFC and QR code unlocking for those who want physical accountability - no extra hardware required, just use any NFC tag or printed QR code.</p>
+                    <p>Free Time helps you build healthier phone habits with a clean, distraction-free approach. Block one app completely free, or upgrade to block unlimited apps and websites. Features usage analytics and scheduled sessions to help you stay on track.</p>
                     <div class="pros-cons">
                         <div class="pros">
                             <h4>Pros</h4>
                             <ul>
                                 <li>1 app blocking completely free</li>
-                                <li>NFC/QR unlock without buying hardware</li>
+                                <li>App and website blocking</li>
                                 <li>Clean, simple interface</li>
-                                <li>Locked mode to prevent cheating</li>
                                 <li>Detailed usage analytics</li>
+                                <li>Scheduled blocking sessions</li>
                             </ul>
                         </div>
                         <div class="cons">
                             <h4>Cons</h4>
                             <ul>
                                 <li>iOS only (no Android yet)</li>
-                                <li>No website blocking</li>
                                 <li>No desktop app</li>
                             </ul>
                         </div>
@@ -748,9 +801,70 @@
                             <ul>
                                 <li>iOS only</li>
                                 <li>Some users report tracking issues</li>
-                                <li>No locked mode</li>
                                 <li>No website blocking</li>
                                 <li>Only 7-day free trial</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <h2 style="margin-top: 50px;">Physical Device Apps</h2>
+
+                <!-- Bloom -->
+                <div class="app-card">
+                    <div class="app-card-header">
+                        <h3>Bloom</h3>
+                        <span class="price-tag">$39 one-time</span>
+                    </div>
+                    <p>Bloom uses a physical NFC card to lock and unlock distracting apps. One purchase includes the card and lifetime app access - no subscription required. Features a child mode for parents who want to manage their kids' screen time.</p>
+                    <div class="pros-cons">
+                        <div class="pros">
+                            <h4>Pros</h4>
+                            <ul>
+                                <li>Most affordable physical device option</li>
+                                <li>No subscription required</li>
+                                <li>Child Mode for parental controls</li>
+                                <li>Website blocking included</li>
+                                <li>Usage analytics and insights</li>
+                                <li>Works on iOS and Android</li>
+                            </ul>
+                        </div>
+                        <div class="cons">
+                            <h4>Cons</h4>
+                            <ul>
+                                <li>Requires physical card to unlock</li>
+                                <li>Can lose the card</li>
+                                <li>Limited emergency exits</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Unpluq -->
+                <div class="app-card">
+                    <div class="app-card-header">
+                        <h3>Unpluq</h3>
+                        <span class="price-tag">$26 tag + $64/year</span>
+                    </div>
+                    <p>Unpluq is an NFC tag that acts as a digital key to your blocked apps. The small rubberized tag comes with a carabiner and works offline - no charging or Bluetooth needed. However, it requires an annual subscription to use.</p>
+                    <div class="pros-cons">
+                        <div class="pros">
+                            <h4>Pros</h4>
+                            <ul>
+                                <li>Compact, portable NFC tag</li>
+                                <li>Works completely offline</li>
+                                <li>No charging required</li>
+                                <li>Family plan available</li>
+                                <li>Works on iOS and Android</li>
+                            </ul>
+                        </div>
+                        <div class="cons">
+                            <h4>Cons</h4>
+                            <ul>
+                                <li>Requires annual subscription ($64/year)</li>
+                                <li>Most expensive option over time</li>
+                                <li>No website blocking</li>
+                                <li>iOS limited to 49 apps</li>
                             </ul>
                         </div>
                     </div>
