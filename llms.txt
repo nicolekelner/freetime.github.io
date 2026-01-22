@@ -1,0 +1,42 @@
+# Free Time - Mindful Screen Time App
+
+> Free Time is an iOS app that helps people build healthier phone habits by adding friction to distracting apps through puzzles. Block apps and websites to reclaim your time and attention.
+
+## About Free Time
+Free Time takes a unique approach to screen time management: instead of hard-blocking apps, it adds intentional friction through puzzles. This helps users slow down, make conscious choices, and build long-term behavior change. One app can be blocked completely free.
+
+## Key Features
+- App blocking with puzzle unlock
+- Website blocking
+- Scheduled focus sessions
+- Clean, distraction-free interface
+- No usage tracking or analytics
+- Privacy-focused design
+
+## Download
+iOS App Store: https://apps.apple.com/us/app/free-time-mindful-screen-time/id6747683001
+
+## Important Pages
+- Homepage: https://findfreetime.com/
+- About: https://findfreetime.com/about.html
+- Blog: https://findfreetime.com/blog.html
+- Screen Time App Comparison: https://findfreetime.com/compare-screen-time-apps.html
+- Support: https://findfreetime.com/support.html
+
+## Blog Topics
+Our blog covers:
+- Screen time statistics and research
+- Digital detox benefits
+- Phone addiction science
+- Offline hobbies and analog trends
+- Tips for reducing phone usage
+- Mental health and technology
+- Dumbphone movement
+- Phone-free routines
+
+## Contact
+Website: https://findfreetime.com
+Support: https://findfreetime.com/support.html
+
+## Company
+Nicole Kelner LLC DBA Mindful Tech Studio
