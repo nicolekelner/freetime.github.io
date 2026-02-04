@@ -39,15 +39,22 @@
         }
     }
     </script>
-
     <script>
-        if (localStorage.getItem('cookieConsent') === 'accepted') {
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-XXXXXXXXXX');
-        }
+      function loadGoogleAnalytics() {
+        var script = document.createElement('script');
+        script.async = true;
+        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-3XH6ZL37DY';
+        document.head.appendChild(script);
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-3XH6ZL37DY');
+      }
+      if (localStorage.getItem('cookieConsent') === 'accepted') {
+        loadGoogleAnalytics();
+      }
     </script>
+
 
     <title>Digital Mindfulness: Being Present in a Distracted World - Free Time</title>
 
@@ -225,15 +232,15 @@
     <nav class="main-nav">
         <div class="nav-container">
             <a href="index.html" class="logo">
-                <img src="logo-narrow.png" alt="Free Time Logo" height="40">
-                <span>Free Time</span>
+                <img src="logo-narrow.png" alt="Free Time Logo" class="logo-img">
+                Free Time
             </a>
-            <button class="hamburger" aria-label="Toggle menu">
+            <button class="hamburger" id="hamburger" aria-label="Menu">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
-            <div class="nav-links">
+            <div class="nav-links" id="navLinks">
                 <a href="about.html">About</a>
                 <a href="blog.html">Blog</a>
                 <a href="https://apps.apple.com/us/app/free-time-mindful-screen-time/id6747683001" class="nav-cta">Download App</a>
@@ -244,10 +251,10 @@
     <main style="padding-top: 80px;">
         <article class="blog-post-container">
             <a href="blog.html" class="back-link">
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                    <path d="M12.5 15L7.5 10L12.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
                 </svg>
-                Back to blog
+                Back to Blog
             </a>
 
             <header class="blog-post-header">
@@ -476,29 +483,36 @@
     </main>
 
     <footer>
-        <div class="footer-content">
-            <div class="footer-links">
+        <div class="container">
+            <nav>
                 <a href="index.html">Home</a>
                 <a href="about.html">About</a>
                 <a href="blog.html">Blog</a>
-                <a href="mailto:support@findfreetime.com">Support</a>
+                <a href="support.html">Support</a>
                 <a href="privacy.html">Privacy Policy</a>
                 <a href="terms.html">Terms of Use</a>
-                <a href="mailto:hello@findfreetime.com">Contact</a>
-            </div>
-            <p>&copy; 2025 Nicole Kelner LLC DBA Mindful Tech Studio</p>
+                <a href="contact.html">Contact</a>
+            </nav>
+            <p>&copy; 2025 Nicole Kelner LLC DBA Mindful Tech Studio. All rights reserved.</p>
         </div>
     </footer>
 
     <script>
         (function() {
-            const hamburger = document.querySelector('.hamburger');
-            const navLinks = document.querySelector('.nav-links');
-
-            hamburger.addEventListener('click', function() {
-                navLinks.classList.toggle('active');
-                hamburger.classList.toggle('active');
-            });
+            const hamburger = document.getElementById('hamburger');
+            const navLinks = document.getElementById('navLinks');
+            if (hamburger) {
+                hamburger.addEventListener('click', function() {
+                    hamburger.classList.toggle('active');
+                    navLinks.classList.toggle('active');
+                });
+                navLinks.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', function() {
+                        hamburger.classList.remove('active');
+                        navLinks.classList.remove('active');
+                    });
+                });
+            }
         })();
     </script>
 </body>
