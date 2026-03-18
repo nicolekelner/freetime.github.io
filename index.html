@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="canonical" href="https://findfreetime.com/index.html">
     <meta name="description" content="Free Time helps you use your phone mindfully. Block distracting apps with puzzles, set schedules, and reclaim your focus. Break the cycle of mindless scrolling.">
     <meta name="keywords" content="app blocker, mindful phone use, digital wellbeing, focus app, productivity, screen time, app blocking">
     <meta name="theme-color" content="#5DACB3">
@@ -39,6 +40,30 @@
       if (localStorage.getItem('cookieConsent') === 'accepted') {
         loadGoogleAnalytics();
       }
+    </script>
+
+    <!-- Structured Data: WebSite + Organization -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Free Time",
+      "url": "https://findfreetime.com",
+      "description": "Free Time helps you use your phone mindfully. Block distracting apps with puzzles, set schedules, and reclaim your focus.",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Nicole Kelner LLC DBA Mindful Tech Studio",
+        "url": "https://findfreetime.com",
+        "email": "support@findfreetime.com",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://findfreetime.com/logo-narrow.png"
+        },
+        "sameAs": [
+          "https://apps.apple.com/us/app/free-time-mindful-screen-time/id6747683001"
+        ]
+      }
+    }
     </script>
     <meta name="apple-itunes-app" content="app-id=6747683001">
     <title>Free Time - Mindful Phone Usage</title>
