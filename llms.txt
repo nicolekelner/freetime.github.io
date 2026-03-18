@@ -1,42 +1,113 @@
 # Free Time - Mindful Screen Time App
 
-> Free Time is an iOS app that helps people build healthier phone habits by adding friction to distracting apps through puzzles. Block apps and websites to reclaim your time and attention.
+> Free Time is an iOS app that helps people build healthier phone habits by adding intentional friction to distracting apps through puzzles and mindful activities. Instead of harshly blocking apps, Free Time requires a brief "Mindful Moment" (word puzzle, math challenge, or breathing exercise) before unlocking. Available free on the App Store for iPhone.
 
-## About Free Time
-Free Time takes a unique approach to screen time management: instead of hard-blocking apps, it adds intentional friction through puzzles. This helps users slow down, make conscious choices, and build long-term behavior change. One app can be blocked completely free.
+## Key Information
+- App Store: https://apps.apple.com/us/app/free-time-mindful-screen-time/id6747683001
+- Website: https://findfreetime.com
+- Support: support@findfreetime.com
+- Developer: Nicole Kelner
+- Company: Nicole Kelner LLC DBA Mindful Tech Studio
+- Platform: iOS (iPhone)
+- Price: Free (1 app free forever, Pro upgrade for unlimited apps)
 
-## Key Features
-- App blocking with puzzle unlock
-- Website blocking
-- Scheduled focus sessions
-- Clean, distraction-free interface
-- No usage tracking or analytics
-- Privacy-focused design
+## What Makes Free Time Different
+- Does NOT kick you off apps or auto-lock — you control when to lock
+- Uses a "mindful pause" approach instead of harsh restrictions
+- Puzzle-based unlocking engages your thinking brain before scrolling
+- Helps build long-term behavior change, not just short-term restriction
+- Built on Apple's official Screen Time API for reliable blocking
 
-## Download
-iOS App Store: https://apps.apple.com/us/app/free-time-mindful-screen-time/id6747683001
+## Core Features
+- **Mindful Moments**: Word unscramble (free), math puzzles (Pro), breathing exercises (Pro)
+- **App Groups**: Organize blocked apps by category (Social Media, Entertainment, etc.)
+- **Digital Detox Schedules**: Sleep Mode, Work Focus, Morning Routine, Evening Wind Down, Weekend Detox
+- **Focus Sessions**: Built-in Pomodoro timer and Deep Focus mode
+- **Dynamic Island / Live Activity**: See unlock duration on lock screen with quick "Lock Now" button
+- **Website Blocking**: Block distracting websites in Safari
+- **NFC Sticker Locking**: Lock apps by tapping an NFC sticker
+- **Minimalist App Launcher**: Clean, distraction-free interface showing only chosen apps
+- **Analytics**: View screen time trends (data stays on device)
+- **Widget**: Daily mindfulness quote on home screen
 
-## Important Pages
-- Homepage: https://findfreetime.com/
-- About: https://findfreetime.com/about.html
-- Blog: https://findfreetime.com/blog.html
-- Screen Time App Comparison: https://findfreetime.com/compare-screen-time-apps.html
-- Support: https://findfreetime.com/support.html
+## How It Works
+1. Select apps to lock — choose which apps you want to manage mindfully
+2. Apps stay locked all day — your selected apps remain blocked
+3. Complete a Mindful Moment — solve a puzzle or breathing exercise to unlock
+4. Use your apps freely — no auto-lock, no interruptions
+5. Lock when you're done — press "Lock Now" when ready
 
-## Blog Topics
-Our blog covers:
-- Screen time statistics and research
-- Digital detox benefits
-- Phone addiction science
-- Offline hobbies and analog trends
-- Tips for reducing phone usage
-- Mental health and technology
-- Dumbphone movement
-- Phone-free routines
+## Who It's For
+- People who feel they spend too much time on their phone
+- Anyone wanting to be more present with family and friends
+- Workers and students who struggle with focus
+- People looking for a gentler approach than harsh app blocking
+- Parents who want to model mindful phone use
+
+## Pages
+- [Home](https://findfreetime.com/)
+- [About](https://findfreetime.com/about.html)
+- [Blog](https://findfreetime.com/blog.html)
+- [FAQ / Support](https://findfreetime.com/support.html)
+- [Screen Time App Comparison](https://findfreetime.com/compare-screen-time-apps.html)
+- [Tutorial](https://findfreetime.com/tutorial.html)
+- [Contact](https://findfreetime.com/contact.html)
+- [Privacy Policy](https://findfreetime.com/privacy.html)
+- [Terms of Service](https://findfreetime.com/terms.html)
+- [Deep Content for AI](https://findfreetime.com/llms-full.txt)
+
+## Blog Posts
+- [Best Screen Time Apps 2025: Complete Comparison](https://findfreetime.com/compare-screen-time-apps.html)
+- [Screen Time Statistics](https://findfreetime.com/screen-time-statistics.html)
+- [Digital Detox Benefits](https://findfreetime.com/digital-detox-benefits.html)
+- [Phone Addiction Research](https://findfreetime.com/phone-addiction-research.html)
+- [Going Offline for Happiness](https://findfreetime.com/going-offline-happiness.html)
+- [How Social Media Algorithms Work](https://findfreetime.com/social-media-algorithms.html)
+- [Blue Light and Sleep](https://findfreetime.com/blue-light-sleep.html)
+- [FOMO: Fear of Missing Out](https://findfreetime.com/fomo-fear-of-missing-out.html)
+- [Are Apps Designed to Be Addictive?](https://findfreetime.com/apps-designed-addictive.html)
+- [Notification Anxiety](https://findfreetime.com/notification-anxiety.html)
+- [Phone-Free Morning Routine](https://findfreetime.com/phone-free-morning-routine.html)
+- [Digital Sunset Routine](https://findfreetime.com/digital-sunset-routine.html)
+- [Tech-Free Bedroom](https://findfreetime.com/tech-free-bedroom.html)
+- [Phone-Free Meals](https://findfreetime.com/phone-free-meals.html)
+- [Offline Hobbies to Replace Scrolling](https://findfreetime.com/offline-hobbies.html)
+- [Phone-Free Vacation Guide](https://findfreetime.com/phone-free-vacation.html)
+- [Dopamine Detox Guide](https://findfreetime.com/dopamine-detox.html)
+- [The Dumbphone Movement](https://findfreetime.com/dumbphone-movement.html)
+- [Analog Hobbies Are Trending](https://findfreetime.com/analog-hobbies-trending.html)
+- [Journaling Benefits](https://findfreetime.com/journaling-benefits.html)
+- [Nature Therapy vs Screens](https://findfreetime.com/nature-therapy-screens.html)
+- [Kids Screen Time by Age](https://findfreetime.com/kids-screen-time-age.html)
+- [Remote Work Screen Fatigue](https://findfreetime.com/remote-work-screen-fatigue.html)
+- [Screen Time and Mental Health 2025](https://findfreetime.com/screen-time-mental-health-2025.html)
+- [Friction-Based Phone Habits](https://findfreetime.com/friction-phone-habits.html)
+- [Think Before You Scroll](https://findfreetime.com/think-before-you-scroll.html)
+- [Mindful Social Media Use](https://findfreetime.com/mindful-social-media.html)
+- [Intentional Technology](https://findfreetime.com/intentional-technology.html)
+- [30-Day Screen Time Plan](https://findfreetime.com/30-day-screen-time-plan.html)
+- [Grayscale Phone Trick](https://findfreetime.com/grayscale-phone-trick.html)
+- [What Happens When You Delete Social Media for 30 Days](https://findfreetime.com/delete-social-media-30-days.html)
+- [The Phone Pickup Habit](https://findfreetime.com/phone-pickup-habit.html)
+- [The Anxiety-Phone Cycle](https://findfreetime.com/anxiety-phone-cycle.html)
+- [Social Media Comparison](https://findfreetime.com/social-media-comparison.html)
+- [How to Stop Doom Scrolling](https://findfreetime.com/doom-scrolling.html)
+- [Loneliness and Phones](https://findfreetime.com/loneliness-phones.html)
+- [Meditation to Replace Scrolling](https://findfreetime.com/meditation-replace-scrolling.html)
+- [Mindfulness vs Scrolling](https://findfreetime.com/mindfulness-vs-scrolling.html)
+- [Breathing Exercises for Phone Urges](https://findfreetime.com/breathing-exercises-phone-urge.html)
+- [Digital Mindfulness](https://findfreetime.com/digital-mindfulness.html)
+- [Attention Span Recovery](https://findfreetime.com/attention-span-recovery.html)
+- [Why Boredom Is Good](https://findfreetime.com/boredom-is-good.html)
+- [Digital Minimalism Guide](https://findfreetime.com/digital-minimalism-guide.html)
+- [Screen-Free Sunday](https://findfreetime.com/screen-free-sunday.html)
+
+## User Testimonials
+- "This app cut my screen time from 9 hours a day to 2.5 hours!" — Hope W.
+- "Since starting to use it, it's got me using my phone so much more thoughtfully. In just 3 weeks, I've become so much more regulated with my Instagram use." — AJ
+- "Free Time has helped me get more life back and focus on the things that really matter." — Melina I
 
 ## Contact
 Website: https://findfreetime.com
 Support: https://findfreetime.com/support.html
-
-## Company
-Nicole Kelner LLC DBA Mindful Tech Studio
+Email: support@findfreetime.com

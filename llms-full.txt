@@ -1,0 +1,172 @@
+# Free Time - Mindful Screen Time App (Full Documentation)
+
+> This is the comprehensive documentation for Free Time, an iOS app for mindful screen time management. For a shorter summary, see https://findfreetime.com/llms.txt
+
+## About Free Time
+
+Free Time is a mindful app blocker for iPhone that helps people build healthier phone habits. Instead of harshly blocking apps (which rarely works long-term), Free Time adds intentional friction through puzzles and mindful activities. When you want to open a distracting app, you complete a brief "Mindful Moment" first — this 30-60 second pause is often enough to break the automatic scrolling habit.
+
+Free Time was created by Nicole Kelner, a full-time artist based in Brooklyn, who was feeling hooked on social media when she needed to share her art. She wanted a way to use her phone for work without getting distracted, so she built Free Time to help herself and others feel more balanced.
+
+**App Store**: https://apps.apple.com/us/app/free-time-mindful-screen-time/id6747683001
+**Website**: https://findfreetime.com
+**Platform**: iOS (iPhone)
+**Price**: Free (1 app blocked free forever, Pro for unlimited)
+**Developer**: Nicole Kelner LLC DBA Mindful Tech Studio
+
+---
+
+## How Free Time Works
+
+1. **Select apps to lock** — Choose which apps you want to manage mindfully using Apple's FamilyControls picker
+2. **Apps stay locked all day** — Your selected apps remain blocked with a shield overlay
+3. **Complete a Mindful Moment** — When you want to use a locked app, solve a quick puzzle or breathing exercise
+4. **Use your apps freely** — Apps remain unlocked until YOU manually lock them. No auto-lock, no interruptions, no timers kicking you off.
+5. **Lock when you're done** — Press "Lock Now" when you're ready to put apps away
+
+**Key difference from other app blockers**: Free Time never kicks you off your apps. Once unlocked, you decide when to lock again. This teaches self-regulation rather than dependence on external restrictions.
+
+---
+
+## Features
+
+### Mindful Moments (Unlock Puzzles)
+The core feature. When you want to unlock your apps, you complete one of these brief activities:
+- **Word Unscramble** — Unscramble letters to form a word (available free)
+- **Math Puzzle** — Solve arithmetic problems that engage your prefrontal cortex (Pro)
+- **Breathing Exercise** — Take a mindful breathing pause to center yourself (Pro)
+
+Pro users can select multiple types and rotate between them automatically.
+
+### App Groups
+Organize blocked apps into categories for easier management:
+- Social Media (Instagram, TikTok, Twitter/X)
+- Entertainment (YouTube, Netflix, Games)
+- Messaging (WhatsApp, Messenger)
+- Custom groups with any combination
+
+Each group can have different blocking settings and schedules.
+
+### Digital Detox Schedules
+Recurring blocking schedules that add extra friction during protected times:
+- **Sleep Mode** — Block apps during sleep hours
+- **Work Focus** — Stay productive during work hours
+- **Morning Routine** — Start your day without distractions
+- **Evening Wind Down** — Relax before bed
+- **Weekend Detox** — Disconnect on weekends
+- **Offline Outside** — Block apps when not on WiFi
+
+Schedules act as a "padlock" — a second lock that makes unlocking harder during protected times by adding a cooldown period. You can still unlock in emergencies.
+
+### Focus Sessions
+Built-in productivity timers:
+- **Pomodoro** — Configurable work/break intervals (default 25 min work, 5 min break, 15 min long break after 4 sessions)
+- **Deep Focus** — Customizable duration with no structured breaks
+
+Focus sessions lock your apps while active. You can pause sessions if needed.
+
+### Dynamic Island / Live Activity
+When apps are unlocked, a Live Activity appears on your lock screen and Dynamic Island showing:
+- A stopwatch counting how long apps have been unlocked (for awareness only)
+- A quick "Lock Now" button to lock apps without opening Free Time
+
+### Website Blocking
+Block distracting websites in Safari, not just apps.
+
+### NFC Sticker Locking
+Lock your apps by tapping a physical NFC sticker — adds a tactile, mindful gesture to the locking process.
+
+### Minimalist App Launcher
+A clean, distraction-free interface showing only the apps you've chosen to keep accessible.
+
+### Widget
+A home screen widget displaying a daily mindfulness quote that updates once per day.
+
+### Analytics
+View your screen time trends and usage patterns. All data stays on your device and in your private iCloud account.
+
+---
+
+## Frequently Asked Questions
+
+### General
+
+**Q: What is Free Time?**
+A: Free Time is a mindful app blocker that helps you use your apps in moderation. Unlike restrictive app blockers that kick you off your apps, Free Time helps you learn to use them mindfully through an unlocking process. The apps you select to lock stay locked all day. When you want to use them, you come to Free Time to unlock them, and return to lock them when you're done.
+
+**Q: How is Free Time different from Apple's Screen Time?**
+A: Free Time builds on top of Apple's Screen Time API. While Screen Time gives you basic blocking and reports, Free Time adds the mindfulness layer — puzzles, breathing exercises, and word games that create intentional pauses rather than just barriers. Screen Time focuses on time limits; Free Time focuses on behavior change.
+
+**Q: How is Free Time different from other app blockers like Opal, One Sec, or Freedom?**
+A: Most app blockers are all-or-nothing: they either completely block apps or let you use them freely. Free Time takes a middle path — it adds a brief, mindful pause (puzzle or breathing exercise) before you can access apps. It also never auto-locks or kicks you off, teaching you to self-regulate rather than depend on external restrictions.
+
+**Q: Is there a free version?**
+A: Yes. Free users can block 1 app forever with Word Unscramble as the Mindful Moment. Pro unlocks unlimited apps, additional puzzle types (math, breathing), schedule features, and more.
+
+**Q: Is there an Android version?**
+A: Currently Free Time is iOS-only because it's built on Apple's Screen Time API. An Android version would require a completely different technical approach.
+
+### Unlocking & Locking
+
+**Q: How do I unlock my apps?**
+A: Open Free Time, go to the Unlock tab, and complete a Mindful Moment (puzzle or breathing exercise). Your apps are then unlocked and accessible.
+
+**Q: Do apps automatically lock after a certain time?**
+A: No. Free Time doesn't automatically lock apps. Apps remain unlocked until you manually press "Lock Now." This is intentional — we help you learn to use apps mindfully, not force you off them.
+
+**Q: What are Mindful Moments?**
+A: Mindful Moments are the puzzles and exercises you complete before unlocking your apps: Word Unscramble (free), Math Puzzle (Pro), and Breathing Exercise (Pro). They take 30-60 seconds and create a moment of awareness before you open distracting apps.
+
+**Q: What happens when I force-quit Free Time while apps are unlocked?**
+A: Your apps remain unlocked when you reopen Free Time. The app preserves your unlock state across restarts.
+
+### Schedules
+
+**Q: What are Digital Detox schedules?**
+A: Digital Detox schedules are recurring time blocks that add extra friction to unlocking. They act like a padlock — a second lock that prevents easy unlocking during specific times like sleep, work, or morning routines.
+
+**Q: Can I have multiple schedules?**
+A: Yes. You can create multiple schedules running on different days and times (e.g., Sleep Mode nightly, Work Focus on weekdays, Weekend Detox on Saturdays).
+
+**Q: Can I unlock apps during a schedule in an emergency?**
+A: Yes. During an active schedule, you can still unlock apps but there's a short waiting period (cooldown) to ensure it's intentional.
+
+### Focus Sessions
+
+**Q: What's the difference between the Timer and Schedule tabs?**
+A: The Timer tab is for on-demand focus sessions (Pomodoro, Deep Focus). The Schedule tab manages recurring blocking schedules. Timer sessions are instant and temporary; schedules are recurring and automatic.
+
+**Q: What is Pomodoro?**
+A: A focus technique with alternating work and break periods: 25 min focus, 5 min break, 15 min long break after 4 sessions. All timings are customizable.
+
+### Privacy
+
+**Q: What data does Free Time collect?**
+A: Free Time collects minimal anonymous analytics via Mixpanel (feature usage, session completions). Screen Time data stays on your device. Focus history syncs to your private iCloud. No personal data or specific app usage is shared with third parties.
+
+**Q: Is my data shared with third parties?**
+A: No. Your personal data and app usage information stays private. Screen Time data remains on device, focus sessions sync to your private iCloud, analytics are anonymous. We never sell or share your data.
+
+### Troubleshooting
+
+**Q: My apps aren't blocking. What should I check?**
+A: Check Screen Time permissions (iPhone Settings → Screen Time → Apps), verify apps are added to a group in the Apps tab, check if apps are currently unlocked, and try restarting Free Time.
+
+**Q: I solved a Mindful Moment but apps are still blocked.**
+A: This usually happens when a schedule is active (check the Schedule tab), apps weren't properly saved to a group, or there's a permissions issue. Try reauthorizing Screen Time permissions.
+
+---
+
+## User Testimonials
+
+- "This app cut my screen time from 9 hours a day to 2.5 hours!" — Hope W.
+- "I LOVE Free Time. Since starting to use it, it's got me using my phone so much more thoughtfully. In just 3 weeks, I've become so much more regulated with my Instagram use. Thank you Free Time for giving me more Free Time!!" — AJ
+- "Free Time has helped me get more life back and focus on the things that really matter: reading a book that's been on my list for ages, having a long undistracted dinner and just being." — Melina I
+
+---
+
+## Contact
+- Website: https://findfreetime.com
+- Support: https://findfreetime.com/support.html
+- Email: support@findfreetime.com
+- Developer: Nicole Kelner, Brooklyn, NY
