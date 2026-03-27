@@ -67,6 +67,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
 <body>
     <!-- Navigation -->
@@ -284,7 +285,7 @@
         <div class="container">
             <h2>Bring Free Time to Your Team</h2>
             <p>Tell us about your organization and we'll be in touch to discuss how Free Time can support your team's focus and wellbeing.</p>
-            <form class="contact-form" action="https://formspree.io/f/xeojqkdl" method="POST">
+            <form class="contact-form" id="teamsForm">
                 <div class="form-group">
                     <label for="name">Your Name</label>
                     <input type="text" id="name" name="name" required placeholder="Jane Smith">
@@ -312,8 +313,7 @@
                     <label for="message">Message (optional)</label>
                     <textarea id="message" name="message" placeholder="Tell us about your team's needs..."></textarea>
                 </div>
-                <input type="hidden" name="_subject" value="Free Time for Teams Inquiry">
-                <button type="submit" class="cta-button">Request Information</button>
+                <button type="submit" class="cta-button" id="submitBtn">Request Information</button>
             </form>
             <p class="contact-email">Or email us directly at <a href="mailto:support@findfreetime.com">support@findfreetime.com</a></p>
         </div>
@@ -400,6 +400,39 @@
                     });
                 });
             }
+        })();
+
+        // EmailJS Contact Form
+        (function() {
+            emailjs.init('xHtu_IvfUL9p3NOj5');
+
+            var form = document.getElementById('teamsForm');
+            var btn = document.getElementById('submitBtn');
+
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                btn.disabled = true;
+                btn.textContent = 'Sending...';
+
+                // Prepend company size to message so it's included in the email
+                var messageField = form.querySelector('[name="message"]');
+                var sizeField = form.querySelector('[name="company_size"]');
+                var originalMessage = messageField.value;
+                messageField.value = '[Company size: ' + sizeField.value + ']\n\n' + originalMessage;
+
+                emailjs.sendForm('service_hpjf0wg', 'template_kza37tn', form)
+                    .then(function() {
+                        btn.textContent = 'Sent!';
+                        btn.style.background = '#2ecc71';
+                        form.reset();
+                    }, function(error) {
+                        btn.textContent = 'Error — try again';
+                        btn.style.background = '#e74c3c';
+                        btn.disabled = false;
+                        messageField.value = originalMessage;
+                        console.error('EmailJS error:', error);
+                    });
+            });
         })();
     </script>
 
