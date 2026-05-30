@@ -1798,10 +1798,34 @@ html {
     font-size: 2.8em;
     font-weight: 700;
     color: #083267;
-    margin-bottom: 50px;
+    margin-bottom: 16px;
     border: none;
     padding: 0;
     margin-top: 0;
+}
+
+.testimonials-rating {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 44px;
+}
+
+.testimonials-stars {
+    color: #FFB800;
+    font-size: 1.1em;
+    letter-spacing: 2px;
+}
+
+.testimonials-rating-text {
+    font-size: 0.88em;
+    color: #666;
+}
+
+.testimonials-rating-text strong {
+    color: #083267;
+    font-weight: 700;
 }
 
 .testimonials-grid {
@@ -1932,7 +1956,9 @@ footer.footer-columns {
     /* Hero */
     .hero-sky { padding-top: 70px; }
     .hero-sky-title { font-size: 2.2em; }
-    .hero-sky-text { padding: 28px 24px 8px; }
+    .hero-sky-text { padding: 16px 24px 8px; }
+    .hero-sky-subtitle { font-size: 0.95em; }
+    .hero-sky::after { height: 120px; }
 
     .fi-tiktok, .fi-x, .fi-youtube, .fi-reddit { display: none; }
     .fi-facebook  { top: 18%; right: 4%; }
@@ -1941,42 +1967,60 @@ footer.footer-columns {
     .hero-phones { max-width: 300px; }
 
     /* Three features */
-    .three-features { padding: 70px 24px; }
+    .three-features { padding: 50px 20px 60px; }
     .three-features-header h2 { font-size: 2em; }
-    .three-features-grid { grid-template-columns: 1fr; gap: 50px; }
-    .feature-col { text-align: center; }
-    .feature-col-phone { display: flex; justify-content: center; }
-    .feature-col-phone img { max-width: 220px; }
+    .three-features-grid { grid-template-columns: 1fr; gap: 24px; }
+    .feature-col { text-align: left; padding: 20px 20px 0; }
+    .feature-col h3 { font-size: 1.6em; }
+    .feature-col-phone {
+        height: 240px;
+        margin: auto -20px 0;
+        display: flex;
+        justify-content: center;
+    }
+    .feature-col-phone img { max-width: 200px; height: 240px; }
 
     /* Lifestyle */
-    .lifestyle-section { padding: 70px 24px; }
+    .lifestyle-section { padding: 60px 16px; }
     .lifestyle-header h2 { font-size: 2em; }
     .lifestyle-grid {
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: none;
-        grid-auto-rows: 160px;
+        grid-auto-rows: 150px;
         max-width: 100%;
     }
-    .lifestyle-grid img:nth-child(n) {
-        grid-column: auto;
-        grid-row: auto;
+    .lifestyle-grid img:nth-child(1),
+    .lifestyle-grid img:nth-child(2),
+    .lifestyle-grid img:nth-child(3),
+    .lifestyle-grid img:nth-child(4),
+    .lifestyle-grid img:nth-child(5),
+    .lifestyle-grid img:nth-child(6),
+    .lifestyle-grid img:nth-child(7),
+    .lifestyle-grid img:nth-child(8) {
+        grid-column: auto !important;
+        grid-row: auto !important;
     }
 
     /* CTA Card */
     .cta-card-section { padding: 40px 20px; }
     .cta-card {
         flex-direction: column;
-        padding: 40px 32px;
-        gap: 36px;
+        padding: 36px 24px;
+        gap: 28px;
     }
     .cta-card-text h2 { font-size: 1.7em; }
     .cta-email-form { flex-direction: column; }
+    .cta-email-form input { width: 100%; }
+    .cta-email-form button { width: 100%; }
+    .cta-email-hint { font-size: 0.75em; }
     .cta-card-phone { display: none; }
 
     /* Testimonials */
     .testimonials-section { padding: 70px 20px; }
-    .testimonials-section h2 { font-size: 2em; margin-bottom: 30px; }
+    .testimonials-section h2 { font-size: 2em; margin-bottom: 16px; }
+    .testimonials-rating { flex-wrap: wrap; justify-content: center; margin-bottom: 32px; }
     .testimonials-grid { grid-template-columns: 1fr; gap: 16px; }
+    .testimonial-card { padding: 24px 20px; }
 
     /* Footer */
     footer.footer-columns { padding: 50px 24px 28px; }
@@ -1985,4 +2029,6 @@ footer.footer-columns {
         gap: 32px;
     }
     .footer-brand { grid-column: 1 / -1; }
+    .footer-col h4 { font-size: 0.82em; }
+    .footer-col a { font-size: 0.9em; }
 }
