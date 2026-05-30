@@ -36,7 +36,6 @@
         gtag('config', 'G-3XH6ZL37DY');
       }
 
-      // Check if user has already consented
       if (localStorage.getItem('cookieConsent') === 'accepted') {
         loadGoogleAnalytics();
       }
@@ -122,9 +121,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
 <body>
-    <!-- Modern Navigation Header -->
+    <!-- Navigation -->
     <nav class="main-nav">
         <div class="nav-container">
             <a href="index.html" class="logo">
@@ -139,271 +139,187 @@
             <div class="nav-links" id="navLinks">
                 <a href="about.html">About</a>
                 <a href="blog.html">Blog</a>
-                <a href="teams.html">For Teams</a>
-                <a href="https://apps.apple.com/us/app/free-time-mindful-screen-time/id6747683001" class="nav-cta" onclick="gtag('event', 'download_click', {'event_category': 'engagement', 'event_label': 'index_nav'});">Download App</a>
+                <a href="https://apps.apple.com/us/app/free-time-mindful-screen-time/id6747683001" class="nav-cta" onclick="gtag('event', 'download_click', {'event_category': 'engagement', 'event_label': 'index_nav'});"><svg width="13" height="13" viewBox="0 0 20 20" fill="white" aria-hidden="true"><path d="M14.4 10.1c-.01-1.97 1.61-2.93 1.68-2.97-.92-1.34-2.35-1.53-2.85-1.55-1.22-.12-2.37.71-2.98.71-.63 0-1.57-.7-2.58-.68-1.32.02-2.54.77-3.22 1.96-1.38 2.38-.35 5.92.99 7.86.67.95 1.46 2.01 2.51 1.97 1.02-.04 1.41-.66 2.64-.66 1.23 0 1.6.66 2.57.64 1.06-.02 1.79-.96 2.45-1.91.77-1.1 1.09-2.17 1.1-2.22-.02-.01-2.12-.81-2.15-3.23l.01-.02zM12.64 4.53c.56-.67.93-1.6.83-2.53-.8.03-1.77.53-2.34 1.2-.51.6-.96 1.55-.84 2.46.89.07 1.8-.45 2.36-1.13z"/></svg> Download App</a>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section with Phone Mockup -->
-    <section class="hero-modern">
-        <div class="hero-content">
-            <div class="phone-column">
-                <div class="phone-mockup">
-                    <img src="images/app-screenshot.png" alt="Free Time App - Instagram is Locked" class="phone-screenshot" loading="lazy">
-                </div>
-            </div>
+    <!-- Hero Section -->
+    <section class="hero-sky">
+        <!-- Floating social media icons -->
+        <div class="floating-icon fi-youtube" aria-hidden="true">
+            <img src="logos/Slice 4 (1).png" alt="" width="56" height="56">
+        </div>
+        <div class="floating-icon fi-tiktok" aria-hidden="true">
+            <img src="logos/Slice 6 (20).png" alt="" width="56" height="56">
+        </div>
+        <div class="floating-icon fi-facebook" aria-hidden="true">
+            <img src="logos/Slice 7 (19).png" alt="" width="56" height="56">
+        </div>
+        <div class="floating-icon fi-x" aria-hidden="true">
+            <img src="logos/Slice 8 (19).png" alt="" width="56" height="56">
+        </div>
+        <div class="floating-icon fi-instagram" aria-hidden="true">
+            <img src="logos/Slice 9 (14).png" alt="" width="56" height="56">
+        </div>
+        <div class="floating-icon fi-reddit" aria-hidden="true">
+            <img src="logos/Slice 10.png" alt="" width="56" height="56">
+        </div>
 
-            <div class="text-column">
-                <h1 class="hero-title">No more<br>Mindless&nbsp;Scrolling</h1>
-                <p class="hero-description">Learn how to use your phone mindfully</p>
-
-                <a href="https://apps.apple.com/us/app/free-time-mindful-screen-time/id6747683001" class="app-store-button" onclick="gtag('event', 'download_click', {'event_category': 'engagement', 'event_label': 'index_hero'});">
-                    <svg width="180" height="60" viewBox="0 0 120 40" xmlns="http://www.w3.org/2000/svg">
-                        <g fill="none" fill-rule="evenodd">
-                            <rect fill="#000" width="120" height="40" rx="5"/>
-                            <path d="M24.769 20.3c-.013-2.96 2.416-4.392 2.525-4.459-1.377-2.014-3.517-2.29-4.278-2.32-1.823-.184-3.553 1.072-4.476 1.072-.924 0-2.35-1.044-3.86-1.016-1.987.028-3.819 1.155-4.842 2.934-2.064 3.578-.527 8.88 1.484 11.784 1.005 1.421 2.192 3.012 3.758 2.955 1.534-.058 2.112-.99 3.965-.99 1.851 0 2.399.99 3.85.958 1.589-.028 2.68-1.444 3.679-2.87 1.155-1.653 1.632-3.252 1.659-3.334-.036-.015-3.182-1.221-3.218-4.847l-.001-.013zM21.973 9.8c.832-1.01 1.393-2.408 1.24-3.8-1.198.048-2.649.798-3.508 1.805-.77.893-1.443 2.32-1.263 3.689 1.336.103 2.7-.68 3.53-1.694z" fill="#FFF"/>
-                            <text font-family="Lexend-Medium, Lexend" font-size="9" font-weight="400" fill="#FFF">
-                                <tspan x="40" y="16">Download on the</tspan>
-                                <tspan x="40" y="28" font-size="14" font-weight="600">App Store</tspan>
-                            </text>
-                        </g>
-                    </svg>
-                </a>
+        <!-- Hero text -->
+        <div class="hero-sky-text">
+            <h1 class="hero-sky-title">The easiest way<br>to stop doomscrolling</h1>
+            <p class="hero-sky-subtitle">Lock distracting apps and unlock with intention</p>
+            <a href="https://apps.apple.com/us/app/free-time-mindful-screen-time/id6747683001" class="hero-app-btn" onclick="gtag('event', 'download_click', {'event_category': 'engagement', 'event_label': 'index_hero'});">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" style="display:inline-block;vertical-align:middle;margin-right:8px;"><path d="M14.4 10.1c-.01-1.97 1.61-2.93 1.68-2.97-.92-1.34-2.35-1.53-2.85-1.55-1.22-.12-2.37.71-2.98.71-.63 0-1.57-.7-2.58-.68-1.32.02-2.54.77-3.22 1.96-1.38 2.38-.35 5.92.99 7.86.67.95 1.46 2.01 2.51 1.97 1.02-.04 1.41-.66 2.64-.66 1.23 0 1.6.66 2.57.64 1.06-.02 1.79-.96 2.45-1.91.77-1.1 1.09-2.17 1.1-2.22-.02-.01-2.12-.81-2.15-3.23l.01-.02zM12.64 4.53c.56-.67.93-1.6.83-2.53-.8.03-1.77.53-2.34 1.2-.51.6-.96 1.55-.84 2.46.89.07 1.8-.45 2.36-1.13z" fill="white"/></svg>
+                Download App
+            </a>
+            <div class="hero-rating">
+                <span class="hero-stars">★★★★★</span>
+                <span class="hero-rating-text">4.8 / 28.6k ratings globally</span>
             </div>
+        </div>
+
+        <!-- Phone mockup -->
+        <div class="hero-phones">
+            <img src="phone angle.png" alt="Free Time app on iPhone" class="hero-phone-mockup" loading="lazy">
         </div>
     </section>
 
-    <!-- Features Section -->
-    <section class="features-section" id="features">
-        <div class="container">
-            <h2 class="features-title">How Free Time Works</h2>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">🔒</div>
-                    <h3>Lock Distracting Apps</h3>
-                    <p>Choose which apps you want to lock</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🧩</div>
-                    <h3>Unlock with Puzzles or Mindful Activities</h3>
-                    <p>Slow down and choose to use your apps intentionally</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">⏰</div>
-                    <h3>Reclaim Your Focus</h3>
-                    <p>Choose blocking schedules where you don't want to use distracting apps</p>
-                </div>
-            </div>
+    <!-- Reclaim 2 Hours Section -->
+    <section class="three-features">
+        <div class="three-features-header">
+            <h2>Reclaim 2 hours of your day</h2>
+            <p>Put down your phone and make time for what matters</p>
         </div>
-    </section>
-
-    <!-- Detailed Feature Sections -->
-    <section class="feature-detail">
-        <div class="feature-detail-content">
-            <div class="feature-detail-text">
-                <h2>Lock Distracting Apps</h2>
-                <p>Take control of your screen time by blocking the apps that pull you away from what matters. Free Time helps you stay focused by requiring a mindful pause before opening distracting apps.</p>
-            </div>
-            <div class="feature-detail-image">
-                <div class="phone-mockup-small">
-                    <img src="images/puzzle.png" alt="Lock Distracting Apps" loading="lazy">
+        <div class="three-features-grid">
+            <div class="feature-col">
+                <h3>Focus</h3>
+                <p>Plan times to be offline</p>
+                <div class="feature-col-phone">
+                    <img src="images/schedule.png" alt="Schedule blocks in Free Time" loading="lazy">
                 </div>
             </div>
-        </div>
-    </section>
-
-    <section class="feature-detail alternate">
-        <div class="feature-detail-content">
-            <div class="feature-detail-image">
-                <div class="phone-mockup-small">
-                    <img src="images/whyopen.png" alt="Build Healthy Phone Habits" loading="lazy">
+            <div class="feature-col">
+                <h3>Think</h3>
+                <p>Solve puzzles to unlock distracting apps</p>
+                <div class="feature-col-phone">
+                    <img src="images/puzzle.png" alt="Puzzle unlock in Free Time" loading="lazy">
                 </div>
             </div>
-            <div class="feature-detail-text">
-                <h2>Build Healthy Phone Habits</h2>
-                <p>Break the cycle of mindless scrolling with puzzles and mindful activities. Each time you want to unlock an app, you'll engage in a brief activity that creates a moment of awareness.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="feature-detail">
-        <div class="feature-detail-content">
-            <div class="feature-detail-text">
-                <h2>We Never Kick You Off</h2>
-                <p>Unlike aggressive app blockers that force you off apps, Free Time helps you find balance. Once you unlock an app by completing a puzzle, you can use it for your chosen duration without interruption.</p>
-            </div>
-            <div class="feature-detail-image">
-                <div class="notification-mockup">
-                    <img src="images/notification.png" alt="Never Kicked Off" loading="lazy">
+            <div class="feature-col">
+                <h3>Thrive</h3>
+                <p>Build healthy screen time habits</p>
+                <div class="feature-col-phone">
+                    <img src="images/whyopen.png" alt="Healthy phone habits in Free Time" loading="lazy">
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="feature-detail alternate">
-        <div class="feature-detail-content">
-            <div class="feature-detail-image">
-                <div class="phone-mockup-small">
-                    <img src="images/minimalist.png" alt="Minimalist Launcher" loading="lazy">
-                </div>
+    <!-- Make Time for What Matters — Photo Collage -->
+    <section class="lifestyle-section">
+        <div class="lifestyle-header">
+            <h2>Make time for what matters</h2>
+            <p>Make art, play outside, spend time with loved ones</p>
+        </div>
+        <div class="lifestyle-grid">
+            <img src="lifestyle/Slice 17.png" alt="Running outside" loading="lazy">
+            <img src="lifestyle/Slice 18.png" alt="Reading a book" loading="lazy">
+            <img src="lifestyle/Slice 19.png" alt="Playing music" loading="lazy">
+            <img src="lifestyle/Slice 20.png" alt="Journaling" loading="lazy">
+            <img src="lifestyle/Slice 21.png" alt="Park afternoon" loading="lazy">
+            <img src="lifestyle/Slice 22 (4).png" alt="Meditation" loading="lazy">
+            <img src="lifestyle/Slice 23 (4).png" alt="Making art" loading="lazy">
+            <img src="lifestyle/Slice 24 (2).png" alt="Sharing a meal" loading="lazy">
+        </div>
+    </section>
+
+    <!-- Email CTA Card -->
+    <section class="cta-card-section">
+        <div class="cta-card">
+            <div class="cta-card-text">
+                <h2>Create a distraction-free environment</h2>
+                <p>Use your phone instead of letting your phone use you</p>
+                <form class="cta-email-form" id="ctaEmailForm">
+                    <input type="email" name="email" placeholder="email" required aria-label="Email address">
+                    <button type="submit">submit</button>
+                </form>
+                <p class="cta-email-hint">We'll email you a link to download Free Time.</p>
             </div>
-            <div class="feature-detail-text">
-                <h2>Minimalist App Launcher</h2>
-                <p>Reduce compulsive phone checking with a clean, distraction-free app launcher. See only the apps you've chosen to keep accessible, making it easier to use your phone intentionally.</p>
+            <div class="cta-card-phone">
+                <img src="images/app-screenshot.png" alt="Free Time app screenshot" loading="lazy">
             </div>
         </div>
     </section>
 
-    <section class="feature-detail">
-        <div class="feature-detail-content">
-            <div class="feature-detail-text">
-                <h2>Reclaim Your Focus</h2>
-                <p>Set custom schedules for when apps should be automatically blocked. Create different rules for work hours, bedtime, weekends, or any time you need to focus.</p>
-            </div>
-            <div class="feature-detail-image">
-                <div class="phone-mockup-small">
-                    <img src="images/schedule.png" alt="Scheduled Blocking" loading="lazy">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="feature-detail alternate">
-        <div class="feature-detail-content">
-            <div class="feature-detail-image">
-                <div class="phone-mockup-small">
-                    <img src="images/pomodoro.png" alt="Pomodoro Timer" loading="lazy">
-                </div>
-            </div>
-            <div class="feature-detail-text">
-                <h2>Simple Pomodoro Timer</h2>
-                <p>Built-in focus timer helps you work in concentrated bursts. Use the Pomodoro technique to maintain deep focus while your distracting apps remain blocked.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
+    <!-- Testimonials -->
     <section class="testimonials-section">
         <div class="container">
-            <h2>Get back your Free Time</h2>
-            <div class="testimonials-carousel">
-                <div class="testimonial-track">
-                    <div class="testimonial active">
-                        <p class="testimonial-text">⭐️⭐️⭐️⭐️⭐️<br>"This app cut my screen time from 9 hours a day to 2.5 hours!"</p>
-                        <p class="testimonial-author">— Hope W.</p>
-                    </div>
-                    <div class="testimonial">
-                        <p class="testimonial-text">⭐️⭐️⭐️⭐️⭐️<br>"I LOVE Free time. Since starting to use it, it's got me using my phone so much more thoughtfully. In just 3 weeks, I've become so much more regulated with my Instagram use. Thank you Free time for giving me more Free Time!!"</p>
-                        <p class="testimonial-author">— AJ</p>
-                    </div>
-                    <div class="testimonial">
-                        <p class="testimonial-text">⭐️⭐️⭐️⭐️⭐️<br>"Free Time has helped me get more life back and focus on the things that really matter: reading a book that's been on my list for ages, having a long undistracted dinner and just being."</p>
-                        <p class="testimonial-author">— Melina I</p>
-                    </div>
+            <h2>Loved by thousands of people</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p>"This app cut my screen time from 9 hours a day to 2.5 hours!"</p>
+                    <div class="testimonial-author">— Hope W.</div>
                 </div>
-                <div class="testimonial-dots"></div>
+                <div class="testimonial-card testimonial-card-mid">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p>"I LOVE Free Time. Since starting to use it, it's got me using my phone so much more thoughtfully. In just 3 weeks, I've become so much more regulated with my Instagram use."</p>
+                    <div class="testimonial-author">— AJ</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p>"Free Time has helped me get more life back and focus on the things that really matter: reading a book, having a long undistracted dinner, and just being."</p>
+                    <div class="testimonial-author">— Melina I.</div>
+                </div>
             </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section class="features-section" style="background: #f8f9fa; padding: 80px 0;">
-        <!-- Intro with Video -->
-        <div class="feature-detail-content" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
-            <div class="feature-detail-image">
-                <video autoplay muted loop playsinline controls style="width: 100%; max-width: 250px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);">
-                    <source src="video.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-            </div>
-            <div class="feature-detail-text">
-                <h2 style="margin-bottom: 20px;">Are you addicted to your phone?</h2>
-                <p style="font-size: 1.1em; line-height: 1.6;">Hi! I'm Nicole Kelner. I'm a full-time artist based in Brooklyn.<br><br>I created Free Time because I was feeling hooked on social media when I needed to share my art. I wanted a way to use my phone for work without getting distracted. So I built an app to help me feel more balanced and use my phone with intention.<br><br>Free Time just launched this week, and I hope it helps you spend less time on your screen and more time doing what matters most to you.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Value Proposition Section -->
-    <section style="padding: 80px 40px; background-color: #ffffff; text-align: center;">
-        <div class="container" style="max-width: 800px;">
-            <h2 style="font-size: 2.5em; font-weight: 700; color: #083267; margin-bottom: 25px; border: none; padding: 0;">An app you use<br>less and less each day</h2>
-            <p style="font-size: 1.2em; color: #666; line-height: 1.8; max-width: 600px; margin: 0 auto;">We use psychology, mindfulness, and habit tracking to help you reduce your screen time in a gentle way.</p>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer>
-        <div class="container">
-            <nav>
-                <a href="index.html">Home</a>
-                <a href="about.html">About</a>
+    <footer class="footer-columns">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <a href="index.html" class="footer-logo">
+                    <img src="logo-narrow.png" alt="Free Time" height="28">
+                    Free Time
+                </a>
+                <p>&copy; 2025 Nicole Kelner LLC<br>DBA Mindful Tech Studio</p>
+                <div class="footer-socials">
+                    <a href="https://www.instagram.com/findfreetime/" aria-label="Instagram" target="_blank" rel="noopener">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+                    </a>
+                    <a href="https://x.com/findfreetime" aria-label="X / Twitter" target="_blank" rel="noopener">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                    </a>
+                    <a href="https://www.youtube.com/@findfreetime" aria-label="YouTube" target="_blank" rel="noopener">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Company</h4>
+                <a href="about.html">About us</a>
                 <a href="blog.html">Blog</a>
                 <a href="teams.html">For Teams</a>
+            </div>
+            <div class="footer-col">
+                <h4>Product</h4>
+                <a href="https://apps.apple.com/us/app/free-time-mindful-screen-time/id6747683001" target="_blank" rel="noopener">Download App</a>
                 <a href="tutorial.html">Tutorial</a>
                 <a href="support.html">Support</a>
+                <a href="contact.html">Contact us</a>
+            </div>
+            <div class="footer-col">
+                <h4>Legal</h4>
                 <a href="privacy.html">Privacy Policy</a>
                 <a href="terms.html">Terms of Use</a>
-                <a href="contact.html">Contact</a>
-            </nav>
-            <p>&copy; 2025 Nicole Kelner LLC DBA Mindful Tech Studio. All rights reserved.</p>
+            </div>
         </div>
     </footer>
 
     <script>
-        // Testimonial Carousel Auto-Advance
-        (function() {
-            const testimonials = document.querySelectorAll('.testimonial');
-            const dotsContainer = document.querySelector('.testimonial-dots');
-            const carousel = document.querySelector('.testimonials-carousel');
-            let currentIndex = 0;
-            let autoAdvanceInterval;
-
-            // Create navigation dots
-            testimonials.forEach((_, index) => {
-                const dot = document.createElement('span');
-                dot.classList.add('dot');
-                if (index === 0) dot.classList.add('active');
-                dot.addEventListener('click', () => goToSlide(index));
-                dotsContainer.appendChild(dot);
-            });
-
-            const dots = document.querySelectorAll('.dot');
-
-            function goToSlide(index) {
-                // Remove active class from current testimonial and dot
-                testimonials[currentIndex].classList.remove('active');
-                dots[currentIndex].classList.remove('active');
-
-                // Update index
-                currentIndex = index;
-
-                // Add active class to new testimonial and dot
-                testimonials[currentIndex].classList.add('active');
-                dots[currentIndex].classList.add('active');
-            }
-
-            function nextSlide() {
-                const nextIndex = (currentIndex + 1) % testimonials.length;
-                goToSlide(nextIndex);
-            }
-
-            function startAutoAdvance() {
-                autoAdvanceInterval = setInterval(nextSlide, 5000); // 5 seconds
-            }
-
-            function stopAutoAdvance() {
-                clearInterval(autoAdvanceInterval);
-            }
-
-            // Start auto-advance
-            startAutoAdvance();
-
-            // Pause on hover
-            carousel.addEventListener('mouseenter', stopAutoAdvance);
-            carousel.addEventListener('mouseleave', startAutoAdvance);
-        })();
-
         // Mobile hamburger menu
         (function() {
             const hamburger = document.getElementById('hamburger');
@@ -415,7 +331,6 @@
                     navLinks.classList.toggle('active');
                 });
 
-                // Close menu when clicking a link
                 navLinks.querySelectorAll('a').forEach(link => {
                     link.addEventListener('click', function() {
                         hamburger.classList.remove('active');
@@ -423,6 +338,31 @@
                     });
                 });
             }
+        })();
+
+        (function() {
+            emailjs.init('xHtu_IvfUL9p3NOj5');
+            const form = document.getElementById('ctaEmailForm');
+            if (!form) return;
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const btn = form.querySelector('button');
+                const emailValue = form.querySelector('input[type="email"]').value;
+                btn.textContent = 'Sending...';
+                btn.disabled = true;
+                emailjs.send('service_hpjf0wg', 'template_kza37tn', { email: emailValue })
+                    .then(function() {
+                        btn.textContent = 'Thanks!';
+                        form.reset();
+                        setTimeout(() => {
+                            btn.textContent = 'submit';
+                            btn.disabled = false;
+                        }, 3000);
+                    }, function() {
+                        btn.textContent = 'Try again';
+                        btn.disabled = false;
+                    });
+            });
         })();
     </script>
 
@@ -434,18 +374,45 @@
         </div>
     </div>
 
+    <!-- QR Code Download Widget -->
+    <a class="qr-widget" id="qrWidget" href="https://apps.apple.com/us/app/free-time-app-blocker-focus/id6747683001" target="_blank" rel="noopener">
+        <img src="qr-code.png" alt="Scan to download Free Time" class="qr-widget-img">
+        <div class="qr-widget-text">
+            <strong>Download for iOS</strong>
+            <span>Get started with Free Time.</span>
+        </div>
+    </a>
+
     <script>
-        // Cookie consent handling
+        (function() {
+            var widget = document.getElementById('qrWidget');
+            if (!widget) return;
+            var hero = document.querySelector('.hero-sky');
+            function getThreshold() {
+                return hero ? hero.offsetHeight : window.innerHeight;
+            }
+            window.addEventListener('scroll', function() {
+                widget.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+                if (window.scrollY > getThreshold()) {
+                    widget.style.opacity = '0';
+                    widget.style.transform = 'translateX(120%)';
+                } else {
+                    widget.style.opacity = '1';
+                    widget.style.transform = 'translateX(0)';
+                }
+            }, { passive: true });
+        })();
+    </script>
+
+    <script>
         (function() {
             const banner = document.getElementById('cookieBanner');
             const acceptBtn = document.getElementById('acceptCookies');
 
-            // Show banner if user hasn't consented yet
             if (!localStorage.getItem('cookieConsent')) {
                 banner.style.display = 'block';
             }
 
-            // Handle accept button
             acceptBtn.addEventListener('click', function() {
                 localStorage.setItem('cookieConsent', 'accepted');
                 banner.style.transition = 'opacity 0.3s ease';
