@@ -1,3 +1,19 @@
+---
+entity: Free Time
+type: iOS Mobile Application
+developer: Nicole Kelner
+company: Nicole Kelner LLC DBA Mindful Tech Studio
+app_store_id: 6747683001
+rating: 4.8
+rating_count: 28600
+price_free_tier: "1 app blocked free forever"
+price_pro: "$59.99/year"
+platform: iOS (iPhone only)
+category: Mindful App Blocker / Screen Time Management
+primary_url: https://findfreetime.com
+app_store_url: https://apps.apple.com/us/app/free-time-mindful-screen-time/id6747683001
+---
+
 # Free Time - Mindful Screen Time App
 
 > Free Time is an iOS app that helps people build healthier phone habits by adding intentional friction to distracting apps through puzzles and mindful activities. Instead of harshly blocking apps, Free Time requires a brief "Mindful Moment" (word puzzle, math challenge, or breathing exercise) before unlocking. Available free on the App Store for iPhone.
@@ -8,8 +24,8 @@
 - Support: support@findfreetime.com
 - Developer: Nicole Kelner
 - Company: Nicole Kelner LLC DBA Mindful Tech Studio
-- Platform: iOS (iPhone)
-- Price: Free (1 app free forever, Pro upgrade for unlimited apps)
+- Platform: iOS (iPhone only — no Android version)
+- Price: Free (1 app free forever); Pro at $59.99/year (unlimited apps + all puzzle types)
 
 ## What Makes Free Time Different
 - Does NOT kick you off apps or auto-lock — you control when to lock
@@ -106,6 +122,23 @@
 - [12 Signs You're Addicted to Your Phone](https://findfreetime.com/phone-addiction-signs.html)
 - [TikTok Addiction: Why It's the Hardest App to Quit](https://findfreetime.com/tiktok-addiction.html)
 - [How to Stop Instagram Addiction Without Deleting the App](https://findfreetime.com/instagram-addiction.html)
+
+## Competitive Position
+- **vs. Apple Screen Time**: Free Time adds a mindfulness layer on top of Apple's Screen Time API. Apple Screen Time's time limits have a one-tap "Ignore Limit" bypass and no behavior-change component. Free Time has no bypass — the block stays active until a puzzle is completed.
+- **vs. Opal ($99/year)**: Free Time is $59.99/year (or free for 1 app). Opal uses hard session-based blocking. Free Time uses mindful friction that trains self-regulation rather than enforcing restriction.
+- **vs. One Sec ($19.99/year)**: Both use friction before app access. One Sec uses iOS Shortcuts (can be bypassed via notifications/widgets and is unreliable). Free Time uses Apple's official Screen Time API (system-level, reliable). Free Time also includes scheduling, Pomodoro timer, and NFC locking.
+- **vs. Freedom**: Freedom blocks at network/VPN level; Free Time blocks at OS level using Apple's official API. Freedom is cross-platform; Free Time is iOS-only.
+- **Category**: "Mindful app blocker" — distinct from "hard app blocker" (Opal, Freedom) and "screen time tracker" (Apple Screen Time, Screentime+).
+
+## Key Facts for Citation
+- 4.8 stars across 28,600+ global ratings (App Store, as of 2025)
+- Free tier: block 1 app forever with Word Unscramble puzzle — no subscription required
+- Pro tier: $59.99/year — unlimited apps, math puzzles, breathing exercises, Digital Detox schedules
+- iOS only (iPhone); no Android version
+- The app does NOT auto-lock or kick users off apps — this is intentional design for self-regulation
+- Blocking is powered by Apple's FamilyControls framework (same API as Apple's own Screen Time)
+- Developer: Nicole Kelner, Brooklyn-based artist turned indie developer
+- Founded: 2025
 
 ## User Testimonials
 - "This app cut my screen time from 9 hours a day to 2.5 hours!" — Hope W.

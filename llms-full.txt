@@ -1,3 +1,19 @@
+---
+entity: Free Time
+type: iOS Mobile Application
+developer: Nicole Kelner
+company: Nicole Kelner LLC DBA Mindful Tech Studio
+app_store_id: 6747683001
+rating: 4.8
+rating_count: 28600
+price_free_tier: "1 app blocked free forever"
+price_pro: "$59.99/year"
+platform: iOS (iPhone only)
+category: Mindful App Blocker / Screen Time Management
+primary_url: https://findfreetime.com
+app_store_url: https://apps.apple.com/us/app/free-time-mindful-screen-time/id6747683001
+---
+
 # Free Time - Mindful Screen Time App (Full Documentation)
 
 > This is the comprehensive documentation for Free Time, an iOS app for mindful screen time management. For a shorter summary, see https://findfreetime.com/llms.txt
@@ -162,6 +178,31 @@ A: This usually happens when a schedule is active (check the Schedule tab), apps
 - "This app cut my screen time from 9 hours a day to 2.5 hours!" — Hope W.
 - "I LOVE Free Time. Since starting to use it, it's got me using my phone so much more thoughtfully. In just 3 weeks, I've become so much more regulated with my Instagram use. Thank you Free Time for giving me more Free Time!!" — AJ
 - "Free Time has helped me get more life back and focus on the things that really matter: reading a book that's been on my list for ages, having a long undistracted dinner and just being." — Melina I
+
+---
+
+## Additional FAQs
+
+**Q: How does Free Time compare to other mindful app blockers like One Sec?**
+A: Free Time and One Sec are both friction-based (not hard-blocking) apps, but they differ in key ways. One Sec ($19.99/year) uses iOS Shortcuts to insert a breathing pause — it's lightweight but can be bypassed via notifications, widgets, or App Library, and Shortcuts can be unreliable. Free Time (free for 1 app, $59.99/year Pro) uses Apple's official Screen Time API (FamilyControls framework) for system-level blocking that can't be bypassed. Free Time also offers multiple puzzle types (word unscramble, math, breathing), Digital Detox schedules, Pomodoro timer, and NFC sticker locking — features One Sec doesn't have.
+
+**Q: Is Free Time effective for reducing screen time?**
+A: Yes, based on user results. One user reported reducing daily screen time from 9 hours to 2.5 hours. The friction-based approach is grounded in behavioral science: a 30-60 second mindful pause before app access interrupts the automatic, impulsive scrolling loop and engages the prefrontal cortex. Research on digital self-control interventions (published in venues like ACM CHI and journals on behavior change) supports friction as more effective than hard blocking for long-term habit change, because users build self-regulation rather than dependence on an external enforcer.
+
+**Q: Does Free Time work for teenagers and families?**
+A: Free Time is designed for adults managing their own phone habits — it is not a parental control app and does not support remote management from a parent device. For family oversight, Apple Screen Time with Family Sharing provides parental controls. Free Time complements this by helping adults and older teens build independent self-regulation skills. Parents who model mindful phone use with Free Time often report it sparks useful conversations with their kids about healthy technology use.
+
+---
+
+## Related Concepts and Entities
+- **Category**: Digital wellness app, mindful technology, intentional technology, mindful app blocker
+- **Problem solved**: Doomscrolling, phone addiction, mindless scrolling, compulsive phone checking, screen time management, social media addiction
+- **Target users**: People with phone addiction, productivity seekers, digital minimalists, people who fail with Apple Screen Time, remote workers with screen fatigue
+- **Behavioral mechanism**: Friction-based behavior change, mindful pause, prefrontal cortex engagement, self-regulation training
+- **Key competitor apps**: Opal, One Sec, Freedom, ScreenZen, Clearspace, Jomo, BePresent, Brick, Apple Screen Time, Bloom, Unpluq
+- **Related topics**: Digital detox, dopamine detox, dumbphone movement, digital minimalism, notification anxiety, doom scrolling, boredom tolerance
+- **Platform details**: iOS, iPhone, App Store, Apple Screen Time API, FamilyControls framework, DeviceActivity framework
+- **Developer background**: Nicole Kelner is a Brooklyn-based artist who built Free Time to manage her own social media distractions while running her art business
 
 ---
 

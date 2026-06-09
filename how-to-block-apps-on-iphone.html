@@ -31,8 +31,10 @@
         "image": "https://findfreetime.com/meta.png",
         "datePublished": "2025-03-18",
         "author": {
-            "@type": "Organization",
-            "name": "Free Time"
+            "@type": "Person",
+            "name": "Nicole Kelner",
+            "url": "https://findfreetime.com/about.html",
+            "@id": "https://findfreetime.com/about.html#nicole-kelner"
         },
         "publisher": {
             "@type": "Organization",
@@ -42,6 +44,106 @@
                 "url": "https://findfreetime.com/logo-narrow.png"
             }
         }
+    }
+    </script>
+
+    <!-- Structured Data: HowTo -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      "name": "How to Block Apps on iPhone: Choosing and Setting Up the Right Method",
+      "description": "A step-by-step guide to evaluating and setting up the best app blocking method for your iPhone, including Apple Screen Time, Free Time, Opal, One Sec, and iOS Shortcuts.",
+      "image": "https://findfreetime.com/meta.png",
+      "totalTime": "PT15M",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Decide if you need restriction or intention",
+          "text": "Determine your goal: if you need hard blocking for a study session, use Opal or Apple Screen Time with a passcode set by someone else. If you want to permanently change your phone habits, choose a mindful friction approach like Free Time."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Method A: Use Apple Screen Time (free, built-in)",
+          "text": "Go to Settings > Screen Time > App Limits, select apps or categories, and set a daily time limit. Note: this has a one-tap 'Ignore Limit' bypass. For stronger enforcement, have someone else set the Screen Time passcode."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Method B: Use Free Time app (mindful blocking with puzzles)",
+          "text": "Download Free Time from the App Store (free for 1 app). Grant Screen Time permissions, select the apps you want to block, and complete a Word Unscramble puzzle or breathing exercise each time you want to unlock them. Apps stay locked until you choose to unlock them with a Mindful Moment."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Method C: Use Opal (session-based hard blocking)",
+          "text": "Download Opal ($99/year) and create focus sessions. During a session, blocked apps show an Opal screen. Enable Deep Focus mode to make sessions harder to end early."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 5,
+          "name": "Method D: Use One Sec (breathing pause before each app)",
+          "text": "Download One Sec ($19.99/year) and configure which apps to intercept. Each time you open a configured app, a breathing pause appears. After breathing, you're asked whether you still want to open the app."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 6,
+          "name": "Method E: Use iOS Shortcuts and Focus Mode (free DIY)",
+          "text": "Create a Shortcut automation triggered by opening a specific app to display a mindful prompt. Use Focus Modes to hide entire home screen pages during work hours. Note: apps are still accessible via Search and App Library."
+        }
+      ]
+    }
+    </script>
+
+    <!-- Structured Data: FAQPage -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is the best way to block apps on iPhone?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The best method depends on your goal. For permanent habit change, Free Time (free to download) uses puzzle-based friction before unlocking apps. For hard blocking during work sessions, Opal ($99/year) provides strong enforcement. Apple's built-in Screen Time is free but easy to bypass with one tap."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can you block apps on iPhone for free?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Apple Screen Time is completely free and built into iOS settings. Free Time also offers free blocking for 1 app forever with word puzzle friction. iOS Shortcuts can create basic friction for free using built-in tools."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I permanently block an app on my iPhone?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "For persistent blocking, use Apple Screen Time with a passcode set by someone else (so you can't easily remove the block), or use Free Time which keeps apps locked all day and requires a puzzle to unlock. Unlike time-limit-based methods, Free Time maintains the block indefinitely until you choose to unlock."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between Apple Screen Time and Free Time app?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Apple Screen Time sets daily time limits that can be bypassed with one tap on 'Ignore Limit.' Free Time adds mindful friction — you solve a puzzle or breathing exercise before accessing apps — and the block stays active all day. Screen Time focuses on restriction; Free Time focuses on intentional behavior change."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does Free Time app actually block apps?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Free Time uses Apple's official Screen Time API to block apps at the system level, the same underlying technology as Apple's own Screen Time feature. Apps are blocked with a shield overlay and can only be accessed after completing a Mindful Moment (puzzle or breathing exercise) in the Free Time app."
+          }
+        }
+      ]
     }
     </script>
 
@@ -109,6 +211,20 @@
             { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://findfreetime.com/blog.html" },
             { "@type": "ListItem", "position": 3, "name": "How to Block Apps on iPhone: 5 Methods Compared" }
         ]
+    }
+    </script>
+
+    <!-- Structured Data: Speakable -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "How to Block Apps on iPhone: 5 Methods Compared",
+      "url": "https://findfreetime.com/how-to-block-apps-on-iphone.html",
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [".blog-post-content h2", ".tip-box p"]
+      }
     }
     </script>
 </head>

@@ -50,7 +50,8 @@
       "author": {
         "@type": "Person",
         "name": "Nicole Kelner",
-        "url": "https://findfreetime.com/about.html"
+        "url": "https://findfreetime.com/about.html",
+        "@id": "https://findfreetime.com/about.html#nicole-kelner"
       },
       "publisher": {
         "@type": "Organization",
@@ -414,6 +415,70 @@
             { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://findfreetime.com/blog.html" },
             { "@type": "ListItem", "position": 3, "name": "Best Screen Time Apps 2025: Complete Comparison Guide" }
         ]
+    }
+    </script>
+
+    <!-- Structured Data: Speakable -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Best Screen Time Apps 2025: Complete Comparison Guide",
+      "url": "https://findfreetime.com/compare-screen-time-apps.html",
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [".app-card h3", ".app-card p"]
+      }
+    }
+    </script>
+
+    <!-- Structured Data: FAQPage -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is the best screen time app for iPhone in 2025?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The best screen time app depends on your needs. Free Time (free to download, $59.99/year Pro) is best for building mindful phone habits with puzzle-based friction. Opal ($99/year) is best for hard blocking during work sessions. One Sec ($19.99/year) offers lightweight breathing pauses. Apple's built-in Screen Time is free but easy to bypass."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does Free Time compare to Opal?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Free Time uses mindful friction (puzzles and breathing exercises) before unlocking apps, teaching long-term behavior change. Opal uses hard session-based blocking with strong enforcement. Free Time costs $59.99/year (or 1 app free); Opal costs $99/year. Free Time is iOS-only; Opal is available on iOS, Mac, and Android."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between Free Time and One Sec?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Both apps add friction before opening apps, but differently. One Sec ($19.99/year) inserts a brief breathing pause using iOS Shortcuts — it's lightweight but can be bypassed via notifications or widgets. Free Time (free for 1 app) uses Apple's Screen Time API for system-level blocking and offers multiple puzzle types (word unscramble, math, breathing). Free Time also includes scheduling and Pomodoro features."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is there a free app blocker for iPhone?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Apple Screen Time is completely free and built into iOS. Free Time offers free blocking for 1 app forever with word unscramble puzzles. iOS Shortcuts can create basic reminders for free. ScreenZen and Jomo also offer limited free tiers."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which screen time app is best for reducing phone addiction?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "For reducing phone addiction, mindful friction apps like Free Time are more effective than hard blockers for long-term change. Free Time requires solving a puzzle or breathing exercise before unlocking apps — this 30-60 second pause interrupts automatic scrolling behavior and builds self-regulation over time."
+          }
+        }
+      ]
     }
     </script>
 </head>
