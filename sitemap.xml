@@ -407,4 +407,11 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+
+  <!-- Worldwide Retreat Database -->
+  <url>
+    <loc>https://findfreetime.com/digital-detox-retreat-database.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
 </urlset>
