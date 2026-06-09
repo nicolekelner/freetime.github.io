@@ -73,11 +73,12 @@ app_store_url: https://apps.apple.com/us/app/free-time-mindful-screen-time/id674
 - [Deep Content for AI](https://findfreetime.com/llms-full.txt)
 
 ## Retreat Database
-- [Best Digital Detox Retreats in America](https://findfreetime.com/digital-detox-retreats.html) — 25+ phone-free and tech-free retreat centers across the US (hub page)
+- [Best Digital Detox Retreats in America](https://findfreetime.com/digital-detox-retreats.html) — 30+ phone-free and tech-free retreat centers across the US (hub page)
 - [Digital Detox Retreats in California](https://findfreetime.com/digital-detox-retreats-california.html) — Esalen, 1440 Multiversity, Spirit Rock, Joshua Tree, Ratna Ling, Shasta Abbey
 - [Digital Detox Retreats in the Northeast](https://findfreetime.com/digital-detox-retreats-northeast.html) — Kripalu, Omega Institute, IMS, Sivananda, Garrison Institute
+- [Digital Detox Retreats in the Pacific Northwest](https://findfreetime.com/digital-detox-retreats-pacific-northwest.html) — Breitenbush Hot Springs (no cell service, off-grid), Cloud Mountain, Doe Bay on Orcas Island
 - [Digital Detox Retreats in the Mountain & Southwest](https://findfreetime.com/digital-detox-retreats-southwest.html) — Miraval Arizona, Upaya Zen Center, Shambhala Mountain, Tara Mandala, Feathered Pipe Ranch
-- [Digital Detox Retreats in the Southeast](https://findfreetime.com/digital-detox-retreats-southeast.html) — Art of Living Retreat Center, Southern Dharma Retreat Center
+- [Digital Detox Retreats in the Southeast](https://findfreetime.com/digital-detox-retreats-southeast.html) — Art of Living Retreat Center, Southern Dharma Retreat Center, Tennessee Vipassana Center, Serenbe (GA)
 
 ## Blog Posts
 - [Best Screen Time Apps 2025: Complete Comparison](https://findfreetime.com/compare-screen-time-apps.html)
