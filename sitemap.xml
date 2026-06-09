@@ -414,4 +414,55 @@
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
+
+  <!-- Southeast Asia Retreat Pages -->
+  <url>
+    <loc>https://findfreetime.com/digital-detox-retreats-southeast-asia.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://findfreetime.com/digital-detox-retreats-thailand.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://findfreetime.com/digital-detox-retreats-bali.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Asia Retreat Pages -->
+  <url>
+    <loc>https://findfreetime.com/digital-detox-retreats-asia.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://findfreetime.com/digital-detox-retreats-india.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://findfreetime.com/digital-detox-retreats-japan.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://findfreetime.com/digital-detox-retreats-nepal.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- South America Retreat Pages -->
+  <url>
+    <loc>https://findfreetime.com/digital-detox-retreats-south-america.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://findfreetime.com/digital-detox-retreats-peru.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>
