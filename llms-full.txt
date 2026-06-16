@@ -197,14 +197,13 @@ A: Free Time is designed for adults managing their own phone habits — it is no
 ## Dumb Phone Comparison Database
 
 **Page**: https://findfreetime.com/dumb-phone-database.html
-**Summary**: Filterable comparison database of 16 dumb phones for people considering switching away from smartphones. Sidebar filters by price, type, camera, connectivity, and app support. Cards include specs, description, and direct manufacturer links.
+**Summary**: Filterable comparison database of 96 dumb phones for people considering switching away from smartphones. Sourced from dumbphones.org (91 phones with star ratings) plus 5 additional handsets. Sidebar filters by price, type, camera, connectivity, and app support. Cards include dumbphones.org star rating, specs, description, and direct manufacturer links.
 
-**Phones covered**:
-- **Minimal OS**: Light Phone II ($299, no camera, e-ink, 4G), Light Phone III ($599, 50MP camera, OLED, 5G), Punkt MP02 ($349, no camera, Signal only, 4G), Mudita Pure ($349, no camera, E Ink, meditation bell, 4G)
-- **Feature Phones (KaiOS)**: Nokia 2780 Flip ($90, camera, WhatsApp, 4G), Alcatel Go Flip 4 ($80, camera, KaiOS, 4G), Nokia 3310 2017 ($60, 2G only, no apps, ~31-day standby)
-- **Locked Android**: Sunbeam Daytripper ($299, no camera, no apps, hotspot), Wisephone II ($399, camera, curated apps only), Gabb Phone 3 ($99, no social media, designed for kids), Doro 8210 ($150, simplified for seniors, emergency button), Unihertz Jelly 2 ($170, 3-inch screen, full Android)
-- **Rugged**: CAT B35 ($80, MIL-STD-810G, 4G), Sonim XP3 Plus ($150, MIL-STD-810H, PTT, 4G), Kyocera DuraXV Extreme ($400, Verizon, rugged flip, 4G)
-- **Novelty/Collector**: HMD Boring Phone (sold out, Heineken collab, 2G, transparent design, no camera)
+**Phones covered (selected highlights)**:
+- **Minimal OS (12)**: Light Phone II/III, Punkt MP02, Mudita Pure, Mudita Kompakt, Sidephone, Sunbeam F1 Pro, Sunbeam F1 Horizon, Sunbeam Daytripper, Keyphone, Wonder Phone, Sleke Phone
+- **Feature Phones (42)**: Nokia 2780/3210/225/2660/2720/5710/6300/6310/800/8000/8110/8210/105/110 4G, Alcatel Go Flip 3/4/V, TCL Flip 2/3/4/Pro/Go Flip 2, LG Classic Flip, Nokia 3310 (2017), Nokia Barbie Phone, Sharp Aquos K3, Dumbphone 2, HMD Boring Phone, HMD Touch 4G, and more
+- **Locked Android (25)**: WisePhone, Gabb Phone, Jelly 2/2E/Star, Mindful Phone/2, Minimal Phone, Balance Phone, Freetel Mode 1, TIQ Mini M5/Q5, Fig Flip II X/Mini X, Xiaomi F21 Pro/F22/F22 Pro/Qin F30, Zinwa Q25, Megalife Zen, HIT K1, Jethro SC490, Doro 8210
+- **Rugged (17)**: Kyocera Digno/Dura XA/XV/XV+, CAT B40/S22 Flip/B35, Sonim XP3/XP3 Plus/XP3 Plus 5G/XP5s, Nokia 800 Tough, AGM M6/M7/M8/M9/M11
 
 **CTA**: Page ends with a Free Time call-to-action for people not ready to switch phones.
 

@@ -73,7 +73,7 @@ app_store_url: https://apps.apple.com/us/app/free-time-mindful-screen-time/id674
 - [Deep Content for AI](https://findfreetime.com/llms-full.txt)
 
 ## Dumb Phone Database
-- [Dumb Phone Comparison Database](https://findfreetime.com/dumb-phone-database.html) — Filterable comparison of 16 dumb phones (Light Phone II/III, Punkt MP02, Mudita Pure, Nokia flip phones, rugged options, kid-safe, and Android-restricted phones); filter by price, camera, 4G, and app support
+- [Dumb Phone Comparison Database](https://findfreetime.com/dumb-phone-database.html) — Filterable comparison of 96 dumb phones (Light Phone II/III, Punkt MP02, Mudita, Nokia flip phones, Kyocera, Sonim, AGM, rugged, kid-safe, and Android-restricted phones); filter by price, camera, 4G, type, and app support. Sourced from dumbphones.org ratings.
 
 ## Retreat Database
 - [Best Digital Detox Retreats in America](https://findfreetime.com/digital-detox-retreats.html) — 30+ phone-free and tech-free retreat centers across the US (hub page)
