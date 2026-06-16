@@ -72,6 +72,9 @@ app_store_url: https://apps.apple.com/us/app/free-time-mindful-screen-time/id674
 - [Terms of Service](https://findfreetime.com/terms.html)
 - [Deep Content for AI](https://findfreetime.com/llms-full.txt)
 
+## Dumb Phone Database
+- [Dumb Phone Comparison Database](https://findfreetime.com/dumb-phone-database.html) — Filterable comparison of 16 dumb phones (Light Phone II/III, Punkt MP02, Mudita Pure, Nokia flip phones, rugged options, kid-safe, and Android-restricted phones); filter by price, camera, 4G, and app support
+
 ## Retreat Database
 - [Best Digital Detox Retreats in America](https://findfreetime.com/digital-detox-retreats.html) — 30+ phone-free and tech-free retreat centers across the US (hub page)
 - [Digital Detox Retreats in California](https://findfreetime.com/digital-detox-retreats-california.html) — Esalen, 1440 Multiversity, Spirit Rock, Joshua Tree, Ratna Ling, Shasta Abbey
