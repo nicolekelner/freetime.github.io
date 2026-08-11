@@ -331,11 +331,19 @@
   .art{display:block;margin:0 auto;}
   .pinkcard{background:var(--pink);border-radius:12px;padding:13px 14px;font-family:"Jost";font-size:11.5px;
             line-height:1.5;color:var(--ink);margin-bottom:10px;}
-  .seclbl{font-family:"Jost";font-weight:600;font-size:13px;color:var(--ink);margin:0 0 9px;}
-  /* one flat pink block per section, each sentence its own paragraph inside it */
-  .pinkbox{background:var(--pink);padding:15px 14px;margin-bottom:12px;}
-  .pinkbox p{font-family:"Jost";font-size:11.5px;line-height:1.5;color:var(--ink);margin:0;}
-  .pinkbox p + p{margin-top:14px;}
+  /* Snapshot: a labelled eyebrow over one rounded block per section, with the
+     two findings split by a hairline so they read as separate observations. */
+  .seclbl{display:flex;align-items:center;gap:8px;margin:0 0 8px;
+          font-family:"Jost";font-weight:600;font-size:8.5px;letter-spacing:2.6px;text-transform:uppercase;
+          color:var(--coral);}
+  .seclbl:after{content:"";flex:1;height:1px;background:rgba(58,52,40,.16);}
+  .seclbl.goals{color:var(--olive);}
+  .pinkbox{background:var(--pink);border-radius:14px;padding:2px 15px;margin-bottom:14px;}
+  .pinkbox p{position:relative;font-family:"Jost";font-size:11.5px;line-height:1.55;color:var(--ink);
+             margin:0;padding:13px 0 13px 14px;}
+  .pinkbox p:before{content:"";position:absolute;left:0;top:19px;width:5px;height:5px;border-radius:99px;
+             background:var(--ink);opacity:.45;}
+  .pinkbox p + p{border-top:1px solid rgba(58,52,40,.14);}
   .dial{position:relative;width:170px;height:170px;border-radius:99px;margin:0 auto;
         background:conic-gradient(var(--pink) 0 50%, var(--cream2) 50% 100%);border:2px solid rgba(58,52,40,.5);}
   .dial span{position:absolute;font-family:"Jost";font-size:13px;color:var(--ink);}
@@ -388,17 +396,20 @@
   .dialface{position:absolute;inset:0;border-radius:99px;border:2px solid rgba(58,52,40,.5);}
   .dialneedle{position:absolute;left:50%;top:26px;width:2.5px;height:64px;background:var(--ink);
               transform-origin:50% 100%;transform:translateX(-50%) rotate(0deg);border-radius:2px;}
-  /* plain-text answer lists (screen time, "when do you scroll too much", goal) */
-  .optlist{display:flex;flex-direction:column;gap:2px;margin-top:10px;}
-  .optline{position:relative;font-family:"Jost";font-weight:400;font-size:14px;color:var(--ink);
-           padding:9px 22px 9px 2px;cursor:pointer;}
-  .optline.sel{font-weight:500;}
-  .optline.sel:after{content:"\2713";position:absolute;right:2px;top:50%;transform:translateY(-50%);
-           font-size:12px;color:var(--mustard-side);}
-  /* the reveal is a coral-outlined statement, no odometer */
-  .revbox{border:2.5px solid var(--coral);border-radius:14px;padding:20px 18px;text-align:center;
-          font-family:"Jost";font-weight:400;font-size:19px;line-height:1.5;color:var(--ink);}
-  .revbox b{font-weight:600;font-size:23px;}
+  /* The reveal: the number counts up and a twelve-square year fills in, so the
+     figure lands as something happening rather than a printed fact. */
+  .revwrap{text-align:center;}
+  .reveyebrow{font-family:"Jost";font-weight:500;font-size:9px;letter-spacing:3.4px;text-transform:uppercase;
+              color:var(--ink-soft);}
+  .revnum{font-family:"Jost";font-weight:600;font-size:96px;line-height:.95;color:var(--coral);
+          margin-top:6px;letter-spacing:-2px;}
+  .revunit{font-family:"Jost";font-weight:500;font-size:17px;color:var(--ink);margin-top:2px;}
+  .yearstrip{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;margin:22px auto 0;width:82%;}
+  .yearstrip i{display:block;padding-top:100%;border-radius:4px;background:var(--cream2);
+               border:1px solid rgba(58,52,40,.16);transition:background .3s ease,border-color .3s ease;}
+  .yearstrip i.on{background:var(--coral);border-color:var(--coral);}
+  .revfoot{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:13.5px;line-height:1.5;
+           color:var(--ink-soft);margin-top:20px;}
 
   /* wordmark at the top of the opening screen, in the frame's olive */
   .osmark{font-family:"Jost";font-weight:500;font-size:9.5px;letter-spacing:3.4px;
@@ -474,19 +485,27 @@
     <div class="topbar"><span class="backb">&lsaquo;</span><span class="pbar"><i></i></span></div>
     <div class="H H2" style="text-align:left;">What&rsquo;s your<br>screen time?</div>
     <div class="qsub" style="text-transform:none;letter-spacing:0;font-size:12px;">An estimate of how long<br>you&rsquo;re on your phone daily</div>
-    <div class="optlist" id="stList">
-      <div class="optline" data-hrs="1.5">1-2 hours</div>
-      <div class="optline sel" data-hrs="3.5">3-4 hours</div>
-      <div class="optline" data-hrs="5.5">5-6 hours</div>
-      <div class="optline" data-hrs="7.5">7-8 hours</div>
-      <div class="optline" data-hrs="9.5">9-10 hours</div>
+    <div class="sp8"></div>
+    <div id="stList">
+      <div class="crow" data-hrs="1.5">1-2 hours<span class="cring"></span></div>
+      <div class="crow sel" data-hrs="3.5">3-4 hours<span class="cring"></span></div>
+      <div class="crow" data-hrs="5.5">5-6 hours<span class="cring"></span></div>
+      <div class="crow" data-hrs="7.5">7-8 hours<span class="cring"></span></div>
+      <div class="crow" data-hrs="9.5">9-10 hours<span class="cring"></span></div>
     </div>
     <div class="cta"><div class="btn pink">Continue</div></div>
   </section>
   <section class="screen" data-name="The reveal">
     <div class="topbar"><span class="backb">&lsaquo;</span><span class="pbar"><i></i></span></div>
     <div class="mid">
-      <div class="revbox">That&rsquo;s about<br><b id="revMonths">2 months</b><br>every year</div>
+      <div class="revwrap">
+        <div class="reveyebrow">That&rsquo;s about</div>
+        <div class="revnum"><span id="revNum">2</span></div>
+        <div class="revunit" id="revUnit">months every year</div>
+        <!-- twelve squares = a year; the ones you'd spend on the phone fill in -->
+        <div class="yearstrip" id="yearStrip"></div>
+        <div class="revfoot">gone, without ever deciding<br>to spend it that way</div>
+      </div>
     </div>
     <div class="cta"><div class="btn">Continue</div></div>
   </section>
@@ -529,15 +548,13 @@
     <div class="topbar"><span class="backb">&lsaquo;</span><span class="pbar"><i></i></span></div>
     <div class="H H3" style="text-align:left;">When do you scroll too much?</div>
     <div class="qsub">Select all that apply</div>
-    <div class="optlist">
-      <div class="optline">Right when I wake up</div>
-      <div class="optline sel">Before bed</div>
-      <div class="optline">During work</div>
-      <div class="optline">In the bathroom (we get it!)</div>
-      <div class="optline">With family/friends</div>
-      <div class="optline">Watching tv</div>
-      <div class="optline">On the train</div>
-    </div>
+    <div class="crow"><span class="cic">&#127749;</span>Right when I wake up<span class="cring"></span></div>
+    <div class="crow sel"><span class="cic">&#128719;</span>Before bed<span class="cring"></span></div>
+    <div class="crow"><span class="cic">&#128188;</span>During work<span class="cring"></span></div>
+    <div class="crow"><span class="cic">&#128701;</span>In the bathroom (we get it!)<span class="cring"></span></div>
+    <div class="crow"><span class="cic">&#128106;</span>With family/friends<span class="cring"></span></div>
+    <div class="crow"><span class="cic">&#128250;</span>Watching tv<span class="cring"></span></div>
+    <div class="crow"><span class="cic">&#128646;</span>On the train<span class="cring"></span></div>
     <div class="cta"><div class="btn">Continue</div></div>
   </section>
   <section class="screen" data-name="Referral">
@@ -562,7 +579,7 @@
       <p>You get sucked in checking your phone first thing in the morning</p>
     </div>
     <div class="sp8"></div>
-    <div class="seclbl">Goals</div>
+    <div class="seclbl goals">Goals</div>
     <div class="pinkbox">
       <p>You want to feel more productive and present</p>
       <p>You want more time for biking, reading, and writing</p>
@@ -590,9 +607,9 @@
   <section class="screen" data-name="Blocking is always on">
     <div class="topbar"><span class="backb">&lsaquo;</span><span class="pbar"><i></i></span></div>
     <div class="mid">
-      <div class="H H1" style="font-size:22px;">Blocking is always on</div>
+      <div class="H H1" style="font-size:21px;">Blocking is always on</div>
       <div class="sp16"></div>
-      <div class="sub" style="font-size:15px;">Nothing to schedule.<br>No willpower required.</div>
+      <div class="sub" style="font-size:15px;">No willpower required.</div>
       <div class="sp16"></div>
       <div class="sub" style="font-size:15px;">This is your default state.<br>It&rsquo;s like a dumb phone.</div>
       <div class="sp24"></div>
@@ -702,12 +719,13 @@
     <div class="topbar"><span class="backb">&lsaquo;</span><span class="pbar"><i></i></span></div>
     <div class="H H2" style="text-align:left;">Set a screen time goal</div>
     <div class="qsub" style="text-transform:none;letter-spacing:0;font-size:12px;">What&rsquo;s a reasonable amount to<br>be on your phone daily?</div>
-    <div class="optlist" id="glList">
-      <div class="optline">1-2 hours</div>
-      <div class="optline">3-4 hours</div>
-      <div class="optline">5-6 hours</div>
-      <div class="optline">7-8 hours</div>
-      <div class="optline">9-10 hours</div>
+    <div class="sp8"></div>
+    <div id="glList">
+      <div class="crow">1-2 hours<span class="cring"></span></div>
+      <div class="crow">3-4 hours<span class="cring"></span></div>
+      <div class="crow">5-6 hours<span class="cring"></span></div>
+      <div class="crow">7-8 hours<span class="cring"></span></div>
+      <div class="crow">9-10 hours<span class="cring"></span></div>
     </div>
     <div class="cta"><div class="btn pink">Continue</div></div>
   </section>
@@ -849,11 +867,12 @@
     var bar = screens[i].querySelector('.pbar i');
     if (bar) bar.style.width = pct + '%';
     cap.innerHTML = '<b>' + (i + 1) + ' / ' + screens.length + '</b> &middot; ' + screens[i].dataset.name;
+    if (screens[i].dataset.name === 'The reveal') playReveal();
     if (push !== false) history.replaceState(null, '', '#' + (i + 1));
   }
 
   // Taps on real controls select/drag instead of advancing the flow.
-  var INTERACTIVE = '.crow, .optline, .pillopt, .plan2, .sysrow2, .dialwrap, input';
+  var INTERACTIVE = '.crow, .pillopt, .plan2, .sysrow2, .dialwrap, input';
 
   document.getElementById('device').addEventListener('click', function(e){
     if (e.target.classList.contains('backb')) { show(i - 1); return; }
@@ -862,23 +881,16 @@
     if (hit) {
       // single-choice lists behave like radios, multi-selects like checkboxes
       if (hit.classList.contains('crow') || hit.classList.contains('plan2')) {
-        var multi = hit.closest('.screen').dataset.name === 'When do you check';
+        var multi = hit.closest('.screen').dataset.name === 'When do you scroll';
         if (multi) {
           hit.classList.toggle('sel');
         } else {
           var sibs = hit.parentNode.querySelectorAll(hit.classList.contains('plan2') ? '.plan2' : '.crow');
           Array.prototype.forEach.call(sibs, function(n){ if (n !== hit) n.classList.remove('sel'); });
           hit.classList.add('sel');
-        }
-      } else if (hit.classList.contains('optline')) {
-        var list = hit.parentNode;
-        if (list.id === 'stList' || list.id === 'glList') {   // pick one band
-          Array.prototype.forEach.call(list.children, function(n){ n.classList.remove('sel'); });
-          hit.classList.add('sel');
-          if (list.id === 'stList') { refreshReveal(); if (!goalTouched) seedGoal(); }
-          else goalTouched = true;
-        } else {
-          hit.classList.toggle('sel');                        // "when do you scroll"
+          var lid = hit.parentNode.id;
+          if (lid === 'stList') { refreshReveal(); if (!goalTouched) seedGoal(); }
+          else if (lid === 'glList') goalTouched = true;
         }
       } else if (hit.classList.contains('pillopt')) {
         hit.classList.toggle('sel');
@@ -893,22 +905,41 @@
   // ---- screen time band -> reveal, and the goal that follows from it ----
   var stList = document.getElementById('stList');
   var glList = document.getElementById('glList');
+  var strip  = document.getElementById('yearStrip');
   var goalTouched = false;
+  var months = 2;
+
+  for (var m = 0; m < 12; m++) strip.appendChild(document.createElement('i'));
 
   function stIndex(){
-    var rows = stList.querySelectorAll('.optline');
+    var rows = stList.querySelectorAll('.crow');
     for (var k = 0; k < rows.length; k++) if (rows[k].classList.contains('sel')) return k;
     return 1;
   }
   function refreshReveal(){
     // mirrors the app: days = hours * 365 / 24, shown as whole months
-    var hrs = +stList.querySelectorAll('.optline')[stIndex()].dataset.hrs;
-    var months = Math.max(1, Math.round(hrs * 365 / 24 / 30));
-    document.getElementById('revMonths').textContent = months + (months === 1 ? ' month' : ' months');
+    var hrs = +stList.querySelectorAll('.crow')[stIndex()].dataset.hrs;
+    months = Math.min(12, Math.max(1, Math.round(hrs * 365 / 24 / 30)));
+    document.getElementById('revUnit').textContent =
+      (months === 1 ? 'month' : 'months') + ' every year';
+  }
+  // Runs each time the reveal is opened: the number ticks up and the squares
+  // fill one by one, so the figure arrives instead of just sitting there.
+  function playReveal(){
+    var num = document.getElementById('revNum');
+    var cells = strip.children, i2 = 0;
+    Array.prototype.forEach.call(cells, function(c){ c.classList.remove('on'); });
+    num.textContent = '0';
+    var step = setInterval(function(){
+      i2++;
+      num.textContent = i2;
+      if (cells[i2 - 1]) cells[i2 - 1].classList.add('on');
+      if (i2 >= months) clearInterval(step);
+    }, 260);
   }
   // the goal opens one band below their own answer — a cut, not a blank slate
   function seedGoal(){
-    var rows = glList.querySelectorAll('.optline');
+    var rows = glList.querySelectorAll('.crow');
     var want = Math.max(0, stIndex() - 1);
     Array.prototype.forEach.call(rows, function(r, k){ r.classList.toggle('sel', k === want); });
   }
@@ -935,7 +966,7 @@
     dial.addEventListener('pointerdown', function(e){ dragging = true; dial.setPointerCapture(e.pointerId); dialFromEvent(e); });
     dial.addEventListener('pointermove', function(e){ if (dragging) dialFromEvent(e); });
     dial.addEventListener('pointerup', function(){ dragging = false; });
-    setDial(30);
+    setDial(15);
   }
   document.getElementById('restart').addEventListener('click', function(e){ e.preventDefault(); show(0); });
   document.addEventListener('keydown', function(e){
