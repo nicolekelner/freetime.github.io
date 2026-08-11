@@ -404,10 +404,13 @@
   .revnum{font-family:"Jost";font-weight:600;font-size:96px;line-height:.95;color:var(--coral);
           margin-top:6px;letter-spacing:-2px;}
   .revunit{font-family:"Jost";font-weight:500;font-size:17px;color:var(--ink);margin-top:2px;}
-  .yearstrip{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;margin:22px auto 0;width:82%;}
-  .yearstrip i{display:block;padding-top:100%;border-radius:4px;background:var(--cream2);
-               border:1px solid rgba(58,52,40,.16);transition:background .3s ease,border-color .3s ease;}
-  .yearstrip i.on{background:var(--coral);border-color:var(--coral);}
+  /* 365 squares — one per day of the year. Flex-wrap rather than grid so the
+     short last row centres instead of hanging off to one side. */
+  /* 205px = 23 cells + 22 gaps, which leaves 365 with a nearly-full last row
+     (20 of 23) rather than a stray handful */
+  .yearstrip{display:flex;flex-wrap:wrap;justify-content:center;gap:2px;margin:20px auto 0;width:205px;}
+  .yearstrip i{width:7px;height:7px;border-radius:1.5px;background:rgba(58,52,40,.13);}
+  .yearstrip i.on{background:var(--coral);}
   .revfoot{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:13.5px;line-height:1.5;
            color:var(--ink-soft);margin-top:20px;}
 
@@ -907,9 +910,9 @@
   var glList = document.getElementById('glList');
   var strip  = document.getElementById('yearStrip');
   var goalTouched = false;
-  var months = 2;
+  var days = 53;
 
-  for (var m = 0; m < 12; m++) strip.appendChild(document.createElement('i'));
+  for (var m = 0; m < 365; m++) strip.appendChild(document.createElement('i'));
 
   function stIndex(){
     var rows = stList.querySelectorAll('.crow');
@@ -917,25 +920,28 @@
     return 1;
   }
   function refreshReveal(){
-    // mirrors the app: days = hours * 365 / 24, shown as whole months
+    // mirrors the app: days = hours * 365 / 24
     var hrs = +stList.querySelectorAll('.crow')[stIndex()].dataset.hrs;
-    months = Math.min(12, Math.max(1, Math.round(hrs * 365 / 24 / 30)));
+    days = Math.min(365, Math.max(1, Math.round(hrs * 365 / 24)));
     document.getElementById('revUnit').textContent =
-      (months === 1 ? 'month' : 'months') + ' every year';
+      (days === 1 ? 'day' : 'days') + ' a year';
   }
-  // Runs each time the reveal is opened: the number ticks up and the squares
-  // fill one by one, so the figure arrives instead of just sitting there.
+  // Runs each time the reveal is opened: the count climbs while the days fill
+  // in across the year, so the figure arrives instead of sitting there printed.
+  var revTimer;
   function playReveal(){
+    clearInterval(revTimer);
     var num = document.getElementById('revNum');
-    var cells = strip.children, i2 = 0;
+    var cells = strip.children, n = 0;
     Array.prototype.forEach.call(cells, function(c){ c.classList.remove('on'); });
     num.textContent = '0';
-    var step = setInterval(function(){
-      i2++;
-      num.textContent = i2;
-      if (cells[i2 - 1]) cells[i2 - 1].classList.add('on');
-      if (i2 >= months) clearInterval(step);
-    }, 260);
+    // hold the whole fill to ~1.6s no matter how many days it is
+    var perTick = Math.max(1, Math.round(days / 60));
+    revTimer = setInterval(function(){
+      for (var t = 0; t < perTick && n < days; t++, n++) cells[n].classList.add('on');
+      num.textContent = n;
+      if (n >= days) clearInterval(revTimer);
+    }, Math.max(16, 1600 / (days / perTick)));
   }
   // the goal opens one band below their own answer — a cut, not a blank slate
   function seedGoal(){
