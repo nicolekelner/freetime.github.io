@@ -32,7 +32,8 @@
   .sp8{flex:0 0 8px;} .sp16{flex:0 0 16px;} .sp24{flex:0 0 24px;}
 
   .H{font-family:"Jost",sans-serif;font-weight:500;text-transform:none;text-align:center;line-height:1.25;letter-spacing:.2px;}
-  .H1{font-size:26px;} .H2{font-size:21px;} .H3{font-size:18px;}
+  /* H3 is the question/section header — sized to keep each one on a single line */
+  .H1{font-size:26px;} .H2{font-size:21px;} .H3{font-size:15.5px;}
   .sub{font-family:"Jost",sans-serif;font-style:normal;font-weight:400;font-size:14px;color:var(--ink-soft);text-align:center;line-height:1.5;}
   .tiny{font-family:"Jost";font-size:7px;letter-spacing:1.8px;text-transform:uppercase;color:var(--ink-soft);text-align:center;line-height:1.9;}
   .tiny2{font-family:"Jost";font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--ink-soft);text-align:center;line-height:1.9;}
@@ -348,14 +349,12 @@
   .dialwrap{position:relative;width:180px;height:180px;margin:0 auto;cursor:grab;user-select:none;touch-action:none;}
   .dialwrap:active{cursor:grabbing;}
   .dialface{position:absolute;inset:0;border-radius:99px;border:2px solid rgba(58,52,40,.5);}
-  .dialneedle{position:absolute;left:50%;top:14px;width:2.5px;height:76px;background:var(--ink);
+  .dialneedle{position:absolute;left:50%;top:26px;width:2.5px;height:64px;background:var(--ink);
               transform-origin:50% 100%;transform:translateX(-50%) rotate(0deg);border-radius:2px;}
-  .dialnum{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;
-           pointer-events:none;font-family:"Jost";}
-  .dialnum:before{content:"";position:absolute;width:86px;height:86px;border-radius:99px;background:var(--cream);
-           border:1.5px solid rgba(58,52,40,.18);z-index:-1;}
-  .dialnum b{font-size:30px;font-weight:600;line-height:1;}
-  .dialnum span{font-size:8px;letter-spacing:2.5px;text-transform:uppercase;color:var(--ink-soft);margin-top:3px;}
+  /* No centre readout — the needle and the sweep carry the duration, so it just
+     gets a hub to pivot on. */
+  .dialhub{position:absolute;left:50%;top:50%;width:11px;height:11px;margin:-5.5px 0 0 -5.5px;
+           border-radius:99px;background:var(--ink);pointer-events:none;}
   .dialwrap .mk{position:absolute;font-family:"Jost";font-size:12px;color:var(--ink);}
   /* drop-graph draw-on */
   .drawline{stroke-dasharray:420;stroke-dashoffset:420;}
@@ -445,7 +444,7 @@
   </section>
   <section class="screen" data-name="When do you scroll">
     <div class="topbar"><span class="backb">&lsaquo;</span><span class="pbar"><i></i></span></div>
-    <div class="H H3" style="text-align:left;">When do you<br>scroll the most?</div>
+    <div class="H H3" style="text-align:left;">When do you scroll the most?</div>
     <div class="qsub">Select all that apply</div>
     <div class="crow"><span class="cic">&#127749;</span>Right when I wake up<span class="cring"></span></div>
     <div class="crow sel"><span class="cic">&#128719;</span>Before bed<span class="cring"></span></div>
@@ -457,7 +456,7 @@
   </section>
   <section class="screen" data-name="Why offline">
     <div class="topbar"><span class="backb">&lsaquo;</span><span class="pbar"><i></i></span></div>
-    <div class="H H3" style="text-align:left;">Why do you<br>want to be offline?</div>
+    <div class="H H3" style="text-align:left;">Why do you want to be offline?</div>
     <div class="qsub">I want to be&hellip;</div>
     <div class="crow"><span class="cic">&#9889;</span>Productive<span class="cring"></span></div>
     <div class="crow sel"><span class="cic">&#127800;</span>Present<span class="cring"></span></div>
@@ -469,7 +468,7 @@
   </section>
   <section class="screen" data-name="Hobbies">
     <div class="topbar"><span class="backb">&lsaquo;</span><span class="pbar"><i></i></span></div>
-    <div class="H H3" style="text-align:left;">What are<br>your hobbies?</div>
+    <div class="H H3" style="text-align:left;">What are your hobbies?</div>
     <div class="qsub">Select all that apply</div>
     <div class="pills">
       <span class="pillopt sel"><i class="pe">&#128214;</i>Reading</span><span class="pillopt"><i class="pe">&#127912;</i>Art</span>
@@ -484,7 +483,7 @@
   </section>
   <section class="screen" data-name="Referral">
     <div class="topbar"><span class="backb">&lsaquo;</span><span class="pbar"><i></i></span></div>
-    <div class="H H3" style="text-align:left;">How did you<br>hear about us?</div>
+    <div class="H H3" style="text-align:left;">How did you hear about us?</div>
     <div class="sp16"></div>
     <div class="crow"><span class="cic">&#128248;</span>Instagram<span class="cring"></span></div>
     <div class="crow"><span class="cic">&#127925;</span>TikTok<span class="cring"></span></div>
@@ -496,7 +495,7 @@
   </section>
   <section class="screen" data-name="Screen time snapshot">
     <div class="topbar"><span class="backb">&lsaquo;</span><span class="pbar"><i></i></span></div>
-    <div class="H H3" style="text-align:left;">Your screen time<br>snapshot</div>
+    <div class="H H3">Your screen time snapshot</div>
     <div class="sp16"></div>
     <div class="seclbl">Challenges</div>
     <div class="pinkcard">You&rsquo;re spending nearly 40 hours a week looking at your phone</div>
@@ -559,7 +558,7 @@
       <div class="dialwrap" id="dial">
         <div class="dialface" id="dialFace"></div>
         <div class="dialneedle" id="dialNeedle"></div>
-        <div class="dialnum"><b id="dialMins">30</b><span>minutes</span></div>
+        <div class="dialhub"></div>
         <span class="mk" style="top:6px;left:50%;transform:translateX(-50%);">60</span>
         <span class="mk" style="right:10px;top:50%;transform:translateY(-50%);">15</span>
         <span class="mk" style="bottom:6px;left:50%;transform:translateX(-50%);">30</span>
@@ -771,7 +770,6 @@
   var dial = document.getElementById('dial');
   function setDial(mins){
     mins = Math.max(5, Math.min(60, Math.round(mins / 5) * 5));
-    document.getElementById('dialMins').textContent = mins;
     var deg = (mins / 60) * 360;
     document.getElementById('dialNeedle').style.transform = 'translateX(-50%) rotate(' + deg + 'deg)';
     document.getElementById('dialFace').style.background =
