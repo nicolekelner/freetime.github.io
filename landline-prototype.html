@@ -276,8 +276,8 @@
   .cut b{font-weight:700;color:var(--ink);}
   .magnet{font-size:64px;text-align:center;line-height:1;}
   /* v11: card quiz rows (matches the in-app "why offline" screen) */
-  /* Sized so the longest list (7 rows on "when do you scroll") still clears the CTA
-     inside the 640px frame, while staying roomier than the original 10px/9px. */
+  /* Sized so the longest list (7 rows on "when do you feel pulled") still clears the
+     CTA inside the 640px frame, while staying roomier than the original 10px/9px. */
   .crow{display:flex;align-items:center;gap:12px;background:var(--cream2);border:1px solid rgba(58,52,40,.16);
         border-radius:14px;padding:12px 13px;margin-bottom:10px;font-family:"Jost";font-weight:500;font-size:11.5px;color:var(--ink);}
   .crow .cic{width:24px;height:24px;border-radius:8px;background:#F7F0E0;display:flex;align-items:center;
@@ -287,6 +287,9 @@
   /* The two hour-band lists carry no icon, so they need extra padding to match the
      height and rhythm of the icon rows on the other quiz screens. */
   #stList .crow, #glList .crow{padding:16px 15px;font-size:13px;}
+  /* That screen's question now wraps to two lines, so its seven rows need the gap
+     trimmed to keep the CTA on screen. */
+  .screen[data-name="When do you feel pulled"] .crow{margin-bottom:7px;}
   .crow.sel .cring{border:none;background:var(--mustard);position:relative;}
   .crow.sel .cring:after{content:"✓";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:var(--ink);}
   .qsub{font-family:"Jost";font-weight:500;font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--ink-soft);margin:7px 0 20px;}
@@ -617,9 +620,9 @@
     <div class="crow" data-q="why" data-k="rested"><span class="cic">&#128564;</span>Well rested<span class="cring"></span></div>
     <div class="cta"><div class="btn">Continue</div></div>
   </section>
-  <section class="screen" data-name="When do you scroll">
+  <section class="screen" data-name="When do you feel pulled">
     <div class="topbar"><span class="backb">&lsaquo;</span><span class="pbar"><i></i></span></div>
-    <div class="H H3" style="text-align:left;">When do you scroll too much?</div>
+    <div class="H H3" style="text-align:left;">When do you feel pulled to your phone?</div>
     <div class="qsub">Select all that apply</div>
     <div class="crow" data-q="when" data-k="wake"><span class="cic">&#127749;</span>Right when I wake up<span class="cring"></span></div>
     <div class="crow" data-q="when" data-k="bed"><span class="cic">&#128719;</span>Before bed<span class="cring"></span></div>
@@ -933,7 +936,7 @@
       // single-choice lists behave like radios, multi-selects like checkboxes
       if (hit.classList.contains('crow') || hit.classList.contains('plan2')) {
         var qname = hit.closest('.screen').dataset.name;
-        var multi = qname === 'When do you scroll' || qname === 'Why offline';
+        var multi = qname === 'When do you feel pulled' || qname === 'Why offline';
         if (multi) {
           hit.classList.toggle('sel');
         } else {
