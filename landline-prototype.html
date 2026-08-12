@@ -1100,15 +1100,27 @@
       var g = (goal !== null && goal < h) ? goal : h * 0.4;
       var yTop = 8, yBase = 142;                 // 0 hrs sits on the baseline
       var yGoal = yBase - (g / h) * (yBase - yTop);
-      // real weeks wobble: each drop is followed by a small rise, trending down
-      var STEPS = [[0,0],[.06,.03],[.12,.11],[.18,.08],[.25,.21],[.31,.18],[.38,.31],
-                   [.44,.28],[.51,.42],[.57,.39],[.64,.53],[.70,.50],[.77,.65],
-                   [.83,.74],[.90,.85],[.95,.93],[1,1]];
-      dl.setAttribute('d', 'M' + STEPS.map(function(pt){
-        return (4 + pt[0] * 188).toFixed(1) + ',' + (yTop + pt[1] * (yGoal - yTop)).toFixed(1);
-      }).join(' L'));
-      // pad the dash so it certainly spans the whole path, otherwise the draw stops short
-      var len = (dl.getTotalLength ? dl.getTotalLength() : 420) * 1.08;
+      // real weeks wobble: each drop is followed by a partial rise, trending down
+      var STEPS = [[0,0],[.06,.04],[.12,.15],[.18,.09],[.25,.25],[.31,.19],[.38,.35],
+                   [.44,.29],[.51,.46],[.57,.40],[.64,.57],[.70,.51],[.77,.69],
+                   [.83,.76],[.90,.88],[.95,.94],[1,1]];
+      var pts = STEPS.map(function(pt){
+        return [4 + pt[0] * 188, yTop + pt[1] * (yGoal - yTop)];
+      });
+      // Catmull-Rom through the points, emitted as cubics, so the wobble reads as a
+      // drawn curve rather than a run of straight segments meeting at hard corners.
+      var d = 'M' + pts[0][0].toFixed(1) + ',' + pts[0][1].toFixed(1);
+      for (var q = 0; q < pts.length - 1; q++) {
+        var p0 = pts[q - 1] || pts[q], p1 = pts[q], p2 = pts[q + 1], p3 = pts[q + 2] || p2;
+        d += ' C' + (p1[0] + (p2[0] - p0[0]) / 6).toFixed(1) + ',' + (p1[1] + (p2[1] - p0[1]) / 6).toFixed(1)
+           + ' ' + (p2[0] - (p3[0] - p1[0]) / 6).toFixed(1) + ',' + (p2[1] - (p3[1] - p1[1]) / 6).toFixed(1)
+           + ' ' + p2[0].toFixed(1) + ',' + p2[1].toFixed(1);
+      }
+      dl.setAttribute('d', d);
+      // Overshoot the dash so the line is certainly complete before the animation ends.
+      // Measured length is in user units; the chart stretches to fit, so an exact value
+      // can leave the last stretch undrawn.
+      var len = (dl.getTotalLength ? dl.getTotalLength() : 420) * 1.35;
       dl.style.strokeDasharray = len;
       dl.style.strokeDashoffset = len;
       var pct = (yGoal / 150 * 100).toFixed(1) + '%';
