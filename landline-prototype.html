@@ -499,9 +499,29 @@
   .dialwrap .mk{position:absolute;font-family:"Jost";font-size:12px;color:var(--ink);}
   /* drop-graph draw-on */
   .drawline{stroke-dasharray:420;stroke-dashoffset:420;}
-  .screen.active .drawline{animation:draw 1.5s ease-out .25s forwards;}
-  .drawarea{opacity:0;}
-  .screen.active .drawarea{animation:fillin 1.2s ease-out .6s forwards;}
+  .screen.active .drawline{animation:draw 1.6s ease-out .25s forwards;}
+  /* Screen-time drop chart. The line is the only mark; the goal is called out on the
+     y axis with a dashed guide running across to the end dot. The dot and guide are
+     HTML rather than SVG because the chart stretches non-uniformly, which would turn
+     an SVG circle into an ellipse and thin the dashes. */
+  .dropgraph{position:relative;height:150px;margin:0 18px 0 38px;
+             border-left:1.5px solid rgba(58,52,40,.35);border-bottom:1.5px solid rgba(58,52,40,.35);}
+  .dropgraph svg{position:absolute;inset:0;width:100%;height:100%;z-index:1;}
+  .dropgraph .yl{position:absolute;right:calc(100% + 8px);transform:translateY(-50%);
+                 font-family:"Jost";font-weight:500;font-size:9.5px;color:var(--ink-soft);
+                 text-align:right;line-height:1.15;white-space:nowrap;}
+  .dropgraph .yl.goal{color:var(--coral);font-weight:600;}
+  .dropgraph .yl small{display:block;font-size:8px;}
+  .dropguide{position:absolute;left:0;right:4%;border-top:1.5px dashed rgba(226,96,63,.45);
+             transform:translateY(-50%);opacity:0;}
+  .dropdot{position:absolute;left:96%;width:11px;height:11px;border-radius:99px;z-index:2;
+           background:var(--coral);transform:translate(-50%,-50%);opacity:0;}
+  .screen.active .dropguide{animation:fillin .5s ease-out 1.5s forwards;}
+  .screen.active .dropdot{animation:fillin .4s ease-out 1.7s forwards;}
+  .dropx{display:flex;justify-content:space-between;margin:6px 18px 0 38px;
+         font-family:"Jost";font-weight:500;font-size:8.5px;color:var(--ink-soft);}
+  .dropcap{display:flex;justify-content:space-between;margin:18px 6px 0;
+           font-family:"Jost";font-weight:500;font-size:14px;color:var(--ink-soft);}
   @keyframes draw{to{stroke-dashoffset:0;}}
   @keyframes fillin{to{opacity:1;}}
   /* staggered sentence fade (the turn screen) */
@@ -741,20 +761,20 @@
     <div class="mid">
       <div class="H H1" style="font-size:22px;">Watch your screen time<br>drop every week</div>
       <div class="sp24"></div>
-      <div style="width:100%;display:flex;align-items:stretch;gap:5px;">
-        <div class="axislbl" style="writing-mode:vertical-rl;transform:rotate(180deg);text-align:center;padding:6px 0 16px;">screen time</div>
-        <div style="flex:1;">
-          <div class="graph" style="height:132px;">
-            <svg viewBox="0 0 200 132" preserveAspectRatio="none">
-              <path class="drawarea" id="dropArea" d="M8,16 C52,72 104,94 192,102 L192,112 C104,110 52,116 8,120 Z" fill="#FBBBC4"/>
-              <path class="drawline" id="dropLine" d="M8,16 C52,72 104,94 192,102" fill="none" stroke="#E2603F" stroke-width="2"
-                    stroke-linecap="round"/>
-              <path d="M8,10 L8,124 L196,124" fill="none" stroke="#3A3428" stroke-width="1" opacity=".5"/>
-            </svg>
-          </div>
-          <div class="rulerlabels" style="margin-top:2px;"><span id="dropFrom">week 1</span><span id="dropTo">week 4</span></div>
-        </div>
+      <div class="dropgraph">
+        <span class="yl" id="dropTop" style="top:5.3%;">3.5<small>hrs</small></span>
+        <span class="yl goal" id="dropGoal" style="top:57%;">1.5</span>
+        <span class="yl" style="top:100%;">0</span>
+        <span class="dropguide" id="dropGuide" style="top:57%;"></span>
+        <span class="dropdot" id="dropDot" style="top:57%;"></span>
+        <svg viewBox="0 0 200 150" preserveAspectRatio="none">
+          <path class="drawline" id="dropLine" d="M4,8 L192,100" fill="none" stroke="#E2603F"
+                stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"
+                vector-effect="non-scaling-stroke"/>
+        </svg>
       </div>
+      <div class="dropx"><span>Wk 1</span><span>Wk 4</span></div>
+      <div class="dropcap"><span>Today</span><span>Week 4</span></div>
       <div class="sp24"></div>
       <div class="sub" style="font-size:15px;">Start using your phone with intention</div>
     </div>
@@ -1074,24 +1094,29 @@
     if (hrs !== null && goal !== null && hrs > goal)
       cards.push('Have <b>' + Math.round((hrs - goal) * 7) + ' more hours</b> in a week to spend on ' +
                  (hobs.length ? joinList(hobs.slice(0, 3)) : 'whatever you like'));
-    // the drop chart lands on their real goal instead of a fixed curve
-    var line = document.getElementById('dropLine'), area = document.getElementById('dropArea');
-    if (line && area) {
-      var from = document.getElementById('dropFrom'), to = document.getElementById('dropTo');
-      if (hrs !== null && goal !== null) {
-        // y=16 is their current level, y=118 would be zero; land the curve on the goal
-        var end = Math.max(30, Math.min(104, 118 - (goal / hrs) * 102));
-        var t = end - 16;
-        var top = 'M8,16 C52,' + (16 + t * .651).toFixed(1) +
-                  ' 104,' + (16 + t * .907).toFixed(1) + ' 192,' + end.toFixed(1);
-        line.setAttribute('d', top);
-        area.setAttribute('d', top + ' L192,112 C104,110 52,116 8,120 Z');
-        from.textContent = 'week 1 \u00b7 ' + hrs + ' hrs';
-        to.textContent   = 'week 4 \u00b7 ' + goal + ' hrs';
-      } else {
-        from.textContent = 'week 1';
-        to.textContent   = 'week 4';
-      }
+    // the drop chart runs from their current level down to the goal they set
+    var dl = document.getElementById('dropLine');
+    if (dl) {
+      var h = hrs !== null ? hrs : 3.5;
+      var g = (goal !== null && goal < h) ? goal : h * 0.4;
+      var yTop = 8, yBase = 142;                 // 0 hrs sits on the baseline
+      var yGoal = yBase - (g / h) * (yBase - yTop);
+      // a few plateaus rather than a clean curve — real weeks do not slope evenly
+      var STEPS = [[0,0],[.10,.03],[.18,.16],[.26,.20],[.34,.21],[.44,.36],[.52,.41],
+                   [.60,.42],[.70,.58],[.78,.62],[.86,.75],[.93,.90],[1,1]];
+      dl.setAttribute('d', 'M' + STEPS.map(function(pt){
+        return (4 + pt[0] * 188).toFixed(1) + ',' + (yTop + pt[1] * (yGoal - yTop)).toFixed(1);
+      }).join(' L'));
+      var len = dl.getTotalLength ? dl.getTotalLength() : 420;
+      dl.style.strokeDasharray = len;
+      dl.style.strokeDashoffset = len;
+      var pct = (yGoal / 150 * 100).toFixed(1) + '%';
+      document.getElementById('dropGuide').style.top = pct;
+      document.getElementById('dropDot').style.top = pct;
+      var gl = document.getElementById('dropGoal');
+      gl.style.top = pct;
+      gl.textContent = g.toFixed(1);
+      document.getElementById('dropTop').innerHTML = h.toFixed(1) + '<small>hrs</small>';
     }
     var wrap = document.getElementById('planCards');
     if (wrap) wrap.innerHTML = cards.length
