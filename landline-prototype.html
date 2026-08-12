@@ -475,10 +475,11 @@
      closing line is pushed to the bottom, so that line sits at the same height and size
      on all three rather than floating wherever the centred stack happens to leave it. */
   .stepmid{justify-content:flex-start;}
-  /* A fixed gap under the art rather than margin-top:auto. Pinning it to the bottom
-     aligned the three across screens, but step 1's illustration is much taller, so
-     that alignment left ~100px of dead space under the dial and the two phones. */
-  .stepfoot{margin-top:26px;font-family:"Jost";font-weight:400;font-size:13px;
+  /* Equal auto margins centre the line in whatever space is left between the art and
+     the button. Pinning it to the bottom left ~100px of dead space under the shorter
+     dial and phones; a fixed gap sat it too close to them. This self-adjusts, and
+     stays safe on step 1, whose taller illustration leaves almost no slack. */
+  .stepfoot{margin:auto 0;padding-top:10px;font-family:"Jost";font-weight:400;font-size:13px;
             color:var(--ink-soft);text-align:center;line-height:1.5;}
   /* Equal cells, so the two phones occupy the same footprint despite different
      aspect ratios — otherwise the wider rotary reads as the bigger illustration. */
