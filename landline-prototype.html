@@ -212,13 +212,19 @@
           border-bottom:1.5px solid rgba(58,52,40,.3);}
   .pshead .pf,.pshead .col{font-family:"Jost","Futura","Avenir Next",sans-serif;font-weight:600;
           font-size:7.5px;letter-spacing:1.8px;text-transform:uppercase;color:var(--ink-soft);}
-  .pshead .col{flex:0 0 46px;text-align:center;letter-spacing:1.4px;}
+  .pshead .col{flex:0 0 58px;text-align:center;letter-spacing:1.4px;}
   .pshead .col.pro{color:var(--coral);}
   .psrow{display:flex;align-items:center;gap:6px;padding:7px 0;
          font-family:"Jost","Futura","Avenir Next",sans-serif;font-size:10.5px;color:var(--ink);}
   .psrow + .psrow{border-top:1px dotted rgba(58,52,40,.22);}
   .plansheet .pf{flex:1;text-align:left;}
-  .psrow i{flex:0 0 46px;text-align:center;font-style:normal;font-size:11.5px;font-weight:700;}
+  .psrow i{flex:0 0 58px;text-align:center;font-style:normal;font-size:11.5px;font-weight:700;}
+  /* Some rows state an allowance rather than tick a box, the way a plan sheet
+     prints "500 min" beside "unlimited". .val.yes needs both classes to outrank
+     the plain .yes colour above it. */
+  .psrow i.val{font-size:8px;font-weight:600;letter-spacing:.3px;text-transform:uppercase;
+               line-height:1.2;color:var(--ink-soft);}
+  .psrow i.val.yes{color:var(--olive);}
   .psrow i.yes{color:var(--olive);}
   .psrow i.no{color:rgba(58,52,40,.28);}
   .pwlinks{font-family:"Jost","Futura","Avenir Next",sans-serif;font-size:8.5px;letter-spacing:.3px;color:var(--ink-soft);text-align:center;}
@@ -852,7 +858,7 @@
         <div class="plansheet">
           <div class="pshead"><span class="pf">What&rsquo;s on your plan</span><span class="col free">Free</span><span class="col pro">Premium</span></div>
           <div class="psrow"><span class="pf">Apps stay locked</span><i class="yes">&#10003;</i><i class="yes">&#10003;</i></div>
-          <div class="psrow"><span class="pf">More than 4 apps allowed</span><i class="no">&ndash;</i><i class="yes">&#10003;</i></div>
+          <div class="psrow"><span class="pf">Apps you can allow</span><i class="val">4</i><i class="val yes">Unlimited</i></div>
           <div class="psrow"><span class="pf">Unlock limits</span><i class="no">&ndash;</i><i class="yes">&#10003;</i></div>
           <div class="psrow"><span class="pf">Scheduled blocks</span><i class="no">&ndash;</i><i class="yes">&#10003;</i></div>
         </div>
