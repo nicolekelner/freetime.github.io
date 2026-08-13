@@ -493,16 +493,22 @@
         rgba(226,96,63,.22) 0%, rgba(226,96,63,.10) 52%, rgba(226,96,63,0) 76%);}
   .hlw.allow .strip{background:radial-gradient(ellipse at center,
         rgba(227,178,60,.40) 0%, rgba(227,178,60,.17) 52%, rgba(227,178,60,0) 76%);}
-  /* Unlock-limit stepper. Buttons carry the same chunky mustard treatment as the
-     CTA so they read as pressable rather than decorative. */
-  .counter{display:flex;align-items:center;justify-content:center;gap:24px;}
-  .counter .cnum{font-family:"Jost","Futura","Avenir Next",sans-serif;font-weight:600;font-size:64px;
-                 line-height:1;letter-spacing:-1.5px;color:var(--coral);min-width:100px;text-align:center;}
-  .stepbtn{width:46px;height:46px;flex:0 0 46px;border-radius:99px;background:var(--mustard);
-           border:1.5px solid rgba(58,52,40,.55);box-shadow:0 3px 0 var(--mustard-side);
-           display:flex;align-items:center;justify-content:center;line-height:1;
-           font-family:"Jost","Futura","Avenir Next",sans-serif;font-weight:500;font-size:24px;color:var(--ink);}
-  .stepbtn.off{opacity:.35;box-shadow:none;}
+  /* Unlock-limit wheel — the web analogue of the app's picker. Scroll-snap does the
+     detent; the ruled band marks the selection and the fades imply a drum turning
+     past the window rather than a list that simply stops. */
+  .wheel{position:relative;width:140px;height:150px;margin:0 auto;}
+  .wheel .track{height:100%;overflow-y:scroll;scroll-snap-type:y mandatory;padding:50px 0;
+                scrollbar-width:none;-ms-overflow-style:none;}
+  .wheel .track::-webkit-scrollbar{display:none;}
+  .wopt{height:50px;line-height:50px;text-align:center;scroll-snap-align:center;cursor:pointer;
+        font-family:"Jost","Futura","Avenir Next",sans-serif;font-weight:500;font-size:23px;
+        color:rgba(58,52,40,.32);transition:color .15s ease,font-size .15s ease;}
+  .wopt.on{color:var(--coral);font-weight:600;font-size:40px;}
+  .wheel .band{position:absolute;left:6px;right:6px;top:50px;height:50px;pointer-events:none;
+               border-top:1.5px solid rgba(58,52,40,.3);border-bottom:1.5px solid rgba(58,52,40,.3);}
+  .wheel .fade{position:absolute;left:0;right:0;height:46px;pointer-events:none;}
+  .wheel .fade.t{top:0;background:linear-gradient(var(--cream),rgba(242,232,213,0));}
+  .wheel .fade.b{bottom:0;background:linear-gradient(rgba(242,232,213,0),var(--cream));}
   .stepnum{font-family:"Jost","Futura","Avenir Next",sans-serif;font-weight:400;font-size:15px;color:var(--ink);text-align:center;}
   /* The three how-it-works steps share a layout: content runs from the top and a single
      closing line is pushed to the bottom, so that line sits at the same height and size
@@ -845,9 +851,8 @@
       <div class="pwcar">
         <div class="plansheet">
           <div class="pshead"><span class="pf">What&rsquo;s on your plan</span><span class="col free">Free</span><span class="col pro">Premium</span></div>
-          <div class="psrow"><span class="pf">Apps stay locked</span><i class="yes">&#10003;</i><i class="yes">&#10003;</i></div>
           <div class="psrow"><span class="pf">More than 2 apps allowed</span><i class="no">&ndash;</i><i class="yes">&#10003;</i></div>
-          <div class="psrow"><span class="pf">Timed sessions</span><i class="no">&ndash;</i><i class="yes">&#10003;</i></div>
+          <div class="psrow"><span class="pf">Unlock limits</span><i class="no">&ndash;</i><i class="yes">&#10003;</i></div>
           <div class="psrow"><span class="pf">Scheduled blocks</span><i class="no">&ndash;</i><i class="yes">&#10003;</i></div>
         </div>
       </div>
@@ -918,12 +923,12 @@
       <div class="sp16"></div>
       <div class="sub" style="font-size:15px;">How many times can you plug in<br>per day to unlock apps</div>
       <div class="sp24"></div><div class="sp16"></div>
-      <div class="counter">
-        <span class="stepbtn" data-step="-1">&minus;</span>
-        <span class="cnum" id="unlockLimit">10</span>
-        <span class="stepbtn" data-step="1">+</span>
+      <div class="wheel">
+        <div class="track" id="limitTrack"></div>
+        <div class="band"></div>
+        <div class="fade t"></div><div class="fade b"></div>
       </div>
-      <div class="sp16"></div>
+      <div class="sp8"></div>
       <div class="tiny2" style="text-transform:none;letter-spacing:.2px;font-size:12px;">times a day</div>
     </div>
     <div class="cta"><div class="btn">Continue</div></div>
@@ -993,7 +998,7 @@
   }
 
   // Taps on real controls select/drag instead of advancing the flow.
-  var INTERACTIVE = '.crow, .pillopt, .plan2, .sysrow2, .dialwrap, .stepbtn, input';
+  var INTERACTIVE = '.crow, .pillopt, .plan2, .sysrow2, .dialwrap, .wheel, .wopt, input';
 
   document.getElementById('device').addEventListener('click', function(e){
     if (e.target.classList.contains('backb')) { show(i - 1); return; }
@@ -1014,13 +1019,13 @@
         }
       } else if (hit.classList.contains('pillopt')) {
         hit.classList.toggle('sel');
-      } else if (hit.classList.contains('stepbtn')) {
-        setLimit(+document.getElementById('unlockLimit').textContent + (+hit.dataset.step));
+      } else if (hit.classList.contains('wopt')) {
+        hit.parentNode.scrollTo({top: (+hit.dataset.v - LIMIT_MIN) * LIMIT_ROW, behavior: 'smooth'});
       } else if (hit.classList.contains('sysrow2')) {
         var dot = hit.querySelector('.rc'); if (dot) dot.classList.toggle('on');
       }
       refreshDerived();
-  setLimit(10);
+  buildWheel();
       return;   // never advance from a control
     }
     show(i + 1);
@@ -1073,18 +1078,26 @@
   }
 
   // ---- unlock limit ----------------------------------------------------------
-  // Plug-ins allowed per day. Defaults to 10, capped at 20.
-  var LIMIT_MIN = 1, LIMIT_MAX = 20;
-  function setLimit(n){
-    var el = document.getElementById('unlockLimit');
-    if (!el) return;
-    var v = Math.max(LIMIT_MIN, Math.min(LIMIT_MAX, n));
-    el.textContent = v;
-    var btns = document.querySelectorAll('.stepbtn');
-    if (btns.length === 2) {
-      btns[0].classList.toggle('off', v === LIMIT_MIN);
-      btns[1].classList.toggle('off', v === LIMIT_MAX);
-    }
+  // Plug-ins allowed per day: a scroll wheel, defaulting to 10 and capped at 20.
+  var LIMIT_MIN = 1, LIMIT_MAX = 20, LIMIT_ROW = 50, limitTrack;
+  function buildWheel(){
+    limitTrack = document.getElementById('limitTrack');
+    if (!limitTrack) return;
+    var html = '';
+    for (var v = LIMIT_MIN; v <= LIMIT_MAX; v++)
+      html += '<div class="wopt" data-v="' + v + '">' + v + '</div>';
+    limitTrack.innerHTML = html;
+    limitTrack.scrollTop = (10 - LIMIT_MIN) * LIMIT_ROW;   // default
+    markWheel();
+    limitTrack.addEventListener('scroll', markWheel, {passive: true});
+  }
+  function markWheel(){
+    if (!limitTrack) return;
+    var i = Math.max(0, Math.min(LIMIT_MAX - LIMIT_MIN,
+                                 Math.round(limitTrack.scrollTop / LIMIT_ROW)));
+    Array.prototype.forEach.call(limitTrack.children, function(n, k){
+      n.classList.toggle('on', k === i);
+    });
   }
 
   // ---- derived copy -------------------------------------------------------
