@@ -748,11 +748,10 @@
     <div class="qsub" style="text-transform:none;letter-spacing:0;font-size:12px;">What&rsquo;s a reasonable amount to<br>be on your phone daily?</div>
     <div class="sp8"></div>
     <div id="glList">
+      <div class="crow" data-hrs="0.25">0-30 min<span class="cring"></span></div>
+      <div class="crow" data-hrs="0.75">30 min - 1 hour<span class="cring"></span></div>
       <div class="crow" data-hrs="1.5">1-2 hours<span class="cring"></span></div>
       <div class="crow" data-hrs="3.5">3-4 hours<span class="cring"></span></div>
-      <div class="crow" data-hrs="5.5">5-6 hours<span class="cring"></span></div>
-      <div class="crow" data-hrs="7.5">7-8 hours<span class="cring"></span></div>
-      <div class="crow" data-hrs="9.5">9-10 hours<span class="cring"></span></div>
     </div>
     <div class="cta"><div class="btn pink">Continue</div></div>
   </section>
@@ -1128,7 +1127,7 @@
       document.getElementById('dropDot').style.top = pct;
       var gl = document.getElementById('dropGoal');
       gl.style.top = pct;
-      gl.textContent = g.toFixed(1);
+      gl.textContent = g < 1 ? Math.round(g * 60) + 'm' : g.toFixed(1);
       document.getElementById('dropTop').innerHTML = h.toFixed(1) + '<small>hrs</small>';
     }
     var wrap = document.getElementById('planCards');
