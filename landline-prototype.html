@@ -493,6 +493,16 @@
         rgba(226,96,63,.22) 0%, rgba(226,96,63,.10) 52%, rgba(226,96,63,0) 76%);}
   .hlw.allow .strip{background:radial-gradient(ellipse at center,
         rgba(227,178,60,.40) 0%, rgba(227,178,60,.17) 52%, rgba(227,178,60,0) 76%);}
+  /* Unlock-limit stepper. Buttons carry the same chunky mustard treatment as the
+     CTA so they read as pressable rather than decorative. */
+  .counter{display:flex;align-items:center;justify-content:center;gap:24px;}
+  .counter .cnum{font-family:"Jost","Futura","Avenir Next",sans-serif;font-weight:600;font-size:64px;
+                 line-height:1;letter-spacing:-1.5px;color:var(--coral);min-width:100px;text-align:center;}
+  .stepbtn{width:46px;height:46px;flex:0 0 46px;border-radius:99px;background:var(--mustard);
+           border:1.5px solid rgba(58,52,40,.55);box-shadow:0 3px 0 var(--mustard-side);
+           display:flex;align-items:center;justify-content:center;line-height:1;
+           font-family:"Jost","Futura","Avenir Next",sans-serif;font-weight:500;font-size:24px;color:var(--ink);}
+  .stepbtn.off{opacity:.35;box-shadow:none;}
   .stepnum{font-family:"Jost","Futura","Avenir Next",sans-serif;font-weight:400;font-size:15px;color:var(--ink);text-align:center;}
   /* The three how-it-works steps share a layout: content runs from the top and a single
      closing line is pushed to the bottom, so that line sits at the same height and size
@@ -761,10 +771,12 @@
     <div class="qsub" style="text-transform:none;letter-spacing:0;font-size:12px;">What&rsquo;s a reasonable amount to<br>be on your phone daily?</div>
     <div class="sp8"></div>
     <div id="glList">
-      <div class="crow" data-hrs="0.25">0-30 min<span class="cring"></span></div>
-      <div class="crow" data-hrs="0.75">30 min - 1 hour<span class="cring"></span></div>
-      <div class="crow" data-hrs="1.5">1-2 hours<span class="cring"></span></div>
-      <div class="crow" data-hrs="3.5">3-4 hours<span class="cring"></span></div>
+      <div class="crow" data-hrs="0.25">15 min<span class="cring"></span></div>
+      <div class="crow" data-hrs="0.5">30 min<span class="cring"></span></div>
+      <div class="crow" data-hrs="1">1 hour<span class="cring"></span></div>
+      <div class="crow" data-hrs="2">2 hours<span class="cring"></span></div>
+      <div class="crow" data-hrs="3">3 hours<span class="cring"></span></div>
+      <div class="crow" data-hrs="4">4 hours<span class="cring"></span></div>
     </div>
     <div class="cta"><div class="btn pink">Continue</div></div>
   </section>
@@ -901,6 +913,23 @@
     <div class="cta"><div class="btn">Allow these apps</div>
       <div class="tiny">Cancel</div></div>
   </section>
+  <section class="screen" data-name="Unlock limit">
+    <div class="topbar"><span class="backb">&lsaquo;</span><span class="pbar"><i></i></span></div>
+    <div class="mid">
+      <div class="H H2">Set an unlock limit</div>
+      <div class="sp16"></div>
+      <div class="sub" style="font-size:15px;">How many times can you plug in<br>per day to unlock apps</div>
+      <div class="sp24"></div><div class="sp16"></div>
+      <div class="counter">
+        <span class="stepbtn" data-step="-1">&minus;</span>
+        <span class="cnum" id="unlockLimit">10</span>
+        <span class="stepbtn" data-step="1">+</span>
+      </div>
+      <div class="sp16"></div>
+      <div class="tiny2" style="text-transform:none;letter-spacing:.2px;font-size:12px;">times a day</div>
+    </div>
+    <div class="cta"><div class="btn">Continue</div></div>
+  </section>
   <section class="screen" data-name="Notifications">
     <div class="topbar"><span class="backb">&lsaquo;</span><span class="pbar"><i></i></span></div>
     <div class="mid">
@@ -966,7 +995,7 @@
   }
 
   // Taps on real controls select/drag instead of advancing the flow.
-  var INTERACTIVE = '.crow, .pillopt, .plan2, .sysrow2, .dialwrap, input';
+  var INTERACTIVE = '.crow, .pillopt, .plan2, .sysrow2, .dialwrap, .stepbtn, input';
 
   document.getElementById('device').addEventListener('click', function(e){
     if (e.target.classList.contains('backb')) { show(i - 1); return; }
@@ -987,10 +1016,13 @@
         }
       } else if (hit.classList.contains('pillopt')) {
         hit.classList.toggle('sel');
+      } else if (hit.classList.contains('stepbtn')) {
+        setLimit(+document.getElementById('unlockLimit').textContent + (+hit.dataset.step));
       } else if (hit.classList.contains('sysrow2')) {
         var dot = hit.querySelector('.rc'); if (dot) dot.classList.toggle('on');
       }
       refreshDerived();
+  setLimit(10);
       return;   // never advance from a control
     }
     show(i + 1);
@@ -1040,6 +1072,21 @@
       num.textContent = n;
       if (n >= days) clearInterval(revTimer);
     }, Math.max(16, 1600 / (days / perTick)));
+  }
+
+  // ---- unlock limit ----------------------------------------------------------
+  // Plug-ins allowed per day. Defaults to 10, capped at 20.
+  var LIMIT_MIN = 1, LIMIT_MAX = 20;
+  function setLimit(n){
+    var el = document.getElementById('unlockLimit');
+    if (!el) return;
+    var v = Math.max(LIMIT_MIN, Math.min(LIMIT_MAX, n));
+    el.textContent = v;
+    var btns = document.querySelectorAll('.stepbtn');
+    if (btns.length === 2) {
+      btns[0].classList.toggle('off', v === LIMIT_MIN);
+      btns[1].classList.toggle('off', v === LIMIT_MAX);
+    }
   }
 
   // ---- derived copy -------------------------------------------------------
@@ -1149,7 +1196,7 @@
       document.getElementById('dropDot').style.top = pct;
       var gl = document.getElementById('dropGoal');
       gl.style.top = pct;
-      gl.textContent = g < 1 ? Math.round(g * 60) + 'm' : g.toFixed(1);
+      gl.textContent = g < 1 ? Math.round(g * 60) + 'm' : (g % 1 ? g.toFixed(1) : String(g));
       document.getElementById('dropTop').innerHTML = h.toFixed(1) + '<small>hrs</small>';
     }
     var wrap = document.getElementById('planCards');
