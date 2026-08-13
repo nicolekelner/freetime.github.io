@@ -5,8 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
 <title>Flip Phone — Onboarding v12 · Tap-through Prototype</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,500;1,500;1,600&display=swap">
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,500;1,500;1,600&display=swap');
   :root{
     --olive:#85863F; --cream:#F2E8D5; --cream2:#EDE1C8; --mustard:#E3B23C; --mustard-side:#C79A31;
     --pink:#FBBBC4; --teal:#6FB5B0; --coral:#E2603F; --ink:#3A3428; --ink-soft:#6B6250;
@@ -21,7 +23,7 @@
   .row{display:flex;flex-wrap:wrap;gap:30px;align-items:flex-start;}
   .cell{width:270px;}
   .note{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:14px;color:var(--ink-soft);margin-top:9px;line-height:1.4;}
-  .note b{font-family:"Jost";font-style:normal;font-size:8.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--coral);display:block;margin-bottom:1px;}
+  .note b{font-family:"Jost","Futura","Avenir Next",sans-serif;font-style:normal;font-size:8.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--coral);display:block;margin-bottom:1px;}
   .note strong{font-family:"Cormorant Garamond",serif;font-style:italic;font-weight:700;color:var(--ink);}
 
   .phone{width:270px;height:565px;background:var(--cream);border:6px solid var(--olive);border-radius:26px;
@@ -35,14 +37,14 @@
   /* H3 is the question/section header — sized to keep each one on a single line */
   .H1{font-size:26px;} .H2{font-size:21px;} .H3{font-size:15.5px;}
   .sub{font-family:"Jost",sans-serif;font-style:normal;font-weight:400;font-size:14px;color:var(--ink-soft);text-align:center;line-height:1.5;}
-  .tiny{font-family:"Jost";font-size:7px;letter-spacing:1.8px;text-transform:uppercase;color:var(--ink-soft);text-align:center;line-height:1.9;}
-  .tiny2{font-family:"Jost";font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--ink-soft);text-align:center;line-height:1.9;}
-  .qtag{font-family:"Jost";font-weight:500;font-size:7px;letter-spacing:2.5px;color:var(--ink-soft);text-align:center;text-transform:uppercase;}
+  .tiny{font-family:"Jost","Futura","Avenir Next",sans-serif;font-size:7px;letter-spacing:1.8px;text-transform:uppercase;color:var(--ink-soft);text-align:center;line-height:1.9;}
+  .tiny2{font-family:"Jost","Futura","Avenir Next",sans-serif;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--ink-soft);text-align:center;line-height:1.9;}
+  .qtag{font-family:"Jost","Futura","Avenir Next",sans-serif;font-weight:500;font-size:7px;letter-spacing:2.5px;color:var(--ink-soft);text-align:center;text-transform:uppercase;}
 
   .cta{margin-top:auto;display:flex;flex-direction:column;align-items:center;gap:8px;padding-top:14px;}
   .btn{background:var(--mustard);color:var(--ink);border:1.5px solid rgba(58,52,40,.55);border-radius:13px;
        box-shadow:0 3px 0 var(--mustard-side);padding:13px 10px;width:100%;text-align:center;
-       font-family:"Jost";font-weight:500;font-size:14px;letter-spacing:.3px;text-transform:none;}
+       font-family:"Jost","Futura","Avenir Next",sans-serif;font-weight:500;font-size:14px;letter-spacing:.3px;text-transform:none;}
   .btn.teal{background:var(--teal);box-shadow:0 3px 0 #5EA09B;}
   .btn.pink{background:var(--pink);box-shadow:0 3px 0 #E893A8;}
   /* v10: flip phone color swatches */
@@ -56,7 +58,7 @@
 
   .list{border-top:1px solid var(--hair);}
   .lrow{display:flex;align-items:center;padding:11px 2px;border-bottom:1px solid var(--hair);
-        font-family:"Jost";font-weight:400;font-size:11.5px;letter-spacing:.4px;}
+        font-family:"Jost","Futura","Avenir Next",sans-serif;font-weight:400;font-size:11.5px;letter-spacing:.4px;}
   .lrow .ring{margin-left:auto;width:15px;height:15px;border-radius:99px;border:1.5px solid rgba(58,52,40,.4);}
   .lrow .ic{width:22px;height:22px;border-radius:7px;background:var(--cream2);display:flex;align-items:center;justify-content:center;font-size:11px;flex:0 0 22px;margin-right:8px;}
   .lrow.iconed{padding:7px 2px;font-size:10.5px;}
@@ -64,13 +66,13 @@
   .lrow.sel .ring{border:none;background:var(--mustard);position:relative;}
   .lrow.sel .ring:after{content:"✓";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:var(--ink);}
 
-  .numlbl{font-family:"Jost";font-weight:500;font-size:8.5px;letter-spacing:3px;text-transform:uppercase;text-align:center;margin-top:6px;}
+  .numlbl{font-family:"Jost","Futura","Avenir Next",sans-serif;font-weight:500;font-size:8.5px;letter-spacing:3px;text-transform:uppercase;text-align:center;margin-top:6px;}
 
   /* split-flap departure-board digits */
   .flap{display:flex;justify-content:center;gap:7px;}
   .flap .d{position:relative;width:64px;height:92px;background:#1c1a16;border-radius:8px;
            display:flex;align-items:center;justify-content:center;
-           font-family:"Jost";font-weight:600;font-size:64px;color:#f4efe2;
+           font-family:"Jost","Futura","Avenir Next",sans-serif;font-weight:600;font-size:64px;color:#f4efe2;
            box-shadow:inset 0 2px 4px rgba(255,255,255,.06), 0 3px 6px rgba(58,52,40,.35);}
   .flap .d:before{content:"";position:absolute;left:0;right:0;top:0;height:50%;
            background:linear-gradient(180deg,rgba(255,255,255,.10),rgba(255,255,255,.02));
@@ -82,7 +84,7 @@
   .months{display:flex;justify-content:center;gap:7px;}
   .months .m{width:13px;height:18px;border-radius:3px;border:1.5px solid var(--hair);background:var(--cream2);}
   .months .m.on{background:var(--coral);border-color:var(--coral);}
-  .monthkey{display:flex;justify-content:center;gap:5px;font-family:"Jost";font-size:7px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-soft);margin-top:8px;}
+  .monthkey{display:flex;justify-content:center;gap:5px;font-family:"Jost","Futura","Avenir Next",sans-serif;font-size:7px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-soft);margin-top:8px;}
   .monthkey b{display:inline-block;width:9px;height:9px;border-radius:2px;background:var(--coral);transform:translateY(1px);}
 
   /* v10: benefits infomercial */
@@ -90,18 +92,18 @@
   .burst:before{content:"";position:absolute;inset:0;border-radius:50%;background:repeating-conic-gradient(var(--coral) 0 14deg, transparent 14deg 28deg);}
   .burst span{position:absolute;inset:13px;border-radius:50%;background:var(--cream);border:2px solid var(--ink);
               display:flex;align-items:center;justify-content:center;text-align:center;
-              font-family:"Jost";font-weight:700;font-size:12px;letter-spacing:.5px;text-transform:uppercase;color:var(--ink);line-height:1.05;}
+              font-family:"Jost","Futura","Avenir Next",sans-serif;font-weight:700;font-size:12px;letter-spacing:.5px;text-transform:uppercase;color:var(--ink);line-height:1.05;}
   .adlist{display:flex;flex-direction:column;gap:9px;text-align:left;padding:0 8px;}
-  .adrow{display:flex;gap:9px;align-items:flex-start;font-family:"Jost";font-size:10.5px;line-height:1.3;color:var(--ink);}
+  .adrow{display:flex;gap:9px;align-items:flex-start;font-family:"Jost","Futura","Avenir Next",sans-serif;font-size:10.5px;line-height:1.3;color:var(--ink);}
   .adrow:before{content:"✦";color:var(--coral);font-weight:700;font-size:11px;line-height:1.15;flex:0 0 12px;}
   .adrow b{font-weight:700;}
-  .admore{font-family:"Jost";font-weight:700;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--coral);text-align:center;}
+  .admore{font-family:"Jost","Futura","Avenir Next",sans-serif;font-weight:700;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--coral);text-align:center;}
 
   /* v10: permission slip (school) */
   .leaflet{position:relative;background:#FCFAF3;border:1px solid rgba(58,52,40,.55);border-top:2px dashed rgba(58,52,40,.5);
            padding:12px 15px 12px;text-align:left;box-shadow:0 2px 7px rgba(58,52,40,.14);}
   .lfhead{text-align:center;border-bottom:2px solid var(--ink);padding-bottom:7px;margin-bottom:10px;}
-  .slipform{font-family:"Jost";font-size:9.5px;line-height:1.75;color:var(--ink);text-align:left;}
+  .slipform{font-family:"Jost","Futura","Avenir Next",sans-serif;font-size:9.5px;line-height:1.75;color:var(--ink);text-align:left;}
   .blank{display:inline-block;min-width:52px;border-bottom:1.3px solid var(--ink);height:.85em;vertical-align:bottom;margin:0 3px;}
   .blankinput{border:none;border-bottom:1.3px solid var(--ink);background:var(--cream2);border-radius:4px 4px 0 0;outline:none;
               font-family:"Cormorant Garamond",serif;font-style:italic;font-size:12px;color:var(--ink);
@@ -110,24 +112,24 @@
   .blankinput::placeholder{color:var(--ink-soft);opacity:.7;font-size:10px;font-style:normal;letter-spacing:.5px;}
   .sigline{margin-top:15px;}
   .sigline canvas{display:block;width:100%;height:56px;border-bottom:1.5px solid var(--ink);cursor:crosshair;touch-action:none;}
-  .sigcap{display:flex;justify-content:space-between;font-family:"Jost";font-weight:600;font-size:7px;letter-spacing:1.2px;text-transform:uppercase;color:var(--ink-soft);margin-top:4px;}
-  .lfkicker{font-family:"Jost";font-weight:600;font-size:6.5px;letter-spacing:3px;text-transform:uppercase;color:var(--ink-soft);}
-  .lftitle{font-family:"Jost";font-weight:700;font-size:16px;letter-spacing:3px;text-transform:uppercase;color:var(--ink);margin-top:3px;}
-  .lfsection{font-family:"Jost";font-weight:700;font-size:8.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink);
+  .sigcap{display:flex;justify-content:space-between;font-family:"Jost","Futura","Avenir Next",sans-serif;font-weight:600;font-size:7px;letter-spacing:1.2px;text-transform:uppercase;color:var(--ink-soft);margin-top:4px;}
+  .lfkicker{font-family:"Jost","Futura","Avenir Next",sans-serif;font-weight:600;font-size:6.5px;letter-spacing:3px;text-transform:uppercase;color:var(--ink-soft);}
+  .lftitle{font-family:"Jost","Futura","Avenir Next",sans-serif;font-weight:700;font-size:16px;letter-spacing:3px;text-transform:uppercase;color:var(--ink);margin-top:3px;}
+  .lfsection{font-family:"Jost","Futura","Avenir Next",sans-serif;font-weight:700;font-size:8.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink);
              border-bottom:1px solid rgba(58,52,40,.4);padding-bottom:3px;margin:11px 0 7px;}
-  .lfintro{font-family:"Jost";font-size:9px;color:var(--ink-soft);margin-bottom:8px;line-height:1.45;}
+  .lfintro{font-family:"Jost","Futura","Avenir Next",sans-serif;font-size:9px;color:var(--ink-soft);margin-bottom:8px;line-height:1.45;}
   .lflist{list-style:none;display:flex;flex-direction:column;gap:7px;}
-  .lflist li{position:relative;padding-left:15px;font-family:"Jost";font-size:10px;line-height:1.35;color:var(--ink);}
+  .lflist li{position:relative;padding-left:15px;font-family:"Jost","Futura","Avenir Next",sans-serif;font-size:10px;line-height:1.35;color:var(--ink);}
   .lflist li:before{content:"";position:absolute;left:0;top:5px;width:6px;height:6px;background:var(--coral);border-radius:1px;}
   .sigpad{display:block;width:100%;height:54px;background:#fff;border:1px solid rgba(58,52,40,.35);cursor:crosshair;touch-action:none;}
   .lfsigrow{display:flex;justify-content:space-between;align-items:baseline;margin-top:4px;}
-  .lfsiglabel{font-family:"Jost";font-weight:600;font-size:6.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-soft);}
-  .sigclear{font-family:"Jost";font-size:6.5px;letter-spacing:1px;text-transform:uppercase;text-decoration:underline;color:var(--ink-soft);cursor:pointer;}
+  .lfsiglabel{font-family:"Jost","Futura","Avenir Next",sans-serif;font-weight:600;font-size:6.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-soft);}
+  .sigclear{font-family:"Jost","Futura","Avenir Next",sans-serif;font-size:6.5px;letter-spacing:1px;text-transform:uppercase;text-decoration:underline;color:var(--ink-soft);cursor:pointer;}
 
   /* v10: hobby pills */
   .pills{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
   .pillopt{display:flex;justify-content:center;align-items:center;gap:7px;border:1.5px solid rgba(58,52,40,.4);border-radius:99px;
-           background:var(--cream);padding:12px 14px;font-family:"Jost";font-weight:500;font-size:10.5px;color:var(--ink);cursor:pointer;}
+           background:var(--cream);padding:12px 14px;font-family:"Jost","Futura","Avenir Next",sans-serif;font-weight:500;font-size:10.5px;color:var(--ink);cursor:pointer;}
   .pillopt .pe{font-size:12px;line-height:1;}
   .pillopt.sel{background:var(--mustard);border-color:rgba(58,52,40,.6);font-weight:600;}
 
@@ -138,8 +140,8 @@
   .pie .hole{position:absolute;inset:40px;border-radius:99px;background:var(--cream);border:2px solid var(--ink);
        display:flex;flex-direction:column;align-items:center;justify-content:center;}
   .pie .hole b{font-size:34px;font-weight:700;line-height:1;color:var(--ink);}
-  .pie .hole span{font-family:"Jost";font-weight:600;font-size:6.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-soft);margin-top:2px;}
-  .pielegend{display:flex;justify-content:center;gap:18px;margin-top:16px;font-family:"Jost";font-weight:500;font-size:8px;letter-spacing:1px;text-transform:uppercase;color:var(--ink-soft);}
+  .pie .hole span{font-family:"Jost","Futura","Avenir Next",sans-serif;font-weight:600;font-size:6.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-soft);margin-top:2px;}
+  .pielegend{display:flex;justify-content:center;gap:18px;margin-top:16px;font-family:"Jost","Futura","Avenir Next",sans-serif;font-weight:500;font-size:8px;letter-spacing:1px;text-transform:uppercase;color:var(--ink-soft);}
   .pielegend i{display:inline-block;width:9px;height:9px;border-radius:2px;transform:translateY(1px);margin-right:5px;}
 
   /* mirror: icon chips + serif mantra */
@@ -149,23 +151,23 @@
 
   /* plan builds: checklist loader */
   .buildlist{display:flex;flex-direction:column;gap:12px;padding:0 8px;}
-  .brow{display:flex;align-items:center;gap:10px;font-family:"Jost";font-size:10px;letter-spacing:.3px;color:var(--ink-soft);}
+  .brow{display:flex;align-items:center;gap:10px;font-family:"Jost","Futura","Avenir Next",sans-serif;font-size:10px;letter-spacing:.3px;color:var(--ink-soft);}
   .brow .bc{width:15px;height:15px;border-radius:99px;border:1.5px solid var(--hair);flex:0 0 15px;}
   .brow.done{color:var(--ink);}
   .brow.done .bc{background:var(--teal);border-color:var(--teal);position:relative;}
   .brow.done .bc:after{content:"✓";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#fff;font-size:9px;font-weight:700;}
 
-  .led{display:flex;align-items:baseline;font-family:"Jost";font-size:9px;letter-spacing:1.2px;text-transform:uppercase;color:var(--ink-soft);padding:7px 0;}
+  .led{display:flex;align-items:baseline;font-family:"Jost","Futura","Avenir Next",sans-serif;font-size:9px;letter-spacing:1.2px;text-transform:uppercase;color:var(--ink-soft);padding:7px 0;}
   .led .dots{flex:1;border-bottom:1.5px dotted rgba(58,52,40,.35);margin:0 8px;transform:translateY(-2px);}
   .led .v{font-weight:600;color:var(--ink);}
   .stars{color:var(--mustard);font-size:12px;letter-spacing:3px;text-align:center;}
   .stars.big{font-size:20px;letter-spacing:5px;}
 
   .dlg{background:var(--cream2);border-radius:12px;padding:13px 15px 0;text-align:center;position:relative;}
-  .dlg .dt{font-family:"Jost";font-weight:600;font-size:9.5px;line-height:1.4;margin-bottom:4px;}
-  .dlg .db{font-family:"Jost";font-size:8px;color:var(--ink-soft);line-height:1.6;padding-bottom:11px;}
+  .dlg .dt{font-family:"Jost","Futura","Avenir Next",sans-serif;font-weight:600;font-size:9.5px;line-height:1.4;margin-bottom:4px;}
+  .dlg .db{font-family:"Jost","Futura","Avenir Next",sans-serif;font-size:8px;color:var(--ink-soft);line-height:1.6;padding-bottom:11px;}
   .dlgbtns{display:flex;border-top:1px solid rgba(58,52,40,.2);margin:0 -15px;}
-  .dlgbtn{flex:1;text-align:center;padding:8px 0;font-family:"Jost";font-size:9.5px;color:#2f6fd4;border-right:1px solid rgba(58,52,40,.2);}
+  .dlgbtn{flex:1;text-align:center;padding:8px 0;font-family:"Jost","Futura","Avenir Next",sans-serif;font-size:9.5px;color:#2f6fd4;border-right:1px solid rgba(58,52,40,.2);}
   .dlgbtn:last-child{border-right:none;}
   .dlgbtn.hl{font-weight:700;}
   .allowarrow{position:absolute;right:14px;bottom:-30px;}
@@ -175,7 +177,7 @@
   .field.big{font-size:17px;text-align:center;padding:10px 2px;}
 
   .price{display:flex;align-items:center;gap:9px;border:1.5px solid rgba(58,52,40,.35);border-radius:12px;
-         padding:10px 12px;font-family:"Jost";font-size:10px;letter-spacing:.6px;margin-bottom:8px;text-align:left;}
+         padding:10px 12px;font-family:"Jost","Futura","Avenir Next",sans-serif;font-size:10px;letter-spacing:.6px;margin-bottom:8px;text-align:left;}
   .price .ring{margin-left:auto;width:14px;height:14px;border-radius:99px;border:1.5px solid rgba(58,52,40,.4);flex:0 0 14px;}
   .price.sel{border:2px solid var(--mustard);background:var(--cream2);font-weight:600;}
   .price.sel .ring{border:none;background:var(--mustard);position:relative;}
@@ -189,16 +191,16 @@
      reads from the banner + border, so the radio rings are gone. */
   .plan2{display:flex;align-items:center;gap:10px;border:1.5px solid rgba(58,52,40,.30);border-radius:12px;
          padding:11px 13px;margin-bottom:9px;text-align:left;position:relative;background:#fff;overflow:hidden;}
-  .plan2 .pname{font-family:"Jost";font-weight:600;font-size:11px;letter-spacing:.4px;color:var(--ink);}
-  .plan2 .pdet{font-family:"Jost";font-size:8.5px;color:var(--ink-soft);letter-spacing:.4px;margin-top:2px;}
+  .plan2 .pname{font-family:"Jost","Futura","Avenir Next",sans-serif;font-weight:600;font-size:11px;letter-spacing:.4px;color:var(--ink);}
+  .plan2 .pdet{font-family:"Jost","Futura","Avenir Next",sans-serif;font-size:8.5px;color:var(--ink-soft);letter-spacing:.4px;margin-top:2px;}
   .plan2.sel{border:2px solid var(--olive);background:#fff;}
   .plan2.banner{padding-top:27px;}
   .plan2 .pbadge{position:absolute;top:0;left:0;right:0;background:var(--olive);color:#fff;
-         font-family:"Jost";font-weight:600;font-size:7.5px;letter-spacing:2.2px;text-transform:uppercase;
+         font-family:"Jost","Futura","Avenir Next",sans-serif;font-weight:600;font-size:7.5px;letter-spacing:2.2px;text-transform:uppercase;
          text-align:center;padding:4.5px 0;border-radius:0;}
   /* Paywall chrome: dismiss X, a rule under the header, and the swipeable feature
      strip that sits between the header and the plans. */
-  .pwx{position:absolute;top:18px;right:22px;font-family:"Jost";font-size:21px;font-weight:500;
+  .pwx{position:absolute;top:18px;right:22px;font-family:"Jost","Futura","Avenir Next",sans-serif;font-size:21px;font-weight:500;
        line-height:1;color:var(--mustard);}
   .pwrule{height:1.5px;background:rgba(58,52,40,.25);margin-top:13px;flex:0 0 auto;}
   .pwcar{flex:1;min-height:78px;display:flex;flex-direction:column;justify-content:flex-end;
@@ -206,25 +208,25 @@
   .pwdots{display:flex;gap:6px;}
   .pwdots i{width:5px;height:5px;border-radius:99px;background:var(--pink);}
   .pwdots i.on{background:var(--coral);}
-  .pwlinks{font-family:"Jost";font-size:8.5px;letter-spacing:.3px;color:var(--ink-soft);text-align:center;}
+  .pwlinks{font-family:"Jost","Futura","Avenir Next",sans-serif;font-size:8.5px;letter-spacing:.3px;color:var(--ink-soft);text-align:center;}
   .btn.pill{border-radius:99px;box-shadow:none;border-color:rgba(58,52,40,.28);}
   .trial{display:flex;flex-direction:column;gap:7px;padding:0 4px;}
-  .tstep{display:flex;gap:9px;align-items:baseline;font-family:"Jost";font-size:8.5px;color:var(--ink-soft);line-height:1.3;}
+  .tstep{display:flex;gap:9px;align-items:baseline;font-family:"Jost","Futura","Avenir Next",sans-serif;font-size:8.5px;color:var(--ink-soft);line-height:1.3;}
   .tstep b{flex:0 0 40px;color:var(--ink);font-weight:700;font-size:7.5px;text-transform:uppercase;letter-spacing:.6px;}
   /* telecom masthead + inclusions */
   .telecomhead{display:flex;align-items:center;justify-content:center;gap:8px;border-bottom:1.5px solid var(--ink);padding-bottom:9px;margin-bottom:11px;}
   .signal{display:inline-flex;align-items:flex-end;gap:2px;height:14px;}
   .signal i{width:3px;background:var(--ink);border-radius:1px;}
   .signal i:nth-child(1){height:5px;} .signal i:nth-child(2){height:8px;} .signal i:nth-child(3){height:11px;} .signal i:nth-child(4){height:14px;}
-  .tmark{font-family:"Jost";font-weight:700;font-size:12px;letter-spacing:3.5px;text-transform:uppercase;color:var(--ink);}
+  .tmark{font-family:"Jost","Futura","Avenir Next",sans-serif;font-weight:700;font-size:12px;letter-spacing:3.5px;text-transform:uppercase;color:var(--ink);}
   .planincl{display:flex;flex-direction:column;gap:7px;padding:0 8px;}
-  .pi{display:flex;gap:8px;align-items:center;font-family:"Jost";font-size:9.5px;color:var(--ink);letter-spacing:.3px;}
+  .pi{display:flex;gap:8px;align-items:center;font-family:"Jost","Futura","Avenir Next",sans-serif;font-size:9.5px;color:var(--ink);letter-spacing:.3px;}
   .pi:before{content:"✓";color:var(--teal);font-weight:700;font-size:10px;flex:0 0 10px;}
 
   .sysbg{background:#f4f2ec;padding:16px 18px;}
-  .banner{background:var(--cream2);padding:9px 11px;font-family:"Jost";font-size:8.4px;line-height:1.6;text-align:center;}
+  .banner{background:var(--cream2);padding:9px 11px;font-family:"Jost","Futura","Avenir Next",sans-serif;font-size:8.4px;line-height:1.6;text-align:center;}
   .sysrows{background:#fff;border-radius:10px;overflow:hidden;}
-  .sysrow{display:flex;align-items:center;gap:8px;padding:8px 10px;font-family:"Jost";font-size:9.5px;border-bottom:1px solid rgba(0,0,0,.05);color:#222;}
+  .sysrow{display:flex;align-items:center;gap:8px;padding:8px 10px;font-family:"Jost","Futura","Avenir Next",sans-serif;font-size:9.5px;border-bottom:1px solid rgba(0,0,0,.05);color:#222;}
   .sysrow .rc{width:13px;height:13px;border-radius:99px;border:1.4px solid #bbb;}
   .pickerbar{background:var(--cream);border-top:1px solid var(--hair);padding:11px 14px 9px;margin:0 -18px -22px;display:flex;flex-direction:column;align-items:center;gap:6px;}
 
@@ -234,8 +236,8 @@
   /* v6: how-it-works modal (Prayer Lock pattern) */
   .modal{background:#FBF6EA;border-radius:16px;padding:20px 18px 18px;box-shadow:0 10px 26px rgba(58,52,40,.28);
          position:relative;text-align:center;}
-  .modal .x{position:absolute;top:9px;right:12px;font-family:"Jost";font-size:10px;color:var(--ink-soft);}
-  .step{display:flex;align-items:flex-start;gap:9px;text-align:left;font-family:"Jost";font-size:10px;
+  .modal .x{position:absolute;top:9px;right:12px;font-family:"Jost","Futura","Avenir Next",sans-serif;font-size:10px;color:var(--ink-soft);}
+  .step{display:flex;align-items:flex-start;gap:9px;text-align:left;font-family:"Jost","Futura","Avenir Next",sans-serif;font-size:10px;
         letter-spacing:.3px;line-height:1.5;margin:9px 2px;}
   .step .n{width:16px;height:16px;border-radius:99px;background:var(--mustard);color:var(--ink);font-weight:600;
            font-size:9px;display:flex;align-items:center;justify-content:center;flex:0 0 16px;margin-top:1px;}
@@ -244,11 +246,11 @@
   .load{height:4px;width:150px;margin:0 auto;background:rgba(58,52,40,.15);border-radius:99px;overflow:hidden;position:relative;}
   .load i{position:absolute;inset:0;width:60%;background:var(--mustard);}
 
-  .fw{font-family:"Jost";font-weight:600;font-size:7px;letter-spacing:1.8px;text-transform:uppercase;color:var(--teal);display:block;margin-bottom:1px;}
-  .caplbl{font-family:"Jost";font-weight:600;font-size:8.5px;letter-spacing:2px;text-transform:uppercase;text-align:center;}
+  .fw{font-family:"Jost","Futura","Avenir Next",sans-serif;font-weight:600;font-size:7px;letter-spacing:1.8px;text-transform:uppercase;color:var(--teal);display:block;margin-bottom:1px;}
+  .caplbl{font-family:"Jost","Futura","Avenir Next",sans-serif;font-weight:600;font-size:8.5px;letter-spacing:2px;text-transform:uppercase;text-align:center;}
   .caplbl.coral{color:var(--coral);} .caplbl.teal{color:var(--teal);}
   .revealline{font-family:"Cormorant Garamond",serif;font-style:normal;font-weight:500;font-size:18px;text-align:center;color:var(--ink);line-height:1.4;}
-  .eyebrow{font-family:"Jost";font-weight:600;font-size:8px;letter-spacing:2.5px;text-transform:uppercase;color:var(--ink-soft);text-align:center;}
+  .eyebrow{font-family:"Jost","Futura","Avenir Next",sans-serif;font-weight:600;font-size:8px;letter-spacing:2.5px;text-transform:uppercase;color:var(--ink-soft);text-align:center;}
   /* v10: yes/no ghost button */
   .btn.ghost{background:transparent;box-shadow:none;border:1.5px solid rgba(58,52,40,.5);}
   /* v10: screen-time ruler */
@@ -260,26 +262,26 @@
   .rulerptr{position:absolute;left:55%;top:0;transform:translateX(-50%);width:22px;height:auto;pointer-events:none;transition:left .05s linear;}
   .rulerwrap input[type=range]{position:absolute;left:0;top:34px;width:100%;height:calc(100% - 34px);margin:0;opacity:0;cursor:grab;}
   .rulerwrap input[type=range]:active{cursor:grabbing;}
-  .rulerlabels{display:flex;justify-content:space-between;font-family:"Jost";font-weight:500;font-size:8px;letter-spacing:.5px;color:var(--ink-soft);margin-top:6px;padding:0 10px;}
+  .rulerlabels{display:flex;justify-content:space-between;font-family:"Jost","Futura","Avenir Next",sans-serif;font-weight:500;font-size:8px;letter-spacing:.5px;color:var(--ink-soft);margin-top:6px;padding:0 10px;}
   /* v10: screen-time drop graph */
   .graph{position:relative;height:120px;border-left:1.5px solid rgba(58,52,40,.4);border-bottom:1.5px solid rgba(58,52,40,.4);margin:0 14px;}
   .graph svg{position:absolute;inset:0;width:100%;height:100%;}
-  .graph .glabel{position:absolute;font-family:"Jost";font-weight:600;font-size:6.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-soft);}
+  .graph .glabel{position:absolute;font-family:"Jost","Futura","Avenir Next",sans-serif;font-weight:600;font-size:6.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-soft);}
 
   /* v11: branch label above a path's cells */
-  h3.branch{font-family:"Jost";font-weight:700;font-size:9px;letter-spacing:3px;text-transform:uppercase;
+  h3.branch{font-family:"Jost","Futura","Avenir Next",sans-serif;font-weight:700;font-size:9px;letter-spacing:3px;text-transform:uppercase;
             color:var(--coral);margin:26px 0 12px;display:flex;align-items:center;gap:12px;}
   h3.branch:after{content:"";flex:1;border-top:1px dashed rgba(226,96,63,.45);}
   .cut{background:rgba(226,96,63,.08);border:1px dashed rgba(226,96,63,.5);border-radius:10px;
-       padding:12px 14px;margin:10px 0 4px;font-family:"Jost";font-size:11px;line-height:1.6;color:var(--ink-soft);max-width:960px;}
-  .cut .lbl{font-family:"Jost";font-weight:700;font-size:8.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--coral);display:block;margin-bottom:5px;}
+       padding:12px 14px;margin:10px 0 4px;font-family:"Jost","Futura","Avenir Next",sans-serif;font-size:11px;line-height:1.6;color:var(--ink-soft);max-width:960px;}
+  .cut .lbl{font-family:"Jost","Futura","Avenir Next",sans-serif;font-weight:700;font-size:8.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--coral);display:block;margin-bottom:5px;}
   .cut b{font-weight:700;color:var(--ink);}
   .magnet{font-size:64px;text-align:center;line-height:1;}
   /* v11: card quiz rows (matches the in-app "why offline" screen) */
   /* Sized so the longest list (7 rows on "when do you scroll") still clears the
      CTA inside the 640px frame, while staying roomier than the original 10px/9px. */
   .crow{display:flex;align-items:center;gap:12px;background:var(--cream2);border:1px solid rgba(58,52,40,.16);
-        border-radius:14px;padding:12px 13px;margin-bottom:10px;font-family:"Jost";font-weight:500;font-size:11.5px;color:var(--ink);}
+        border-radius:14px;padding:12px 13px;margin-bottom:10px;font-family:"Jost","Futura","Avenir Next",sans-serif;font-weight:500;font-size:11.5px;color:var(--ink);}
   .crow .cic{width:24px;height:24px;border-radius:8px;background:#F7F0E0;display:flex;align-items:center;
              justify-content:center;font-size:12.5px;flex:0 0 24px;}
   .crow .cring{margin-left:auto;width:15px;height:15px;border-radius:99px;border:1.5px solid rgba(58,52,40,.3);flex:0 0 15px;}
@@ -292,15 +294,15 @@
   .screen[data-name="When do you scroll"] .crow{margin-bottom:7px;}
   .crow.sel .cring{border:none;background:var(--mustard);position:relative;}
   .crow.sel .cring:after{content:"✓";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:var(--ink);}
-  .qsub{font-family:"Jost";font-weight:500;font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--ink-soft);margin:7px 0 20px;}
+  .qsub{font-family:"Jost","Futura","Avenir Next",sans-serif;font-weight:500;font-size:8px;letter-spacing:2px;text-transform:uppercase;color:var(--ink-soft);margin:7px 0 20px;}
   .btn.off{opacity:.45;}
   /* v11: big 3-up option cards (the fork) */
   .bigopt{display:flex;align-items:center;gap:13px;background:var(--cream2);border:1.5px solid rgba(58,52,40,.2);
           border-radius:16px;padding:14px 14px;margin-bottom:12px;text-align:left;}
   .bigopt .be{width:44px;height:44px;border-radius:99px;background:#F7F0E0;border:1.5px solid rgba(58,52,40,.18);
               display:flex;align-items:center;justify-content:center;font-size:21px;flex:0 0 44px;}
-  .bigopt .bt{font-family:"Jost";font-weight:700;font-size:14px;letter-spacing:1px;text-transform:uppercase;color:var(--ink);}
-  .bigopt .bd{font-family:"Jost";font-size:9px;letter-spacing:.4px;color:var(--ink-soft);margin-top:3px;}
+  .bigopt .bt{font-family:"Jost","Futura","Avenir Next",sans-serif;font-weight:700;font-size:14px;letter-spacing:1px;text-transform:uppercase;color:var(--ink);}
+  .bigopt .bd{font-family:"Jost","Futura","Avenir Next",sans-serif;font-size:9px;letter-spacing:.4px;color:var(--ink-soft);margin-top:3px;}
   .bigopt.sel{border:2px solid var(--mustard);background:#FBF6EC;}
   .pickupbar{display:flex;align-items:flex-end;justify-content:center;gap:5px;height:74px;}
   .pickupbar i{width:9px;background:var(--coral);border-radius:2px 2px 0 0;opacity:.85;}
@@ -331,14 +333,14 @@
 
   .topbar{display:flex;align-items:center;gap:11px;height:20px;flex:0 0 auto;margin-bottom:14px;}
   .topbar.blank{visibility:hidden;}
-  .backb{font-family:"Jost";font-size:19px;font-weight:600;color:var(--mustard);line-height:1;
+  .backb{font-family:"Jost","Futura","Avenir Next",sans-serif;font-size:19px;font-weight:600;color:var(--mustard);line-height:1;
          width:16px;cursor:pointer;user-select:none;}
   .pbar{flex:1;height:4px;background:var(--cream2);border-radius:99px;overflow:hidden;}
   .pbar i{display:block;height:100%;background:var(--mustard);border-radius:99px;transition:width .25s ease;}
 
   /* must never be wider than the viewport — body centres on content width, so a
      long caption would shove the phone off to one side */
-  .caption{margin-top:16px;font-family:"Jost";font-size:10px;letter-spacing:2px;text-transform:uppercase;
+  .caption{margin-top:16px;font-family:"Jost","Futura","Avenir Next",sans-serif;font-size:10px;letter-spacing:2px;text-transform:uppercase;
            color:var(--ink-soft);display:flex;align-items:center;justify-content:center;gap:14px;
            flex-wrap:wrap;max-width:100%;text-align:center;}
   .caption b{font-weight:600;color:var(--ink);}
@@ -350,7 +352,7 @@
   .btn{width:100%;padding:15px 10px;font-size:14.5px;}
   .mid{flex:1;display:flex;flex-direction:column;justify-content:center;}
   .art{display:block;margin:0 auto;}
-  .pinkcard{background:var(--pink);border-radius:12px;padding:13px 14px;font-family:"Jost";font-size:11.5px;
+  .pinkcard{background:var(--pink);border-radius:12px;padding:13px 14px;font-family:"Jost","Futura","Avenir Next",sans-serif;font-size:11.5px;
             line-height:1.5;color:var(--ink);margin-bottom:10px;}
   /* Personalized plan: a warm halo so the phone art sits in light instead of floating
      on flat cream, and the two payoffs read as a checked-off list rather than slabs. */
@@ -362,13 +364,13 @@
   .goalcard{display:flex;gap:11px;align-items:flex-start;background:var(--pink);
         border:1.5px solid rgba(226,96,63,.26);border-radius:13px;padding:12px 14px;margin-bottom:9px;}
   .goalcard .gk{flex:0 0 17px;width:17px;height:17px;border-radius:99px;background:var(--coral);color:#fff;
-        font-family:"Jost";font-weight:700;font-size:9.5px;line-height:17px;text-align:center;margin-top:1px;}
-  .goalcard .gt{font-family:"Jost";font-size:11.5px;line-height:1.5;color:var(--ink);}
+        font-family:"Jost","Futura","Avenir Next",sans-serif;font-weight:700;font-size:9.5px;line-height:17px;text-align:center;margin-top:1px;}
+  .goalcard .gt{font-family:"Jost","Futura","Avenir Next",sans-serif;font-size:11.5px;line-height:1.5;color:var(--ink);}
   .goalcard .gt b{font-weight:600;}
   /* Snapshot: a labelled eyebrow over one rounded block per section, with the
      two findings split by a hairline so they read as separate observations. */
   .seclbl{display:flex;align-items:center;gap:8px;margin:0 0 8px;
-          font-family:"Jost";font-weight:600;font-size:8.5px;letter-spacing:2.6px;text-transform:uppercase;
+          font-family:"Jost","Futura","Avenir Next",sans-serif;font-weight:600;font-size:8.5px;letter-spacing:2.6px;text-transform:uppercase;
           color:var(--coral);}
   .seclbl:after{content:"";flex:1;height:1px;background:rgba(58,52,40,.16);}
   .seclbl.goals{color:var(--olive);}
@@ -376,7 +378,7 @@
            padding:2px 16px;margin-bottom:18px;}
   /* Challenges run warmer than goals so the two halves read apart at a glance. */
   .pinkbox.chal{background:#F6DBD1;border-color:rgba(226,96,63,.30);}
-  .pinkbox p{position:relative;font-family:"Jost";font-size:11.5px;line-height:1.55;color:var(--ink);
+  .pinkbox p{position:relative;font-family:"Jost","Futura","Avenir Next",sans-serif;font-size:11.5px;line-height:1.55;color:var(--ink);
              margin:0;padding:14px 0 14px 16px;}
   .pinkbox p:before{content:"";position:absolute;left:0;top:20px;width:6px;height:6px;border-radius:99px;
              background:var(--coral);}
@@ -390,12 +392,12 @@
   .pinkbox p + p{border-top:1px solid rgba(58,52,40,.14);}
   .dial{position:relative;width:170px;height:170px;border-radius:99px;margin:0 auto;
         background:conic-gradient(var(--pink) 0 50%, var(--cream2) 50% 100%);border:2px solid rgba(58,52,40,.5);}
-  .dial span{position:absolute;font-family:"Jost";font-size:13px;color:var(--ink);}
+  .dial span{position:absolute;font-family:"Jost","Futura","Avenir Next",sans-serif;font-size:13px;color:var(--ink);}
   .dial i{position:absolute;left:50%;top:12px;width:2px;height:73px;background:var(--ink);transform:translateX(-50%);}
   .review{background:#fff;border-radius:10px;padding:11px 13px;margin-bottom:11px;box-shadow:0 2px 8px rgba(58,52,40,.10);}
-  .review .rt{font-family:"Jost";font-weight:600;font-size:11.5px;color:var(--ink);}
+  .review .rt{font-family:"Jost","Futura","Avenir Next",sans-serif;font-weight:600;font-size:11.5px;color:var(--ink);}
   .review .rs{color:var(--mustard);font-size:10px;letter-spacing:2px;margin:3px 0 5px;}
-  .review .rb{font-family:"Jost";font-size:9.5px;line-height:1.5;color:var(--ink-soft);}
+  .review .rb{font-family:"Jost","Futura","Avenir Next",sans-serif;font-size:9.5px;line-height:1.5;color:var(--ink-soft);}
   .review .rw{font-family:"Cormorant Garamond",serif;font-style:italic;font-size:9.5px;color:var(--ink-soft);margin-top:5px;}
   /* iOS FamilyActivityPicker ("Choose Activities") — system UI, so it keeps
      Apple's typography and greys rather than the Flip Phone palette. */
@@ -421,11 +423,11 @@
   .sysrow2 .all{margin-left:auto;color:#8a8a8e;font-size:10.5px;}
   .sysrow2 .all + .cv{margin-left:5px;}
   .starsheet{background:var(--cream2);border:1.5px solid rgba(58,52,40,.28);border-radius:14px;padding:13px 12px;}
-  .starsheet .lbl{font-family:"Jost";font-weight:600;font-size:8px;letter-spacing:2.5px;text-transform:uppercase;
+  .starsheet .lbl{font-family:"Jost","Futura","Avenir Next",sans-serif;font-weight:600;font-size:8px;letter-spacing:2.5px;text-transform:uppercase;
            color:var(--ink-soft);text-align:center;margin-bottom:9px;}
   .starsheet .days{display:flex;justify-content:space-between;}
   .starsheet .day{display:flex;flex-direction:column;align-items:center;gap:5px;
-           font-family:"Jost";font-size:8.5px;color:var(--ink-soft);}
+           font-family:"Jost","Futura","Avenir Next",sans-serif;font-size:8.5px;color:var(--ink-soft);}
   .starsheet .slot{font-size:17px;color:rgba(58,52,40,.22);}
   .starsheet .slot.on{color:var(--mustard);}
 
@@ -443,11 +445,11 @@
   /* The reveal: the number counts up and a twelve-square year fills in, so the
      figure lands as something happening rather than a printed fact. */
   .revwrap{text-align:center;}
-  .reveyebrow{font-family:"Jost";font-weight:500;font-size:9px;letter-spacing:3.4px;text-transform:uppercase;
+  .reveyebrow{font-family:"Jost","Futura","Avenir Next",sans-serif;font-weight:500;font-size:9px;letter-spacing:3.4px;text-transform:uppercase;
               color:var(--ink-soft);}
-  .revnum{font-family:"Jost";font-weight:600;font-size:96px;line-height:.95;color:var(--coral);
+  .revnum{font-family:"Jost","Futura","Avenir Next",sans-serif;font-weight:600;font-size:96px;line-height:.95;color:var(--coral);
           margin-top:6px;letter-spacing:-2px;}
-  .revunit{font-family:"Jost";font-weight:500;font-size:17px;color:var(--ink);margin-top:2px;}
+  .revunit{font-family:"Jost","Futura","Avenir Next",sans-serif;font-weight:500;font-size:17px;color:var(--ink);margin-top:2px;}
   /* 365 squares — one per day of the year. Flex-wrap rather than grid so the
      short last row centres instead of hanging off to one side. */
   /* 205px = 23 cells + 22 gaps, which leaves 365 with a nearly-full last row
@@ -455,15 +457,15 @@
   .yearstrip{display:flex;flex-wrap:wrap;justify-content:center;gap:2px;margin:20px auto 0;width:205px;}
   .yearstrip i{width:7px;height:7px;border-radius:1.5px;background:rgba(58,52,40,.13);}
   .yearstrip i.on{background:var(--coral);}
-  .revmonths{font-family:"Jost";font-weight:500;font-size:13px;letter-spacing:.2px;
+  .revmonths{font-family:"Jost","Futura","Avenir Next",sans-serif;font-weight:500;font-size:13px;letter-spacing:.2px;
              color:var(--ink-soft);margin-top:18px;}
   /* The closing line is Jost regular in full ink, so it lands as a statement rather
      than the softer serif italic aside it used to be. */
-  .revfoot{font-family:"Jost";font-weight:400;font-size:13.5px;line-height:1.5;
+  .revfoot{font-family:"Jost","Futura","Avenir Next",sans-serif;font-weight:400;font-size:13.5px;line-height:1.5;
            color:var(--ink);margin-top:10px;}
 
   /* wordmark at the top of the opening screen, in the frame's olive */
-  .osmark{font-family:"Jost";font-weight:500;font-size:9.5px;letter-spacing:3.4px;
+  .osmark{font-family:"Jost","Futura","Avenir Next",sans-serif;font-weight:500;font-size:9.5px;letter-spacing:3.4px;
           text-transform:uppercase;color:var(--olive);text-align:center;margin-top:6px;}
 
   /* "How Flip Phone Works" — the block/allow pair. No containing boxes: each row is just
@@ -471,14 +473,14 @@
      comparison rather than two competing cards. Coral = locked, gold = allowed. */
   .hlw{text-align:center;}
   .hlw.allow{margin-top:30px;}
-  .hlw .t{font-family:"Jost";font-weight:500;font-size:16px;line-height:1.35;color:var(--ink);}
+  .hlw .t{font-family:"Jost","Futura","Avenir Next",sans-serif;font-weight:500;font-size:16px;line-height:1.35;color:var(--ink);}
   .hlw .strip{margin-top:14px;padding:16px 12px;}
   .hlw .strip .trio{display:block;width:82%;margin:0 auto;}
   .hlw.block .strip{background:radial-gradient(ellipse at center,
         rgba(226,96,63,.22) 0%, rgba(226,96,63,.10) 52%, rgba(226,96,63,0) 76%);}
   .hlw.allow .strip{background:radial-gradient(ellipse at center,
         rgba(227,178,60,.40) 0%, rgba(227,178,60,.17) 52%, rgba(227,178,60,0) 76%);}
-  .stepnum{font-family:"Jost";font-weight:400;font-size:15px;color:var(--ink);text-align:center;}
+  .stepnum{font-family:"Jost","Futura","Avenir Next",sans-serif;font-weight:400;font-size:15px;color:var(--ink);text-align:center;}
   /* The three how-it-works steps share a layout: content runs from the top and a single
      closing line is pushed to the bottom, so that line sits at the same height and size
      on all three rather than floating wherever the centred stack happens to leave it. */
@@ -487,17 +489,17 @@
      the button. Pinning it to the bottom left ~100px of dead space under the shorter
      dial and phones; a fixed gap sat it too close to them. This self-adjusts, and
      stays safe on step 1, whose taller illustration leaves almost no slack. */
-  .stepfoot{margin:auto 0;padding-top:10px;font-family:"Jost";font-weight:400;font-size:13px;
+  .stepfoot{margin:auto 0;padding-top:10px;font-family:"Jost","Futura","Avenir Next",sans-serif;font-weight:400;font-size:13px;
             color:var(--ink-soft);text-align:center;line-height:1.5;}
 
   /* decay graph on "Watch your screen time drop every week" */
-  .axislbl{font-family:"Jost";font-size:7px;color:var(--ink-soft);}
+  .axislbl{font-family:"Jost","Futura","Avenir Next",sans-serif;font-size:7px;color:var(--ink-soft);}
 
   /* No centre readout — the needle and the sweep carry the duration, so it just
      gets a hub to pivot on. */
   .dialhub{position:absolute;left:50%;top:50%;width:11px;height:11px;margin:-5.5px 0 0 -5.5px;
            border-radius:99px;background:var(--ink);pointer-events:none;}
-  .dialwrap .mk{position:absolute;font-family:"Jost";font-size:12px;color:var(--ink);}
+  .dialwrap .mk{position:absolute;font-family:"Jost","Futura","Avenir Next",sans-serif;font-size:12px;color:var(--ink);}
   /* drop-graph draw-on */
   .drawline{stroke-dasharray:420;stroke-dashoffset:420;}
   .screen.active .drawline{animation:draw 1.6s ease-out .25s forwards;}
@@ -509,7 +511,7 @@
              border-left:1.5px solid rgba(58,52,40,.35);border-bottom:1.5px solid rgba(58,52,40,.35);}
   .dropgraph svg{position:absolute;inset:0;width:100%;height:100%;z-index:1;}
   .dropgraph .yl{position:absolute;right:calc(100% + 8px);transform:translateY(-50%);
-                 font-family:"Jost";font-weight:500;font-size:9.5px;color:var(--ink-soft);
+                 font-family:"Jost","Futura","Avenir Next",sans-serif;font-weight:500;font-size:9.5px;color:var(--ink-soft);
                  text-align:right;line-height:1.15;white-space:nowrap;}
   .dropgraph .yl.goal{color:var(--coral);font-weight:600;}
   .dropgraph .yl small{display:block;font-size:8px;}
@@ -520,9 +522,9 @@
   .screen.active .dropguide{animation:fillin .5s ease-out 1.5s forwards;}
   .screen.active .dropdot{animation:fillin .4s ease-out 1.7s forwards;}
   .dropx{display:flex;justify-content:space-between;margin:6px 18px 0 38px;
-         font-family:"Jost";font-weight:500;font-size:8.5px;color:var(--ink-soft);}
+         font-family:"Jost","Futura","Avenir Next",sans-serif;font-weight:500;font-size:8.5px;color:var(--ink-soft);}
   .dropcap{display:flex;justify-content:space-between;margin:18px 6px 0;
-           font-family:"Jost";font-weight:500;font-size:14px;color:var(--ink-soft);}
+           font-family:"Jost","Futura","Avenir Next",sans-serif;font-weight:500;font-size:14px;color:var(--ink-soft);}
   @keyframes draw{to{stroke-dashoffset:0;}}
   @keyframes fillin{to{opacity:1;}}
   /* staggered sentence fade (the turn screen) */
