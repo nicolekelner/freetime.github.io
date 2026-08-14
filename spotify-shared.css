@@ -86,7 +86,7 @@
     /* ============================================================
        HERO — the header of a show page, applied to a portfolio
        ============================================================ */
-    .sp-hero { padding:44px 32px 60px; background:linear-gradient(180deg,#1F1F1F 0%, var(--bg) 92%); text-align:left; border:none; }
+    .sp-hero { padding:104px 32px 60px; background:linear-gradient(180deg,#1F1F1F 0%, var(--bg) 92%); text-align:left; border:none; }
     /* padding matches .pf-inner so the hero's left edge lines up with every section below */
     .sp-hero-inner { max-width:1120px; margin:0 auto; padding:0 32px; display:flex; gap:36px; align-items:flex-end; flex-wrap:wrap; }
     .sp-hero-body { max-width:1120px; margin:38px auto 0; padding:0 32px; }
@@ -349,7 +349,7 @@
     @media (max-width:900px) {
         .pf-band, .pf-case { padding:64px 22px; }
         .pf-inner, .sp-hero-note { padding:0 22px; }
-        .sp-hero { padding:40px 22px 44px; }
+        .sp-hero { padding:132px 22px 44px; }
         .sp-hero-inner { gap:28px; align-items:flex-start; }
         .sp-cover { width:150px; height:150px; }
         .sp-cover span { font-size:3em; }
