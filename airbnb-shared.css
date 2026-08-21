@@ -552,21 +552,10 @@ html.js .reveal-stagger.in-view > *:nth-child(6) { transition-delay: 0.6s; }
 .ab-badge { display:inline-flex; align-items:center; gap:6px; font-weight:700; }
 .ab-meta .ab-loc { color:var(--text-3); font-weight:500; text-decoration:underline; text-underline-offset:2px; }
 
-/* ---- 5-photo gallery: one large left, 2x2 right ---- */
-.ab-gallery {
-    max-width:1120px; margin:0 auto 48px; padding:0 32px;
-    display:grid; grid-template-columns:2fr 1fr 1fr; grid-template-rows:1fr 1fr;
-    gap:8px; height:420px;
-}
-.ab-gallery figure { margin:0; overflow:hidden; background:var(--bg-alt); position:relative; }
-.ab-gallery img { width:100%; height:100%; object-fit:cover; display:block; }
-.ab-gallery figure:nth-child(1) { grid-row:1 / 3; border-radius:var(--radius) 0 0 var(--radius); }
-.ab-gallery figure:nth-child(3) { border-radius:0 var(--radius) 0 0; }
-.ab-gallery figure:nth-child(5) { border-radius:0 0 var(--radius) 0; }
-/* product shots are screens, not photography: letterbox rather than crop */
-.ab-gallery .is-shot img { object-fit:contain; padding:14px; background:var(--bg-alt); }
-/* the conversion strip is very wide; bias the crop to the figures */
-.ab-gallery .is-metrics img { object-position:22% center; }
+/* ---- header image ---- */
+.ab-gallery { max-width:1120px; margin:0 auto 48px; padding:0 32px; }
+.ab-gallery figure { margin:0; overflow:hidden; border-radius:var(--radius); background:var(--bg-alt); max-width:620px; }
+.ab-gallery img { width:100%; aspect-ratio:4/3; object-fit:cover; object-position:center 22%; display:block; }
 
 /* ---- two-column body: content left, price card right ---- */
 .ab-body { max-width:1120px; margin:0 auto; padding:0 32px; display:grid; grid-template-columns:1fr 372px; gap:80px; align-items:start; }
@@ -620,9 +609,7 @@ html.js .reveal-stagger.in-view > *:nth-child(6) { transition-delay: 0.6s; }
 @media (max-width:900px) {
     .ab-head, .ab-gallery, .ab-body { padding-left:22px; padding-right:22px; }
     .ab-head h1 { font-size:1.7em !important; }
-    .ab-gallery { grid-template-columns:1fr; grid-template-rows:auto; height:auto; gap:0; margin-bottom:32px; }
-    .ab-gallery figure { border-radius:var(--radius) !important; aspect-ratio:4/3; }
-    .ab-gallery figure:nth-child(n+2) { display:none; }
+    .ab-gallery { margin-bottom:32px; }
     .ab-amenities ul { grid-template-columns:1fr; gap:0; }
     .ab-cards { grid-template-columns:1fr; gap:26px; }
     .ab-pricecard { max-width:none; }
