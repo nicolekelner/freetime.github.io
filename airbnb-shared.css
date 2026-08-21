@@ -552,14 +552,20 @@ html.js .reveal-stagger.in-view > *:nth-child(6) { transition-delay: 0.6s; }
 .ab-badge { display:inline-flex; align-items:center; gap:6px; font-weight:700; }
 .ab-meta .ab-loc { color:var(--text-3); font-weight:500; text-decoration:underline; text-underline-offset:2px; }
 
-/* ---- header image ---- */
-.ab-gallery { max-width:1120px; margin:0 auto 48px; padding:0 32px; }
-.ab-gallery figure { margin:0; overflow:hidden; border-radius:var(--radius); background:var(--bg-alt); max-width:620px; }
-.ab-gallery img { width:100%; aspect-ratio:4/3; object-fit:cover; object-position:center 22%; display:block; }
+/* ---- header: photo and price card side by side ---- */
+.ab-top {
+    max-width:1120px; margin:0 auto 52px; padding:0 32px;
+    display:grid; grid-template-columns:minmax(0,1fr) 372px; gap:56px; align-items:start;
+}
+/* nicole.jpg is square, so the frame is square too: a 4/3 or wider frame
+   would crop the edges off the source. */
+.ab-gallery { margin:0; padding:0; }
+.ab-gallery figure { margin:0; overflow:hidden; border-radius:var(--radius); background:var(--bg-alt); max-width:560px; }
+.ab-gallery img { width:100%; aspect-ratio:1/1; object-fit:cover; object-position:center center; display:block; }
 
 /* ---- two-column body: content left, price card right ---- */
-.ab-body { max-width:1120px; margin:0 auto; padding:0 32px; display:grid; grid-template-columns:1fr 372px; gap:80px; align-items:start; }
-.ab-main { min-width:0; padding-bottom:12px; }
+.ab-body { max-width:1120px; margin:0 auto; padding:0 32px; }
+.ab-main { min-width:0; max-width:760px; padding-bottom:12px; }
 .ab-lede { font-size:1.06em !important; line-height:1.75 !important; margin:0 0 34px !important; }
 .ab-rule { border:0; border-top:1px solid var(--line); margin:34px 0; }
 
@@ -571,7 +577,7 @@ html.js .reveal-stagger.in-view > *:nth-child(6) { transition-delay: 0.6s; }
 
 /* ---- the price card ---- */
 .ab-pricecard {
-    position:sticky; top:28px; border:1px solid var(--line); border-radius:var(--radius);
+    border:1px solid var(--line); border-radius:var(--radius);
     box-shadow:0 6px 16px rgba(0,0,0,.12); padding:24px; background:#fff;
 }
 .ab-pricecard .ab-pc-top { display:flex; align-items:baseline; gap:7px; margin-bottom:20px; }
@@ -602,14 +608,15 @@ html.js .reveal-stagger.in-view > *:nth-child(6) { transition-delay: 0.6s; }
 .ab-card .ab-cgo { display:block; font-size:.9em; color:var(--text); font-weight:600; margin-top:8px; text-decoration:underline; text-underline-offset:3px; }
 
 @media (max-width:1080px) {
-    .ab-body { grid-template-columns:1fr; gap:44px; }
-    .ab-pricecard { position:static; max-width:420px; }
+    .ab-top { grid-template-columns:1fr; gap:32px; }
+    .ab-gallery figure { max-width:none; }
+    .ab-pricecard { max-width:440px; }
     .ab-cards { grid-template-columns:1fr 1fr; gap:22px; }
 }
 @media (max-width:900px) {
-    .ab-head, .ab-gallery, .ab-body { padding-left:22px; padding-right:22px; }
+    .ab-head, .ab-top, .ab-body { padding-left:22px; padding-right:22px; }
     .ab-head h1 { font-size:1.7em !important; }
-    .ab-gallery { margin-bottom:32px; }
+    .ab-top { margin-bottom:32px; }
     .ab-amenities ul { grid-template-columns:1fr; gap:0; }
     .ab-cards { grid-template-columns:1fr; gap:26px; }
     .ab-pricecard { max-width:none; }
