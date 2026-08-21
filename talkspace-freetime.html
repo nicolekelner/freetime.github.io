@@ -6,7 +6,7 @@
     <script>document.documentElement.classList.add('js');</script>
     <meta name="robots" content="noindex,nofollow">
     <link rel="canonical" href="https://findfreetime.com/talkspace-freetime.html">
-    <meta name="theme-color" content="#F4F6FA">
+    <meta name="theme-color" content="#E1F0EE">
     <title>Free Time: Nicole Kelner, Product Manager</title>
     <meta name="description" content="How I instrumented and iterated Free Time&#39;s onboarding funnel. A product-management case study.">
     <meta property="og:type" content="website">
@@ -16,27 +16,10 @@
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="talkspace-shared.css">
 </head>
 <body>
-    <nav class="main-nav pf-nav">
-        <div class="nav-container">
-            <a href="talkspace.html" class="logo"><span class="dot"></span> Nicole Kelner</a>
-            <button class="hamburger" id="hamburger" aria-label="Menu">
-                <span></span><span></span><span></span>
-            </button>
-            <div class="nav-links" id="navLinks">
-                <a href="talkspace.html#match">The match</a>
-                <a href="talkspace-freetime.html">Free Time</a>
-                <a href="talkspace-flipphone.html">Flip Phone</a>
-                <a href="talkspace-climate.html">Climate</a>
-                <a href="talkspace-codingspace.html">Coding Space</a>
-                <a href="talkspace.html#about">About</a>
-                <a href="mailto:nicolegkelner@gmail.com" class="nav-cta">Say hello</a>
-            </div>
-        </div>
-    </nav>
 
     <main class="pf" id="top">
 
@@ -54,7 +37,7 @@
             <div class="sp-hero-body"><div class="sp-cta-row"><a href="https://apps.apple.com/app/id6747683001" class="sp-btn" target="_blank" rel="noopener">See it on the App Store</a></div></div>
         </section>
 
-        <section class="pf-case">
+        <section class="pf-case band-white">
             <div class="pf-inner">
                 <dl class="pf-snapshot reveal">
                     <div><dt>Role</dt><dd>Founder &amp; Product Owner</dd></div>
@@ -133,7 +116,7 @@
                     <!-- Nicole: this is the conversion section of the dashboard. The MRR / ARR /
                          total-revenue tiles are trimmed out, per your call to publish rates and
                          not the size of the business. images/dashboard-full.jpg is the complete
-                         screenshot if you'd rather show everything — just swap the src. -->
+                         screenshot if you'd rather show everything ; just swap the src. -->
                     <figure class="sp-shot">
                         <img src="images/dashboard-conversion.jpg" alt="Free Time growth dashboard showing download-to-paid and trial-to-paid conversion rates">
                         <figcaption>Download → paid sits at 6.8% all-time and 9.6% over the last 90 days. Trial → paid runs 61.6% all-time. The gap between those two numbers is the whole case: getting someone to start a trial is the hard part, and once they do, the product mostly sells itself.</figcaption>
@@ -205,7 +188,7 @@
                     </div>
                     <blockquote class="pf-quote">
                         <p>This app cut my screen time from 9 hours a day to 2.5 hours.</p>
-                        <cite>— Hope W., App Store review</cite>
+                        <cite>Hope W., App Store review</cite>
                     </blockquote>
                 </div>
 
@@ -218,7 +201,7 @@
 
         <nav class="sp-casenav">
             <a href="talkspace-codingspace.html"><span class="sp-cndir">← Previous case</span><span class="sp-cnname">The Coding Space</span></a>
-            <a href="talkspace-flipphone.html" class="sp-cnnext"><span class="sp-cndir">Next case →</span><span class="sp-cnname">Flip Phone OS</span></a>
+            <a href="talkspace-unplug.html" class="sp-cnnext"><span class="sp-cndir">Next case →</span><span class="sp-cnname">Unplug OS</span></a>
         </nav>
 
         <footer class="pf-foot">
@@ -229,23 +212,6 @@
         </footer>
     </main>
 
-    <script>
-    (function () {
-        var burger = document.getElementById('hamburger');
-        var links = document.getElementById('navLinks');
-        if (!burger || !links) return;
-        burger.addEventListener('click', function () {
-            burger.classList.toggle('active');
-            links.classList.toggle('active');
-        });
-        links.querySelectorAll('a').forEach(function (a) {
-            a.addEventListener('click', function () {
-                burger.classList.remove('active');
-                links.classList.remove('active');
-            });
-        });
-    })();
-    </script>
     <script src="animate.js" defer></script>
 </body>
 </html>
