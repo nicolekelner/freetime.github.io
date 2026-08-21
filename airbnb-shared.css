@@ -555,13 +555,22 @@ html.js .reveal-stagger.in-view > *:nth-child(6) { transition-delay: 0.6s; }
 /* ---- header: photo and price card side by side ---- */
 .ab-top {
     max-width:1120px; margin:0 auto 52px; padding:0 32px;
-    display:grid; grid-template-columns:minmax(0,1fr) 372px; gap:56px; align-items:start;
+    display:grid; grid-template-columns:minmax(0,1fr) 372px; gap:56px; align-items:stretch;
 }
 /* nicole.jpg is square, so the frame is square too: a 4/3 or wider frame
-   would crop the edges off the source. */
-.ab-gallery { margin:0; padding:0; }
-.ab-gallery figure { margin:0; overflow:hidden; border-radius:var(--radius); background:var(--bg-alt); max-width:560px; }
-.ab-gallery img { width:100%; aspect-ratio:1/1; object-fit:cover; object-position:center center; display:block; }
+   would crop the edges off the source. The figure takes its height from
+   the price card beside it and derives its width from that height, so the
+   two line up exactly and the photo still is not cropped. */
+/* The figure is taken out of flow so it contributes no height: the row is
+   sized by the price card alone, and the square photo then matches it.
+   Left in flow it would be the taller item and the card would stretch. */
+.ab-gallery { margin:0; padding:0; position:relative; min-height:260px; }
+.ab-gallery figure {
+    position:absolute; top:0; bottom:0; left:0;
+    margin:0; overflow:hidden; border-radius:var(--radius); background:var(--bg-alt);
+    aspect-ratio:1/1; width:auto; max-width:100%;
+}
+.ab-gallery img { width:100%; height:100%; object-fit:cover; object-position:center center; display:block; }
 
 /* ---- two-column body: content left, price card right ---- */
 .ab-body { max-width:1120px; margin:0 auto; padding:0 32px; }
@@ -608,8 +617,9 @@ html.js .reveal-stagger.in-view > *:nth-child(6) { transition-delay: 0.6s; }
 .ab-card .ab-cgo { display:block; font-size:.9em; color:var(--text); font-weight:600; margin-top:8px; text-decoration:underline; text-underline-offset:3px; }
 
 @media (max-width:1080px) {
-    .ab-top { grid-template-columns:1fr; gap:32px; }
-    .ab-gallery figure { max-width:none; }
+    .ab-top { grid-template-columns:1fr; gap:32px; align-items:start; }
+    .ab-gallery { position:static; min-height:0; }
+    .ab-gallery figure { position:static; aspect-ratio:1/1; width:100%; max-width:440px; }
     .ab-pricecard { max-width:440px; }
     .ab-cards { grid-template-columns:1fr 1fr; gap:22px; }
 }
@@ -617,6 +627,7 @@ html.js .reveal-stagger.in-view > *:nth-child(6) { transition-delay: 0.6s; }
     .ab-head, .ab-top, .ab-body { padding-left:22px; padding-right:22px; }
     .ab-head h1 { font-size:1.7em !important; }
     .ab-top { margin-bottom:32px; }
+    .ab-gallery figure { max-width:none; }
     .ab-amenities ul { grid-template-columns:1fr; gap:0; }
     .ab-cards { grid-template-columns:1fr; gap:26px; }
     .ab-pricecard { max-width:none; }
