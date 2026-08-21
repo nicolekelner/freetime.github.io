@@ -963,3 +963,6 @@ html.js .reveal.phone-tilt-r.in-view { transform: rotate(6deg); }
         margin-top: 80px;
     }
 }
+
+.sp-wart--olive { background:#8B8C43; }
+.sp-wart--olive img { object-fit:contain; }

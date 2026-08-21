@@ -572,3 +572,6 @@ html.js .reveal-stagger.in-view > *:nth-child(6) { transition-delay: 0.6s; }
         transition: none !important;
     }
 }
+
+.sp-wart--olive { background:#8B8C43; }
+.sp-wart--olive img { object-fit:contain; }
