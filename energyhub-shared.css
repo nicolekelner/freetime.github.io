@@ -685,3 +685,13 @@ html.js .reveal-stagger.in-view > *:nth-child(6) { transition-delay: 0.6s; }
 .band-alt .sp-fitrow .sp-proof a { color:#2F6B14; border-bottom-color:rgba(47,107,20,.4); }
 .band-alt .sp-fitrow .sp-proof a:hover { color:var(--ink); }
 .band-alt .pf-work-head p { color:#42566C; }
+
+/* ============================================================
+   RESUME PAGE
+   ============================================================ */
+.eh-resume-head { max-width:760px; padding-top:8px; }
+.pf .eh-resume-head h1 { font-size:2.6em !important; margin:6px 0 10px; letter-spacing:-.035em; }
+.eh-resume-meta { font-size:.98em !important; color:var(--text-2) !important; margin:0 0 26px !important; font-weight:600; }
+.eh-pdf-pages { display:grid; gap:24px; }
+.eh-pdf-pages img { display:block; width:100%; height:auto; border-radius:var(--radius); border:1px solid var(--line); box-shadow:0 20px 50px rgba(0,0,0,.35); }
+.eh-pdf-note { margin:20px 0 0 !important; font-size:.86em !important; color:var(--text-3) !important; }
