@@ -553,6 +553,8 @@ html.js .reveal-stagger.in-view > *:nth-child(6) { transition-delay: 0.6s; }
 
 /* ---- listing header ---- */
 .eh-head { max-width:1120px; margin:0 auto; padding:0 32px 20px; }
+/* when the name sits under the photo it inherits eh-body's gutter */
+.eh-main .eh-head { max-width:none; margin:0; padding:0 0 18px; }
 .eh-head h1 { font-size:2.1em !important; margin:0 0 8px; letter-spacing:-.035em; line-height:1.2; }
 .eh-meta { display:flex; flex-wrap:wrap; align-items:center; gap:6px 8px; font-size:.94em; color:var(--text); font-weight:600; }
 .eh-meta .eh-sep { color:var(--text-3); }
@@ -562,7 +564,7 @@ html.js .reveal-stagger.in-view > *:nth-child(6) { transition-delay: 0.6s; }
 
 /* ---- header: photo and price card side by side ---- */
 .eh-top {
-    max-width:1120px; margin:0 auto 52px; padding:0 32px;
+    max-width:1120px; margin:56px auto 40px; padding:0 32px;
     display:grid; grid-template-columns:minmax(0,1fr) 372px; gap:56px; align-items:stretch;
 }
 /* nicole.jpg is square, so the frame is square too: a 4/3 or wider frame
