@@ -586,10 +586,12 @@ html.js .reveal-stagger.in-view > *:nth-child(6) { transition-delay: 0.6s; }
 /* .pf header { margin:0 } in the base would defeat auto-centering; rescope it */
 .pf header.pl-header { max-width:1120px; margin:0 auto; padding:88px 32px 24px; text-align:left; }
 .pl-lede, .pl-meta { max-width:720px; }
-.pl-avatar { width:64px; height:64px; border-radius:50%; object-fit:cover; display:block; margin-bottom:26px; }
-.pl-header h1 { font-size:2.4em !important; letter-spacing:-.03em; margin:0 0 4px; }
+.pl-idrow { display:flex; align-items:center; gap:22px; margin-bottom:26px; }
+.pl-avatar { width:76px; height:76px; border-radius:50%; object-fit:cover; display:block; flex:0 0 auto; }
+.pl-id { min-width:0; }
+.pl-header h1 { font-size:2.4em !important; letter-spacing:-.03em; margin:0 0 2px; }
 .pl-role { font-size:1.12em !important; font-weight:600; color:var(--text) !important; margin:0 0 6px !important; }
-.pl-meta { font-size:.94em !important; color:var(--text-3) !important; margin:0 0 26px !important; }
+.pl-meta { font-size:.94em !important; color:var(--text-3) !important; margin:0 !important; }
 .pl-meta a { color:var(--text-2); text-decoration:underline; text-underline-offset:3px; }
 .pl-meta a:hover { color:var(--text); }
 .pl-lede { font-size:1.04em !important; line-height:1.75 !important; margin:0 !important; }
