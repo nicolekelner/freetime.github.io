@@ -17,58 +17,25 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300..800;1,14..32,300..800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="plain-shared.css?v=1">
+    <link rel="stylesheet" href="plain-shared.css?v=2">
 </head>
 <body>
     <main class="pf" id="top">
 
-        <!-- ============ RESOURCE HEADER ============ -->
-        <div class="eh-top">
-            <div class="eh-gallery reveal">
-                <figure><img src="images/nicole.jpg" alt="Nicole Kelner"></figure>
+        <!-- ============ HEADER ============ -->
+        <header class="pl-header reveal">
+            <img class="pl-avatar" src="images/nicole.jpg" alt="Nicole Kelner">
+            <h1>Nicole Kelner</h1>
+            <p class="pl-role">Product Manager</p>
+            <p class="pl-meta">Asbury Park, NJ &middot; Remote &middot; <a href="mailto:nicolegkelner@gmail.com">nicolegkelner@gmail.com</a></p>
+            <p class="pl-lede">Indie developer who has built 2 apps and instrumented them end-to-end in Mixpanel, running onboarding conversion experiments to find the flow that turns installs into paying users. Before that, nine years of product work as a cofounder, COO, and chief of staff, scaling new and existing products, including a K-12 education company I helped grow from one location to five nationwide, 1,000 students, and $1M in revenue before it was acquired.</p>
+            <div class="pl-stats">
+                <div><b>9 years</b><span>in product</span></div>
+                <div><b>2</b><span>iOS apps shipped solo</span></div>
+                <div><b>2</b><span>companies acquired</span></div>
+                <div><b>55K</b><span>audience built from zero</span></div>
             </div>
-            <aside class="eh-pricecard reveal">
-                    <span class="eh-pc-kicker">At a glance</span>
-                    <div class="eh-pc-top">
-                        <span class="eh-pc-fig">9 years</span>
-                        <span class="eh-pc-unit">in product</span>
-                    </div>
-                    <div class="eh-pcgrid">
-                        <div class="eh-pcrow">
-                            <div class="eh-pccell"><b>Acquired</b><span>2 companies</span></div>
-                            <div class="eh-pccell"><b>Revenue</b><span>$1M at a company I cofounded</span></div>
-                        </div>
-                        <div class="eh-pcrow">
-                            <div class="eh-pccell"><b>Shipped</b><span>2 iOS apps, solo</span></div>
-                            <div class="eh-pccell"><b>Audience</b><span>55K followers</span></div>
-                        </div>
-                    </div>
-                    <a href="mailto:nicolegkelner@gmail.com" class="sp-btn">Say hello</a>
-            </aside>
-        </div>
-
-        <!-- ============ BODY ============ -->
-        <section class="pf-band" style="padding-top:0;padding-bottom:0">
-            <div class="eh-body">
-                <div class="eh-main">
-                    <div class="eh-head">
-                        <h1>Nicole Kelner</h1>
-                        <p class="eh-meta">
-                            <span class="eh-status">Available</span>
-                            <span class="eh-sep">&middot;</span>
-                            <span class="eh-badge">Product Manager</span>
-                            <span class="eh-sep">&middot;</span>
-                            <span>2 iOS apps shipped</span>
-                            <span class="eh-sep">&middot;</span>
-                            <span class="eh-loc">Asbury Park, NJ &middot; remote</span>
-                        </p>
-                    </div>
-
-                    <p class="eh-lede reveal">Indie developer who has built 2 apps and instrumented them end-to-end in Mixpanel, running onboarding conversion experiments to find the flow that turns installs into paying users. Before that, nine years of product work as a cofounder, COO, and chief of staff, scaling new and existing products, including a K-12 education company I helped grow from one location to five nationwide, 1,000 students, and $1M in revenue before it was acquired.</p>
-
-                </div>
-            </div>
-        </section>
+        </header>
 
         <!-- ============ CASE STUDIES ============ -->
         <section class="pf-band" id="work" style="padding-top:24px">
@@ -78,36 +45,46 @@
                     <p>From communicating the complex topics within the IRA to building apps, I am passionate about creating products that provide people with real value in their daily lives.</p>
                 </div>
 
-                <div class="eh-cards reveal-stagger">
-                    <a class="eh-card" href="plain-ira.html">
-                        <div class="eh-cimg"><img src="images/eh-cover-ira.jpg" alt=""></div>
-                        <div class="eh-ctitle"><b>The IRA guide</b><span class="eh-cstar">250K</span></div>
-                        <em>Every home electrification incentive, drawn onto the part of the house it pays for.</em>
-                        <span class="eh-cgo">Case 01</span>
+                <div class="pl-worklist reveal-stagger">
+                    <a class="pl-workrow" href="plain-ira.html">
+                        <div class="pl-wimg"><img src="images/eh-cover-ira.jpg" alt=""></div>
+                        <div class="pl-wtext">
+                            <span class="pl-overline">Case 01</span>
+                            <b>The IRA guide</b>
+                            <em>Every home electrification incentive, drawn onto the part of the house it pays for. 250,000 impressions, adopted by local governments.</em>
+                        </div>
                     </a>
-                    <a class="eh-card" href="plain-freetime.html">
-                        <div class="eh-cimg"><img src="images/appstore/freetime-2026-1.png" alt=""></div>
-                        <div class="eh-ctitle"><b>Free Time</b><span class="eh-cstar">&#9733; 4.8</span></div>
-                        <em>iOS, live on the App Store. Instrumented end to end, then iterated on what the data said.</em>
-                        <span class="eh-cgo">Case 02</span>
+                    <a class="pl-workrow" href="plain-freetime.html">
+                        <div class="pl-wimg"><img src="images/appstore/freetime-2026-1.png" alt=""></div>
+                        <div class="pl-wtext">
+                            <span class="pl-overline">Case 02</span>
+                            <b>Free Time</b>
+                            <em>iOS, live on the App Store at 4.8 stars. Instrumented end to end, then iterated on what the data said.</em>
+                        </div>
                     </a>
-                    <a class="eh-card is-art" href="plain-unplug.html">
-                        <div class="eh-cimg"><img src="images/unplug-onboarding.png" alt=""></div>
-                        <div class="eh-ctitle"><b>Unplug OS</b><span class="eh-cstar">Beta</span></div>
-                        <em>iOS, launching 2026. Device access gated on charging state, specified across 24 screens.</em>
-                        <span class="eh-cgo">Case 03</span>
+                    <a class="pl-workrow is-art" href="plain-unplug.html">
+                        <div class="pl-wimg"><img src="images/unplug-onboarding.png" alt=""></div>
+                        <div class="pl-wtext">
+                            <span class="pl-overline">Case 03</span>
+                            <b>Unplug OS</b>
+                            <em>iOS, in beta and launching 2026. Device access gated on charging state, specified across 24 screens.</em>
+                        </div>
                     </a>
-                    <a class="eh-card" href="plain-climate.html">
-                        <div class="eh-cimg"><img src="images/cover-climate.jpg" alt=""></div>
-                        <div class="eh-ctitle"><b>Work in Climate</b><span class="eh-cstar">25K views</span></div>
-                        <em>Open-source database. Contributors and audience are the same people.</em>
-                        <span class="eh-cgo">Case 04</span>
+                    <a class="pl-workrow" href="plain-climate.html">
+                        <div class="pl-wimg"><img src="images/cover-climate.jpg" alt=""></div>
+                        <div class="pl-wtext">
+                            <span class="pl-overline">Case 04</span>
+                            <b>So You Want to Work in Climate</b>
+                            <em>Open-source database, 25,000 views in its first six months. Contributors and audience are the same people.</em>
+                        </div>
                     </a>
-                    <a class="eh-card" href="plain-codingspace.html">
-                        <div class="eh-cimg"><img src="images/cover-woofjs.jpg" alt=""></div>
-                        <div class="eh-ctitle"><b>The Coding Space</b><span class="eh-cstar">$1M</span></div>
-                        <em>K-12 company plus an open-source IDE. 1 location to 5, then acquired. The one I built with a team.</em>
-                        <span class="eh-cgo">Case 05</span>
+                    <a class="pl-workrow" href="plain-codingspace.html">
+                        <div class="pl-wimg"><img src="images/cover-woofjs.jpg" alt=""></div>
+                        <div class="pl-wtext">
+                            <span class="pl-overline">Case 05</span>
+                            <b>The Coding Space</b>
+                            <em>K-12 company plus an open-source IDE. One location to five and $1M in revenue, then acquired. The one I built with a team.</em>
+                        </div>
                     </a>
                 </div>
             </div>
@@ -116,10 +93,10 @@
         <!-- ============ CARD SET ============ -->
         <section class="pf-band" style="padding-top:24px">
             <div class="pf-inner">
-                <div class="sp-wrapped reveal-stagger">
+                <div class="pl-listgrid reveal-stagger">
 
-                    <div class="sp-wcard w-pink">
-                        <span class="sp-wkicker">Experience</span>
+                    <section class="pl-listsec">
+                        <span class="pl-overline">Experience</span>
                         <h3>Past Work</h3>
                         <ol class="sp-wlist">
                             <li><b>Founder and Product Owner</b><em>Free Time &middot; Unplug OS</em></li>
@@ -128,10 +105,10 @@
                             <li><b>Founder and Product Lead</b><em>So You Want to Work in Climate</em></li>
                             <li><b>CEO and Founder</b><em>SmartPurse, acquired by Betabrand</em></li>
                         </ol>
-                    </div>
+                    </section>
 
-                    <div class="sp-wcard w-cyan">
-                        <span class="sp-wkicker">By the numbers</span>
+                    <section class="pl-listsec">
+                        <span class="pl-overline">By the numbers</span>
                         <h3>Key metrics</h3>
                         <ol class="sp-wlist">
                             <li><b>250,000 impressions</b><em>My illustrated guide to the Inflation Reduction Act, adopted by local governments as their explainer for residents.</em></li>
@@ -140,10 +117,10 @@
                             <li><b>$1M in revenue</b><em>The Coding Space, the K-12 company I cofounded. One location to five, 1,000 students, then acquired.</em></li>
                             <li><b>55,000 followers</b><em>Arts and Climate Change, my studio. Grown from zero, reaching more than 3 million people.</em></li>
                         </ol>
-                    </div>
+                    </section>
 
-                    <div class="sp-wcard w-green">
-                        <span class="sp-wkicker">Tools I work in</span>
+                    <section class="pl-listsec">
+                        <span class="pl-overline">Tools I work in</span>
                         <h3>Most minutes logged</h3>
                         <ol class="sp-wlist">
                             <li><b>Mixpanel</b><em>Instrumented both apps end to end</em></li>
@@ -152,10 +129,10 @@
                             <li><b>App Store Connect</b><em>Launch, release management, per-channel acquisition</em></li>
                             <li><b>Figma, Xcode &amp; Claude Code</b><em>Specs, and where the two apps actually got built</em></li>
                         </ol>
-                    </div>
+                    </section>
 
-                    <div class="sp-wcard w-orange">
-                        <span class="sp-wkicker">Specialties</span>
+                    <section class="pl-listsec">
+                        <span class="pl-overline">Specialties</span>
                         <h3>What I do most</h3>
                         <ol class="sp-wlist">
                             <li><b>Hypothesis-driven delivery</b><em>State the bet, ship the smallest thing that tests it, read the result</em></li>
@@ -164,7 +141,7 @@
                             <li><b>Making technical systems legible</b><em>Distilling home electrification policy into a single visual, fact-checked with Rewiring America</em></li>
                             <li><b>Prioritization and sequencing</b><em>Backlogs, roadmapping, OKRs, specs and acceptance criteria</em></li>
                         </ol>
-                    </div>
+                    </section>
 
                 </div>
             </div>
