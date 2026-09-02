@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>document.documentElement.classList.add('js');</script>
+    <meta name="robots" content="noindex,nofollow">
+    <link rel="canonical" href="https://findfreetime.com/plain-freetime.html">
+    <meta name="theme-color" content="#FFFFFF">
+    <title>Free Time: pricing and paywall experiments. Nicole Kelner</title>
+    <meta name="description" content="How I instrumented Free Time&#39;s funnel and ran price and paywall experiments against it. A product-management case study.">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Free Time: a case study by Nicole Kelner">
+    <meta property="og:description" content="How I instrumented Free Time&#39;s funnel and ran price and paywall experiments against it. A product-management case study.">
+    <meta property="og:image" content="https://findfreetime.com/meta.png">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="plain-shared.css?v=1">
+</head>
+<body>
+
+    <main class="pf" id="top">
+
+        <section class="sp-hero">
+            <a href="plain.html#work" class="sp-back">← All work</a>
+            <div class="sp-hero-inner">
+                <div class="sp-cover sp-cover--art"><img src="images/appstore/freetime-2026-1.png" alt="Free Time app"></div>
+                <div class="sp-hero-id">
+                    <span class="sp-label">Case study 02</span>
+                    <h1>Free Time</h1>
+                    <p class="sp-hero-tag">An app that helps you use your phone mindfully.</p>
+                    <p class="sp-hero-meta">Founder &amp; Product Owner · Solo · iOS · Nov 2025 → present</p>
+                </div>
+            </div>
+            <div class="sp-hero-body"><div class="sp-cta-row"><a href="https://apps.apple.com/app/id6747683001" class="sp-btn" target="_blank" rel="noopener">Download the app</a><a href="freetime-prototype.html" class="sp-btn-ghost">View the prototype on web</a></div></div>
+        </section>
+
+        <section class="pf-case">
+            <div class="pf-inner">
+                <dl class="pf-snapshot reveal">
+                    <div><dt>Role</dt><dd>Founder &amp; Product Owner</dd></div>
+                    <div><dt>Timeline</dt><dd>Nov 2025 → present</dd></div>
+                    <div><dt>Platform</dt><dd>iOS · App Store</dd></div>
+                    <div><dt>Team</dt><dd>Solo. I designed, built, and shipped it</dd></div>
+                    <div><dt>Outcome</dt><dd>61.6% trial to paid · 6.8% download to paid · 4.8&#9733;</dd></div>
+                </dl>
+
+                <div class="sp-tldr reveal">
+                    <h4>In short</h4>
+                    <ol>
+                        <li><b>Problem</b><span>Getting someone to start a trial is the hard part. Everything I could charge for sat behind Apple's Screen Time permission, a system dialog that arrives mid-onboarding and asks for a lot of trust before the product has done anything.</span></li>
+                        <li><b>Approach</b><span>I instrumented the whole funnel in Mixpanel first, joined it to RevenueCat subscription state and App Store Connect acquisition, then ran paywall experiments against it in RevenueCat: price points and subscription tiers, and paywall design variants.</span></li>
+                        <li><b>Result</b><span>Trial to paid runs 61.6% all-time and download to paid 6.8%, rising to 9.6% over the last 90 days. The gap between those two numbers is the case: starting the trial is the hard part, and once someone does, the product mostly sells itself.</span></li>
+                    </ol>
+                </div>
+
+                <div class="sp-constraints reveal">
+                    <span>Solo builder</span>
+                    <span>Screen Time permission wall</span>
+                    <span>No paid acquisition budget</span>
+                    <span>App Store review between every iteration</span>
+                    <span>Blocking must survive app termination</span>
+                </div>
+
+                <div class="pf-block reveal">
+                    <h3>What Free Time is</h3>
+                    <p>Free Time blocks the apps you keep opening without meaning to, then asks you to do something small before it lets them back in. Breathe. Unscramble a word. Type out why you're opening Instagram right now. It takes about fifteen seconds, and fifteen seconds is usually enough to remember you didn't actually want to be there.</p>
+                    <p>I built it because I was losing hours a day to my own phone, and every blocker I tried was either trivial to bypass or so punishing I deleted it within a week. I wanted the version that assumes you're an adult who is going to slip up anyway.</p>
+                </div>
+
+                <div class="pf-block reveal">
+                    <h3>The hardest moment in the product</h3>
+                    <p>None of it works without Apple's Screen Time authorization, and Apple deliberately makes that dialog feel consequential. It should: the user is handing an app the power to control their phone.</p>
+                    <p>So the hardest moment in the product arrives before the product has done anything. A new user has downloaded something on a hunch and is immediately asked for a permission that sounds like surveillance. Everything I could measure downstream sat behind that one screen: activation, retention, subscription.</p>
+                </div>
+
+                <div class="pf-block reveal">
+                    <h3>What I instrumented, and what it told me</h3>
+                    <p>Before changing the flow I made it legible. Mixpanel events on every onboarding step, every permission outcome, and every feature in the app; RevenueCat for subscription state; App Store Connect for acquisition. The first useful thing the data did was correct me about where the leverage was.</p>
+                    <p>I had assumed the job was reach, that I just needed to get in front of more people. The referral data said the opposite. The channels sending the fewest people were converting at rates an order of magnitude above what social traffic normally does, while broad reach converted at almost nothing.</p>
+
+                    <figure class="sp-chart">
+                        <p class="sp-chart-title">App Store impression → download, by channel</p>
+                        <p class="sp-chart-sub">Free Time referral data. Shown as conversion rate; the reference band is the typical range for social traffic to an app listing.</p>
+                        <div class="sp-bars">
+                            <div class="sp-bar">
+                                <span class="sp-bl">Creator-platform promo</span>
+                                <div class="sp-btrack"><div class="sp-bfill" style="width:90%"></div></div>
+                                <span class="sp-bv">54%</span>
+                            </div>
+                            <div class="sp-bar">
+                                <span class="sp-bl">AI search (ChatGPT)</span>
+                                <div class="sp-btrack"><div class="sp-bfill" style="width:83%"></div></div>
+                                <span class="sp-bv">~50%</span>
+                            </div>
+                            <div class="sp-bar">
+                                <span class="sp-bl">Instagram</span>
+                                <div class="sp-btrack"><div class="sp-bfill" style="width:72%"></div></div>
+                                <span class="sp-bv">~43%</span>
+                            </div>
+                            <div class="sp-bar is-ref">
+                                <span class="sp-bl">Typical social benchmark</span>
+                                <div class="sp-btrack"><div class="sp-bfill" style="margin-left:3.3%;width:5%"></div></div>
+                                <span class="sp-bv">2–5%</span>
+                            </div>
+                        </div>
+                        <p class="sp-chart-note">The AI-search figure is the one I did nothing to earn: it has arrived every month since December at roughly the same rate, with no posting behind it.</p>
+                    </figure>
+                </div>
+
+                <div class="pf-block reveal">
+                    <h3>One place to read all of it</h3>
+                    <p>Activation lived in Mixpanel, revenue in RevenueCat, and acquisition in App Store Connect, so no single tool could answer whether a cohort converted. I built a dashboard that joins all three. It has been tracking for 426 days, and it is the thing I actually open.</p>
+                    <!-- Nicole: this is the conversion section of the dashboard. The MRR / ARR /
+                         total-revenue tiles are trimmed out, per your call to publish rates and
+                         not the size of the business. images/dashboard-full.jpg is the complete
+                         screenshot if you'd rather show everything; just swap the src. -->
+                    <figure class="sp-shot">
+                        <img src="images/dashboard-conversion.jpg" alt="Free Time growth dashboard showing download-to-paid and trial-to-paid conversion rates">
+                        <figcaption>Download → paid sits at 6.8% all-time and 9.6% over the last 90 days. Trial → paid runs 61.6% all-time. The gap between those two numbers is the whole case: getting someone to start a trial is the hard part, and once they do, the product mostly sells itself.</figcaption>
+                    </figure>
+                </div>
+
+                <div class="pf-block reveal">
+                    <h3>The funnel I was actually managing</h3>
+                    <p>Instrumenting the whole path, rather than just the app, made the shape of the problem clear. Acquisition and onboarding are not two teams' problems here; they are one funnel, and the permission step is the wall in the middle of it.</p>
+                    <!-- Nicole: the right-hand column names the tool that measures each stage.
+                         If you want to publish real step-completion numbers, replace the
+                         .sp-fnote text with the figure from Mixpanel. Left unnumbered on
+                         purpose. No invented percentages. -->
+                    <div class="sp-funnel">
+                        <div class="sp-fstage"><span class="sp-fn">01</span><span class="sp-fname">App Store impression</span><span class="sp-fnote">Channel-level rates, above</span></div>
+                        <div class="sp-fstage"><span class="sp-fn">02</span><span class="sp-fname">Download</span><span class="sp-fnote">App Store Connect</span></div>
+                        <div class="sp-fstage"><span class="sp-fn">03</span><span class="sp-fname">Onboarding started</span><span class="sp-fnote">Mixpanel</span></div>
+                        <div class="sp-fstage is-wall"><span class="sp-fn">04</span><span class="sp-fname">Screen Time permission granted</span><span class="sp-fnote">The wall</span></div>
+                        <div class="sp-fstage"><span class="sp-fn">05</span><span class="sp-fname">First block scheduled</span><span class="sp-fnote">Activation</span></div>
+                        <div class="sp-fstage"><span class="sp-fn">06</span><span class="sp-fname">Completed a first unlock ritual</span><span class="sp-fnote">The product's core loop</span></div>
+                        <div class="sp-fstage"><span class="sp-fn">07</span><span class="sp-fname">Subscribed</span><span class="sp-fnote">RevenueCat</span></div>
+                    </div>
+                </div>
+
+                <div class="pf-block reveal">
+                    <h3>Experimenting on price</h3>
+                    <p>Once the funnel was legible I could start changing what it charged. I run paywall experiments in RevenueCat on two axes: the offer itself, meaning price points and how the subscription tiers are framed against each other, and the paywall as a piece of design, meaning layout, sequence, and which proof a person sees before the price.</p>
+                    <p>Having the instrumentation first is what makes any of this readable. A paywall test that moves a number is only useful if you can say which cohort moved and whether they stayed, and that answer lives across three tools. Because they are joined, a result is a question I can actually answer rather than a chart I have to argue about.</p>
+                    <p>The build is not always cooperative. RevenueCat's Paywalls V2 has a Timeline component that the iOS SDK will not render, and rather than erroring it silently falls back to the default paywall, so the variant I thought I was testing was not the variant anyone saw. I rebuilt the same layout out of Stack, Icon, and Text components. Knowing the tool well enough to catch a silent fallback is part of owning the surface.</p>
+                </div>
+
+                <div class="pf-block reveal">
+                    <h3>Decisions and tradeoffs</h3>
+                    <div class="sp-decisions">
+                        <div class="sp-dhead">
+                            <span>What I decided</span><span>What I turned down</span><span>Why</span>
+                        </div>
+                        <div class="sp-drow">
+                            <div><span class="sp-dlabel">What I decided</span><b>Instrument the whole funnel before changing any of it.</b></div>
+                            <div><span class="sp-dlabel">What I turned down</span><p class="sp-alt">Redesigning onboarding on intuition. Testing the paywall first, where the money is.</p></div>
+                            <div><span class="sp-dlabel">Why</span><p>With one solo build cycle and App Store review between every iteration, a wrong guess costs weeks rather than hours. Measurement was the cheapest thing I could ship, and it turned out to disagree with me.</p></div>
+                        </div>
+                        <div class="sp-drow">
+                            <div><span class="sp-dlabel">What I decided</span><b>Build one dashboard across Mixpanel, RevenueCat, and App Store Connect.</b></div>
+                            <div><span class="sp-dlabel">What I turned down</span><p class="sp-alt">Checking three tools separately. Buying an off-the-shelf analytics product.</p></div>
+                            <div><span class="sp-dlabel">Why</span><p>Activation lived in Mixpanel, revenue in RevenueCat, acquisition in App Store Connect. No single tool could answer "did this cohort convert," so for months nobody asked. Joining them made the question routine.</p></div>
+                        </div>
+                        <div class="sp-drow">
+                            <div><span class="sp-dlabel">What I decided</span><b>Invest in AI-search discovery instead of paid acquisition.</b></div>
+                            <div><span class="sp-dlabel">What I turned down</span><p class="sp-alt">Paid ads. Simply posting more often.</p></div>
+                            <div><span class="sp-dlabel">Why</span><p>Downloads collapsed every time I stopped posting, while AI search delivered at a steady rate on its own. One is an asset that compounds; the other is a treadmill that stops when I do.</p></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pf-block reveal">
+                    <h3>What shipped</h3>
+                    <p>The ritual is the product. Apps stay blocked until you do something small and deliberate, and varying what that something is keeps it from turning into a button people learn to tap through without noticing. The one users quote back to me most is the plainest: it asks why you're opening the app, and you have to answer.</p>
+                </div>
+
+                <div class="pf-shots reveal">
+                    <figure><img src="images/appstore/freetime-2026-1.png" alt="Reclaim 2 hours, every day. The home screen with all apps locked"><figcaption>All apps locked</figcaption></figure>
+                    <figure><img src="images/appstore/freetime-2026-2.png" alt="Never doomscroll again, feed cards fading away"><figcaption>The feed ends here</figcaption></figure>
+                    <figure><img src="images/appstore/freetime-2026-3.png" alt="A mindful pause before you scroll: why are you opening Instagram?"><figcaption>Name your intention first</figcaption></figure>
+                    <figure><img src="images/appstore/freetime-2026-4.png" alt="Notice how you feel before you open"><figcaption>Notice how you feel</figcaption></figure>
+                </div>
+
+                <div class="pf-block reveal">
+                    <h3>Results</h3>
+                    <div class="sp-results">
+                        <div><span class="sp-num">61.6%</span><span class="sp-lab">Trial to paid, all-time across 426 days tracked</span></div>
+                        <div><span class="sp-num">6.8%</span><span class="sp-lab">Download to paid all-time, and 9.6% over the last 90 days</span></div>
+                        <div><span class="sp-num">4.8&#9733;</span><span class="sp-lab">App Store rating, 1,000+ downloads, no paid marketing</span></div>
+                    </div>
+                    <blockquote class="pf-quote">
+                        <p>This app cut my screen time from 9 hours a day to 2.5 hours.</p>
+                        <cite>Hope W., App Store review</cite>
+                    </blockquote>
+                </div>
+
+                <div class="sp-next reveal">
+                    <h4>What I'd do next</h4>
+                    <p>Two things. Move the permission ask later, after the user has named the apps they want blocked, so they commit before I quote the price. And build a proper cohort view so retention is readable by acquisition channel rather than only in aggregate, because the channel data strongly suggests those users are not the same people.</p>
+                </div>
+            </div>
+        </section>
+
+        <nav class="sp-casenav">
+            <a href="plain-ira.html"><span class="sp-cndir">← Previous case</span><span class="sp-cnname">The IRA guide</span></a>
+            <a href="plain-unplug.html" class="sp-cnnext"><span class="sp-cndir">Next case →</span><span class="sp-cnname">Unplug OS</span></a>
+        </nav>
+
+        <footer class="pf-foot">
+            <div class="pf-inner">
+                <span>Built with Claude Code, crafted by Nicole Kelner</span>
+            </div>
+        </footer>
+    </main>
+
+    <script src="animate.js" defer></script>
+</body>
+</html>
